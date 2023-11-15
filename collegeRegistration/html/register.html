@@ -10,68 +10,71 @@
     <link rel="stylesheet" href="/collegeRegistration/css/registerStyle.css">
 </head>
 
-
 <body>
     <div class="register">
-        <form action="">
+        <form action="register.php" method="post">
             <h1>Registration</h1>
-            <!-- Full name -->
+
             <div class="input-box">
-                <div class="input-field">
-                    <input type="text" placeholder="Full Name" required>
-                    <i class="bx bxs-user"></i>
-                </div>
                 <!-- student ID -->
                 <div class="input-field">
-                    <input type="text" placeholder="Student ID" required>
+                    <input type="text" name="studentID" placeholder="Student ID" required>
+                    <i class="bx bxs-user"></i>
+                </div>
+
+                <!-- Full name -->
+                <div class="input-field">
+                    <input type="text" name="fullName" placeholder="Full Name" required>
                     <i class="bx bxs-user"></i>
                 </div>
                 <!-- email -->
                 <div class="input-field">
-                    <input type="email" placeholder="Student Email" required>
+                    <input type="email" name="email" placeholder="Student Email" required>
                     <i class="bx bxs-envelope"></i>
                 </div>
                 <!-- phone num -->
                 <div class="input-field">
-                    <input type="tel" placeholder="Phone Number" required>
+                    <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
                     <i class="bx bxs-phone"></i>
                 </div>
                 <!-- pass -->
                 <div class="input-field">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class="bx bxs-lock"></i>
                 </div>
                 <!-- pass confirmation -->
                 <div class="input-field">
-                    <input type="password" placeholder="Repeat Password" required>
+                    <input type="password" name="repeatPassword" placeholder="Repeat Password" required>
                     <i class="bx bxs-lock"></i>
                 </div>
-                 <!-- code program -->
-                 <div class="input-field">
-                    <input type="programCode" placeholder="Program Code" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                  <!-- Semester -->
-                  <div class="input-field">
-                    <input type="Semester" placeholder="Semester" required>
-                    <i class="bx bxs-lock"></i>
-                </div>  <!-- Kolej Kediaman -->
+                <!-- code program -->
                 <div class="input-field">
-                   <input type="kolej" placeholder="Residential College" required>
-                   <i class="bx bxs-lock"></i>
-               </div>  <!-- num bilik -->
-               <div class="input-field">
-                  <input type="bilik" placeholder="Room Number" required>
-                  <i class="bx bxs-lock"></i>
-              </div>
+                    <input type="text" name="programCode" placeholder="Program Code" required>
+                    <i class="bx bxs-lock"></i>
+                </div>
+                <!-- Semester -->
+                <div class="input-field">
+                    <input type="text" name="semester" placeholder="Semester" required>
+                    <i class="bx bxs-lock"></i>
+                </div>
+                <!-- Kolej Kediaman -->
+                <div class="input-field">
+                    <input type="text" name="college" placeholder="Residential College" required>
+                    <i class="bx bxs-lock"></i>
+                </div>
+                <!-- num bilik -->
+                <div class="input-field">
+                    <input type="text" name="roomNumber" placeholder="Room Number" required>
+                    <i class="bx bxs-lock"></i>
+                </div>
 
-              <p class="input-field">Already registered? <a href="/collegeRegistration/html/login.html">Log in</a></p>
+                <p class="input-field">Already registered? <a href="/collegeRegistration/html/login.html">Log in</a></p>
 
                 <button type="submit" class="btn">Register</button>
             </div>
         </form>
     </div>
-
 </body>
 
 </html>
+
