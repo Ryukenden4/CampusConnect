@@ -141,8 +141,8 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .text-primary {
-  /* color: #00D9A5 !important; */
-  color: #F9E0AE !important;
+  color: #00D9A5 !important;
+  /* color: #F9E0AE !important; */
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -265,8 +265,8 @@ a.text-dark:hover, a.text-dark:focus {
 /* Buttons */
 .btn-primary {
   color: #fff;
-  background-color: #F9E0AE;
-  /* background-color: #00D9A5; */
+  /* background-color: #F9E0AE; */
+  background-color: #00D9A5;
   border-color: transparent;
 }
 

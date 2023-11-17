@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 $servername = "localhost:5500"; // Change this if your MySQL server is on a different host
 $username = "root"; // Your MySQL username (default is "root" for XAMPP)
 $password = ""; // Your MySQL password (leave it empty for XAMPP)
-$database = "collegeregistration"; // Your MySQL database name
+$database = "registration"; // Your MySQL database name
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $database);
