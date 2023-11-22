@@ -937,7 +937,7 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   font-weight: 500;
-  color: #F9E0AE;
+  color: #00D9A5;
 }
 
 
@@ -1308,6 +1308,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .card-doctor .header {
+  border-radius: 50%;
   position: relative;
   width: 100%;
   height: 260px;
