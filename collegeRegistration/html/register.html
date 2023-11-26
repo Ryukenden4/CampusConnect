@@ -15,7 +15,7 @@
         <form action="/collegeRegistration/php/register.php" method="POST">
             <h1>Registration</h1>
 
-            <div class="input-box">
+            <div class="input-box-checkbox">
                 <input type="checkbox" id="student" name="student" required>
                 <label for="student">Student</label>
                 <input type="checkbox" id="staff" name="staff" required>
@@ -25,7 +25,7 @@
             <div class="input-box">
                 <!-- student ID -->
                 <div class="input-field">
-                    <input type="text" name="studentID" placeholder="Student ID" required>
+                    <input type="text" name="ID" placeholder="Student ID" required>
                     <i class="bx bxs-user"></i>
                     
                 </div>
@@ -88,13 +88,12 @@
     </div>
 </body>
 
-<!-- script for checkbox -->
-<!-- script for checkbox -->
+
 <!-- script for checkbox -->
 <script>
     const studentCheckbox = document.getElementById('student');
     const staffCheckbox = document.getElementById('staff');
-    const studentIDInput = document.querySelector('input[name="studentID"]');
+    const studentIDInput = document.querySelector('input[name="ID"]');
     const fullNameInput = document.querySelector('input[name="fullName"]');
     const emailInput = document.querySelector('input[name="email"]');
     const phoneNumberInput = document.querySelector('input[name="phoneNumber"]');
