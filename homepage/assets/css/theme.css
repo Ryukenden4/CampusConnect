@@ -141,8 +141,8 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .text-primary {
-  /* color: #00D9A5 !important; */
-  color: #F9E0AE !important;
+  color: #00D9A5 !important;
+  /* color: #F9E0AE !important; */
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -265,8 +265,8 @@ a.text-dark:hover, a.text-dark:focus {
 /* Buttons */
 .btn-primary {
   color: #fff;
-  background-color: #F9E0AE;
-  /* background-color: #00D9A5; */
+  /* background-color: #F9E0AE; */
+  background-color: #00D9A5;
   border-color: transparent;
 }
 
@@ -937,7 +937,7 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   font-weight: 500;
-  color: #F9E0AE;
+  color: #00D9A5;
 }
 
 
@@ -1308,6 +1308,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .card-doctor .header {
+  border-radius: 50%;
   position: relative;
   width: 100%;
   height: 260px;
