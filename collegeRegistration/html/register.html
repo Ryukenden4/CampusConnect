@@ -16,10 +16,18 @@
             <h1>Registration</h1>
 
             <div class="input-box">
+                <input type="checkbox" id="student" name="student" required>
+                <label for="student">Student</label>
+                <input type="checkbox" id="staff" name="staff" required>
+                <label for="staff">Staff</label>
+            </div>
+
+            <div class="input-box">
                 <!-- student ID -->
                 <div class="input-field">
                     <input type="text" name="studentID" placeholder="Student ID" required>
                     <i class="bx bxs-user"></i>
+                    
                 </div>
 
                 <!-- Full name -->
@@ -68,6 +76,10 @@
                     <i class="bx bxs-lock"></i>
                 </div>
 
+                <!-- <div class="input-field">
+                    to left empty space
+                </div> -->
+
                 <p class="input-field">Already registered? <a href="/collegeRegistration/html/login.html">Log in</a></p>
 
                 <button type="submit" class="btn">Register</button>
@@ -76,5 +88,60 @@
     </div>
 </body>
 
-</html>
+<!-- script for checkbox -->
+<!-- script for checkbox -->
+<!-- script for checkbox -->
+<script>
+    const studentCheckbox = document.getElementById('student');
+    const staffCheckbox = document.getElementById('staff');
+    const studentIDInput = document.querySelector('input[name="studentID"]');
+    const fullNameInput = document.querySelector('input[name="fullName"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const phoneNumberInput = document.querySelector('input[name="phoneNumber"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+    const repeatPasswordInput = document.querySelector('input[name="repeatPassword"]');
+    const programCodeInput = document.querySelector('input[name="programCode"]');
+    const semesterInput = document.querySelector('input[name="semester"]');
+    const collegeInput = document.querySelector('input[name="college"]');
+    const roomNumberInput = document.querySelector('input[name="roomNumber"]');
+  
+    function hideInputs() {
+      emailInput.parentNode.style.display = 'none';
+      programCodeInput.parentNode.style.display = 'none';
+      semesterInput.parentNode.style.display = 'none';
+      collegeInput.parentNode.style.display = 'none';
+      roomNumberInput.parentNode.style.display = 'none';
+      repeatPasswordInput.parentNode.style.display = 'none';
+    }
+  
+    function showInputs() {
+      emailInput.parentNode.style.display = 'flex';
+      programCodeInput.parentNode.style.display = 'flex';
+      semesterInput.parentNode.style.display = 'flex';
+      collegeInput.parentNode.style.display = 'flex';
+      roomNumberInput.parentNode.style.display = 'flex';
+      repeatPasswordInput.parentNode.style.display = 'flex';
+    }
+  
+    hideInputs(); // Initially hide the unnecessary fields
+  
+    studentCheckbox.addEventListener('change', () => {
+      if (studentCheckbox.checked) {
+        staffCheckbox.checked = false;
+        studentIDInput.placeholder = 'Student ID';
+        showInputs();
+      }
+    });
+  
+    staffCheckbox.addEventListener('change', () => {
+      if (staffCheckbox.checked) {
+        studentCheckbox.checked = false;
+        studentIDInput.placeholder = 'Staff ID';
+        hideInputs();
+      }
+    });
+  </script>
+  
+  
 
+</html>
