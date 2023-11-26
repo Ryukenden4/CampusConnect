@@ -11,7 +11,7 @@
 </head>
 
 <body>
-     <div class="Login">
+    <div class="Login">
         <form action="">
             <h1>Login</h1>
 
@@ -23,9 +23,9 @@
             </div>
 
             <div class="input-box">
-                <!-- student ID  -->
+                <!-- ID -->
                 <div class="input-field">
-                    <input type="text" name="ID" placeholder="Student ID" required>
+                    <input type="text" name="ID" placeholder="ID" required>
                     <i class="bx bxs-user"></i>
                 </div>
                 <!-- pass  -->
@@ -35,33 +35,32 @@
                 </div>
 
                 <p class="input-field">Haven't registered? <a href="/collegeRegistration/html/register.html">Register</a></p>
-                
+
                 <button type="submit" class="btn">Login</button>
             </div>
         </form>
     </div>
 </body>
 
- <!-- script for checkbox -->
+<!-- script for checkbox -->
 <script>
     const studentCheckbox = document.getElementById('student');
     const staffCheckbox = document.getElementById('staff');
-    const studentIDInput = document.querySelector('input[name="ID"]');
+    const IDInput = document.querySelector('input[name="ID"]');
 
     studentCheckbox.addEventListener('change', () => {
         if (studentCheckbox.checked) {
             staffCheckbox.checked = false;
-            studentIDInput.placeholder = 'Student ID';
+            IDInput.placeholder = 'Student ID';
         }
     });
 
     staffCheckbox.addEventListener('change', () => {
         if (staffCheckbox.checked) {
             studentCheckbox.checked = false;
-            studentIDInput.placeholder = 'Staff ID';
+            IDInput.placeholder = 'Staff ID';
         }
     });
 </script>
-
 
 </html>

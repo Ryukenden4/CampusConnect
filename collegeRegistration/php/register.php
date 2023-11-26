@@ -1,47 +1,40 @@
 <?php
+// Establishing a connection to MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "collegeregistration";
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  http_response_code(405);
-  exit;
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Connect to the database
-$db = mysqli_connect('localhost:3306', 'root', '', 'college_registration');
+// Handling form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["ID"];
+    $fullName = $_POST["fullName"];
+    $email = $_POST["email"];
+    $phoneNumber = $_POST["phoneNumber"];
+    $password = $_POST["password"];
+    $programCode = $_POST["programCode"];
+    $semester = $_POST["semester"];
+    $college = $_POST["college"];
+    $roomNumber = $_POST["roomNumber"];
 
-// Check connection
-if (!$db) {
-  die("Connection failed: " . mysqli_connect_error());
+    // Performing SQL query to insert data into the database
+    $sql = "INSERT INTO users (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber)
+            VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registration successful!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
-// Get data from the form
-$studentID = $_POST['studentID'];
-$fullName = $_POST['fullName'];
-$email = $_POST['email'];
-$phoneNumber = $_POST['phoneNumber'];
-$password = $_POST['password'];
-$repeatPassword = $_POST['repeatPassword'];
-$programCode = $_POST['programCode'];
-$semester = $_POST['semester'];
-$college = $_POST['college'];
-$roomNumber = $_POST['roomNumber'];
-
-// Check if passwords match
-if ($password != $repeatPassword) {
-  die("Passwords do not match.");
-}
-
-// Hash the password
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-// Insert data into the database
-$sql = "INSERT INTO students (student_id, full_name, email, phone_number, password, program_code, semester, college, room_number) VALUES ('$studentID', '$fullName', '$email', '$phoneNumber', '$hashedPassword', '$programCode', '$semester', '$college', '$roomNumber')";
-
-if (mysqli_query($db, $sql)) {
-  echo "Registration successful.";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($db);
-}
-
-mysqli_close($db);
-
+// Closing the database connection
+$conn->close();
 ?>
