@@ -37,6 +37,16 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.input-box-checkbox{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.input-box-checkbox input[type="checkbox"], .input-box-checkbox label{
+    margin: 0 10px; 
+    border-radius: 50%;
+}
 
 .input-box .input-field {
     position: relative;
@@ -92,5 +102,3 @@ body {
     font-size: 16px;
     color: white;
 }
-
-

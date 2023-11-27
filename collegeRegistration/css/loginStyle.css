@@ -16,6 +16,17 @@ body {
     background-position: center;
 }
 
+.input-box-checkbox{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.input-box-checkbox input[type="checkbox"], .input-box-checkbox label{
+    margin: 0 10px; 
+    border-radius: 50%;
+}
+
 .input-box .input-field {
     position: relative;
     width: 48%;
