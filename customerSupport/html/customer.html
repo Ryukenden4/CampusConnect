@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="background-color: #f1f1f1;"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="copyright" content="MACode ID, https://macodeid.com/">
+
+    <title>CampusConnect</title>
+
+    <link rel="stylesheet" href="../assets/css/maicons.css">
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+
+    <link rel="stylesheet" href="../assets/css/theme.css">
+
+    <style>
+        .centered-text {
+           display: flex;
+           justify-content: center; 
+           align-items: center;
+           height: 300px;
+           border: 1px solid #ccc;
+           background-color: #0c0c0c;
+           background-image: url("bk.jpeg");
+           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         }
+        
+        .button {
+            background-color: #ffffff;
+            font-size: medium; 
+            width: 7cm; 
+            border: 2px solid #00D9A5;    
+            padding: 10px;
+            border-radius: 25px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .form {
+            background-color: #ffffff;
+            font-size: medium; 
+            color: #0c0c0c;
+            width: 7cm; 
+            border: 2px solid #00D9A5;    
+            padding: 10px;
+            border-radius: 25px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .formbackground {
+          background-color: transparent;
+          border-radius: 2px solid;
+          width: 15cm;
+          height: 15cm;
+        }
+
+        </style>
+</head>
+
+<body style="background-color:  rgb(255, 255, 255);">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <div class="container">
+              <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
+      
+              <div class="collapse navbar-collapse" id="navbarSupport">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+              </div> <!-- .navbar-collapse -->
+            </div> <!-- .container -->
+          </nav>
+
+          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
+            <div class="banner-section">
+              <div class="container text-center wow fadeInUp">
+                  <div class="page-section">
+                    <div class="container">
+                        <nav aria-label="Breadcrumb">
+                            <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Customer Support</li>
+                            </ol>
+                        </nav>
+                      <p><h1 class="text-center wow fadeInUp">CUSTOMER SUPPORT</h1></p>
+                      <div style="font-size: 20px;">
+                        <P>
+                           <i>UNIT RESIDENSI DAN HOSPITALITI PELAJAR (URHP) UiTM CAWANGAN SABAH</i>
+                        </P>
+                    </div> 
+
+                      <form class="main-form formbackground">
+                        <div class="row mt-5 ">
+                          <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                            <input type="text" class="form-control" placeholder="Full name">
+                          </div>
+                          <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                            <input type="text" class="form-control" placeholder="Email address..">
+                          </div>
+                          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                            <input type="date" class="form-control">
+                          </div>
+                          <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                            <select name="departement" id="departement" class="custom-select">
+                              <option value="Students">Students</option>
+                              <option value="Parents">Parents</option>
+                              <option value="Contractor">Contractor</option>
+                              <option value="Visitors">Visitors</option>
+                            </select>
+                          </div>
+                          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                            <select name="departement" id="departement" class="custom-select">
+                                <option value="complaints">Facility Damage Complaints</option>
+                                <option value="meeting">Meeting URHP Staff</option>
+                                <option value="keys">Borrow Duplicate Keys</option>
+                                <option value="electrical">Register Electrical Items</option>
+                                <option value="form">Form Submission</option>
+                              </select>
+                          </div>
+                          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                            <textarea name="message" id="message" class="form-control" rows="6" placeholder="Leave a message.."></textarea>
+                          </div>
+                        </div>
+                        
+                        
+
+                      </form>
+                      <a class="nav-link" href="thankyou.html">
+                        <button type="submit" class="btn btn-primary mt-3 wow zoomIn" style="background-color: #00D9A5;">Submit Response</button>
+                      </a>
+                    </div> <!-- .container -->
+                  </div> <!-- .page-section -->
+                </div> <!-- .page-banner -->
+    <div>
+        
+        
+</body>
+</html>
