@@ -1,26 +1,22 @@
 <?php
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start();
 
-// Database connection parameters
-$servername = "localhost:5500"; // Change this if your MySQL server is on a different host
-$username = "root"; // Your MySQL username (default is "root" for XAMPP)
-$password = ""; // Your MySQL password (leave it empty for XAMPP)
-$database = "registration"; // Your MySQL database name
+// Establishing a connection to MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "collegeregistration";
 
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process the form submission only if the method is POST
+// Handling form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
-    $studentID = $_POST["studentID"];
+    $id = $_POST["ID"];
     $fullName = $_POST["fullName"];
     $email = $_POST["email"];
     $phoneNumber = $_POST["phoneNumber"];
@@ -30,21 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $college = $_POST["college"];
     $roomNumber = $_POST["roomNumber"];
 
-    // Insert data into the database
-    $sql = "INSERT INTO registration (studentID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber) 
-    VALUES ('$studentID', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
+    // Performing SQL query to insert data into the database
+    $sql = "INSERT INTO users (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber)
+            VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
 
-    // Execute the query and check for errors
+    // $rs = mysqli_query($conn, $sql);
+
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-} else {
-    // If the form is not submitted via POST, display a message
-    echo "Form not submitted!";
 }
 
-// Close the database connection
+// Closing the database connection
 $conn->close();
 ?>

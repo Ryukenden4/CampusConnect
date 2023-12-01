@@ -7,18 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CampusConnect</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="/collegeRegistration/css/registerStyle.css">
+    <link rel="stylesheet" href="../css/registerStyle.css">
 </head>
 
 <body>
     <div class="register">
-        <form action="/collegeRegistration/php/register.php" method="post">
+        <form name="register"  action="../php/register.php" method="POST">
             <h1>Registration</h1>
 
+            <div class="input-box-checkbox">
+                <input type="checkbox" id="student" name="student" >
+                <label for="student">Student</label>
+                <input type="checkbox" id="staff" name="staff" >
+                <label for="staff">Staff</label>
+            </div>
+
             <div class="input-box">
-                <!-- student ID -->
+                <!-- ID -->
                 <div class="input-field">
-                    <input type="text" name="studentID" placeholder="Student ID" required>
+                    <input type="text" name="ID" placeholder="ID" required>
                     <i class="bx bxs-user"></i>
                 </div>
 
@@ -68,13 +75,67 @@
                     <i class="bx bxs-lock"></i>
                 </div>
 
-                <p class="input-field">Already registered? <a href="/collegeRegistration/html/login.html">Log in</a></p>
+                <!-- <div class="input-field">
+                    to left empty space
+                </div> -->
 
-                <button type="submit" class="btn">Register</button>
+                <p class="input-field">Already registered? <a href="../html/login.html">Log in</a></p>
+
+                <button type="submit" value="submit" class="btn">Register</button>
             </div>
         </form>
     </div>
 </body>
 
+<!-- script for checkbox -->
+<script>
+    const studentCheckbox = document.getElementById('student');
+    const staffCheckbox = document.getElementById('staff');
+    const IDInput = document.querySelector('input[name="ID"]');
+    const fullNameInput = document.querySelector('input[name="fullName"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const phoneNumberInput = document.querySelector('input[name="phoneNumber"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+    const repeatPasswordInput = document.querySelector('input[name="repeatPassword"]');
+    const programCodeInput = document.querySelector('input[name="programCode"]');
+    const semesterInput = document.querySelector('input[name="semester"]');
+    const collegeInput = document.querySelector('input[name="college"]');
+    const roomNumberInput = document.querySelector('input[name="roomNumber"]');
+  
+    function hideInputs() {
+      emailInput.parentNode.style.display = 'none';
+      programCodeInput.parentNode.style.display = 'none';
+      semesterInput.parentNode.style.display = 'none';
+      collegeInput.parentNode.style.display = 'none';
+      roomNumberInput.parentNode.style.display = 'none';
+      repeatPasswordInput.parentNode.style.display = 'none';
+    }
+  
+    function showInputs() {
+      emailInput.parentNode.style.display = 'flex';
+      programCodeInput.parentNode.style.display = 'flex';
+      semesterInput.parentNode.style.display = 'flex';
+      collegeInput.parentNode.style.display = 'flex';
+      roomNumberInput.parentNode.style.display = 'flex';
+      repeatPasswordInput.parentNode.style.display = 'flex';
+    }
+  
+    hideInputs(); // Initially hide the unnecessary fields
+  
+    studentCheckbox.addEventListener('change', () => {
+      if (studentCheckbox.checked) {
+        staffCheckbox.checked = false;
+        IDInput.placeholder = 'Student ID';
+        showInputs();
+      }
+    });
+  
+    staffCheckbox.addEventListener('change', () => {
+      if (staffCheckbox.checked) {
+        studentCheckbox.checked = false;
+        IDInput.placeholder = 'Staff ID';
+        hideInputs();
+      }
+    });
+  </script>
 </html>
-

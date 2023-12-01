@@ -324,7 +324,7 @@ button.donate_btn {
     width: 85%;
     margin: 0 auto;
     font-size: 16px;
-    color: #ffff;
+    color: black;
     text-align: center;
     padding: 20px 0px;
 }
@@ -341,13 +341,13 @@ button.donate_btn {
     text-align: center;
     font-size: 16px;
     color: #ffffff;
-    background-color: #f64646;
+    background-color: #120a78;
     padding: 8px 0px;
     text-transform: uppercase;
 }
 
 .read_bt a:hover {
-    background-color: #120a78;
+    background-color: #00D9A5;
 }
 
 .carousel-indicators {
@@ -488,11 +488,11 @@ button.donate_btn {
 }
 
 .box_main:hover {
-    background-color: #f64646;
+    background-color: #00D9A5;
 }
 
 .box_main.active {
-    background-color: #f64646;
+    background-color: #00D9A5;
 }
 
 

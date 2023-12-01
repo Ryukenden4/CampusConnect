@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)),
-        url(/homepage/assets/img/kolej.jpg);
+        url(/homepage/assets/img/kolej.jpg);    
     background-size: cover;
     background-position: center;
 }
@@ -36,6 +36,16 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.input-box-checkbox{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.input-box-checkbox input[type="checkbox"], .input-box-checkbox label{
+    margin: 0 10px; 
+    border-radius: 50%;
 }
 
 .input-box .input-field {
@@ -92,5 +102,3 @@ body {
     font-size: 16px;
     color: white;
 }
-
-
