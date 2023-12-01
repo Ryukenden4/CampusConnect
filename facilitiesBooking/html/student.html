@@ -37,7 +37,7 @@
 
         box h2{
           text-align: center;
-          font-size: 160px;
+          font-size: 200px;
           color: #fff;
           font-weight: 600;
           
@@ -111,7 +111,7 @@
             </nav>
             
 
-              <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 15cm;">
+              <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 16cm;">
                 <div class="banner-section">
                   <div class="container text-center wow fadeInUp">
                     <nav aria-label="Breadcrumb">
@@ -119,28 +119,28 @@
                         <div class="box">
                           <h2>COLLEGE FACILITIES</h2>
 
-                          <form>
-                            <label for="facility">Facilities</label>
-                            <select id="facility" name="facility">
-                              <option value="readingRoom">Reading Room</option>
-                              <option value="meetingRoom">Meeting Room</option>
-                              <option value="gymRoom">Gym</option>
-                            </select>
-                            <script>
-                              function checkAvailability() {
-                                  var roomType = document.getElementById("roomType").value;
+                          <select id="facility" name="facility">
+                            <option value="readingRoom">Reading Room</option>
+                            <option value="meetingRoom">Meeting Room</option>
+                            <option value="gymRoom">Gym</option>
+                          </select>
+
+                          <script>
+                            function checkAvailability() {
+                                var roomType = document.getElementById("roomType").value;
                                   if (roomType === "meetingRoom") {
                                       // Redirect to the meeting room page
-                                      window.location.href = "meetingRoom.html";
+                                      <a class="nav-link" href="meetingRoom.html"><button type="return" class="button_menu">MEETING ROOM</button></a>
                                   } else if(roomType === "readingRoom"){
-                                      window.location.href = "readingRoom.html";
+                                    <a class="nav-link" href="readingRoom.html"><button type="return" class="button_menu">READING ROOM</button></a>
                                   } else if(roomType === "gymRoom"){
-                                    window.location.href = "gymRoom.html";
+                                    <a class="nav-link" href="gymRoom.html"><button type="return" class="button_menu">GYM ROOM</button></a>
                                   }
-                              }
-                          </script>
-                          </form>
+                                }
+                            </script>
+                          
                         </div>
+
                       </ol>
                     </nav>
                   </div> <!-- .container -->
