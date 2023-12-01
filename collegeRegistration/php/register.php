@@ -26,11 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $college = $_POST["college"];
     $roomNumber = $_POST["roomNumber"];
 
-    // Performing SQL query to insert data into the database
-    $sql = "INSERT INTO users (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber)
-            VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
-
-    // $rs = mysqli_query($conn, $sql);
+    // Check if the student checkbox is checked
+    if (isset($_POST["student"])) {
+        // Performing SQL query to insert data into the student table
+        $sql = "INSERT INTO student (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber)
+                VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
+    } elseif (isset($_POST["staff"])) {
+        // Performing SQL query to insert data into the staff table
+        $sql = "INSERT INTO staff (ID, fullName, email, phoneNumber, password)
+                VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password')";
+    } else {
+        // Handle the case where neither student nor staff checkbox is checked
+        echo "Error: Please select either Student or Staff checkbox.";
+        exit();
+    }
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";
