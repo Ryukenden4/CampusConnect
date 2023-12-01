@@ -62,7 +62,45 @@
 
     input[type=text]:focus {
         width: 100%;
-    }
+    
+
+      .h1{
+        color: #fcfcfc;
+        text-align: center;
+        font-size: 70px;
+        position: relative;
+      }
+
+      #myInput {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+      }
+
+      #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 25px;
+      }
+
+      #myTable th, #myTable td {
+        text-align: left;
+        padding: 12px;
+      }
+
+      #myTable tr {
+        border-bottom: 1px solid #ddd;
+      }
+
+      #myTable tr.header, #myTable tr:hover {
+        background-color: transparent;
+      }
     </style>
 </head>
 
@@ -92,63 +130,117 @@
             </div> <!-- .container -->
           </nav>
 
-          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg);">
+          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height:25cm;">
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">
-                <h1 style="color: #fcfcfc; text-align: center; font-size: 40px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                   <div><p>ALL RESPONSE LIST</p></div>
+                <p>
+                <h1>
+                   <div style="font-size: 65px;">ALL RESPONSE LIST</div>
             
                    <p><div style="font-size: 20px;">
                    <i>We are happy to meet you here again!</i>
                    </div> </p> 
-                </h1>
+                </h1></p>
 
-                <div>
-                    <form>
-                        <input type="text" name="search" placeholder="Search..">
-                    </form>
-                </div>
-                </div>
-            </div>
-          </div>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-          <div class="page-banner overlay-dark bg-image">
-            <div class="banner-section">
-              <div class="container text-center wow fadeInUp">
-                
-            
-                <table>
-                    <tr style="border-bottom: #ccc;">
-                      <th>NO.</th>
-                      <th>NAME</th>
+                <p><table id="myTable"  style="font-size: 20px;">
+                   <tr class="header"  style="font-size: 25px;">
+                      <th >NO</th>
+                      <th >NAME</th>
                       <th>TYPE OF USER</th>
                       <th>DATE</th>
-                      <th>PURPOSE OF MEET</th>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Nor</td>
-                      <td>Students</td>
-                      <td>30/11/2023</td>
-                      <td>BORANG</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Liana</td>
-                      <td>Students</td>
-                      <td>30/11/2023</td>
-                      <td>KEY</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Idris</td>
-                      <td>Parents</td>
-                      <td>30/11/2023</td>
-                      <td>BORANG</td>
-                    </tr>
-                  </table>      
-              </div> 
-            </div>
-        </div>
+                      <th >PURPOSE OF MEET</th>
+                   </tr>
+                   <tr>
+                    <td>1</td>
+                    <td>Norliana</td>
+                    <td>Student</td>
+                    <td>30/11/2023</td>
+                    <td>Key</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Aylne</td>
+                    <td>Student</td>
+                    <td>01/12/2023</td>
+                    <td>Form</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Nuranishah</td>
+                    <td>Student</td>
+                    <td>02/12/2023</td>
+                    <td>Key</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Rosyidah</td>
+                    <td>Student</td>
+                    <td>03/12/2023</td>
+                    <td>Complaint</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Fatin</td>
+                    <td>Student</td>
+                    <td>19/11/2023</td>
+                    <td>Key</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Someone</td>
+                    <td>Student</td>
+                    <td>15/11/2023</td>
+                    <td>Form</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Somebody</td>
+                    <td>Student</td>
+                    <td>19/11/2023</td>
+                    <td>Contractor</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Anybody</td>
+                    <td>Parents</td>
+                    <td>01/11/2023</td>
+                    <td>Form</td>
+                  </tr>
+                </table>
+                </p>
+
+                <p>
+                <a class="nav-link" href="admin.html"><button type="return" style="background-color: #fcfcfc; border-radius: 10px; font-size: larger; width: 4cm; height: 1.5cm;">
+                  Back To Menu</button></a>
+                </p>
+
+                <script>
+                   function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 1; i < tr.length; i++) {
+                      td = tr[i].getElementsByTagName("td")[1];
+                      if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                          tr[i].style.display = "";
+                        } else {
+                          tr[i].style.display = "none";
+                        }
+                      }       
+                    }
+
+                    
+                  }
+                </script> <!--close script-->
+              </div> <!--class container-->
+            </div> <!--banner section-->
+          </div> <!--page banner-->
+               
 </body>
 </html>
