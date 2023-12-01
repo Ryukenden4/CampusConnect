@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="../assets/css/theme.css">
 
     <style>
-      .button {
-        background-color: #ddd;
+      .button{
+        background-color: white;
         border: none;
         color: black;
         padding: 10px 20px;
@@ -35,7 +35,7 @@
         display: inline-block;
         margin: 4px 2px;
         cursor: pointer;
-        border-radius: 16px;
+        border-radius: 5px;
       }
 
       .button_menu {
@@ -49,17 +49,34 @@
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 16px;
-        width: 5cm;
-        
+        width: 10cm;
+        height: 3cm;
         font-family: "Times New Roman", Times, serif;
+        font-size: 25px;
       }
 
       .button:hover {
-        background-color: #f1f1f1;
+        background-color: #00D9A5;
       }
 
       .button_menu:hover {
         background-color: #f1f1f1;
+      }
+
+      .admin-bg{
+        position: relative;
+        padding: 60px;
+        background: rgba(255,255,255,0.25);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.25);
+        border-right: 1px solid rgba(255,255,255,0.25);
+        border-radius: 20px;
+        width: 30cm;
+        display:flex;
+        flex-direction: column;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        margin-left: auto; 
+        margin-right: auto;
       }
     </style>
 </head>
@@ -93,20 +110,19 @@
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">
                 <h1 style="color: #fcfcfc; text-align: center; font-size: 60px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                    <div>
+                    <p>
                         ADMIN PAGES
-                    </div>
-                    
-                    <p><div style="font-size: 20px;">
-                      <i>We are happy to meet you here again!</i>
-                   </div> </p> 
+                    </p>
                 </h1> 
 
-                <p><div>
+                <div class="admin-bg">
+                  
+                    <p><i style="font-size: 20px;">We are happy to meet you here again!</i></p>
+                 
                   <a class="nav-link" href="graph.html"><button type="return" class="button_menu">VIEW RESPONSE SUMMARY</button></a>
                   <a class="nav-link" href="tableList.html"><button type="return" class="button_menu">VIEW ALL RESPONSE LIST</button></a>
                   <a class="nav-link" href="index.html"><button type="return" class="button">RETURN TO HOMEPAGE</button></a>
-                </div></p>
+                </div>
 
               </div> <!-- .container -->              
             </div> <!-- .banner-section -->            
