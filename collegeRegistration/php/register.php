@@ -1,11 +1,13 @@
 <?php
+session_start();
+
 // Establishing a connection to MySQL database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "collegeregistration";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check the connection
 if ($conn->connect_error) {
@@ -27,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Performing SQL query to insert data into the database
     $sql = "INSERT INTO users (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber)
             VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber')";
+
+    // $rs = mysqli_query($conn, $sql);
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";

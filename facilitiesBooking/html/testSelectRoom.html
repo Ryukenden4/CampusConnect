@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Availability</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+    <script>
+        function checkAvailability() {
+            // Get the selected room type
+            var roomType = document.getElementById("roomType").value;
+
+            // Simulated room availability data (replace with actual data)
+            var availabilityData = {
+                meetingRoom: ["9:00 AM - 10:00 AM", "2:00 PM - 3:00 PM"],
+                readingRoom: ["11:00 AM - 12:00 PM"],
+                gymRoom: ["1:00 PM - 2:00 PM", "3:30 PM - 4:30 PM"]
+            };
+
+            // Display availability in the table
+            var availabilityTable = document.getElementById("availabilityTable");
+            availabilityTable.innerHTML = "<tr><th>Available Time</th></tr>";
+
+            if (availabilityData.hasOwnProperty(roomType)) {
+                for (var i = 0; i < availabilityData[roomType].length; i++) {
+                    var row = availabilityTable.insertRow(-1);
+                    var cell = row.insertCell(0);
+                    cell.innerHTML = availabilityData[roomType][i];
+                }
+            } else {
+                var row = availabilityTable.insertRow(-1);
+                var cell = row.insertCell(0);
+                cell.innerHTML = "No availability information for selected room.";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form>
+        <label for="roomType">Select a Room:</label>
+        <select id="roomType" name="roomType">
+            <option value="meetingRoom">Meeting Room</option>
+            <option value="readingRoom">Reading Room</option>
+            <option value="gymRoom">Gym Room</option>
+        </select>
+        <br>
+        <input type="button" value="Check Availability" onclick="checkAvailability()">
+    </form>
+
+    <table id="availabilityTable"></table>
+
+</body>
+</html>
