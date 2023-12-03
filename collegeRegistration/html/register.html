@@ -8,82 +8,122 @@
     <title>CampusConnect</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/registerStyle.css">
+    <!-- <link rel="stylesheet" href="/homepage/assets/css/theme.css"> -->
+    <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
+    
 </head>
 
 <body>
-    <div class="register">
-        <form name="register"  action="../php/register.php" method="POST">
-            <h1>Registration</h1>
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+          <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupport">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Srk</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-primary ml-lg-3" href="/collegeRegistration/html/login.html">Login / Register</a>
+                </li>
+              </ul>
+            </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
+        </nav>
+    </header>
+    
+    <!-- body section -->
+    <div class="register-container">
+        <div class="register">
+            <form name="register"  action="../php/register.php" method="POST">
+                <h1>Registration</h1>
 
-            <div class="input-box-checkbox">
-                <input type="checkbox" id="student" name="student" >
-                <label for="student">Student</label>
-                <input type="checkbox" id="staff" name="staff" >
-                <label for="staff">Staff</label>
-            </div>
-
-            <div class="input-box">
-                <!-- ID -->
-                <div class="input-field">
-                    <input type="text" name="ID" placeholder="ID" required>
-                    <i class="bx bxs-user"></i>
-                </div>
-
-                <!-- Full name -->
-                <div class="input-field">
-                    <input type="text" name="fullName" placeholder="Full Name" required>
-                    <i class="bx bxs-user"></i>
-                </div>
-                <!-- email -->
-                <div class="input-field">
-                    <input type="email" name="email" placeholder="Student Email" required>
-                    <i class="bx bxs-envelope"></i>
-                </div>
-                <!-- phone num -->
-                <div class="input-field">
-                    <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
-                    <i class="bx bxs-phone"></i>
-                </div>
-                <!-- pass -->
-                <div class="input-field">
-                    <input type="password" name="password" placeholder="Password" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                <!-- pass confirmation -->
-                <div class="input-field">
-                    <input type="password" name="repeatPassword" placeholder="Repeat Password" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                <!-- code program -->
-                <div class="input-field">
-                    <input type="text" name="programCode" placeholder="Program Code" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                <!-- Semester -->
-                <div class="input-field">
-                    <input type="text" name="semester" placeholder="Semester" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                <!-- Kolej Kediaman -->
-                <div class="input-field">
-                    <input type="text" name="college" placeholder="Residential College" required>
-                    <i class="bx bxs-lock"></i>
-                </div>
-                <!-- num bilik -->
-                <div class="input-field">
-                    <input type="text" name="roomNumber" placeholder="Room Number" required>
-                    <i class="bx bxs-lock"></i>
+                <div class="input-box-checkbox">
+                    <input type="checkbox" id="student" name="student" >
+                    <label for="student">Student</label>
+                    <input type="checkbox" id="staff" name="staff" >
+                    <label for="staff">Staff</label>
                 </div>
 
-                <!-- <div class="input-field">
-                    to left empty space
-                </div> -->
+                <div class="input-box">
+                    <!-- ID -->
+                    <div class="input-field">
+                        <input type="text" name="ID" placeholder="ID" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
 
-                <p class="input-field">Already registered? <a href="../html/login.html">Log in</a></p>
+                    <!-- Full name -->
+                    <div class="input-field">
+                        <input type="text" name="fullName" placeholder="Full Name" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <!-- email -->
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="Student Email" required>
+                        <i class="bx bxs-envelope"></i>
+                    </div>
+                    <!-- phone num -->
+                    <div class="input-field">
+                        <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
+                        <i class="bx bxs-phone"></i>
+                    </div>
+                    <!-- pass -->
+                    <div class="input-field">
+                        <input type="password" name="password" placeholder="Password" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
+                    <!-- pass confirmation -->
+                    <div class="input-field">
+                        <input type="password" name="repeatPassword" placeholder="Repeat Password" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
+                    <!-- code program -->
+                    <div class="input-field">
+                        <input type="text" name="programCode" placeholder="Program Code" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
+                    <!-- Semester -->
+                    <div class="input-field">
+                        <input type="text" name="semester" placeholder="Semester" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
+                    <!-- Kolej Kediaman -->
+                    <div class="input-field">
+                        <input type="text" name="college" placeholder="Residential College" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
+                    <!-- num bilik -->
+                    <div class="input-field">
+                        <input type="text" name="roomNumber" placeholder="Room Number" required>
+                        <i class="bx bxs-lock"></i>
+                    </div>
 
-                <button type="submit" value="submit" class="btn">Register</button>
-            </div>
-        </form>
+                    <!-- <div class="input-field">
+                        to left empty space
+                    </div> -->
+
+                    <p class="input-field">Already registered? <a href="../html/login.html">Log in</a></p>
+
+                    <button type="submit" value="submit" class="btn">Register</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 
@@ -127,7 +167,7 @@ function hideButton() {
 
 // Initially hide unnecessary fields and the register button
 hideInputs();
-hideButton();
+showButton();
 
 studentCheckbox.addEventListener('change', () => {
   if (studentCheckbox.checked) {
@@ -149,5 +189,5 @@ staffCheckbox.addEventListener('change', () => {
   }
 });
 
-  </script>
+</script>
 </html>

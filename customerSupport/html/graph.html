@@ -42,10 +42,25 @@
         border: transparent;
         color: aquamarine;
       }
-    </style>
- 
-   
 
+      .btn{
+        color:#fcfcfc;  
+      }
+
+      .button{
+        background-color: #00D9A5;
+        border: none;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: SOLID;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-shadow: 2px 2px 5px rgb(49, 49, 49);
+      }
+    </style>
 </head>
 
 <body>
@@ -82,8 +97,10 @@
                 </div>
             </h1>
             
-            <p style="font-size: 20px;"><i><button class="button-month"><i>prev month </i></button>| NOVEMBER 2023 SUMMARY |</i><button class="button-month"><i>next month</i></button></p>
-              
+            
+            <div style="font-size: 20px;"><i class="btn">| NOVEMBER 2023 SUMMARY |</i></div>
+            
+            <p>
             <div style="background-color: #f1f1f1; position: relative;">
                 
 
@@ -128,11 +145,10 @@
                 });
                 </script>
              </div>
+             </p>
 
-             <p>
-              <a class="nav-link" href="admin.html"><button type="return" style="background-color: #fcfcfc; border-radius: 15px; font-size: 20px; width: 4cm; height: 1.5cm;">
-               Back To Menu</button></a>
-              </p>
+             <p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
+
           </div>
           </div>
         </div>
