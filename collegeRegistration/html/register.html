@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="/homepage/assets/css/theme.css"> -->
     <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
-    
+    <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 </head>
 
 <body>
@@ -75,7 +75,7 @@
                     </div>
                     <!-- email -->
                     <div class="input-field">
-                        <input type="email" name="email" placeholder="Student Email" required>
+                        <input type="email" name="email" placeholder="Email" required>
                         <i class="bx bxs-envelope"></i>
                     </div>
                     <!-- phone num -->
@@ -125,7 +125,58 @@
             </form>
         </div>
     </div>
+
+  <!-- footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Editorial Team</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
+            Kampus Kota Kinabalu
+            Beg Berkunci 71,
+            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
+          <a href="#" class="footer-link">+6088 - 325151</a>
+          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Social Media</h5>
+          <div class="footer-sosmed mt-3">
+            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
+      <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
+    </div>
+  </footer>
+
 </body>
+
+
 
 <!-- script for checkbox -->
 <script>
@@ -173,7 +224,7 @@ studentCheckbox.addEventListener('change', () => {
   if (studentCheckbox.checked) {
     staffCheckbox.checked = false;
     IDInput.placeholder = 'Student ID';
-    emailInput.parentNode.style.display = 'flex'; // Show email field for students
+    emailInput.placeholder = 'Student Email'; // Show email field for students
     showInputs();
     showButton();
   }
@@ -183,11 +234,12 @@ staffCheckbox.addEventListener('change', () => {
   if (staffCheckbox.checked) {
     studentCheckbox.checked = false;
     IDInput.placeholder = 'Staff ID';
-    emailInput.parentNode.style.display = 'flex'; // Show email field for staff
+    emailInput.placeholder = 'Staff Email'; // Show email field for staff
     hideInputs();
     showButton();
   }
 });
 
 </script>
+
 </html>

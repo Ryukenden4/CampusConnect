@@ -42,8 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($conn->query($sql) === TRUE) {
-        echo "Registration successful!";
+        // Registration successful
+        echo '<script>
+                alert("Registration successful!");
+                window.location.href = "/homepage/html/index.html"; // Replace with the actual path
+              </script>';
     } else {
+        // Registration failed
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
