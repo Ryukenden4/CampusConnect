@@ -24,6 +24,21 @@
     <link rel="stylesheet" href="../assets/css/theme.css">
 
     <style>
+
+    .button{
+        background-color: #00D9A5;
+        border: none;
+        color: rgb(255, 251, 251);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-shadow: 2px 2px 5px rgb(77, 76, 76);
+      } 
+
     table {
         border-collapse: collapse;
         border-spacing: 0;
@@ -101,6 +116,7 @@
       #myTable tr.header, #myTable tr:hover {
         background-color: transparent;
       }
+    }
     </style>
 </head>
 
@@ -135,9 +151,9 @@
               <div class="container text-center wow fadeInUp">
                 <p>
                 <h1>
-                   <div style="font-size: 65px;">ALL RESPONSE LIST</div>
+                   <div style="font-size: 65px; text-shadow: 2px 2px 5px black;">ALL RESPONSE LIST</div>
             
-                   <p><div style="font-size: 20px;">
+                   <p><div style="font-size: 30px;  text-shadow: 2px 2px 5px black;">
                    <i>We are happy to meet you here again!</i>
                    </div> </p> 
                 </h1></p>
@@ -211,10 +227,7 @@
                 </table>
                 </p>
 
-                <p>
-                <a class="nav-link" href="admin.html"><button type="return" style="background-color: #fcfcfc; border-radius: 10px; font-size: larger; width: 4cm; height: 1.5cm;">
-                  Back To Menu</button></a>
-                </p>
+                <p><a class="nav-link" href="admin.html"><button type="return" class="button"><b>RETURN TO MENU</b></button></a></p>
 
                 <script>
                    function myFunction() {
