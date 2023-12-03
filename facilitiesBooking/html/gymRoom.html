@@ -2,22 +2,157 @@
 <html lang="en">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <head style="background-color: #f1f1f1;"> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GYM ROOM</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <meta name="copyright" content="MACode ID, https://macodeid.com/">
+    
+        <title>CampusConnect</title>
+    
+        <link rel="stylesheet" href="../assets/css/maicons.css">
+    
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    
+        <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+    
+        <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+    
+        <link rel="stylesheet" href="../assets/css/theme.css">
+    
+        <style>
+            section {
+                margin: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            h2 {
+                color: white;
+            }
+    
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+    
+            input, select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+    
+            button {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    
+            button:hover {
+                background-color: #555;
+            }
+        </style>
+    
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Room Availability</title>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 50%;
+                    margin-top: 20px;
+                }
+        
+                th, td {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+            </style>
+    
+            <script>
+                function checkAvailability() {
+                    // Get the selected room type
+                    var roomType = document.getElementById("roomType").value;
+    
+                    // Simulated room availability data (replace with actual data)
+                    var availabilityData = {
+                        meetingRoom: ["9:00 AM - 10:00 AM", "2:00 PM - 3:00 PM"],
+                        readingRoom: ["11:00 AM - 12:00 PM"],
+                        gymRoom: ["1:00 PM - 2:00 PM", "3:30 PM - 4:30 PM"]
+                    };
+    
+                    // Display availability in the table
+                    var availabilityTable = document.getElementById("availabilityTable");
+                        availabilityTable.innerHTML = "<tr><th>Available Time</th></tr>";
+    
+                    if (availabilityData.hasOwnProperty(roomType)) {
+                        for (var i = 0; i < availabilityData[roomType].length; i++) {
+                            var row = availabilityTable.insertRow(-1);
+                            var cell = row.insertCell(0);
+                            cell.innerHTML = availabilityData[roomType][i];
+                        }
+                    } else {
+                        var row = availabilityTable.insertRow(-1);
+                        var cell = row.insertCell(0);
+                        cell.innerHTML = "No availability information for selected room.";
+                    }
+                }
+            </script>
+        </head>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                  <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
+          
+                  <div class="collapse navbar-collapse" id="navbarSupport">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="about.html">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                      </li>
+                    </ul>
+                  </div> <!-- .navbar-collapse -->
+    
+                </div> <!-- .container -->
+            </nav>
+            <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 17cm;">
+                <div class="banner-section">
+                  <div class="container text-center wow fadeInUp">
+                    <nav aria-label="Breadcrumb">
+                    </nav>
+                    <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                        <h2>GYM ROOM</h2>
+                    </ol>
+                  </div>
+                </div>
+            </div>
+        </header>
 
 <footer class="page-footer">
     <div class="container">
