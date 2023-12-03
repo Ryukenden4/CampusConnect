@@ -58,9 +58,10 @@
         }
 
         button {
-            background-color: #333;
+            background-color: #00D9A5;
+            background-color: ;
             color: #fff;
-            padding: 10px 15px;
+            padding: 15px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -71,54 +72,7 @@
         }
     </style>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Room Availability</title>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 50%;
-                margin-top: 20px;
-            }
     
-            th, td {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
-        </style>
-
-        <script>
-            function checkAvailability() {
-                // Get the selected room type
-                var roomType = document.getElementById("roomType").value;
-
-                // Simulated room availability data (replace with actual data)
-                var availabilityData = {
-                    meetingRoom: ["9:00 AM - 10:00 AM", "2:00 PM - 3:00 PM"],
-                    readingRoom: ["11:00 AM - 12:00 PM"],
-                    gymRoom: ["1:00 PM - 2:00 PM", "3:30 PM - 4:30 PM"]
-                };
-
-                // Display availability in the table
-                var availabilityTable = document.getElementById("availabilityTable");
-                    availabilityTable.innerHTML = "<tr><th>Available Time</th></tr>";
-
-                if (availabilityData.hasOwnProperty(roomType)) {
-                    for (var i = 0; i < availabilityData[roomType].length; i++) {
-                        var row = availabilityTable.insertRow(-1);
-                        var cell = row.insertCell(0);
-                        cell.innerHTML = availabilityData[roomType][i];
-                    }
-                } else {
-                    var row = availabilityTable.insertRow(-1);
-                    var cell = row.insertCell(0);
-                    cell.innerHTML = "No availability information for selected room.";
-                }
-            }
-        </script>
-    </head>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
@@ -130,20 +84,20 @@
                     <a class="nav-link" href="index.html">Home</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" href="about.html">About Us</a>
+                    <a class="nav-link" href="about.html">Programmes Registration</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="team.html">Team</a>
+                    <a class="nav-link" href="team.html">Facilites Booking</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="contact.html">Customer Support</a>
                   </li>
                 </ul>
               </div> <!-- .navbar-collapse -->
 
             </div> <!-- .container -->
         </nav>
-        <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 17cm;">
+        <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 18cm;">
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">
                 <nav aria-label="Breadcrumb">
@@ -152,9 +106,8 @@
                     <div class="box">
                         <h2>READING ROOM</h2>
                     </div>
-                    <br>
-                    <input type="button" value="Check Availability" onclick="checkAvailability()">
-
+                    <br></ol>
+                    <a class="nav-link" href="tableAvailability.html"><button type="return" class="button_menu">CHECK AVAILABILITY</button></a>
                     <table id="availabilityTable"></table>
                 </ol>
               </div>
