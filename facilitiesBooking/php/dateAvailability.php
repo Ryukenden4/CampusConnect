@@ -13,7 +13,7 @@
     $month = $_POST['month'];
     $year = $_POST['year'];
 
-    $query = "INSERT INTO users (day, month, year) VALUES ('$day', '$month', '$year')";
+    $query = "INSERT INTO date (day, month, year) VALUES ('$day', '$month', '$year')";
 
     mysqli_query($con, $query);
     header('location: dateAvailability');
