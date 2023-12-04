@@ -1,0 +1,1169 @@
+.program-list-editor {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.program-list-editor .program-list-editor-wrapper {
+  width: 1920px;
+  height: 1080px;
+}
+
+.program-list-editor .overlap-wrapper {
+  height: 1080px;
+}
+
+.program-list-editor .overlap {
+  position: relative;
+  width: 1922px;
+  height: 1080px;
+}
+
+.program-list-editor .overlap-group-wrapper {
+  position: absolute;
+  width: 1922px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .overlap-group {
+  position: relative;
+  width: 1926px;
+  height: 1080px;
+}
+
+.program-list-editor .program-details {
+  position: absolute;
+  width: 1926px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .div {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+}
+
+.program-list-editor .div-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .overlap-2 {
+  position: relative;
+  height: 1080px;
+}
+
+.program-list-editor .co-SA {
+  height: 1080px;
+  background-color: #f1f1f1;
+}
+
+.program-list-editor .overlap-group-2 {
+  position: relative;
+  width: 260px;
+  height: 1080px;
+}
+
+.program-list-editor .menu {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1080px;
+  align-items: center;
+  gap: 60px;
+  padding: 140px 46px 0px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #060606;
+}
+
+.program-list-editor .frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .expand-tab {
+  display: flex;
+  width: 184px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .icons {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.program-list-editor .text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .expand-tab-2 {
+  display: flex;
+  width: 160px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .dashboard {
+  color: #f1f1f1;
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .expand-tab-3 {
+  background-color: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  width: 160px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .dashboard-2 {
+  margin-right: -24px;
+  color: #e65f2b;
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .icons-wrapper {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px;
+  position: absolute;
+  top: 30px;
+  left: 245px;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 2px 2px 8px #0000001a;
+}
+
+.program-list-editor .img {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.program-list-editor .img-wrapper {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  position: absolute;
+  top: 1022px;
+  left: 30px;
+  background-color: #e65f2b;
+  border-radius: 48px;
+  box-shadow: 0px 8px 15px #130f391f;
+}
+
+.program-list-editor .icons-2 {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.program-list-editor .group {
+  position: absolute;
+  width: 177px;
+  height: 80px;
+  top: 25px;
+  left: 34px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.program-list-editor .div-wrapper-2 {
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+  height: 31px;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 45px;
+  position: absolute;
+  top: 89px;
+  left: 297px;
+}
+
+.program-list-editor .text-wrapper-2 {
+  position: relative;
+  width: 243px;
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -67px;
+  -webkit-text-stroke: 0.5px #060606;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #060606;
+  font-size: 22px;
+  letter-spacing: 0.22px;
+  line-height: normal;
+}
+
+.program-list-editor .program-list {
+  position: absolute;
+  width: 1586px;
+  height: 917px;
+  top: 141px;
+  left: 284px;
+  background-image: url(./img/rectangle-6441.svg);
+  background-size: 100% 100%;
+}
+
+.program-list-editor .group-wrapper {
+  position: relative;
+  width: 750px;
+  height: 322px;
+  top: 351px;
+  left: 817px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .group-2 {
+  width: 760px;
+  height: 322px;
+}
+
+.program-list-editor .overlap-group-3 {
+  position: relative;
+  width: 750px;
+  height: 322px;
+  background-color: #ffffff;
+  border-radius: 19px;
+  box-shadow: var(--1);
+}
+
+.program-list-editor .text-wrapper-3 {
+  position: absolute;
+  width: 337px;
+  top: 18px;
+  left: 31px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-4 {
+  position: absolute;
+  width: 52px;
+  top: 62px;
+  left: 31px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-5 {
+  position: absolute;
+  width: 69px;
+  top: 62px;
+  left: 283px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-6 {
+  position: absolute;
+  width: 43px;
+  top: 62px;
+  left: 459px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-7 {
+  position: absolute;
+  width: 70px;
+  top: 62px;
+  left: 644px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-3 {
+  position: absolute;
+  width: 691px;
+  height: 30px;
+  top: 97px;
+  left: 31px;
+}
+
+.program-list-editor .text-wrapper-8 {
+  position: absolute;
+  width: 152px;
+  top: 0;
+  left: 0;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: var(--text-primary);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-9 {
+  position: absolute;
+  width: 11px;
+  top: 0;
+  left: 274px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-10 {
+  position: absolute;
+  width: 109px;
+  top: 0;
+  left: 428px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-11 {
+  position: absolute;
+  width: 55px;
+  top: 0;
+  left: 628px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .vector {
+  position: absolute;
+  width: 683px;
+  height: 1px;
+  top: 30px;
+  left: 0;
+}
+
+.program-list-editor .group-4 {
+  position: absolute;
+  width: 691px;
+  height: 30px;
+  top: 139px;
+  left: 31px;
+}
+
+.program-list-editor .text-wrapper-12 {
+  position: absolute;
+  width: 202px;
+  top: 0;
+  left: 0;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: var(--text-primary);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-13 {
+  position: absolute;
+  width: 67px;
+  top: 0;
+  left: 617px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-5 {
+  position: absolute;
+  width: 691px;
+  height: 30px;
+  top: 181px;
+  left: 31px;
+}
+
+.program-list-editor .text-wrapper-14 {
+  position: absolute;
+  width: 197px;
+  top: 0;
+  left: 0;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: var(--text-primary);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-6 {
+  position: absolute;
+  width: 691px;
+  height: 30px;
+  top: 223px;
+  left: 31px;
+}
+
+.program-list-editor .text-wrapper-15 {
+  width: 211px;
+  top: 0;
+  left: 0;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: var(--text-primary);
+  font-size: 14px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-7 {
+  position: absolute;
+  width: 691px;
+  height: 30px;
+  top: 265px;
+  left: 31px;
+}
+
+.program-list-editor .text-wrapper-16 {
+  position: absolute;
+  width: 52px;
+  top: 0;
+  left: 631px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-8 {
+  position: absolute;
+  width: 780px;
+  height: 315px;
+  top: 169px;
+  left: 301px;
+}
+
+.program-list-editor .text-wrapper-17 {
+  position: absolute;
+  width: 386px;
+  top: 89px;
+  left: 513px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 700;
+  color: #060606;
+  font-size: 22px;
+  letter-spacing: 0.22px;
+  line-height: normal;
+}
+
+.program-list-editor .icons-3 {
+  position: absolute;
+  width: 33px;
+  height: 27px;
+  top: 89px;
+  left: 472px;
+}
+
+.program-list-editor .text-wrapper-18 {
+  position: absolute;
+  width: 196px;
+  top: 189px;
+  left: 352px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20.1px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .p {
+  position: absolute;
+  width: 684px;
+  top: 232px;
+  left: 352px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 25px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .line {
+  position: absolute;
+  width: 698px;
+  height: 1px;
+  top: 223px;
+  left: 338px;
+  object-fit: cover;
+}
+
+.program-list-editor .block-wrapper {
+  position: absolute;
+  width: 730px;
+  height: 328px;
+  top: 492px;
+  left: 327px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .block {
+  position: relative;
+  height: 328px;
+  background-color: var(--primarylight);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.program-list-editor .text-wrapper-19 {
+  position: absolute;
+  top: 23px;
+  left: 24px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 600;
+  color: #1c1c1c;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.program-list-editor .group-9 {
+  position: absolute;
+  width: 126px;
+  height: 126px;
+  top: 90px;
+  left: 43px;
+}
+
+.program-list-editor .overlap-3 {
+  position: absolute;
+  width: 469px;
+  height: 128px;
+  top: 89px;
+  left: 213px;
+}
+
+.program-list-editor .group-10 {
+  position: absolute;
+  width: 469px;
+  height: 128px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .frame-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  position: absolute;
+  top: 1px;
+  left: 434px;
+}
+
+.program-list-editor .text-wrapper-20 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--12-regular-font-family);
+  font-weight: var(--12-regular-font-weight);
+  color: #1c1c1c;
+  font-size: var(--12-regular-font-size);
+  letter-spacing: var(--12-regular-letter-spacing);
+  line-height: var(--12-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--12-regular-font-style);
+}
+
+.program-list-editor .text-wrapper-21 {
+  position: relative;
+  width: fit-content;
+  font-family: var(--12-regular-font-family);
+  font-weight: var(--12-regular-font-weight);
+  color: #1c1c1c;
+  font-size: var(--12-regular-font-size);
+  letter-spacing: var(--12-regular-letter-spacing);
+  line-height: var(--12-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--12-regular-font-style);
+}
+
+.program-list-editor .text-wrapper-22 {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #1c1c1c;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.program-list-editor .frame-3 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .badge-tag {
+  display: inline-flex;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 4px 1px 2px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.program-list-editor .dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.program-list-editor .text {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #1c1c1c;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.program-list-editor .rectangle {
+  position: absolute;
+  width: 299px;
+  height: 9px;
+  top: 5px;
+  left: 116px;
+  background-color: #f1f1f1;
+  border-radius: 13.62px;
+}
+
+.program-list-editor .rectangle-2 {
+  position: absolute;
+  width: 114px;
+  height: 10px;
+  top: 5px;
+  left: 116px;
+  border-radius: 10.78px;
+  background: linear-gradient(180deg, rgb(186, 237, 189) 0%, rgb(186, 237, 189) 100%);
+}
+
+.program-list-editor .rectangle-3 {
+  position: absolute;
+  width: 299px;
+  height: 9px;
+  top: 43px;
+  left: 116px;
+  background-color: #f1f1f1;
+  border-radius: 13.62px;
+}
+
+.program-list-editor .rectangle-4 {
+  position: absolute;
+  width: 68px;
+  height: 10px;
+  top: 43px;
+  left: 116px;
+  border-radius: 10.78px;
+  background: linear-gradient(180deg, rgb(198, 199, 248) 0%, rgb(198, 199, 248) 100%);
+}
+
+.program-list-editor .rectangle-5 {
+  position: absolute;
+  width: 299px;
+  height: 9px;
+  top: 77px;
+  left: 116px;
+  background-color: #f1f1f1;
+  border-radius: 13.62px;
+}
+
+.program-list-editor .rectangle-6 {
+  position: absolute;
+  width: 92px;
+  height: 10px;
+  top: 77px;
+  left: 116px;
+  border-radius: 10.78px;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+
+.program-list-editor .rectangle-7 {
+  position: absolute;
+  width: 299px;
+  height: 9px;
+  top: 113px;
+  left: 116px;
+  background-color: #f1f1f1;
+  border-radius: 13.62px;
+}
+
+.program-list-editor .rectangle-8 {
+  position: absolute;
+  width: 24px;
+  height: 10px;
+  top: 113px;
+  left: 116px;
+  border-radius: 10.78px;
+  background: linear-gradient(180deg, rgb(149, 164, 252) 0%, rgb(149, 164, 252) 100%);
+}
+
+.program-list-editor .group-11 {
+  position: absolute;
+  width: 667px;
+  height: 52px;
+  top: 248px;
+  left: 47px;
+}
+
+.program-list-editor .overlap-4 {
+  position: relative;
+  width: 669px;
+  height: 52px;
+}
+
+.program-list-editor .group-12 {
+  position: absolute;
+  width: 669px;
+  height: 52px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .group-13 {
+  position: absolute;
+  width: 526px;
+  height: 37px;
+  top: 13px;
+  left: 57px;
+}
+
+.program-list-editor .overlap-group-4 {
+  position: absolute;
+  width: 524px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  border-radius: 10.78px;
+}
+
+.program-list-editor .rectangle-9 {
+  position: absolute;
+  width: 524px;
+  height: 9px;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  border-radius: 13.62px;
+}
+
+.program-list-editor .rectangle-10 {
+  position: absolute;
+  width: 524px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  border-radius: 10.78px;
+  background: linear-gradient(180deg, rgb(238, 31.55, 27.77) 0%, rgb(238, 31.55, 27.77) 100%);
+}
+
+.program-list-editor .text-wrapper-23 {
+  position: absolute;
+  width: 174px;
+  top: 18px;
+  left: 4px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #aeaeae;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .rectangle-11 {
+  position: absolute;
+  width: 42px;
+  height: 43px;
+  top: 9px;
+  left: 0;
+  background-color: #ffe9d9;
+  border-radius: 3px;
+  box-shadow: var(--1);
+}
+
+.program-list-editor .text-wrapper-24 {
+  position: absolute;
+  width: 67px;
+  top: 0;
+  left: 600px;
+  font-family: "Lato", Helvetica;
+  font-weight: 600;
+  color: #696969;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .icons-4 {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 20px;
+  left: 10px;
+}
+
+.program-list-editor .group-14 {
+  position: absolute;
+  width: 354px;
+  height: 123px;
+  top: 884px;
+  left: 1489px;
+}
+
+.program-list-editor .group-15 {
+  position: absolute;
+  width: 1121px;
+  height: 178px;
+  top: 855px;
+  left: 327px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .overlap-5 {
+  position: relative;
+  width: 1119px;
+  height: 178px;
+  border-radius: 16px;
+}
+
+.program-list-editor .group-16 {
+  position: absolute;
+  width: 1119px;
+  height: 178px;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1e6;
+  border-radius: 16px;
+}
+
+.program-list-editor .group-17 {
+  position: absolute;
+  width: 354px;
+  height: 123px;
+  top: 44px;
+  left: 7px;
+}
+
+.program-list-editor .group-18 {
+  position: absolute;
+  width: 354px;
+  height: 123px;
+  top: 44px;
+  left: 382px;
+}
+
+.program-list-editor .group-19 {
+  position: absolute;
+  width: 354px;
+  height: 123px;
+  top: 44px;
+  left: 757px;
+}
+
+.program-list-editor .text-wrapper-25 {
+  position: absolute;
+  width: 343px;
+  top: 12px;
+  left: 14px;
+  font-family: "Amiko", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .group-20 {
+  position: absolute;
+  width: 750px;
+  height: 267px;
+  top: 177px;
+  left: 1101px;
+  background-color: #f1f1f1e6;
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .bus {
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  top: 937px;
+  left: 738px;
+  object-fit: cover;
+}
+
+.program-list-editor .certificate {
+  position: absolute;
+  width: 38px;
+  height: 36px;
+  top: 942px;
+  left: 365px;
+  object-fit: cover;
+}
+
+.program-list-editor .food {
+  position: absolute;
+  width: 38px;
+  height: 39px;
+  top: 939px;
+  left: 1118px;
+  object-fit: cover;
+}
+
+.program-list-editor .group-21 {
+  position: absolute;
+  width: 723px;
+  height: 172px;
+  top: 229px;
+  left: 1118px;
+}
+
+.program-list-editor .overlap-6 {
+  position: absolute;
+  width: 226px;
+  height: 172px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .text-wrapper-26 {
+  position: absolute;
+  width: 145px;
+  top: 117px;
+  left: 20px;
+  font-family: "Manrope", Helvetica;
+  font-weight: 600;
+  color: var(--black-font);
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .location {
+  position: absolute;
+  width: 70px;
+  height: 78px;
+  top: 22px;
+  left: 20px;
+  object-fit: cover;
+}
+
+.program-list-editor .overlap-7 {
+  position: absolute;
+  width: 226px;
+  height: 172px;
+  top: 0;
+  left: 245px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .text-wrapper-27 {
+  position: absolute;
+  width: 178px;
+  top: 116px;
+  left: 24px;
+  font-family: "Manrope", Helvetica;
+  font-weight: 600;
+  color: var(--black-font);
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .time {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  top: 18px;
+  left: 13px;
+  object-fit: cover;
+}
+
+.program-list-editor .overlap-8 {
+  position: absolute;
+  width: 226px;
+  height: 172px;
+  top: 0;
+  left: 491px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.program-list-editor .text-wrapper-28 {
+  width: 169px;
+  top: 117px;
+  left: 29px;
+  font-family: "Manrope", Helvetica;
+  font-weight: 600;
+  color: var(--black-font);
+  font-size: 20px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .calendar {
+  position: absolute;
+  width: 92px;
+  height: 97px;
+  top: 12px;
+  left: 11px;
+  object-fit: cover;
+}
+
+.program-list-editor .text-wrapper-29 {
+  position: absolute;
+  height: 19px;
+  top: 46px;
+  left: 1734px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  color: #8591a5;
+  font-size: 16px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.program-list-editor .edit {
+  top: 867px;
+  left: 1398px;
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+}
+
+.program-list-editor .edit-2 {
+  top: 193px;
+  left: 1009px;
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+}
+
+.program-list-editor .edit-3 {
+  top: 193px;
+  left: 1802px;
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+}
