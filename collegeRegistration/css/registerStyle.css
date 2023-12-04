@@ -15,13 +15,14 @@ body {
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)),
-        url(/homepage/assets/img/kolej.jpg);    
+        url(/CampusConnect/homepage/assets/img/kolej.jpg);    
     background-size: cover;
     background-position: center;
 }
 
 .register-container {
     padding-top: 100px;
+    padding-bottom: 100px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -99,14 +100,14 @@ body {
 }
 
 .register label input {
-    accent-color: rgb(0, 132, 225);
+    accent-color: #007BFF;
     margin-right: 5px;
 }
 
 .register .btn {
     width: 100%;
     height: 45px;
-    background: rgb(0, 132, 225);
+    background:  #007BFF;
     border: none;
     outline: none;
     border-radius: 6px;
