@@ -1,0 +1,697 @@
+.program-list-editor {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: fit-content;
+}
+
+.program-list-editor .program-list-editor-wrapper {
+  overflow-x: hidden;
+  width: 1920px;
+  height: 1080px;
+}
+
+.program-list-editor .overlap-wrapper {
+  width: 1922px;
+  height: 1080px;
+}
+
+.program-list-editor .overlap {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+}
+
+.program-list-editor .group {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+
+.program-list-editor .co-SA {
+  height: 1080px;
+  background-color: #f1f1f1;
+}
+
+.program-list-editor .overlap-group {
+  position: relative;
+  width: 260px;
+  height: 1080px;
+}
+
+.program-list-editor .menu {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1080px;
+  align-items: center;
+  gap: 60px;
+  padding: 140px 46px 0px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #060606;
+}
+
+.program-list-editor .frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .expand-tab {
+  display: flex;
+  width: 184px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .icons {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.program-list-editor .text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .div {
+  display: flex;
+  width: 160px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .dashboard {
+  color: #f1f1f1;
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .expand-tab-2 {
+  background-color: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  width: 160px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 26px 13px 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .dashboard-2 {
+  margin-right: -24px;
+  color: #e65f2b;
+  position: relative;
+  width: fit-content;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.program-list-editor .icons-wrapper {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px;
+  position: absolute;
+  top: 30px;
+  left: 245px;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 2px 2px 8px #0000001a;
+}
+
+.program-list-editor .img {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.program-list-editor .img-wrapper {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  position: absolute;
+  top: 1022px;
+  left: 30px;
+  background-color: #e65f2b;
+  border-radius: 48px;
+  box-shadow: 0px 8px 15px #130f391f;
+}
+
+.program-list-editor .icons-2 {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.program-list-editor .group-2 {
+  position: absolute;
+  width: 177px;
+  height: 80px;
+  top: 25px;
+  left: 34px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.program-list-editor .div-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1589px;
+  height: 31px;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 45px;
+  position: absolute;
+  top: 89px;
+  left: 297px;
+}
+
+.program-list-editor .text-wrapper-2 {
+  position: relative;
+  width: 243px;
+  margin-top: -1px;
+  margin-left: -1px;
+  -webkit-text-stroke: 0.5px #060606;
+  font-family: "Amiko", Helvetica;
+  font-weight: 400;
+  color: #060606;
+  font-size: 22px;
+  letter-spacing: 0.22px;
+  line-height: normal;
+}
+
+.program-list-editor .program-list {
+  position: absolute;
+  width: 1586px;
+  height: 917px;
+  top: 141px;
+  left: 284px;
+}
+
+.program-list-editor .overlap-2 {
+  position: inherit;
+  width: 1606px;
+  height: 1070px;
+  left: -4px;
+  background-image: url(./img/rectangle-6441.svg);
+  background-size: 100% 100%;
+  top: -66px;
+}
+
+.program-list-editor .div-2 {
+  flex-direction: column;
+  width: 1582px;
+  height: 834px;
+  top: 73px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 4px;
+}
+
+.program-list-editor .frame-2 {
+  display: flex;
+  width: 1582px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11.65px 19.41px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #262626;
+  border-radius: 7.76px;
+}
+
+.program-list-editor .text-wrapper-3 {
+  position: relative;
+  width: 156px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #898989;
+  font-size: 18px;
+  letter-spacing: 0.9px;
+  line-height: normal;
+}
+
+.program-list-editor .group-3 {
+  position: relative;
+  width: 219.06px;
+  height: 24px;
+}
+
+.program-list-editor .text-wrapper-4 {
+  position: absolute;
+  width: 217px;
+  top: 0;
+  left: 0;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #898989;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-5 {
+  position: relative;
+  width: 233px;
+  margin-top: 2.03px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #898989;
+  font-size: 20px;
+  letter-spacing: 0px;
+  line-height: normal;
+  right: -77px;
+}
+
+.program-list-editor .group-4 {
+  position: relative;
+  width: 195px;
+  height: 24px;
+}
+
+.program-list-editor .text-wrapper-6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #898989;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.program-list-editor .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -0.97px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #898989;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.program-list-editor .frame-3 {
+  display: flex;
+  width: 1582px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23.29px 19.41px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .frame-4 {
+  display: flex;
+  width: 142px;
+  align-items: center;
+  gap: 5.82px;
+  position: relative;
+}
+
+.program-list-editor .text-wrapper-8 {
+  position: relative;
+  width: 181px;
+  margin-top: -0.97px;
+  margin-right: -39px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-9 {
+  position: relative;
+  width: 135.87px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-10 {
+  position: relative;
+  width: 135.87px;
+  margin-top: -0.97px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .text-wrapper-11 {
+  position: relative;
+  width: 89px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .frame-5 {
+  display: flex;
+  width: 91px;
+  align-items: center;
+  gap: 3.88px;
+  position: relative;
+}
+
+.program-list-editor .text-wrapper-12 {
+  position: relative;
+  width: 103px;
+  margin-top: -0.97px;
+  margin-right: -12px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .line {
+  position: relative;
+  width: 1581px;
+  height: 1px;
+}
+
+.program-list-editor .frame-6 {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.82px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.program-list-editor .text-wrapper-13 {
+  width: 83px;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .frame-7 {
+  width: 89px;
+  display: flex;
+  align-items: center;
+  gap: 3.88px;
+  position: relative;
+}
+
+.program-list-editor .text-wrapper-14 {
+  position: relative;
+  width: 103px;
+  margin-top: -0.97px;
+  margin-right: -14px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .line-2 {
+  position: relative;
+  width: 1581px;
+  height: 1.89px;
+}
+
+.program-list-editor .frame-8 {
+  width: 75px;
+  display: flex;
+  align-items: center;
+  gap: 3.88px;
+  position: relative;
+}
+
+.program-list-editor .text-wrapper-15 {
+  position: relative;
+  width: fit-content;
+  margin-top: -0.97px;
+  margin-right: -4px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.program-list-editor .line-3 {
+  position: relative;
+  width: 1582px;
+  height: 1.75px;
+}
+
+.program-list-editor .text-wrapper-16 {
+  width: 93px;
+  margin-top: -0.97px;
+  margin-right: -2px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+}
+
+.program-list-editor .text-wrapper-17 {
+  position: relative;
+  width: fit-content;
+  margin-top: -0.97px;
+  margin-right: -1px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.program-list-editor .line-4 {
+  position: relative;
+  width: 1582px;
+  height: 1.3px;
+}
+
+.program-list-editor .text-wrapper-18 {
+  width: 97px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+}
+
+.program-list-editor .line-5 {
+  position: relative;
+  width: 1581px;
+  height: 1.22px;
+}
+
+.program-list-editor .text-wrapper-19 {
+  width: 95px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+}
+
+.program-list-editor .line-6 {
+  position: relative;
+  width: 1582px;
+  height: 1.05px;
+}
+
+.program-list-editor .text-wrapper-20 {
+  width: 76px;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .frame-9 {
+  width: 106px;
+  display: flex;
+  align-items: center;
+  gap: 3.88px;
+  position: relative;
+}
+
+.program-list-editor .text-wrapper-21 {
+  position: relative;
+  width: 116px;
+  margin-top: -0.97px;
+  margin-right: -10px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+
+.program-list-editor .line-7 {
+  position: relative;
+  width: 1581px;
+  height: 1.71px;
+}
+
+.program-list-editor .div-3 {
+  width: 1519px;
+  height: 83px;
+  gap: 38.82px;
+  padding: 15.53px;
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 4px;
+}
+
+.program-list-editor .text-wrapper-22 {
+  position: relative;
+  width: 66.96px;
+  margin-top: -0.97px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 15.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 21.7px;
+}
+
+.program-list-editor .text-wrapper-23 {
+  width: 80px;
+  margin-top: -0.97px;
+  font-size: 15.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 21.7px;
+  position: relative;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+}
+
+.program-list-editor .text-wrapper-24 {
+  position: relative;
+  width: 66.96px;
+  margin-top: -0.97px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 21.7px;
+}
+
+.program-list-editor .text-wrapper-25 {
+  position: relative;
+  width: 93px;
+  margin-top: -0.97px;
+  font-family: "Urbanist", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15.5px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 21.7px;
+}
+
+.program-list-editor .rectangle {
+  position: absolute;
+  width: 67px;
+  height: 3px;
+  top: 49px;
+  left: 16px;
+  border-radius: 23.29px;
+  background: linear-gradient(180deg, rgb(109.98, 56.11, 224.44) 0%, rgb(255, 95, 54) 100%);
+}
+
+.program-list-editor .text-wrapper-26 {
+  position: absolute;
+  height: 19px;
+  top: 58px;
+  left: 1700px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  color: #8591a5;
+  font-size: 16px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
