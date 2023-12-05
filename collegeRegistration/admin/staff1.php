@@ -1,7 +1,5 @@
 <?php
-// staff.php
-
-// Connect to the database (similar to register.php)
+// Establishing a connection to MySQL database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -9,15 +7,16 @@ $dbname = "collegeregistration";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch student data from the database
+// Performing SQL query to fetch data from the student table
 $sql = "SELECT * FROM student";
 $result = $conn->query($sql);
 
-// Check if there are rows in the result set
+// Checking if there are rows returned
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
@@ -33,9 +32,9 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='8'>No data found</td></tr>";
+    echo "0 results";
 }
 
-// Close the database connection
+// Closing the database connection
 $conn->close();
 ?>

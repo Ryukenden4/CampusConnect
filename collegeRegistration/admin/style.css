@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background: url(/homepage/assets/img/kolej.jpg) center / cover;
+    background: url(/CampusConnect/homepage/assets/img/kolej.jpg) center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
