@@ -26,11 +26,10 @@ header {
 }
 
 footer.page-footer {
+    position: absolute;
     z-index: 1000;
     padding-top: 100px;
     color: #fff; /* Set text color for the footer */
-    padding: 20px 0; /* Adjust padding as needed */
-    position: fixed;
     width: 100%;
     bottom: 0;
 }

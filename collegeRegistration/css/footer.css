@@ -1,15 +1,11 @@
 .page-footer {
-  position: fixed; /* Change from relative to fixed */
-  bottom: 0; /* Stick to the bottom */
-  left: 0;
-  width: 100%;
-  display: block;
-  padding-top: 80px;
-  padding-bottom: 16px;
-  background-color: #2D3B38;
-  color: #fff;
-}
-
+    position: relative;
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 16px;
+    background-color: #2D3B38;
+    color: #fff;
+  }
   
   .page-footer h5 {
     font-weight: 500;
