@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" title="Coding design">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive HTML Table With Pure CSS - Web Design/UI Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- header n footer css -->
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/maicons.css">
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/theme.css">
+    <link rel="stylesheet" href="/CampusConnect/collegeRegistration/css/footer.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+          <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupport">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/CampusConnect/homepage/html/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/CampusConnect/homepage/html/about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/CampusConnect/homepage/html/team.html">Srk</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/CampusConnect/homepage/html/contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-primary ml-lg-3" href="/CampusConnect/collegeRegistration/html/login.html">Login / Register</a>
+                </li>
+              </ul>
+            </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
+        </nav>
+      </header>
+
+    <!-- body section -->
+    <main class="table">
+        <section class="table__header">
+            <h1>Students' Residential List</h1>
+            <!-- <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="images/search.png" alt="">
+            </div> -->
+        </section>
+        <section class="table__body">
+            <table>
+                <!-- head for table -->
+                <thead>
+                    <tr>
+                        <th> Id </th>
+                        <th> Fullname </th>
+                        <th> Email </th>
+                        <th> Phone Number </th>
+                        <th> Programme Code </th>
+                        <th> Semester </th>
+                        <th> College </th>
+                        <th> Room </th>
+                    </tr>
+                </thead>
+
+                <!-- body for table -->
+                <tbody id="studentData">
+                    <!-- data will be fetch from staff1.php to display dinamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row px-md-3">
+    
+            <div class="col-sm-6 col-lg-3 py-3">
+              <h5>Company</h5>
+              <ul class="footer-menu">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Editorial Team</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-sm-6 col-lg-3 py-3">
+              <h5>More</h5>
+              <ul class="footer-menu">
+                <li><a href="#">Terms & Condition</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-sm-6 col-lg-3 py-3">
+              <h5>Contact</h5>
+              <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
+                Kampus Kota Kinabalu
+                Beg Berkunci 71,
+                88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
+              <a href="#" class="footer-link">+6088 - 325151</a>
+              <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
+            </div>
+    
+            <div class="col-sm-6 col-lg-3 py-3">
+              <h5>Social Media</h5>
+              <div class="footer-sosmed mt-3">
+                <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+                <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+                <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+              </div>
+            </div>
+          </div>
+    
+          <hr>
+    
+          <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
+        </div>
+      </footer>
+    
+</body>
+
+     <!-- javascript/jQuery to get data from staff1.php -->
+     <script>
+        // Fetch data from staff.php using AJAX
+        window.onload = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'staff1.php', true);
+    
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    // Update the content of tbody with the fetched data
+                    document.getElementById('studentData').innerHTML = xhr.responseText;
+                }
+            };
+    
+            xhr.send();
+        };
+    </script>
+</html>
