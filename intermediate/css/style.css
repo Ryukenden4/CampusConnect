@@ -351,7 +351,7 @@ a.navbar-brand {
     float: left;
     padding: 8px 10px;
     color: #ffffff;
-    background-color: #e73232;
+    background-color: #00D9A5;
     text-align: center;
     font-size: 18px;
     text-transform: uppercase;
@@ -414,7 +414,7 @@ a.navbar-brand {
 #banner_slider .carousel-control-prev {
     width: 55px;
     height: 55px;
-    background: #e73232;
+    background: #00D9A5;
     opacity: 1;
     font-size: 16px;
     color: #ffffff;
@@ -487,7 +487,7 @@ a.navbar-brand {
 .book_text {
     width: 100%;
     font-size: 16px;
-    color: #e73232;
+    color: #00D9A5;
     margin: 0px;
     font-weight: bold;
 }
@@ -501,7 +501,7 @@ a.navbar-brand {
 }
 
 .online_box_left:hover {
-    background-color: #e73232;
+    background-color: #00D9A5;
 }
 
 .online_box_left:hover .book_text {
@@ -1287,7 +1287,7 @@ textarea#comment::placeholder {
 }
 
 .copyright_text a:hover {
-    color: #e73232;
+    color: #00D9A5;
 }
 
 

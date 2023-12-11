@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             // Login successful for student
             $_SESSION["user_type"] = "student";
-            header("Location: /CampusConnect/html/index.html"); // Replace with the actual path
+            header("Location: /CampusConnect/intermediate/index.html"); // Replace with the actual path
         } else {
             // Login failed for student
             echo "Error: Incorrect Student ID or password. Please try again.";
