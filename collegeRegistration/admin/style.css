@@ -12,8 +12,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 56px;
-    padding-top: 100px;
-    
 }
 
 header {
@@ -26,9 +24,8 @@ header {
 }
 
 footer.page-footer {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
-    padding-top: 100px;
     color: #fff; /* Set text color for the footer */
     width: 100%;
     bottom: 0;
@@ -37,12 +34,13 @@ footer.page-footer {
 
 main.table {
     width: 82vw;
-    height: 90vh;
+    height: 60vh;
     background-color: #fff5;
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
     overflow: hidden;
+    position: relative;
 }
 
 
@@ -118,7 +116,7 @@ main.table {
 
 table {
     width: 100%;
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
 
 td img {
