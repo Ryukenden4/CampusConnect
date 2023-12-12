@@ -69,7 +69,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
-              <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
+              <a class="navbar-brand" href="#"><span class="text-primary">College</span>Info<span class="text-primary">Center</span></a>
       
               <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
@@ -102,19 +102,20 @@
                         </P>
                       </div> 
 
-                      <form class="main-form formbackground">
+                      <form class="main-form formbackground" action="response.php" method="POST">
                         <div class="row mt-5 ">
                           <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                            <input type="text" class="form-control" placeholder="Full name">
+                            <input type="fullName" class="form-control" placeholder="Full Name" name="fullName">
                           </div>
                           <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                            <input type="text" class="form-control" placeholder="Email address..">
+                            <input type="text" class="form-control" placeholder="Email address.." name="email">
                           </div>
                           <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" name="date">
                           </div>
                           <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                            <select name="departement" id="departement" class="custom-select">
+                            <select name="typeOfUser" id="typeOfUser" class="custom-select" required>
+                              <option value="None">-</option>
                               <option value="Students">Students</option>
                               <option value="Parents">Parents</option>
                               <option value="Contractor">Contractor</option>
@@ -122,7 +123,7 @@
                             </select>
                           </div>
                           <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                            <select name="departement" id="departement" class="custom-select">
+                            <select name="purpose" id="purpose" class="custom-select">
                                 <option value="complaints">-</option>
                                 <option value="complaints">Facility Damage Complaints</option>
                                 <option value="meeting">Meeting URHP Staff</option>
@@ -136,13 +137,61 @@
                           </div>
                         </div>
                       </form>
-                      <a class="nav-link" href="thankyou.html"><button type="submit" class="btn btn-primary mt-3 wow zoomIn" style="background-color: #00D9A5;">Submit Response</button></a>
+                      <a class="nav-link" href="thankyou.html"><button type="submit" name="submit" class="btn btn-primary mt-3 wow zoomIn" style="background-color: #00D9A5;">Submit Response</button></a>
                       
                       
                 </div> <!-- .container -->
               </div> <!-- .page-section -->
           </div> <!-- .page-banner -->
     <div>
+
+  <!-- footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Editorial Team</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
+            Kampus Kota Kinabalu
+            Beg Berkunci 71,
+            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
+          <a href="#" class="footer-link">+6088 - 325151</a>
+          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Social Media</h5>
+          <div class="footer-sosmed mt-3">
+            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
+      <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
+    </div>
+  </footer>
         
         
 </body>
