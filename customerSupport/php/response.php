@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
         $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message) 
             VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
     
-            // Execute SQL query
+            // Execute SQL queryy
             if ($conn->query($sql) === TRUE) {
                 echo "New record created successfully";
             } else {
