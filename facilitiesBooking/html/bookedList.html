@@ -4,7 +4,7 @@
 <head style="background-color: #f1f1f1;"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>readingRoomBooking</title>
+    <title>bookedList</title>
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -31,8 +31,22 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        box {
+        .h2 {
           text-align: center;
+          width: 20cm;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 2px solid #fff;
+            text-align: center;
+            padding: 8px;
         }
 
         box h2{
@@ -43,18 +57,6 @@
           
         }
 
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            text-decoration: none;
-            display: inline-block;
-            color: #fff;
-            font-size: 24px;
-            border: 2px solid #fff;
-            padding: 14px 70px;
-            border-radius: 50px;
-            margin-top: 20px;
-        }
 
         label {
             display: block;
@@ -95,10 +97,10 @@
                       <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                       </li>
-                      <li class="nav-item active">
+                      <li class="nav-item">
                         <a class="nav-link" href="about.html">Programmes Registration</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="team.html">Facilities Booking</a>
                       </li>
                       <li class="nav-item">
@@ -117,22 +119,35 @@
                     <nav aria-label="Breadcrumb">
                       <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <div class="box">
-                            <h2>READING ROOM BOOKING</h2>
-                            <form action="booking.php" method="POST">
-                              <div class="form-group mb-3">
-                                  <label for="day">Name:</label>
-                                  <input type="text" name="name" class="form-control">
-                              </div>
-                              <div class="form-group mb-3">
-                                  <label for="month">Date of booking:</label>
-                                  <input type="date" name="dateofBooking" class="form-control">
-                              </div>
-                              <div class="form-group mb-3">
-                                <button type="submit" name="save_date" class="btn btn-success">BOOK</button>
-                              </div>
-                      
-                          </form>
-                            
+                            <p><h2>BOOKED LIST</h2></p>
+                            <table style="width: 100%;">
+                                <colgroup>
+                                  <col span="2">
+                                </colgroup>
+
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Student Name</th>
+                                    <th>ID NO.</th>
+                                    <th>DATE</th>
+                                    <th>TIMES BOOKED</th>
+                                </tr>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Aylne</td>
+                                    <td>2022791835</td>
+                                    <td>21/07/2023</td>
+                                    <td>2:00 PM - 3:00 PM</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Norliana</td>
+                                    <td>2022863633</td>
+                                    <td>02/07/2023</td>
+                                    <td>7:00 PM - 8:00 PM</td>
+                                </tr>
+
                             
                           </div>
   
@@ -147,52 +162,5 @@
       </body>
   </head>
   </body>
-
-
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row px-md-3">
   
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Company</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Editorial Team</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>More</h5>
-          <ul class="footer-menu">
-            <li><a href="#">Terms & Condition</a></li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Contact</h5>
-          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
-            Kampus Kota Kinabalu
-            Beg Berkunci 71,
-            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
-          <a href="#" class="footer-link">+6088 - 325151</a>
-          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Social Media</h5>
-          <div class="footer-sosmed mt-3">
-            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-          </div>
-        </div>
-      </div>
-  
-      <hr>
-  
-      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
-      <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
-    </div>
-  </footer>
   </html>

@@ -1,14 +1,11 @@
+
 <?php
 
 if(isset($_POST['submit'])){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get form data
-        $fullName = $_POST['fullName'];
-        $email = $_POST['email'];       
-        $typeOfUser = $_POST['typeOfUser'];      
-        $date = $_POST['date'];       
-        $purpose = $_POST['purpose'];
-        $message = $_POST['message'];
+        $name = $_POST['name'];
+        $dob = $_POST['dob'];       
 
         // Establishing a connection to MySQL database       
         $servername = "localhost";
@@ -27,10 +24,10 @@ if(isset($_POST['submit'])){
         } else {
         
         // SQL to insert data into the table
-        $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message) 
-            VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
+        $sql = "INSERT INTO booking(name, dob) 
+            VALUES ('$name', '$dob')";
     
-            // Execute SQL queryy
+            // Execute SQL query
             if ($conn->query($sql) === TRUE) {
                 echo "New record created successfully";
             } else {
