@@ -3,6 +3,7 @@
 if(isset($_POST['submit'])){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get form data
+        
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];       
         $typeOfUser = $_POST['typeOfUser'];      

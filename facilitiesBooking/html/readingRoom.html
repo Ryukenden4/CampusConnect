@@ -61,10 +61,11 @@
             background-color: #00D9A5;
             background-color: ;
             color: #fff;
-            padding: 15px 20px;
+            padding: 10px 15px;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
             cursor: pointer;
+            width: 8cm;
         }
 
         button:hover {
@@ -107,7 +108,16 @@
                         <h2>READING ROOM</h2>
                     </div>
                     <br></ol>
+
+                    <form action="booking.php" method="POST">
+                      <div class="form-group mb-3">
+                          <label for="month">Date:</label>
+                          <input type="date" name="dateofBooking" class="form-control">
+                      </div>
+                  </form>
+
                     <a class="nav-link" href="tableAvailability.html"><button type="return" class="button_menu">CHECK AVAILABILITY</button></a>
+                    <a class="nav-link" href="student.html"><button type="return" class="button">RETURN</button></a>
                     <table id="availabilityTable"></table>
                 </ol>
               </div>
