@@ -48,7 +48,7 @@
       }
 
       .button{
-        background-color: #00D9A5;
+        background-color: #007bff;
         border: none;
         color: rgb(255, 255, 255);
         padding: 10px 20px;
@@ -58,7 +58,6 @@
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
-        text-shadow: 2px 2px 5px rgb(49, 49, 49);
       }
     </style>
 </head>
@@ -67,21 +66,21 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-          <a class="navbar-brand" href="#"><span class="text-primary">CollegeInfo</span>Center</a>
+          <a class="navbar-brand" href="index.html" ><span style="color:#007bff">College</span> InfoCenter</a>
   
           <div class="collapse navbar-collapse" id="navbarSupport">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="/homepage/html/index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="team.html">Team</a>
+                <a class="nav-link" href="/programRegistration/index.html">Programme Registration</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="/facilitiesBooking/html/admin.html">Facility Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/customerSupport/html/admin.html">Customer Support/a>
               </li>
             </ul>
           </div> <!-- .navbar-collapse -->
@@ -102,50 +101,12 @@
             
             <p>
             <div style="background-color: #f1f1f1; position: relative;">
-                
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-                            
-                <canvas id="myChart" style="width:100%; max-width:600px; height: 10cm;"></canvas>
-
-                <div id="myChart"></div>
-                
-                <script>
-                var element = document.getElementById('centeredElement');
-
-                 // Set styles to center the element
-                element.style.position = 'absolute';
-                element.style.top = '50%';
-                element.style.left = '50%';
-                element.style.transform = 'translate(-50%, -50%)';
-                </script>
-                
-
-                <script>
-                const xValues = ["KEY", "FORM", "ELECTRIC", "COMPLAINTS", "OTHERS",];
-                const yValues = [55, 49, 44, 24, 35];
-                const barColors = ["red", "green","blue","orange","brown"];
-                
-                
-                new Chart("myChart", {
-                  type: "bar",
-                  data: {
-                    labels: xValues,
-                    datasets: [{
-                      backgroundColor: barColors,
-                      data: yValues
-                    }]
-                  },
-                  options: {
-                    legend: {display: false},
-                    title: {
-                      display: true,
-                    }
-                  }
-                });
-                </script>
+              <a class="nav-link" href="/customerSupport/php/graph.php"></a>
+              yes
              </div>
              </p>
+
+
 
              <p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
 
