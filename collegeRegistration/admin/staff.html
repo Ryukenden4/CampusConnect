@@ -76,8 +76,6 @@
         </section>
     </main>
 
-   
-    
 </body>
 
      <!-- javascript/jQuery to get data from staff1.php -->
@@ -108,41 +106,49 @@
           }
       }
     </script>
-  <!-- Edit data -->
-<script>
-  function openEditPopup(id, field) {
+    <!-- Edit data script -->
+    <script>
+    function openEditPopup(id, field) {
+      // Define allowed colleges
+      var allowedColleges = ["Manukan", "Mabul", "Mantanani"];
+  
+      // Prompt user for a new value
       var value = prompt("Enter new value for " + field + ":");
-      if (value !== null) {
-          // Use AJAX to update the data in the database
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'edit_student.php?id=' + id + '&field=' + field + '&value=' + value, true);
-
-          xhr.onload = function () {
-              if (xhr.status == 200) {
-                  // Reload the data after editing
-                  loadStudentData();
-              }
-          };
-
-          xhr.send();
+  
+      if (field === 'college' && !allowedColleges.includes(value)) {
+        alert("Invalid college. Please choose either Manukan, Mabul, or Mantanani.");
+        return;
       }
-  }
-
-  function loadStudentData() {
+  
+      if (value !== null) {
+        // Use AJAX to update the data in the database
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'edit_student.php?id=' + id + '&field=' + field + '&value=' + value, true);
+  
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            // Reload the data after editing
+            loadStudentData();
+          }
+        };
+  
+        xhr.send();
+      }
+    }
+  
+    function loadStudentData() {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'staff1.php', true);
-
+  
       xhr.onload = function () {
-          if (xhr.status == 200) {
-              document.getElementById('studentData').innerHTML = xhr.responseText;
-          }
+        if (xhr.status == 200) {
+          document.getElementById('studentData').innerHTML = xhr.responseText;
+        }
       };
-
+  
       xhr.send();
-  }
-</script>
-
-    
-    
+    }
+    </script>
+  
 
 </html>

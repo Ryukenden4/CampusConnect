@@ -19,15 +19,16 @@ if ($conn->connect_error) {
 
 // Handling form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["ID"];
-    $fullName = ucwords($_POST["fullName"]); // Capitalize each word in full name
-    $email = $_POST["email"];
-    $phoneNumber = $_POST["phoneNumber"];
-    $password = $_POST["password"];
-    $programCode = strtoupper($_POST["programCode"]); // Uppercase the program code
-    $semester = $_POST["semester"];
-    $college = ucwords($_POST["college"]); // Capitalize each word in college name
-    $roomNumber = $_POST["roomNumber"];
+    // Validate and sanitize input
+    $id = mysqli_real_escape_string($conn, $_POST["ID"]);
+    $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+    $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
+    $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
+    $college = ucwords(mysqli_real_escape_string($conn, $_POST["college"])); // Capitalize each word in college name
+    $roomNumber = mysqli_real_escape_string($conn, $_POST["roomNumber"]);
 
     // Validate residential college
     $allowedColleges = array("Manukan", "Mabul", "Mantanani");
@@ -76,10 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = 'Enable';
 
     // Performing SQL query to insert data into the student table
-    $sql = "INSERT INTO student (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber, registrationDateTime, status)
-            VALUES ('$id', '$fullName', '$email', '$phoneNumber', '$password', '$programCode', '$semester', '$college', '$roomNumber', '$registrationDateTime', '$status')";
+    $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber, registrationDateTime, status) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssss", $id, $fullName, $email, $phoneNumber, $password, $programCode, $semester, $college, $roomNumber, $registrationDateTime, $status);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         // Registration successful
         echo '<script>
                 alert("Registration successful!");
@@ -87,8 +89,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </script>';
     } else {
         // Registration failed
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
 }
 
 // Closing the database connection
