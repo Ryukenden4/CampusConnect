@@ -21,53 +21,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the student checkbox is checked
     if (isset($_POST["student"])) {
-        $stmt = $conn->prepare("SELECT * FROM student WHERE ID=?");
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $sql = "SELECT * FROM student WHERE ID='$id' AND password='$password'";
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $hashedPassword = $row['password'];
-
-            if (password_verify($password, $hashedPassword)) {
-                // Login successful for student
-                $_SESSION["user_type"] = "student";
-                header("Location: /CampusConnect/intermediate/student.html"); // Replace with the actual path
-            } else {
-                // Login failed for student
-                echo "Error: Incorrect Student ID or password. Please try again.";
-            }
+            // Login successful for student
+            $_SESSION["user_type"] = "student";
+            header("Location: /CampusConnect/intermediate/student.html"); // Replace with the actual path
         } else {
-            // User not found
-            echo "Error: User not found.";
+            // Login failed for student
+            echo "Error: Incorrect Student ID or password. Please try again.";
         }
-
-        $stmt->close();
     } elseif (isset($_POST["staff"])) {
-        $stmt = $conn->prepare("SELECT * FROM staff WHERE ID=?");
-        $stmt->bind_param("s", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        // Check if the staff checkbox is checked
+        $sql = "SELECT * FROM staff WHERE ID='$id' AND password='$password'";
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $hashedPassword = $row['password'];
-
-            if (password_verify($password, $hashedPassword)) {
-                // Login successful for staff
-                $_SESSION["user_type"] = "staff";
-                header("Location: /CampusConnect/intermediate/staff.html"); // Replace with the actual path
-            } else {
-                // Login failed for staff
-                echo "Error: Incorrect Staff ID or password. Please try again.";
-            }
+            // Login successful for staff
+            $_SESSION["user_type"] = "staff";
+            header("Location: /CampusConnect/intermediate/staff.html"); // Replace with the actual path
         } else {
-            // User not found
-            echo "Error: User not found.";
+            // Login failed for staff
+            echo "Error: Incorrect Staff ID or password. Please try again.";
         }
-
-        $stmt->close();
     } else {
         // Handle the case where neither student nor staff checkbox is checked
         echo "Error: Please select either Student or Staff checkbox.";
