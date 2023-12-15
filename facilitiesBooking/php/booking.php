@@ -1,42 +1,40 @@
 
 <?php
+// Database connection details
+$servername = "localhost"; // Replace with your database host
+$username = "root"; // Replace with your database username
+$password = ""; // Replace with your database password
+$dbname = "collegeregistration"; // Replace with your database name
 
-if(isset($_POST['submit'])){
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get form data
-        $name = $_POST['name'];
-        $dob = $_POST['dob'];       
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Establishing a connection to MySQL database       
-        $servername = "localhost";
-        $username = "root";      
-        $password = "";
-        $dbname = "collegeregistration";
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Process form data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $name = $_POST["name"];
+    $studentId = $_POST["studentId"];
+    $dateofBooking = $_POST["dateofBooking"];
+    $startTime = $_POST["startTime"];
+    $endTime = $_POST["endTime"];
 
-        //create connection
-        $conn = new mysqli ($servername, $username,$password,$dbname);
+    // SQL query to insert data into the database
+    $sql = "INSERT INTO booking (name, studentId, dateofBooking, startTime, endTime) 
+            VALUES ('$name', '$email', '$dateofBooking', '$startTime', '$endTime')";
 
-        if(mysqli_connect_errno()){
-            die('Connect Error ('.mysqli_connect_errno().')'
-            .mysqli_connect_errno());
-        } else {
-        
-        // SQL to insert data into the table
-        $sql = "INSERT INTO booking(name, dob) 
-            VALUES ('$name', '$dob')";
-    
-            // Execute SQL query
-            if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-           // Close the connection
-           $conn->close();
-        }
-
+    // Execute the query
+    if ($conn->query($sql) === TRUE) {
+        echo "Booking successful!"; // You can customize this message
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
+
+// Close the database connection
+$conn->close();
 ?>

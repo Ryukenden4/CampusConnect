@@ -43,17 +43,16 @@
           
         }
 
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            text-decoration: none;
-            display: inline-block;
-            color: #fff;
-            font-size: 24px;
-            border: 2px solid #fff;
-            padding: 14px 70px;
-            border-radius: 50px;
-            margin-top: 20px;
+        .rrForm {
+            background-color: #ffffff;
+            font-size: medium; 
+            text-align: center;
+            color: #0c0c0c;
+            width: 15cm; 
+            border: 2px solid #00D9A5;    
+            padding: 10px;
+            border-radius: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         label {
@@ -71,7 +70,7 @@
         }
 
         button {
-            background-color: #00D9A5;
+            background-color: #007bff;
             color: #fff;
             padding: 15px 20px;
             border: none;
@@ -88,7 +87,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
                 <div class="container">
-                  <a class="navbar-brand" href="#"><span class="text-primary">College</span>InfoCenter</a>
+                  <a class="navbar-brand" href="#"><span class="text-primary">College</span> InfoCenter</a>
           
                   <div class="collapse navbar-collapse" id="navbarSupport">
                     <ul class="navbar-nav ml-auto">
@@ -117,22 +116,26 @@
                     <nav aria-label="Breadcrumb">
                       <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <div class="box">
-                            <h2>READING ROOM BOOKING</h2>
-                            <form action="booking.php" method="POST">
-                              <div class="form-group mb-3">
-                                  <label for="day">Name:</label>
-                                  <input type="text" name="name" class="form-control">
-                              </div>
-                              <div class="form-group mb-3">
-                                  <label for="month">Date of booking:</label>
-                                  <input type="date" name="dateofBooking" class="form-control">
-                              </div>
-                              <div class="form-group mb-3">
-                                <button type="submit" name="save_date" class="btn btn-success">BOOK</button>
-                              </div>
-                      
-                          </form>
-                            
+
+                          <form action="booking.php" method="POST" class="rrForm">
+                            <h2>Reading Room Booking</h2>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                    
+                            <label for="studentId">Student ID:</label>
+                            <input type="text" id="studentId" name="studentId" required>
+                    
+                            <label for="date">Date of Booking:</label>
+                            <input type="date" id="date" name="date" required>
+
+                            <label for="startDate">Start Time:</label>
+                            <input type="time" id="startTime" name="startTime" required>
+
+                            <label for="endDate">End Time:</label>
+                            <input type="time" id="endTime" name="endTime" required>
+                    
+                            <a class="nav-link" href="thanks.html"><button type="submit">Book</button></a>
+                        </form>
                             
                           </div>
   
@@ -147,52 +150,4 @@
       </body>
   </head>
   </body>
-
-
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row px-md-3">
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Company</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Editorial Team</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>More</h5>
-          <ul class="footer-menu">
-            <li><a href="#">Terms & Condition</a></li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Contact</h5>
-          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
-            Kampus Kota Kinabalu
-            Beg Berkunci 71,
-            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
-          <a href="#" class="footer-link">+6088 - 325151</a>
-          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
-        </div>
-  
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Social Media</h5>
-          <div class="footer-sosmed mt-3">
-            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-          </div>
-        </div>
-      </div>
-  
-      <hr>
-  
-      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
-      <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
-    </div>
-  </footer>
   </html>

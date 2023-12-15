@@ -38,10 +38,6 @@
             font-weight: 600;
         }
 
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
 
         label {
             display: block;
@@ -58,7 +54,7 @@
         }
 
         .button {
-            background-color: #00D9A5;
+            background-color: #007bff;
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -70,6 +66,8 @@
         button:hover {
             background-color: #555;
         }
+
+        .banner
     </style>
 
     <head>
@@ -90,40 +88,11 @@
             }
         </style>
 
-        <script>
-            function checkAvailability() {
-                // Get the selected room type
-                var roomType = document.getElementById("roomType").value;
-
-                // Simulated room availability data (replace with actual data)
-                var availabilityData = {
-                    meetingRoom: ["9:00 AM - 10:00 AM", "2:00 PM - 3:00 PM"],
-                    readingRoom: ["11:00 AM - 12:00 PM"],
-                    gymRoom: ["1:00 PM - 2:00 PM", "3:30 PM - 4:30 PM"]
-                };
-
-                // Display availability in the table
-                var availabilityTable = document.getElementById("availabilityTable");
-                    availabilityTable.innerHTML = "<tr><th>Available Time</th></tr>";
-
-                if (availabilityData.hasOwnProperty(roomType)) {
-                    for (var i = 0; i < availabilityData[roomType].length; i++) {
-                        var row = availabilityTable.insertRow(-1);
-                        var cell = row.insertCell(0);
-                        cell.innerHTML = availabilityData[roomType][i];
-                    }
-                } else {
-                    var row = availabilityTable.insertRow(-1);
-                    var cell = row.insertCell(0);
-                    cell.innerHTML = "No availability information for selected room.";
-                }
-            }
-        </script>
     </head>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
-              <a class="navbar-brand" href="#"><span class="text-primary">College</span>InfoCenter</a>
+              <a class="navbar-brand" href="#"><span class="text-primary">College</span> InfoCenter</a>
       
               <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
@@ -170,51 +139,5 @@
             </div>
         </div>
     </header>
-
-    <footer class="page-footer">
-        <div class="container">
-          <div class="row px-md-3">
-      
-            <div class="col-sm-6 col-lg-3 py-3">
-              <h5>Company</h5>
-              <ul class="footer-menu">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Editorial Team</a></li>
-              </ul>
-            </div>
-      
-            <div class="col-sm-6 col-lg-3 py-3">
-              <h5>More</h5>
-              <ul class="footer-menu">
-                <li><a href="#">Terms & Condition</a></li>
-                <li><a href="#">Privacy</a></li>
-              </ul>
-            </div>
-      
-            <div class="col-sm-6 col-lg-3 py-3">
-              <h5>Contact</h5>
-              <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
-                Kampus Kota Kinabalu
-                Beg Berkunci 71,
-                88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
-              <a href="#" class="footer-link">+6088 - 325151</a>
-              <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
-            </div>
-      
-            <div class="col-sm-6 col-lg-3 py-3">
-              <h5>Social Media</h5>
-              <div class="footer-sosmed mt-3">
-                <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-              </div>
-            </div>
-          </div>
-      
-          <hr>
-      
-          <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
-          <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
-        </div>
-      </footer>
     </html>
+  
