@@ -7,8 +7,8 @@
 }
 
 .program-list-editor .program-list-editor-wrapper {
-  width: 1920px;
-  height: 1080px;
+  width: 100%;
+  height: 100%;
 }
 
 .program-list-editor .overlap-wrapper {
@@ -643,9 +643,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  position: absolute;
+  position: sticky;
   top: 1px;
-  left: 434px;
+  left: 410px;
 }
 
 .program-list-editor .text-wrapper-20 {
