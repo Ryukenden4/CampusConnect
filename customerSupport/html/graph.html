@@ -100,16 +100,39 @@
             <div style="font-size: 20px;"><i class="btn">| NOVEMBER 2023 SUMMARY |</i></div>
             
             <p>
-            <div style="background-color: #f1f1f1; position: relative;">
-              <a class="nav-link" href="/customerSupport/php/graph.php"></a>
-              yes
-             </div>
-             </p>
+            <div style="background-color: #f1f1f1; position: relative; height: 10cm;">
+              <a class="nav-link"></a>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
+<canvas id="myChart" style="width:100%;max-width:700px; position: relative;"></canvas>
 
-             <p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
+<script>
+const xValues = ["Facility Damage Complaints", "Meeting URHP Staff", "Borrow Second Key", "Register Electrical Items", "Form Submission"];
+const yValues = [55, 49, 44, 24, 34];
+const barColors = ["red", "green","blue","orange","brown"];
 
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Response Analytics"
+    }
+  }
+});
+</script> </p>
+
+<p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
+             
           </div>
           </div>
         </div>
