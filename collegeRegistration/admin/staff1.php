@@ -12,8 +12,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Performing SQL query to fetch data from the student table
-$sql = "SELECT * FROM student";
+// Performing SQL query to fetch data from the student table with status "enable"
+$sql = "SELECT * FROM student WHERE status = 'enable'";
 $result = $conn->query($sql);
 
 // Checking if there are rows returned
@@ -29,6 +29,11 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["semester"] . "</td>";
         echo "<td>" . $row["college"] . "</td>";
         echo "<td>" . $row["roomNumber"] . "</td>";
+        echo "<td>
+                <button onclick='openEditPopup(" . $row["ID"] . ", \"roomNumber\")'>Edit Room</button>
+                <button onclick='openEditPopup(" . $row["ID"] . ", \"college\")'>Edit College</button>
+                <button onclick='confirmDelete(" . $row["ID"] . ")'>Delete</button>
+              </td>";
         echo "</tr>";
     }
 } else {

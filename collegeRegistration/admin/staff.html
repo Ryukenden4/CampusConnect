@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" title="Coding design">
+<html lang="en" title="Student namelist">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
           <div class="container">
-            <a class="navbar-brand" href="#"><span class="text-primary">College</span> InfoCenter</a>
+            <a class="navbar-brand" href="/CampusConnect/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -28,20 +28,17 @@
             <div class="collapse navbar-collapse" id="navbarSupport">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                  <a class="nav-link" href="/CampusConnect/homepage/html/index.html">Home</a>
+                  <a class="nav-link" href="/CampusConnect/intermediate/staff.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Programmes Registration</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Facilities Booking</a>
+                  <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Customer Support</a>
+                  <a class="nav-link" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
                 </li>
-                <!-- <li class="nav-item">
-                  <a class="btn btn-primary ml-lg-3" href="/CampusConnect/collegeRegistration/html/login.html">Login / Register</a>
-                </li> -->
               </ul>
             </div> <!-- .navbar-collapse -->
           </div> <!-- .container -->
@@ -52,10 +49,7 @@
     <main class="table">
         <section class="table__header">
             <h1>Students' Residential List</h1>
-            <!-- <div class="input-group">
-                <input type="search" placeholder="Search Data...">
-                <img src="images/search.png" alt="">
-            </div> -->
+           
         </section>
         <section class="table__body">
             <table>
@@ -70,6 +64,7 @@
                         <th> Semester </th>
                         <th> College </th>
                         <th> Room </th>
+                        <th><center> Action </center></th>
                     </tr>
                 </thead>
 
@@ -81,9 +76,6 @@
         </section>
     </main>
 
-    <!-- footer -->
-   
-    
 </body>
 
      <!-- javascript/jQuery to get data from staff1.php -->
@@ -103,4 +95,60 @@
             xhr.send();
         };
     </script>
+    <!-- confirmation to delete or not -->
+    <script>
+      function confirmDelete(studentId) {
+          var confirmDelete = confirm("Are you sure you want to delete this student?");
+          
+          if (confirmDelete) {
+              // If user clicks OK, redirect to the delete.php with the student ID
+              window.location.href = 'delete.php?id=' + studentId;
+          }
+      }
+    </script>
+    <!-- Edit data script -->
+    <script>
+    function openEditPopup(id, field) {
+      // Define allowed colleges
+      var allowedColleges = ["Manukan", "Mabul", "Mantanani"];
+  
+      // Prompt user for a new value
+      var value = prompt("Enter new value for " + field + ":");
+  
+      if (field === 'college' && !allowedColleges.includes(value)) {
+        alert("Invalid college. Please choose either Manukan, Mabul, or Mantanani.");
+        return;
+      }
+  
+      if (value !== null) {
+        // Use AJAX to update the data in the database
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'edit_student.php?id=' + id + '&field=' + field + '&value=' + value, true);
+  
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            // Reload the data after editing
+            loadStudentData();
+          }
+        };
+  
+        xhr.send();
+      }
+    }
+  
+    function loadStudentData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'staff1.php', true);
+  
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+          document.getElementById('studentData').innerHTML = xhr.responseText;
+        }
+      };
+  
+      xhr.send();
+    }
+    </script>
+  
+
 </html>

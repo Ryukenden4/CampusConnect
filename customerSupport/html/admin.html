@@ -26,9 +26,9 @@
 
     <style>
       .button{
-        background-color: #00D9A5;
+        background-color: #007bff;
         border: none;
-        color: rgb(250, 250, 250);
+        color: rgb(255, 255, 255);
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -36,13 +36,12 @@
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
-        text-shadow: 2px 2px 5px rgb(49, 49, 49);
+        font-family: "Times New Roman", Times, serif;
       }
 
       .button_menu {
-        border: 2px solid #00D9A5; /* Green border */
-        background-color: transparent;
-        color: rgb(255, 255, 255);
+        background-color: hsl(0, 0%, 100%);
+        color: rgb(0, 0, 0);
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -54,11 +53,10 @@
         height: 3cm;
         font-family: "Times New Roman", Times, serif;
         font-size: 25px;
-        text-shadow: 2px 2px 5px rgb(49, 49, 49);
       }
 
       .button:hover {
-        background-color: #00D9A5;
+        background-color: #007bff;
       }
 
       .button_menu:hover {
@@ -87,26 +85,28 @@
 <body style="background-color:  rgb(255, 255, 255);">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-            <div class="container">
-              <a class="navbar-brand" href="#"><span class="text-primary">Campus</span>Connect</a>
-      
-              <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="about.html">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="team.html">Team</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </div> <!-- .navbar-collapse -->
-            </div> <!-- .container -->
+          <div class="container">
+            <a class="navbar-brand" href="index.html" ><span style="color:#007bff">College</span> InfoCenter</a>
+            
+          <div class="collapse navbar-collapse" id="navbarSupport">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/CampusConnect/homepage/html/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Programmes Registration</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="color:#007bff" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="btn btn-primary ml-lg-3" href="/CampusConnect/collegeRegistration/html/login.html">Login / Register</a>
+              </li> -->
+            </ul>
+          </div> <!-- .navbar-collapse -->
           </nav>
 
           <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
@@ -120,11 +120,11 @@
 
                 <div class="admin-bg">
                   
-                    <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
+                  <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
                  
                   <a class="nav-link" href="graph.html"><button type="return" class="button_menu">VIEW RESPONSE SUMMARY</button></a>
                   <a class="nav-link" href="tableList.html"><button type="return" class="button_menu">VIEW ALL RESPONSE LIST</button></a>
-                  <a class="nav-link" href="index.html"><button type="return" class="button btn">RETURN TO HOMEPAGE</button></a>
+                  <a class="nav-link" href="/intermediate/staff.html"><button type="return" class="button btn">RETURN TO HOMEPAGE</button></a>
                 </div>
 
               </div> <!-- .container -->              

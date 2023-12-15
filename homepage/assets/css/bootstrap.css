@@ -10094,7 +10094,7 @@ button.bg-dark:focus {
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #0056b3 !important;
+  color: #007bff !important;
 }
 
 .text-secondary {
@@ -10275,4 +10275,6 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+
 /*# sourceMappingURL=bootstrap.css.map */

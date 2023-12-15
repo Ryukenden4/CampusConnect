@@ -3,6 +3,7 @@
 if(isset($_POST['submit'])){
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get form data
+        
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];       
         $typeOfUser = $_POST['typeOfUser'];      
@@ -18,13 +19,12 @@ if(isset($_POST['submit'])){
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        //create connection
-        $conn = new mysqli ($servername, $username,$password,$dbname);
-
         if(mysqli_connect_errno()){
             die('Connect Error ('.mysqli_connect_errno().')'
             .mysqli_connect_errno());
         } else {
+
+            echo "New record created successfully";
         
         // SQL to insert data into the table
         $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message) 
