@@ -142,8 +142,8 @@ a.bg-dark:hover, a.bg-dark:focus {
 }
 
 .text-primary {
-  color: #00D9A5 !important;
-  /* color: #F9E0AE !important; */
+  /* color: #00D9A5 !important; */
+  color: #007bff  !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -266,8 +266,8 @@ a.text-dark:hover, a.text-dark:focus {
 /* Buttons */
 .btn-primary {
   color: #fff;
-  /* background-color: #F9E0AE; */
-  background-color: #00D9A5;
+  background-color: #007bff ;
+  /* background-color: #00D9A5; */
   border-color: transparent;
 }
 
@@ -280,8 +280,8 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #00D9A5;
-  border-color: #07be94;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -881,7 +881,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .breadcrumb-dark .breadcrumb-item a {
-  color: #00D9A5;
+  color: #007bff;
 }
 
 .breadcrumb-dark .breadcrumb-item a:hover {
@@ -938,7 +938,7 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   font-weight: 500;
-  color: #00D9A5;
+  color: #007bff ;
 }
 
 
