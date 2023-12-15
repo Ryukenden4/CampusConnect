@@ -58,7 +58,7 @@
         }
 
         .button {
-            background-color: #00D9A5;
+            background-color: #007bff;
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -90,40 +90,11 @@
             }
         </style>
 
-        <script>
-            function checkAvailability() {
-                // Get the selected room type
-                var roomType = document.getElementById("roomType").value;
-
-                // Simulated room availability data (replace with actual data)
-                var availabilityData = {
-                    meetingRoom: ["9:00 AM - 10:00 AM", "2:00 PM - 3:00 PM"],
-                    readingRoom: ["11:00 AM - 12:00 PM"],
-                    gymRoom: ["1:00 PM - 2:00 PM", "3:30 PM - 4:30 PM"]
-                };
-
-                // Display availability in the table
-                var availabilityTable = document.getElementById("availabilityTable");
-                    availabilityTable.innerHTML = "<tr><th>Available Time</th></tr>";
-
-                if (availabilityData.hasOwnProperty(roomType)) {
-                    for (var i = 0; i < availabilityData[roomType].length; i++) {
-                        var row = availabilityTable.insertRow(-1);
-                        var cell = row.insertCell(0);
-                        cell.innerHTML = availabilityData[roomType][i];
-                    }
-                } else {
-                    var row = availabilityTable.insertRow(-1);
-                    var cell = row.insertCell(0);
-                    cell.innerHTML = "No availability information for selected room.";
-                }
-            }
-        </script>
     </head>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
-              <a class="navbar-brand" href="#"><span class="text-primary">College</span>InfoCenter</a>
+              <a class="navbar-brand" href="#"><span class="text-primary">College</span> InfoCenter</a>
       
               <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
