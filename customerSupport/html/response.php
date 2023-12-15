@@ -28,7 +28,7 @@
     
             // Execute SQL queryy
             if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
+                echo "THANKYOU FOR YOUR RESPONSE";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
