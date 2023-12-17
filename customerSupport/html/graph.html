@@ -59,6 +59,11 @@
         cursor: pointer;
         border-radius: 5px;
       }
+
+      .button:hover{
+        background-color: #fcfcfc;
+        color: black;
+      }
     </style>
 </head>
 
@@ -90,54 +95,76 @@
       <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
         <div class="banner-section">
           <div class="container text-center wow fadeInUp">
-            <h1 style="color: #fcfcfc; text-align: center; font-size: 60px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+            <h1 style="color: #fcfcfc; text-align: center; font-size: 35px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
                 <div>
-                    MONTHLY RESPONSE SUMMARY
+                    <p>ALL RESPONSE SUMMARY</p>
                 </div>
             </h1>
             
-            
-            <div style="font-size: 20px;"><i class="btn">| NOVEMBER 2023 SUMMARY |</i></div>
-            
-            <p>
-            <div style="background-color: #f1f1f1; position: relative; height: 10cm;">
-              <a class="nav-link"></a>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+            <div style="background-color: #ffffff;">
+              <h2>
+                <title>Purpose Summary</title>
+               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              </h2>
 
+              <canvas id="myChart" width="400" height="200"></canvas>
 
-<canvas id="myChart" style="width:100%;max-width:700px; position: relative;"></canvas>
+             <script>
+                     var xhr = new XMLHttpRequest();
+                     xhr.onreadystatechange = function() {
+                      if (this.readyState === 4 && this.status === 200) {
+                        var dataFromPHP = JSON.parse(this.responseText);
 
-<script>
-const xValues = ["Facility Damage Complaints", "Meeting URHP Staff", "Borrow Second Key", "Register Electrical Items", "Form Submission"];
-const yValues = [55, 49, 44, 24, 34];
-const barColors = ["red", "green","blue","orange","brown"];
-
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Response Analytics"
-    }
-  }
-});
-</script> </p>
-
-<p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
+                     // Log fetched data
+                     console.log(dataFromPHP);
              
+                     var purposes = [];
+                     var counts = [];
+
+                     dataFromPHP.forEach(function(item) {
+                      purposes.push(item.purpose);
+                      counts.push(item.purpose_count);
+                    });
+
+                            // Log purposes and counts
+                            console.log(purposes);
+                            console.log(counts);
+
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                labels: purposes,
+                                datasets: [{
+                                  label: 'Purpose Summary',
+                                  data: counts,
+                                  backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                  borderColor: 'rgba(54, 162, 235, 1)',
+                                  borderWidth: 1
+                                }]
+                              },
+                              options: {
+                                    // Add options as needed
+                                    scales: {
+                                      y: {
+                                        beginAtZero: true
+                                      }
+                                    }
+                                  }
+                                });
+                              }
+                            };
+                            xhr.open('GET', 'graph.php', true);
+                            xhr.send();
+
+              </script>
+            </div>
+            <p><a class="nav-link" href="admin.html"><button type="return" class="button">RETURN TO MENU</button></a></p>
           </div>
           </div>
         </div>
       </div>
     </header>
 
-  </body>
+</body>
 </html>
