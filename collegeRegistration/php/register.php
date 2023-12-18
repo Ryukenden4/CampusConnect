@@ -24,50 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $gender = ucwords(mysqli_real_escape_string($conn, $_POST["gender"])); // Capitalize gender
     $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
     $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
-    $college = ucwords(mysqli_real_escape_string($conn, $_POST["college"])); // Capitalize each word in college name
-    $roomNumber = mysqli_real_escape_string($conn, $_POST["roomNumber"]);
-
-    // Validate residential college
-    $allowedColleges = array("Manukan", "Mabul", "Mantanani");
-    if (!in_array($college, $allowedColleges)) {
-        echo '<script>
-                alert("Invalid residential college. Please choose either Manukan, Mabul, or Mantanani.");
-                window.location.href = "/CampusConnect/collegeRegistration/html/register.html";
-              </script>';
-        exit();
-    }
-
-    // Check if the user has already registered in the selected room...
-    $checkRoomQuery = "SELECT COUNT(*) as count FROM student WHERE ID = '$id' AND roomNumber = '$roomNumber'";
-    $checkRoomResult = $conn->query($checkRoomQuery);
-
-    if ($checkRoomResult->num_rows > 0) {
-        $row = $checkRoomResult->fetch_assoc();
-        if ($row["count"] > 0) {
-            echo '<script>
-                    alert("You have already registered in this room. Please choose another room.");
-                    window.location.href = "/CampusConnect/collegeRegistration/html/register.html";
-                  </script>';
-            exit();
-        }
-    }
-
-    // Check if the selected room has reached its maximum capacity...
-    $checkRoomCapacityQuery = "SELECT COUNT(*) as count FROM student WHERE roomNumber = '$roomNumber'";
-    $checkRoomCapacityResult = $conn->query($checkRoomCapacityQuery);
-
-    if ($checkRoomCapacityResult->num_rows > 0) {
-        $row = $checkRoomCapacityResult->fetch_assoc();
-        if ($row["count"] >= 4) {
-            echo '<script>
-                    alert("This room is full. Please choose another room.");
-                    window.location.href = "/CampusConnect/collegeRegistration/html/register.html";
-                  </script>';
-            exit();
-        }
+    
+    // Determine user type based on checkbox
+    $userType = "";
+    if (isset($_POST["student"])) {
+        $userType = "student";
+    } elseif (isset($_POST["staff"])) {
+        $userType = "staff";
     }
 
     // Current date and time
@@ -76,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Status is set to 'Enable' upon registration
     $status = 'Enable';
 
-    // Performing SQL query to insert data into the student table
-    $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, programCode, semester, college, roomNumber, registrationDateTime, status) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssss", $id, $fullName, $email, $phoneNumber, $password, $programCode, $semester, $college, $roomNumber, $registrationDateTime, $status);
+    // Performing SQL query to insert data
+    $stmt = $conn->prepare("INSERT INTO $userType (ID, fullName, email, phoneNumber, password, gender, programCode, semester, registrationDateTime, status) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $programCode, $semester, $registrationDateTime, $status);
 
     if ($stmt->execute()) {
         // Registration successful

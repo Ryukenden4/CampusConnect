@@ -27,8 +27,8 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["phoneNumber"] . "</td>";
         echo "<td>" . $row["programCode"] . "</td>";
         echo "<td>" . $row["semester"] . "</td>";
-        echo "<td>" . $row["college"] . "</td>";
-        echo "<td>" . $row["roomNumber"] . "</td>";
+        // echo "<td>" . $row["college"] . "</td>";
+        // echo "<td>" . $row["roomNumber"] . "</td>";
         echo "<td>
                 <button onclick='openEditPopup(" . $row["ID"] . ", \"roomNumber\")'>Edit Room</button>
                 <button onclick='openEditPopup(" . $row["ID"] . ", \"college\")'>Edit College</button>
