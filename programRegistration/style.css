@@ -17,6 +17,12 @@
   height: 1080px;
 }
 
+header{
+  position : fixed;
+  top : 0;
+  
+}
+
 .program-list-editor .overlap {
   position: relative;
   width: 1920px;
