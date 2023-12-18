@@ -2,33 +2,41 @@
 <html lang="en">
 
 <head style="background-color: #f1f1f1;"> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <meta name="copyright" content="MACode ID, https://macodeid.com/">
-
-    <title>CampusConnect</title>
-
-    <link rel="stylesheet" href="../assets/css/maicons.css">
-
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-
-    <link rel="stylesheet" href="../assets/css/css_admin/bootstrap.css">
-
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
-
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
-
-    <link rel="stylesheet" href="../assets/css/theme.css">
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>College InfoCenter</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/CampusConnect/intermediate/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/CampusConnect/intermediate/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- header -->
+    <link rel="stylesheet" href="/CampusConnect/intermediate/header.css">
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/maicons.css">
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/theme.css">   
+    <link rel="stylesheet" href="/CampusConnect/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
 
     <style>
       .button{
-        background-color: #007bff;
-        border: none;
-        color: rgb(255, 255, 255);
+        background-color: #ffffff;
+        border: 1px;
+        color: rgb(0, 0, 0);
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -40,39 +48,42 @@
       }
 
       .button_menu {
-        background-color: hsl(0, 0%, 100%);
-        color: rgb(0, 0, 0);
-        padding: 10px 20px;
+        background-color: #007bff;
+        color: rgb(240, 240, 240);
+        padding: 15px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         margin: 4px 2px;
         cursor: pointer;
-        border-radius: 16px;
-        width: 12cm;
-        height: 3cm;
+        border: none;
+        border-radius: 10px;
+        width: 10cm;
+        height: 2cm;
         font-family: "Times New Roman", Times, serif;
-        font-size: 25px;
+        font-size: 23px;
       }
 
       .button:hover {
-        background-color: #007bff;
+        background-color: #b9d6f9;
       }
 
       .button_menu:hover {
-        background-color: #5a5a5a;
+        background-color: #ffffff;
+        color: black;
         
       }
 
       .admin-bg{
         position: relative;
         padding: 60px;
-        background: rgba(255,255,255,0.25);
+        background: #ffffff39;
         backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(255,255,255,0.25);
         border-right: 1px solid rgba(255,255,255,0.25);
         border-radius: 20px;
         width: 30cm;
+        height: 11cm;
         display:flex;
         flex-direction: column;
         box-shadow: 0 25px 50px rgba(0,0,0,0.1);
@@ -83,37 +94,44 @@
 </head>
 
 <body style="background-color:  rgb(255, 255, 255);">
+    <!-- header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-          <div class="container">
-            <a class="navbar-brand" href="index.html" ><span style="color:#007bff">College</span> InfoCenter</a>
-            
+      <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="/CampusConnect/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
           <div class="collapse navbar-collapse" id="navbarSupport">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item ">
-                <a class="nav-link" href="/CampusConnect/homepage/html/index.html">Home</a>
+                <a class="nav-link" style="font-size: 14px;" href="/CampusConnect/intermediate/staff.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Programmes Registration</a>
+                <a class="nav-link" style="font-size: 14px;" href="#">Programmes Registration</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
+                <a class="nav-link" style="font-size: 14px;" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" style="color:#007bff" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
+              <li class="nav-item active">
+                <a class="nav-link" style="font-size: 14px;" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="btn btn-primary ml-lg-3" href="/CampusConnect/collegeRegistration/html/login.html">Login / Register</a>
               </li> -->
             </ul>
           </div> <!-- .navbar-collapse -->
-          </nav>
+        </div> <!-- .container -->
+      </nav>
+      </header>
 
           <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">
-                <h1 style="color: #fcfcfc; text-align: center; font-size: 60px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                    <p>
+                <h1 style="color: #fcfcfc; text-align: center;  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                    <p style="font-size: 60px;">
                         ADMIN PAGES
                     </p>
                 </h1> 
@@ -121,11 +139,17 @@
                 <div class="admin-bg">
                   
                   <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
-                 
-                  <a class="nav-link" href="graph.html"><button type="return" class="button_menu">VIEW RESPONSE SUMMARY</button></a>
-                  <a class="nav-link" href="tableList.html"><button type="return" class="button_menu">VIEW ALL RESPONSE LIST</button></a>
+                  <p>
+                    <a class="nav-link" href="graph.html"><button type="return" class="button_menu">VIEW RESPONSE SUMMARY</button></a>
+                    <a class="nav-link" href="table.html"><button type="return" class="button_menu">VIEW ALL RESPONSE LIST</button></a>
+                    
+                  </p>
+
                   <a class="nav-link" href="/intermediate/staff.html"><button type="return" class="button btn">RETURN TO HOMEPAGE</button></a>
+                 
                 </div>
+
+               
 
               </div> <!-- .container -->              
             </div> <!-- .banner-section -->            
