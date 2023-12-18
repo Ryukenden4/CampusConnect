@@ -32,6 +32,7 @@
       <link rel="stylesheet" href="/CampusConnect/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
    </head>
 
+   <!-- script to receive header from "header" folder -->
    <script>
       // Use fetch to load the header content dynamically
       fetch('/CampusConnect/header/header.html')
@@ -46,8 +47,7 @@
        <!-- header -->
       <header id="header"></header>
 
-      <div class="header_section">
-        
+      <div class="header_section">  
       <!-- banner section start --> 
       <div class="banner_section layout_padding">
          <div class="container-fluid">
@@ -119,6 +119,18 @@
 
                <div class="online_box_left">
                   <div class="online_box_main">
+                     <div class="box_left" id="collegeReg">
+                        <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
+                     </div>
+                     <div class="box_right">
+                        <p class="book_text" style="font-size: 20px;">College</p>
+                        <h4 class="appoinment_text" style="font-size: 25px;">Registration</h4>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="online_box_left">
+                  <div class="online_box_main">
                      <div class="box_left" id="progRegister">
                         <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
                      </div>
@@ -183,6 +195,10 @@
       <!-- javascript --> 
 
       <script>
+         document.getElementById("collegeReg").addEventListener("click", function() {
+             window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
+         });
+
          document.getElementById("progRegister").addEventListener("click", function() {
              window.location.href = "/CampusConnect/programRegistration/student.html";
          });

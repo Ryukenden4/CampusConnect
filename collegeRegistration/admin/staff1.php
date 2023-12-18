@@ -12,8 +12,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Performing SQL query to fetch data from the student table with status "enable"
-$sql = "SELECT * FROM student WHERE status = 'enable'";
+// Performing SQL query to fetch data from the room and student tables
+$sql = "SELECT student.ID, student.fullName, student.email, student.phoneNumber, student.programCode, student.semester, room.roomNumber, room.residentialCollege
+        FROM student
+        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4
+        WHERE student.status = 'enable'";
+
 $result = $conn->query($sql);
 
 // Checking if there are rows returned
@@ -27,13 +31,17 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["phoneNumber"] . "</td>";
         echo "<td>" . $row["programCode"] . "</td>";
         echo "<td>" . $row["semester"] . "</td>";
-        // echo "<td>" . $row["college"] . "</td>";
-        // echo "<td>" . $row["roomNumber"] . "</td>";
-        echo "<td>
-                <button onclick='openEditPopup(" . $row["ID"] . ", \"roomNumber\")'>Edit Room</button>
-                <button onclick='openEditPopup(" . $row["ID"] . ", \"college\")'>Edit College</button>
-                <button onclick='confirmDelete(" . $row["ID"] . ")'>Delete</button>
-              </td>";
+        
+        if ($row["roomNumber"] != null && $row["residentialCollege"] != null) {
+            // If roomNumber and residentialCollege are not null, display the room information
+            echo "<td>" . $row["residentialCollege"] . "</td>";
+            echo "<td>" . $row["roomNumber"] . "</td>";
+        } else {
+            // If roomNumber and residentialCollege are null, display "Have not applied"
+            echo "<td colspan='2'>Have not applied</td>";
+        }
+
+        echo "<td><button onclick='confirmDelete(" . $row["ID"] . ")'>Delete</button></td>";
         echo "</tr>";
     }
 } else {
