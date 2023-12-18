@@ -32,16 +32,7 @@
       <link rel="stylesheet" href="/CampusConnect/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
    </head>
 
-   <!-- script to receive header from "header" folder -->
-   <script>
-      // Use fetch to load the header content dynamically
-      fetch('/CampusConnect/header/header.html')
-          .then(response => response.text())
-          .then(data => {
-              // Inject the header content into the #header-container element
-              document.getElementById('header').innerHTML = data;
-          });
-  </script>
+  
 
    <body>
        <!-- header -->
@@ -194,6 +185,18 @@
       <script src="js/custom.js"></script>
       <!-- javascript --> 
 
+       <!-- script to receive header from "header" folder -->
+      <script>
+         // Use fetch to load the header content dynamically
+         fetch('/CampusConnect/header/header.html')
+            .then(response => response.text())
+            .then(data => {
+               // Inject the header content into the #header-container element
+               document.getElementById('header').innerHTML = data;
+            });
+      </script>
+
+      <!-- arrow click -->
       <script>
          document.getElementById("collegeReg").addEventListener("click", function() {
              window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
