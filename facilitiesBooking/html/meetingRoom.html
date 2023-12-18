@@ -131,13 +131,35 @@
                       </div>
                   </form>
 
-                    <a class="nav-link" href="bookedList.html"><button type="return" class="button">CHECK AVAILABILITY</button></a>
+                    <a class="nav-link" href="table.php"=><button type="return" class="button">CHECK AVAILABILITY</button></a>
                     <a class="nav-link" href="student.html"><button type="return" class="button">RETURN</button></a>
                     <table id="availabilityTable"></table>
                 </ol>
               </div>
             </div>
         </div>
+
+      <script>
+        $(document).ready(function() {
+    // Attach a click event to the "Check Availability" button
+    $("#checkAvailabilityBtn").click(function() {
+        // Make an AJAX request to fetch data from the server
+        $.ajax({
+            url: "table.php", // Change this to the path of your PHP script
+            type: "GET",
+            dataType: "html",
+            success: function(data) {
+                // Update the content of the availabilityTable div with the fetched data
+                $("#availabilityTable").html(data);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching availability:", error);
+            }
+        });
+    });
+});
+
+      </script>
     </header>
     </html>
   

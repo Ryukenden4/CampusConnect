@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // SQL query to insert data into the database
     $sql = "INSERT INTO booking (name, studentId, dateofBooking, startTime, endTime) 
-            VALUES ('$name', '$email', '$dateofBooking', '$startTime', '$endTime')";
+            VALUES ('$name', '$studentId', '$dateofBooking', '$startTime', '$endTime')";
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {
