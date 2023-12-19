@@ -27,11 +27,41 @@ header {
 footer.page-footer {
     position: fixed;
     z-index: 1000;
-    color: #fff; /* Set text color for the footer */
+    color: #fff;
     width: 100%;
     bottom: 0;
 }
 
+/* copyright section start */
+
+.copyright_section {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    float: left;
+    background-color: #001431;
+    height: auto;
+}
+
+.copyright_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.copyright_text a {
+    color: #ffffff;
+}
+
+.copyright_text a:hover {
+    color: #00D9A5;
+}
+
+
+/* copyright section end */
 
 main.table {
     width: 82vw;
@@ -42,6 +72,7 @@ main.table {
     border-radius: .8rem;
     overflow: hidden;
     position: relative;
+    z-index: 1000;
 }
 
 
