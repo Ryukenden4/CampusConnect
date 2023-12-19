@@ -81,10 +81,57 @@
             </table>
         </section>
         <div class="input-field" style="padding-left: 40px;">
+          <i class="fa-solid fa-arrow-left"></i>
           <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Back</button>
         </div>
     </main>
 
+    <!-- footer -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row px-md-3">
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">URHP</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
+            Kampus Kota Kinabalu
+            Beg Berkunci 71,
+            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
+          <a href="#" class="footer-link">+6088 - 325151</a>
+          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Social Media</h5>
+          <div class="footer-sosmed mt-3">
+            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
+    </div>
+  </footer>
     
 
 </body>
@@ -117,36 +164,9 @@
           }
       }
     </script>
-    <!-- Edit data script -->
+    <!-- Edit/load data script -->
     <script>
-    function openEditPopup(id, field) {
-      // Define allowed colleges
-      var allowedColleges = ["Manukan", "Mabul", "Mantanani"];
-  
-      // Prompt user for a new value
-      var value = prompt("Enter new value for " + field + ":");
-  
-      if (field === 'college' && !allowedColleges.includes(value)) {
-        alert("Invalid college. Please choose either Manukan, Mabul, or Mantanani.");
-        return;
-      }
-  
-      if (value !== null) {
-        // Use AJAX to update the data in the database
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'edit_student.php?id=' + id + '&field=' + field + '&value=' + value, true);
-  
-        xhr.onload = function () {
-          if (xhr.status == 200) {
-            // Reload the data after editing
-            loadStudentData();
-          }
-        };
-  
-        xhr.send();
-      }
-    }
-  
+
     function loadStudentData() {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'staff1.php', true);
@@ -167,5 +187,7 @@
         window.history.back();
     }
   </script>
+
+<script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
 
 </html>
