@@ -26,33 +26,25 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- header -->
-      <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/bootstrap.css">
-      <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/maicons.css">
-      <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/theme.css">   
+      <link rel="stylesheet" href="/CampusConnect/header/css/bootstrap.css">
+      <link rel="stylesheet" href="/CampusConnect/header/css/maicons.css">
+      <link rel="stylesheet" href="/CampusConnect/header/css/theme.css">   
       <link rel="stylesheet" href="/CampusConnect/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
    </head>
 
-   <script>
-      // Use fetch to load the header content dynamically
-      fetch('/CampusConnect/header/header.html')
-          .then(response => response.text())
-          .then(data => {
-              // Inject the header content into the #header-container element
-              document.getElementById('header').innerHTML = data;
-          });
-  </script>
+  
 
    <body>
        <!-- header -->
       <header id="header"></header>
 
-      <div class="header_section">
-        
+      <div class="header_section">  
       <!-- banner section start --> 
       <div class="banner_section layout_padding">
          <div class="container-fluid">
             <div id="banner_slider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
+                  
                   <div class="carousel-item active">
                      <div class="row">
                         <div class="col-md-6">
@@ -119,6 +111,18 @@
 
                <div class="online_box_left">
                   <div class="online_box_main">
+                     <div class="box_left" id="collegeReg">
+                        <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
+                     </div>
+                     <div class="box_right">
+                        <p class="book_text" style="font-size: 20px;">College</p>
+                        <h4 class="appoinment_text" style="font-size: 25px;">Registration</h4>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="online_box_left">
+                  <div class="online_box_main">
                      <div class="box_left" id="progRegister">
                         <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
                      </div>
@@ -163,13 +167,13 @@
       <!-- box section end -->
      
      
-      <!-- copyright section start -->
+      <!-- copyright section  -->
       <div class="copyright_section">
          <div class="container">
             <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
          </div>
       </div>
-      <!-- copyright section end -->
+      
 
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
@@ -182,7 +186,23 @@
       <script src="js/custom.js"></script>
       <!-- javascript --> 
 
+       <!-- script to receive header from "header" folder -->
       <script>
+         // Use fetch to load the header content dynamically
+         fetch('/CampusConnect/header/header.html')
+            .then(response => response.text())
+            .then(data => {
+               // Inject the header content into the #header-container element
+               document.getElementById('header').innerHTML = data;
+            });
+      </script>
+
+      <!-- arrow click -->
+      <script>
+         document.getElementById("collegeReg").addEventListener("click", function() {
+             window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
+         });
+
          document.getElementById("progRegister").addEventListener("click", function() {
              window.location.href = "/CampusConnect/programRegistration/student.html";
          });

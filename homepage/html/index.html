@@ -67,56 +67,8 @@
 
   <!-- module card display -->
   <div class="bg-light">
-    <div class="page-section py-3 mt-md-n5 custom-index">
-      <div class="container">
-        <div class="row justify-content-center">
 
-          <!-- College Registration card -->
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-secondary text-white">
-                <i class="fa-solid fa-person-walking-luggage"></i>
-              </div>
-              <p><span>College</span> registration</p>
-            </div>
-          </div>
-
-           <!-- Program Registration card -->
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-primary text-white">
-                <i class="fa-solid fa-school-flag"></i>
-              </div>
-              <p><span>Programme</span> registration</p>
-            </div>
-          </div>
-
-           <!-- Facility booking card -->
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-info text-white">
-                <i class="fa-solid fa-table"></i>
-              </div>
-              <p><span>Facility</span> Booking</p>
-            </div>
-          </div>
-          
-           <!-- Customer Supportg card -->
-           <div class="col-md-4 py-3">
-            <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-accent text-white">
-                <i class="fa-regular fa-handshake"></i>
-              </div>
-              <p><span>Customer</span> Support</p>
-            </div>
-          </div>
-
-          
-
-        </div>
-      </div>
-    </div> <!-- .page-section -->
-
+    <!-- welcome message -->
     <div class="page-section pb-0">
       <div class="container">
         <div class="row align-items-center">
@@ -132,27 +84,94 @@
           </div>
         </div>
       </div>
-    </div> <!-- .bg-light -->
-  </div> <!-- .bg-light -->
+    </div> 
+  </div> 
 
- 
+  <div class="page-section">
+    <div class="container">
+      <!-- Latest Programme -->
+      <h1 class="text-center wow fadeInUp">Latest Programme</h1>
+      <div class="row mt-5">
+        <div class="col-lg-4 py-2 wow zoomIn">
+          <div class="card-blog">
+            <div class="header">
+              <div class="post-category">
+                <a href="#">JPK</a>
+              </div>
+              <a href="blog-details.html" class="post-thumb">
+                <img src="/CampusConnect/homepage/assets/img/programme/mentalHealth.jpg" alt="">
+              </a>
+            </div>
+            <div class="body">
+              <h5 class="post-title"><a href="#">Is your mental health okay?</a></h5>
+              <div class="site-info">
+                <div class="avatar mr-2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 2nd programme -->
+        <div class="col-lg-4 py-2 wow zoomIn">
+          <div class="card-blog">
+            <div class="header">
+              <div class="post-category">
+                <a href="#">JPK</a>
+              </div>
+              <a href="blog-details.html" class="post-thumb">
+                <img src="/CampusConnect/homepage/assets/img/programme/donation.jpg" alt="">
+              </a>
+            </div>
+            <div class="body">
+              <h5 class="post-title"><a href="#">Donate your excess belongings</a></h5>
+              <div class="site-info">
+                <div class="avatar mr-2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 3rd programme -->
+        <div class="col-lg-4 py-2 wow zoomIn">
+          <div class="card-blog">
+            <div class="header">
+              <div class="post-category">
+                <a href="#">JPK</a>
+              </div>
+              <a href="blog-details.html" class="post-thumb">
+                <img src="/CampusConnect/homepage/assets/img/programme/stem.jpg" alt="">
+              </a>
+            </div>
+            <div class="body">
+              <h5 class="post-title"><a href="#">Explore the world of STEM!</a></h5>
+              <div class="site-info">
+                <div class="avatar mr-2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </div>
+  </div> <!-- .page-section -->
  
 <div class="bg-light">
   <div class="page-section">
     <div class="container">
       <h1 class="text-center wow fadeInUp">Leave a message</h1>
       <!-- Form -->
-      <form action="https://formspree.io/f/xnqkyndp" method="post">
+      <form action="/CampusConnect/homepage/php/message.php" method="post">
         <div class="row mt-5 ">
 
           <!-- Fullname -->
           <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" name ="Full name" placeholder ="Full name" >
+            <input type="text" class="form-control" name ="fullName" placeholder ="Full name" >
           </div>
           <!-- Email -->
           <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-            <input type="text" class="form-control" name="Email address" placeholder ="Email address">
+            <input type="text" class="form-control" name="email" placeholder ="Email address">
           </div>
           <!-- date -->
           <div class="col-12 py-2 wow fadeInLeft" data-wow-delay="300ms">

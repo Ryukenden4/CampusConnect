@@ -1722,6 +1722,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .page-footer {
+  bottom: 0;
   position: relative;
   display: block;
   padding-top: 80px;

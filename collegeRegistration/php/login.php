@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             // Login successful for student
             $_SESSION["user_type"] = "student";
+            $_SESSION["user_id"] = $id; // Set the user's ID in the session
             header("Location: /CampusConnect/intermediate/student.html"); // Replace with the actual path
         } else {
             // Login failed for student
@@ -40,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             // Login successful for staff
             $_SESSION["user_type"] = "staff";
+            $_SESSION["user_id"] = $id; // Set the user's ID in the session
             header("Location: /CampusConnect/intermediate/staff.html"); // Replace with the actual path
         } else {
             // Login failed for staff
