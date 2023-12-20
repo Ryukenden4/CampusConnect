@@ -20,6 +20,36 @@ body {
     background-position: center;
 }
 
+/* Style for the dropdown button */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* Style for the dropdown options */
+optgroup {
+    font-weight: bold;
+}
+
+option {
+    padding: 5px;
+}
+
+/* Style for the dropdown arrow */
+select:after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
 /* copyright section start */
 
 .copyright_section {
