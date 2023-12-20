@@ -18,6 +18,16 @@ $result = $conn->query($sql);
 
 // Checking if there are rows returned
 if ($result->num_rows > 0) {
+    // Display the fetched data in an HTML table
+    echo "<table border='1'>
+        <tr>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Date of Booking</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>";
+
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -28,38 +38,11 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["endTime"] . "</td>";
         echo "</tr>";
     }
+
+    echo "</table>";
 } else {
     echo "0 results";
 }
-
-$sql = "SELECT * FROM booking"; // Assuming your table is named 'booking'
-$result = $conn->query($sql);
-
-// Display the fetched data in an HTML table
-echo "<table border='1'>
-    <tr>
-        <th>Name</th>
-        <th>Student ID</th>
-        <th>Date of Booking</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-    </tr>";
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-            <td>" . $row["name"] . "</td>
-            <td>" . $row["studentId"] . "</td>
-            <td>" . $row["dateofBooking"] . "</td>
-            <td>" . $row["startTime"] . "</td>
-            <td>" . $row["endTime"] . "</td>
-        </tr>";
-    }
-} else {
-    echo "<tr><td colspan='5'>No bookings found</td></tr>";
-}
-
-echo "</table>";
 
 // Closing the database connection
 $conn->close();
