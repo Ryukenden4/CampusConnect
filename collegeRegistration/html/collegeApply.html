@@ -11,47 +11,52 @@
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/theme.css">
-    <!-- <link rel="stylesheet" href="/CampusConnect/collegeRegistration/css/footer.css"> -->
-    <link rel="stylesheet" href="/CampusConnect/header/css/theme.css">
+    <!-- <link rel="stylesheet" href="/CampusConnect/intermediate/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="/CampusConnect/header/css/theme.css"> -->
 </head>
 
 <body>
    <!-- header -->
    <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-      <div class="container">
-        <a class="navbar-brand" href="/CampusConnect/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
+        <div class="container">
+            <a class="navbar-brand" href="/CampusConnect/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupport">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item ">
-              <a class="nav-link active" href="/CampusConnect/intermediate/student.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="#">Programmes Registration</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="/CampusConnect/facilitiesBooking/html/student.html">Facilities Booking</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="/CampusConnect/customerSupport/html/customer.html">Customer Support</a>
-            </li>
-            <!-- Add this within your navigation bar where you want the logout button to appear -->
-            <li class="nav-item">
-              <form action="/CampusConnect/logout/logout.php" method="post">
-                  <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
-              </form>
-            </li>
-
-          </ul>
-        </div> <!-- .navbar-collapse -->
-      </div> <!-- .container -->
+            <div class="collapse navbar-collapse" id="navbarSupport">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link active"  href="/CampusConnect/intermediate/student.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Registration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="registrationDropdown">
+                            <a class="dropdown-item" href="/CampusConnect/collegeRegistration/html/collegeApply.html">College Registration</a>
+                            <a class="dropdown-item" href="/CampusConnect/programRegistration/student.html">Programme Registration</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/student.html">Facilities Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/CampusConnect/customerSupport/html/customer.html">Customer Support</a>
+                    </li>
+                    <!-- Add this within your navigation bar where you want the logout button to appear -->
+                    <li class="nav-item">
+                        <form action="/CampusConnect/logout/logout.php" method="post">
+                            <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
+                        </form>
+                    </li>
+                </ul>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
     </nav>
- </header>
+</header>
     
     <!-- body section -->
     <div class="register-container">
@@ -64,13 +69,23 @@
                     <!-- <div class="input-field">
                         to left empty space
                     </div> -->
-                  <div class="input-field">
-                    <input type="text" name="college" placeholder="Residential College">
+                    <div class="input-box">
+                      <!-- Dropdown for Residential College -->
+                      <div class="input-field">
+                          <select name="college">
+                              <option value="Manukan">Manukan</option>
+                              <option value="Mabul">Mabul</option>
+                              <option value="Mantanani">Mantanani</option>
+                          </select>
+                      </div>
+
+                   <!-- Add the dropdown for room number -->
+                  <div class="input-field" >
+                    <select name="roomNumber" id="roomNumberDropdown">
+                        <!-- JavaScript will populate the options dynamically -->
+                    </select>
                   </div>
 
-                  <div class="input-field">
-                    <input type="text" name="roomNumber" placeholder="Room Number(1101-1412)">
-                  </div>
 
                   <div class="input-field">
                     <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Back</button>
@@ -87,7 +102,7 @@
     </div>
 
   <!-- footer -->
-  <footer class="page-footer">
+  <!-- <footer class="page-footer">
     <div class="container">
       <div class="row px-md-3">
 
@@ -131,7 +146,13 @@
 
       <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
     </div>
-  </footer>
+  </footer> -->
+
+  <div class="copyright_section">
+    <div class="container">
+       <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
+    </div>
+ </div>
 
 </body>
 <!-- back button javascript -->
@@ -140,5 +161,22 @@
       window.history.back();
   }
 </script>
+
+<!-- Add this script at the end of your HTML body to generate the room number options -->
+<script>
+  // Get the dropdown element
+  var roomNumberDropdown = document.getElementById("roomNumberDropdown");
+
+  // Generate options from 1101 to 1412
+  for (var i = 1101; i <= 1412; i++) {
+      var option = document.createElement("option");
+      option.value = i;
+      option.text = i;
+      roomNumberDropdown.add(option);
+  }
+</script>
+
+<script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
+<script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 </html>
