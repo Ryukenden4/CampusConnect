@@ -31,6 +31,9 @@ footer.page-footer {
     bottom: 0;
 }
 
+main.table__body.tajuk {
+    padding: 120%;
+}
 
 main.table {
     width: 82vw;
@@ -321,4 +324,6 @@ thead th.active,tbody td.active {
     width: 2rem;
     height: auto;
 }
+
+
 
