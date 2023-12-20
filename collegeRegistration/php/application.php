@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($roomNumber < 1101 || $roomNumber > 1412) {
         echo '<script>
                 alert("Invalid room number. Please choose a room number between 1101 and 1412.");
-                window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html"; // Replace with the actual path
+                window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
               </script>';
         exit();
     }
@@ -36,39 +36,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($checkRoomFullQuery);
 
     if ($result->num_rows > 0) {
-        // Room is already full, handle accordingly (e.g., show an error message)
-        echo '<script>
-                alert("Room is already full. Please choose another room.");
-                window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html"; // Replace with the actual path
-              </script>';
-    } else {
-        // Room is not full, proceed with the application
-        $updateQuery = "UPDATE room SET ";
-        
-        // Determine which studentID column to update based on the current number of applicants
-        $numApplicantsQuery = "SELECT studentID1, studentID2, studentID3, studentID4 FROM room WHERE roomNumber = '$roomNumber' AND residentialCollege = '$residentialCollege'";
-        $result = $conn->query($numApplicantsQuery);
-        
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if ($row['studentID1'] == NULL) {
-                $updateQuery .= "studentID1 = '$userID'";
-            } elseif ($row['studentID2'] == NULL) {
-                $updateQuery .= "studentID2 = '$userID'";
-            } elseif ($row['studentID3'] == NULL) {
-                $updateQuery .= "studentID3 = '$userID'";
-            } elseif ($row['studentID4'] == NULL) {
-                $updateQuery .= "studentID4 = '$userID'";
+        // Room is already full, check if the user has applied for another room
+        $checkUserAppliedQuery = "SELECT * FROM room WHERE (studentID1 = '$userID' OR studentID2 = '$userID' OR studentID3 = '$userID' OR studentID4 = '$userID') AND residentialCollege = '$residentialCollege'";
+        $userAppliedResult = $conn->query($checkUserAppliedQuery);
+
+        if ($userAppliedResult->num_rows > 0) {
+            // User has already applied for a room, handle accordingly (e.g., show an error message)
+            echo '<script>
+                    alert("You have already applied for a room. You can apply for only one room at a time.");
+                    window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
+                  </script>';
+        } else {
+            // User has not applied for another room, proceed with the application
+            $updateQuery = "UPDATE room SET ";
+            // Determine which studentID column to update based on the current number of applicants
+            $numApplicantsQuery = "SELECT studentID1, studentID2, studentID3, studentID4 FROM room WHERE roomNumber = '$roomNumber' AND residentialCollege = '$residentialCollege'";
+            $result = $conn->query($numApplicantsQuery);
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                if ($row['studentID1'] == NULL) {
+                    $updateQuery .= "studentID1 = '$userID'";
+                } elseif ($row['studentID2'] == NULL) {
+                    $updateQuery .= "studentID2 = '$userID'";
+                } elseif ($row['studentID3'] == NULL) {
+                    $updateQuery .= "studentID3 = '$userID'";
+                } elseif ($row['studentID4'] == NULL) {
+                    $updateQuery .= "studentID4 = '$userID'";
+                }
+            }
+
+            $updateQuery .= " WHERE roomNumber = '$roomNumber' AND residentialCollege = '$residentialCollege'";
+
+            if ($conn->query($updateQuery)) {
+                // Application successful
+                echo '<script>
+                        alert("Application successful!");
+                        window.location.href = "/CampusConnect/intermediate/student.html";
+                      </script>';
+            } else {
+                // Application failed
+                echo "Error: " . $conn->error;
             }
         }
-        
-        $updateQuery .= " WHERE roomNumber = '$roomNumber' AND residentialCollege = '$residentialCollege'";
-        
-        if ($conn->query($updateQuery)) {
+    } else {
+        // Room is not full, create a new row for the application
+        $insertQuery = "INSERT INTO room (roomNumber, residentialCollege, studentID1) VALUES ('$roomNumber', '$residentialCollege', '$userID')";
+
+        if ($conn->query($insertQuery)) {
             // Application successful
             echo '<script>
                     alert("Application successful!");
-                    window.location.href = "/CampusConnect/homepage/html/index.html"; // Replace with the actual path
+                    window.location.href = "/CampusConnect/intermediate/student.html";
                   </script>';
         } else {
             // Application failed

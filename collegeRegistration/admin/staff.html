@@ -11,46 +11,52 @@
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/CampusConnect/homepage/assets/css/theme.css">
-    <link rel="stylesheet" href="/CampusConnect/collegeRegistration/css/footer.css">
+    
+    <!-- <link rel="stylesheet" href="/CampusConnect/collegeRegistration/css/footer.css"> -->
 </head>
 
 <body>
     <!-- header -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-          <a class="navbar-brand" href="/CampusConnect/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
-  
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarSupport">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item ">
-                <a class="nav-link" href="/CampusConnect/intermediate/staff.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="/CampusConnect/programRegistration/staff.html">Programmes Registration</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
-              </li>
-              <!-- Add this within your navigation bar where you want the logout button to appear -->
-              <li class="nav-item">
-                <form action="/CampusConnect/logout/logout.php" method="post">
-                    <input type="submit" style="background-color: #8b0000;" class="btn btn-primary ml-lg-3" value="Logout">
-                </form>
-              </li>
-  
-            </ul>
-          </div> <!-- .navbar-collapse -->
-        </div> <!-- .container -->
+          <div class="container">
+              <a class="navbar-brand" href="/CampusConnect/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupport">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item ">
+                          <a class="nav-link" href="/CampusConnect/intermediate/staff.html">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Registration
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="registrationDropdown" style="z-index: 10000;">
+                              <a class="dropdown-item" href="/CampusConnect/collegeRegistration/admin/staff.html">College Student Namelist</a>
+                              <a class="dropdown-item" href="#">Programme Registration</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
+                      </li>
+                      <!-- Add this within your navigation bar where you want the logout button to appear -->
+                      <li class="nav-item">
+                          <form action="/CampusConnect/logout/logout.php" method="post">
+                              <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
+                          </form>
+                      </li>
+                  </ul>
+              </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
       </nav>
-   </header>
+  </header>
 
     <!-- body section -->
     <main class="table">
@@ -81,10 +87,63 @@
             </table>
         </section>
         <div class="input-field" style="padding-left: 40px;">
+          <i class="fa-solid fa-arrow-left"></i>
           <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Back</button>
         </div>
     </main>
 
+    <!-- footer -->
+    <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+      </div>
+   </div>
+
+  <!-- <footer class="page-footer" >
+    <div class="container">
+      <div class="row px-md-3">
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Company</h5>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">URHP</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>More</h5>
+          <ul class="footer-menu">
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Contact</h5>
+          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
+            Kampus Kota Kinabalu
+            Beg Berkunci 71,
+            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
+          <a href="#" class="footer-link">+6088 - 325151</a>
+          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
+        </div>
+
+        <div class="col-sm-6 col-lg-3 py-3">
+          <h5>Social Media</h5>
+          <div class="footer-sosmed mt-3">
+            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
+            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
+    </div>
+  </footer> -->
     
 
 </body>
@@ -94,7 +153,7 @@
         // Fetch data from staff.php using AJAX
         window.onload = function () {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'staff1.php', true);
+            xhr.open('GET', 'student.php', true);
     
             xhr.onload = function () {
                 if (xhr.status == 200) {
@@ -117,36 +176,9 @@
           }
       }
     </script>
-    <!-- Edit data script -->
+    <!-- Edit/load data script -->
     <script>
-    function openEditPopup(id, field) {
-      // Define allowed colleges
-      var allowedColleges = ["Manukan", "Mabul", "Mantanani"];
-  
-      // Prompt user for a new value
-      var value = prompt("Enter new value for " + field + ":");
-  
-      if (field === 'college' && !allowedColleges.includes(value)) {
-        alert("Invalid college. Please choose either Manukan, Mabul, or Mantanani.");
-        return;
-      }
-  
-      if (value !== null) {
-        // Use AJAX to update the data in the database
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'edit_student.php?id=' + id + '&field=' + field + '&value=' + value, true);
-  
-        xhr.onload = function () {
-          if (xhr.status == 200) {
-            // Reload the data after editing
-            loadStudentData();
-          }
-        };
-  
-        xhr.send();
-      }
-    }
-  
+
     function loadStudentData() {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'staff1.php', true);
@@ -167,5 +199,9 @@
         window.history.back();
     }
   </script>
+  <script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
+  <script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
 
 </html>
