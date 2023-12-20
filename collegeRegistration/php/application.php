@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($roomNumber < 1101 || $roomNumber > 1412) {
         echo '<script>
                 alert("Invalid room number. Please choose a room number between 1101 and 1412.");
-                window.location.href = "/CampusConnect/collegeRegistration/html/application.html"; // Replace with the actual path
+                window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
               </script>';
         exit();
     }
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // User has already applied for a room, handle accordingly (e.g., show an error message)
             echo '<script>
                     alert("You have already applied for a room. You can apply for only one room at a time.");
-                    window.location.href = "/CampusConnect/collegeRegistration/html/application.html"; // Replace with the actual path
+                    window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
                   </script>';
         } else {
             // User has not applied for another room, proceed with the application
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Application successful
                 echo '<script>
                         alert("Application successful!");
-                        window.location.href = "/CampusConnect/intermediate/student.html"; // Replace with the actual path
+                        window.location.href = "/CampusConnect/intermediate/student.html";
                       </script>';
             } else {
                 // Application failed
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Application successful
             echo '<script>
                     alert("Application successful!");
-                    window.location.href = "/CampusConnect/intermediate/student.html"; // Replace with the actual path
+                    window.location.href = "/CampusConnect/intermediate/student.html";
                   </script>';
         } else {
             // Application failed
