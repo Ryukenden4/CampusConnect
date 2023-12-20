@@ -47,29 +47,46 @@
 </head>
 
 <body style="background-color:  rgb(255, 255, 255);">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-            <div class="container">
-              <a class="navbar-brand" href="index.html" ><span style="color:#007bff">College</span> InfoCenter</a>
-      
-              <div class="collapse navbar-collapse" id="navbarSupport">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/CampusConnect/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="about.html">Program Registration</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="team.html">Facility Booking</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="contact.html">Customer Support</a>
-                  </li>
+                    <li class="nav-item ">
+                        <a class="nav-link "  href="/CampusConnect/intermediate/staff.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            Registration
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="registrationDropdown">
+                            <a class="dropdown-item" href="/CampusConnect/collegeRegistration/admin/staff.html">College Student Namelist</a>
+                            <a class="dropdown-item" href="/CampusConnect/programRegistration/staff.html">Programme Registration</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/admin.html">Facilities Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/CampusConnect/customerSupport/html/admin.html">Customer Support</a>
+                    </li>
+                    <!-- Add this within your navigation bar where you want the logout button to appear -->
+                    <li class="nav-item">
+                        <form action="/CampusConnect/logout/logout.php" method="post">
+                            <input type="submit" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;" value="Logout">
+                        </form>
+                    </li>
                 </ul>
-              </div> <!-- .navbar-collapse -->
-            </div> <!-- .container -->
-          </nav>
+            </div> <!-- .navbar-collapse -->
+        </div> <!-- .container -->
+    </nav>
+</header>
 
           <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
             <div class="banner-section">
@@ -92,11 +109,24 @@
                     </div> 
 
                     <a class="nav-link" href="/intermediate/student.html">
-                        <button type="return" style="background-color: #007bff;" class="btn btn-primary ml-lg-3">RETURN TO HOMEPAGE</button>
+                        <button type="return" style="background-color: #007bff;" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;">BACK TO HOMEPAGE</button>
                     </a>
                 </div> <!-- .container -->
               </div> <!-- .banner-section -->
             </div> <!-- .page-banner -->
-  
+
+            <script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
+            <script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+            <footer>
+              <!-- copyright section start -->
+            <div class="copyright_section"  style="background-color: #00D9A5;">
+            <div class="container">
+             <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
+            </div>
+            </div>
+            <!-- copyright section end -->
+            
+            </footer>
   </body>
   </html>
