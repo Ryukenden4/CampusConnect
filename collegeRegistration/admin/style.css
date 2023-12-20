@@ -15,6 +15,37 @@ body {
     overflow: scroll;
 }
 
+/* copyright section start */
+
+.copyright_section {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    float: left;
+    background-color: #001431;
+    height: auto;
+}
+
+.copyright_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.copyright_text a {
+    color: #ffffff;
+}
+
+.copyright_text a:hover {
+    color: #00D9A5;
+}
+
+
+/* copyright section end */
+
 header {
     position: fixed;
     top: 0;
