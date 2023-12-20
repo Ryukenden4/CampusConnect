@@ -7,10 +7,10 @@ $password = ""; // Replace with your database password
 $dbname = "collegeregistration"; // Replace with your database name
 
 // Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check the connection
-if ($conn->connect_error) {
+if(mysqli_connect_errno()){
     die("Connection failed: " . $conn->connect_error);
 }
 
