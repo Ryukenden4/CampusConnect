@@ -5,21 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FacilitiesBooking</title>
-    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
-
     <title>CampusConnect</title>
-
     <link rel="stylesheet" href="../assets/css/maicons.css">
-
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
-
     <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
-
     <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
-
     <link rel="stylesheet" href="../assets/css/theme.css">
 
     <style>
@@ -33,14 +25,6 @@
 
         box {
           text-align: center;
-        }
-
-        .h2{
-          text-align: center;
-          font-size: 80px;
-          color: #fff;
-          font-weight: 600;
-          
         }
 
         label {
@@ -57,28 +41,14 @@
             box-sizing: border-box;
         }
 
-        .button {
-            background-color: #007bff ;
-            color: #fff;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 10cm;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-
         .text-primary{
           color: #007bff;
         }
     </style>
+</head>
 
-    <body style="background-color:  rgb(255, 255, 255);">
-            <header>
-              <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
                   <div class="container">
                       <a class="navbar-brand" href="/CampusConnect/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
       
@@ -115,45 +85,89 @@
                           </ul>
                       </div> <!-- .navbar-collapse -->
                   </div> <!-- .container -->
-              </nav>
-          </header>
+        </nav>
+    </header>
 
+    <body style="background-color:  rgb(255, 255, 255);">
               <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/facilities.jpg); height: 18cm;">
                 <div class="banner-section">
                   <div class="container text-center wow fadeInUp">
                     <nav aria-label="Breadcrumb">
-                      <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-                        <div class="box">
-                          <p><h2 class="h2">COLLEGE FACILITIES</h2></p>
-
-                            <a class="nav-link" href="meetingRoom.html"><button type="return" class="button">MEETING ROOM</button></a>
-                            <a class="nav-link" href="readingRoom.html"><button type="return" class="button">READING ROOM</button></a>
-                            <a class="nav-link" href="gymRoom.html"><button type="return" class="button">GYM ROOM</button></a>
-
-                          
-                        </div>
-
-                      </ol>
+                      <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2"></ol>
                     </nav>
-
                   </div> <!-- .container -->
                 </div> <!-- .banner-section -->
+
+                <!--selection room button-->
+                <div class="online_box_left">
+                  <div class="online_box_main">
+                     <div class="box_left" id="bilikMesyuarat">
+                        <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
+                     </div>
+                     <div class="box_right">
+                        <p class="book_text" style="font-size: 20px;">Bilik</p>
+                        <h4 class="appoinment_text" style="font-size: 25px;">Mesyuarat</h4>
+                     </div>
+                  </div>
+                </div>
+
+                <div class="online_box_left">
+                  <div class="online_box_main">
+                     <div class="box_left" id="bilikBacaan">
+                        <div class="right_arrow "><i class="fa fa-arrow-right"></i></div>
+                     </div>
+                     <div class="box_right">
+                        <p class="book_text" style="font-size: 20px;">Bilik</p>
+                        <h4 class="appoinment_text" style="font-size: 25px;">Bacaan</h4>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="online_box_left ">
+                <div class="online_box_main">
+                   <div class="box_left" id="bilikGym">
+                      <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
+                   </div>
+                   <div class="box_right">
+                      <!-- Removed "active" from ori template -->
+                      <p class="book_text" style="font-size: 20px;">Bilik</p>
+                      <h4 class="appoinment_text" style="font-size: 25px;">Gym</h4>
+                   </div>
+                </div>
+             </div>
               </div> <!-- .page-banner -->
-
-              <script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
-              <script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
-
-              <footer>
-                <!-- copyright section start -->
-              <div class="copyright_section">
-              <div class="container">
-               <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
-              </div>
-              </div>
-              <!-- copyright section end -->
-              
-              </footer>
     </body>
-</head>
-</body>
+
+
+    <!-- arrow click-->
+    <script>
+          document.getElementById("bilikMesyuarat").addEventListener("click", function() {
+          window.location.href = "/CampusConnect/collegeRegistration/html/booking.html";
+          });
+
+          document.getElementById("bilikBacaan").addEventListener("click", function() {
+          window.location.href = "/CampusConnect/collegeRegistration/html/booking.html";
+          });
+
+          document.getElementById("bilikGym").addEventListener("click", function() {
+          window.location.href = "/CampusConnect/collegeRegistration/html/booking.html";
+          });
+    </script>
+
+    
+    <footer>
+
+    <script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+      <!-- copyright section start -->
+    <div class="copyright_section">
+    <div class="container">
+     <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+    </div>
+    </div>
+    <!-- copyright section end -->
+    
+    </footer>
+
 </html>
