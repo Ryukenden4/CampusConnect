@@ -4,7 +4,7 @@
 <head style="background-color: #f1f1f1;"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!!!</title>
+    <title>meeetingroomBooking</title>
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -31,16 +31,24 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        box {
-          text-align: center;
-        }
-
         box h2{
           text-align: center;
           font-size: 200px;
           color: #fff;
           font-weight: 600;
           
+        }
+
+        .mrForm {
+            background-color: #ffffff;
+            font-size: medium; 
+            text-align: center;
+            color: #0c0c0c;
+            width: 15cm; 
+            border: 2px solid #00D9A5;    
+            padding: 10px;
+            border-radius: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         label {
@@ -73,6 +81,7 @@
         .text-primary{
           color: #007bff;
         }
+
     </style>
 
     <body style="background-color:  rgb(255, 255, 255);">
@@ -84,16 +93,16 @@
                   <div class="collapse navbar-collapse" id="navbarSupport">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link" href="/CampusConnect/intermediate/staff.html">Home</a>
+                        <a class="nav-link" href="/intermediate/staff.html">Home</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="/programRegistration/php/student.php">Programmes Registration</a>
                       </li>
                       <li class="nav-item active" style="color: #007bff;">
-                        <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/student.html">Facilities Booking</a>
+                        <a class="nav-link" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/CampusConnect/customerSupport/html/customer.html">Customer Support</a>
+                        <a class="nav-link" href="/customerSupport/html/customer.html">Customer Support</a>
                       </li>
                     </ul>
                   </div> <!-- .navbar-collapse -->
@@ -108,21 +117,37 @@
                     <nav aria-label="Breadcrumb">
                       <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
                         <div class="box">
-                          <h2 style="font-size: 50px;"><b>THANK YOU FOR YOUR BOOKING</b></h2>
-                          <a class="nav-link" href="student.html"><button type="return" class="button">RETURN</button></a>
-                        </div>
+                            
+                            <form action="booking.php" method="POST" class="mrForm">
+                              <h2>Meeting Room Booking</h2>
+                              <label for="name">Name:</label>
+                              <input type="text" id="name" name="name" required>
+                      
+                              <label for="studentId">Student ID:</label>
+                              <input type="text" id="studentId" name="studentId" required>
+                      
+                              <label for="dateofBooking">Date of Booking:</label>
+                              <input type="date" id="date" name="date" required>
 
-                      </ol>
-                    </nav>
-                  </div> <!-- .container -->
-                </div> <!-- .banner-section -->
-              </div> <!-- .page-banner -->
+                              <label for="startDate">Start Time:</label>
+                              <input type="time" id="startTime" name="startTime" required>
 
-        </header>
-
-    </body>
-</head>
-</body>
-
-
-</html>
+                              <label for="endDate">End Time:</label>
+                              <input type="time" id="endTime" name="endTime" required>
+                      
+                              <a class="nav-link" href="thanks.html"><button type="submit" name="submit" value="submit">BOOK</button>
+                          </form>
+                          </div>
+  
+                        </ol>
+                      </nav>
+                    </div> <!-- .container -->
+                  </div> <!-- .banner-section -->
+                </div> <!-- .page-banner -->
+  
+          </header>
+  
+      </body>
+  </head>
+  </body>
+  </html>

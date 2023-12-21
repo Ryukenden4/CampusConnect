@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>College InfoCenter</title>
-    <link rel="stylesheet" href="/programRegistration/style.css">
+    <link rel="stylesheet" href="/programRegistration/css/style.css">
     <!-- header n footer css -->
     <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 
-    <link rel="stylesheet" href="/programRegistration/style.css">
+    <link rel="stylesheet" href="/programRegistration/css/style.css">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="registrationDropdown">
                             <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
-                            <a class="dropdown-item" href="/programRegistration/student.html">Programme Registration</a>
+                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -111,18 +111,27 @@
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["no"] . "</td>";
+                        echo "<td>" . $row["num"] . "</td>";
                         echo "<td>" . $row["programme"] . "</td>";
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["no"] . ")'>Register</button></td>";
+                        echo "<td><button onclick='confirmDelete(" . $row["num"] . ")'>Register</button></td>";
                         echo "</tr>";
                     }
                     ?>
                 </tbody>
             </table>
         </section>
-            <!-- FOR FOOTER AND BACK BUTTON -->
+        <footer>
+            <!-- copyright section start -->
+            <div class="copyright_section">
+            <div class="container">
+            <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
+            </div>
+            </div>
+            <!-- copyright section end -->
+
+        </footer> 
     </main>
 </body>
