@@ -56,7 +56,7 @@
         }
 
         .card {
-            background: #fff;
+            background: #ffffff;
             border-radius: 3px;
             display: inline-block;
             height: 135px;
@@ -77,32 +77,21 @@
             font-size: 18px;
         }
 
-        .buttonMeeting {
-            padding: 40px 50px;
-            background: #007bff;
-            border-radius: 50px;
-        }
-
-        .buttonReading {
-            padding: 40px 50px;
-            background: #007bff;
-            border-radius: 50px;
-        }
-
-        .buttonGym {
-            padding: 40px 50px;
-            background: #007bff;
-            border-radius: 50px;
-        }
+        
         
         .title{
             text-align: center;
-            font-size: 80px;
+            font-size: 60px;
             
         }
 
-        .book{
+        .bookbtn{
             border-radius: 60px;
+            text-align: center;
+            background-color: transparent;
+            block-size: auto;
+        }
+        .book{
             text-align: center;
         }
 
@@ -122,7 +111,7 @@
                       <div class="collapse navbar-collapse" id="navbarSupport">
                           <ul class="navbar-nav ml-auto">
                               <li class="nav-item ">
-                                  <a class="nav-link active" href="/intermediate/student.html">Home</a>
+                                  <a class="nav-link" href="/CampusConnect/intermediate/student.html">Home</a>
                               </li>
                               <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
@@ -133,16 +122,16 @@
                                       <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
                                   </div>
                               </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="/CampusConnect/facilitiesBooking/html/student.html">Facilities Booking</a>
                               </li>
                               <li class="nav-item">
                                   <a class="nav-link" href="/customerSupport/html/customer.html">Customer Support</a>
                               </li>
                               <!-- Add this within your navigation bar where you want the logout button to appear -->
                               <li class="nav-item">
-                                  <form action="/CampusConnect/logout/logout.php" method="post">
-                                      <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
+                                  <form action="/logout/logout.php" method="post">
+                                      <input type="submit" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;" value="Logout">
                                   </form>
                               </li>
                           </ul>
@@ -153,27 +142,28 @@
 
     <body style="background-color:  rgb(255, 255, 255);">
               <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/kolej.jpg); height: 18cm;">
-                <div class="title" style="color:white"><b>COLLEGE FACILITIES BOOKING</b></div>
+                <div class="title" style="color:white"><b>COLLEGE FACILITIES</b></div>
+                <div class="title" style="color:white"><b>BOOKING</b></div>
 
 
                 <!--selection room button-->
                <div class="button-section">
                 <div class="card">
-                    <button class="buttonMeeting"></button>
+                    <div>img</div>
                     <div class="text">Meeting Room</div>
                 </div>
                 <div class="card">
-                  <button class="buttonReading"></button>
+                  <div>img</div>
                   <div class="text">Reading Room</div>
                 </div>
                 <div class="card">
-                  <button class="buttonGym"></button>
+                  <div>img</div>
                   <div class="text">Gym Room</div>
                 </div>
               </div>
 
               <div class="book">
-                <button>BOOK NOW</button>
+                <button class="bookbtn" href="booking.html">BOOK NOW</button>
               </div>
 
                 </div> <!-- .page-banner -->
@@ -208,21 +198,9 @@
           window.location.href = "/CampusConnect/collegeRegistration/html/booking.html";
           });
     </script>
-
     
-    <footer>
-
     <script src="/CampusConnect/homepage/assets/js/jquery-3.5.1.min.js"></script>
     <script src="/CampusConnect/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
-      <!-- copyright section start -->
-    <div class="copyright_section">
-    <div class="container">
-     <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
-    </div>
-    </div>
-    <!-- copyright section end -->
-    
-    </footer>
 
 </html>

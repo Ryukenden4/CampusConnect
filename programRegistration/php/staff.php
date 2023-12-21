@@ -71,6 +71,8 @@
     <main class="table">
         <section class="table__header">
             <div class="tajuk"><h1>Programme Registration</h1></div>
+
+            <div><button></button></div>
            
         </section>
         <sect ion class="table__body">
@@ -116,7 +118,7 @@
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["num"] . ")'>Register</button></td>";
+                        echo "<td><button onclick='confirmDelete(" . $row["num"] . ")'>Delete</button></td>";
                         echo "</tr>";
                     }
                     ?>
