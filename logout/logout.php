@@ -9,7 +9,7 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to the login page or any other desired page after logout
-header("Location: /CampusConnect/homepage/html/index.html"); // Replace with the actual path
+header("Location: /homepage/html/index.html"); // Replace with the actual path
 
 // Make sure that the code below does not get executed when we redirect.
 exit();
