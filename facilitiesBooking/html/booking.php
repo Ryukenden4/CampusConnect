@@ -17,15 +17,15 @@ if(mysqli_connect_errno()){
 // Process form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
-    $name = $_POST["name"];
-    $studentId = $_POST["studentId"];
+    $fullName = $_POST["fullName"];
     $dateofBooking = $_POST["dateofBooking"];
+    $college = $_POST["college"];
     $startTime = $_POST["startTime"];
     $endTime = $_POST["endTime"];
 
     // SQL query to insert data into the database
-    $sql = "INSERT INTO booking (name, studentId, dateofBooking, startTime, endTime) 
-            VALUES ('$name', '$studentId', '$dateofBooking', '$startTime', '$endTime')";
+    $sql = "INSERT INTO booking (name, dateofBooking, college, startTime, endTime) 
+            VALUES ('$name','$dateofBooking', '$college', '$startTime', '$endTime')";
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {
