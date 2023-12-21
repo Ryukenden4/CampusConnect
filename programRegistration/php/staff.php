@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 
     <link rel="stylesheet" href="/programRegistration/css/style.css">
+    <!-- <link rel="stylesheet" href="/programRegistration/button/button.css"> -->
 </head>
 
 <body>
@@ -42,8 +43,8 @@
                             Registration
                         </a>
                         <div class="dropdown-menu" aria-labelledby="registrationDropdown">
-                            <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
-                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
+                            <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Student Namelist</a>
+                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme List</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -70,9 +71,9 @@
     <!-- body section -->
     <main class="table">
         <section class="table__header">
-            <div class="tajuk"><h1>Programme Registration</h1></div>
+            <div class="tajuk"><h1>Programme List</h1></div>
 
-            <div><button><link rel="stylesheet" href="">Add Program</button></div>
+            <button type="button" onclick="location.href='/programRegistration/php/registerProgram.php'">Add Programme</button>
            
         </section>
         <sect ion class="table__body">
@@ -84,7 +85,7 @@
                         <th> progamme_name </th>
                         <th> place </th>
                         <th> date </th>
-                        <th><center> Action </center></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
