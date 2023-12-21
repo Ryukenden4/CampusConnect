@@ -71,6 +71,8 @@
     <main class="table">
         <section class="table__header">
             <div class="tajuk"><h1>Programme Registration</h1></div>
+
+            <div><button><link rel="stylesheet" href="">Add Program</button></div>
            
         </section>
         <sect ion class="table__body">
