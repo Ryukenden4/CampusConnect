@@ -87,7 +87,7 @@
                 </thead>
 
                 <!-- body for table -->
-                <tbody id="programme">
+                <tbody id="programmeDetail">
                     <!-- data will be fetch from staff1.php to display dinamically -->
                 </tbody>
             </table>
@@ -109,12 +109,12 @@
         // Fetch data from staff.php using AJAX
         window.onload = function () {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'student.php', true);
+            xhr.open('GET', 'programme.php', true);
     
             xhr.onload = function () {
                 if (xhr.status == 200) {
                     // Update the content of tbody with the fetched data
-                    document.getElementById('programme').innerHTML = xhr.responseText;
+                    document.getElementById('programmeDetail').innerHTML = xhr.responseText;
                 }
             };
     
