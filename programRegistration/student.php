@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Performing SQL query to fetch data from the student table with status "enable"
-$sql = "SELECT * FROM programme WHERE status = 'enable'";
+$sql = "SELECT * FROM programme WHERE programme.status = 'enable'";
 $result = $conn->query($sql);
 
 // Checking if there are rows returned
@@ -25,8 +25,6 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["programme"] . "</td>";
         echo "<td>" . $row["place"] . "</td>";
         echo "<td>" . $row["date"] . "</td>";
-        // echo "<td>" . $row["college"] . "</td>";
-        // echo "<td>" . $row["roomNumber"] . "</td>"
     }
 } else {
     echo "0 results";

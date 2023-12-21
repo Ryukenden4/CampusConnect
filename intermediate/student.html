@@ -14,9 +14,9 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="/CampusConnect/intermediate/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/intermediate/css/bootstrap.min.css">
       <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="/CampusConnect/intermediate/css/style.css">
+      <link rel="stylesheet" type="text/css" href="/intermediate/css/style.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- font css -->
@@ -26,10 +26,10 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- header -->
-      <link rel="stylesheet" href="/CampusConnect/header/css/bootstrap.css">
-      <link rel="stylesheet" href="/CampusConnect/header/css/maicons.css">
-      <link rel="stylesheet" href="/CampusConnect/header/css/theme.css">   
-      <link rel="stylesheet" href="/CampusConnect/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
+      <link rel="stylesheet" href="/header/css/bootstrap.css">
+      <link rel="stylesheet" href="/header/css/maicons.css">
+      <link rel="stylesheet" href="/header/css/theme.css">   
+      <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
    </head>
 
   
@@ -52,11 +52,11 @@
                               <h1 class="banner_taital">Programme Registration</h1>
                               <p class="banner_text" style="font-size: 25px;">Streamlines the enrollment process for academic programs, providing students with an accessible platform to register for courses and manage their academic journey.</p>
                               <!-- <div class="readmore_btn active"><a href="#">Read More</a></div> -->
-                              <div class="started_bt"><a href="/CampusConnect/programRegistration/student.html">More Info</a></div>
+                              <div class="started_bt"><a href="/programRegistration/student.html">More Info</a></div>
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="banner_img"><img src="/CampusConnect/intermediate/images/Programme.png" style="height: 480px;"></div>
+                           <div class="banner_img"><img src="/intermediate/images/Programme.png" style="height: 480px;"></div>
                         </div>
                      </div>
                   </div>
@@ -67,11 +67,11 @@
                               <h1 class="banner_taital">Facility Booking</h1>
                               <p class="banner_text" style="font-size: 25px;">Enables you to conveniently reserve college facilities, such as meeting room, reading room or gym, through an intuitive booking system.</p>
                               <!-- <div class="readmore_btn active"><a href="#">Read More</a></div> -->
-                              <div class="started_bt"><a href="/CampusConnect/facilitiesBooking/html/student.html">More Info</a></div>
+                              <div class="started_bt"><a href="/facilitiesBooking/html/student.html">More Info</a></div>
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="banner_img"><img src="/CampusConnect/intermediate/images/facBooking.png" style="height: 480px;"></div>
+                           <div class="banner_img"><img src="/intermediate/images/facBooking.png" style="height: 480px;"></div>
                         </div>
                      </div>
                   </div>
@@ -82,11 +82,11 @@
                               <h1 class="banner_taital">Customer Support</h1>
                               <p class="banner_text" style="font-size: 25px;">Offers a dedicated space for users to seek assistance, report issues, and receive prompt support from the college administration.</p>
                               <!-- <div class="readmore_btn active"><a href="#">Read More</a></div> -->
-                              <div class="started_bt"><a href="/CampusConnect/customerSupport/html/customer.html">More Info</a></div>
+                              <div class="started_bt"><a href="/customerSupport/html/customer.html">More Info</a></div>
                            </div>
                         </div>
                         <div class="col-md-6">
-                           <div class="banner_img"><img src="/CampusConnect/intermediate/images/custSupport.png" style="height: 480px;"></div>
+                           <div class="banner_img"><img src="/intermediate/images/custSupport.png" style="height: 480px;"></div>
                         </div>
                      </div>
                   </div>
@@ -189,7 +189,7 @@
        <!-- script to receive header from "header" folder -->
       <script>
          // Use fetch to load the header content dynamically
-         fetch('/CampusConnect/header/header.html')
+         fetch('/header/header.html')
             .then(response => response.text())
             .then(data => {
                // Inject the header content into the #header-container element
@@ -200,19 +200,19 @@
       <!-- arrow click -->
       <script>
          document.getElementById("collegeReg").addEventListener("click", function() {
-             window.location.href = "/CampusConnect/collegeRegistration/html/collegeApply.html";
+             window.location.href = "/collegeRegistration/html/collegeApply.html";
          });
 
          document.getElementById("progRegister").addEventListener("click", function() {
-             window.location.href = "/CampusConnect/programRegistration/student.html";
+             window.location.href = "/programRegistration/student.html";
          });
 
          document.getElementById("facBooking").addEventListener("click", function() {
-             window.location.href = "/CampusConnect/facilitiesBooking/html/student.html";
+             window.location.href = "/facilitiesBooking/html/student.html";
          });
 
          document.getElementById("custSupport").addEventListener("click", function() {
-             window.location.href = "/CampusConnect/customerSupport/html/customer.html";
+             window.location.href = "/customerSupport/html/customer.html";
          });
 
      </script>

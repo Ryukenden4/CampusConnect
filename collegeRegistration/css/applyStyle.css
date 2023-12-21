@@ -15,7 +15,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-        url(/CampusConnect/homepage/assets/img/kolej.jpg);
+        url(/homepage/assets/img/kolej.jpg);
     background-size: cover;
     background-position: center;
 }

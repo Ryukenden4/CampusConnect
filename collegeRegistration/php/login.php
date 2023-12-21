@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful for student
             $_SESSION["user_type"] = "student";
             $_SESSION["user_id"] = $id; // Set the user's ID in the session
-            header("Location: /CampusConnect/intermediate/student.html"); // Replace with the actual path
+            header("Location: /intermediate/student.html"); // Replace with the actual path
         } else {
             // Login failed for student
             echo "Error: Incorrect Student ID or password. Please try again.";
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful for staff
             $_SESSION["user_type"] = "staff";
             $_SESSION["user_id"] = $id; // Set the user's ID in the session
-            header("Location: /CampusConnect/intermediate/staff.html"); // Replace with the actual path
+            header("Location: /intermediate/staff.html"); // Replace with the actual path
         } else {
             // Login failed for staff
             echo "Error: Incorrect Staff ID or password. Please try again.";
