@@ -27,7 +27,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
+            <a class="navbar-brand" href="/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,19 +36,19 @@
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link active" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/intermediate/staff.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
                             Registration
                         </a>
                         <div class="dropdown-menu" aria-labelledby="registrationDropdown">
-                            <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Student Namelist</a>
+                            <a class="dropdown-item" href="/collegeRegistration/admin/staff.html">College Student Namelist</a>
                             <a class="dropdown-item" href="/programRegistration/php/student.php">Programme List</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/admin.html">Facilities Booking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="font-size: 14px;" href="/customerSupport/html/customer.html">Customer Support</a>

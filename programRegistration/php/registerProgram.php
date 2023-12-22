@@ -51,7 +51,7 @@ if ($conn->connect_error) {
               <div class="collapse navbar-collapse" id="navbarSupport">
                   <ul class="navbar-nav ml-auto">
                       <li class="nav-item ">
-                          <a class="nav-link active" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
+                          <a class="nav-link" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
@@ -86,7 +86,7 @@ if ($conn->connect_error) {
     <div class="register-container">
         <div class="register">
             <form action="/programRegistration/php/connection.php" method="POST">
-                <h1>Registration</h1>
+                <h1>Add Programme</h1>
 
                 <div class="input-box">
 
