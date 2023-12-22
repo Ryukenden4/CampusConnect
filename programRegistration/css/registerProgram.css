@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    background-color: white;
+}
+
+body {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+        url(/programRegistration/img/KotaKinabalu_Sabah_UiTM_BangunanPentadbiran.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.register-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.register {
+    max-width: 750px;
+    /* width: 100px; */
+    background: white;
+    border: 2px solid rgba(225, 225, 225, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50px);
+    color: black;
+    padding: 40px 35px 35px;
+}
+
+.register h1 {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.register .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.input-box-checkbox{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.input-box-checkbox input[type="checkbox"], .input-box-checkbox label{
+    margin: 0 10px; 
+    border-radius: 50%;
+}
+
+.input-box .input-field {
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+}
+
+.input-box .input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2.5px solid black;
+    outline: none;
+    font-size: 16px;
+    color: black;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.input-box .input-field input::placeholder {
+    color: black;
+}
+
+.input-box .input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.register label {
+    display: inline-block;
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+}
+
+.register label input {
+    accent-color:#00D9A5;
+    margin-right: 5px;
+}
+
+.register .btn {
+    width: 100%;
+    height: 45px;
+    background: #007bff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(225, 225, 225, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
