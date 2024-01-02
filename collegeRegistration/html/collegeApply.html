@@ -61,81 +61,43 @@
     <!-- body section -->
     <div class="register-container">
         <div class="register">
-          <form name="register" action="/collegeRegistration/php/application.php" method="POST">
-            <h1>College Registration</h1>
-            <p><center>Choose your residential college for registration</center></p>
-        
-            <div class="container">
-              <div class="row justify-content-center"">
-                  <!-- college list display -->
-              <div class="row mt-5">
-                <div class="col-lg-4 py-2 wow zoomIn">
-                  <div class="card-blog">
-                    <div class="header">
-                      <a href="#" class="post-thumb">
-                        <img src="/homepage/assets/img/kolej.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="body">
-                      <h5 class="post-title"><a href="#">Manukan</a></h5>
-                      <div class="site-info">
-                        <div class="avatar mr-2">
-                        </div>
+            <form name="register"  action="/collegeRegistration/php/application.php" method="POST">
+                <h1>College Registration</h1>
+                <p><center>Choose your residential college and room for registration</center></p>
+
+                <div class="input-box">
+                    <!-- <div class="input-field">
+                        to left empty space
+                    </div> -->
+                    <div class="input-box">
+                      <!-- Dropdown for Residential College -->
+                      <div class="input-field">
+                          <select name="college">
+                              <option value="Manukan">Manukan</option>
+                              <option value="Mabul">Mabul</option>
+                              <option value="Mantanani">Mantanani</option>
+                          </select>
                       </div>
-                    </div>
+
+                   <!-- Add the dropdown for room number -->
+                  <div class="input-field" >
+                    <select name="roomNumber" id="roomNumberDropdown">
+                        <!-- JavaScript will populate the options dynamically -->
+                    </select>
                   </div>
-                </div>
-                <!-- 2nd programme -->
-                <div class="col-lg-4 py-2 wow zoomIn">
-                  <div class="card-blog">
-                    <div class="header">
-                      <a href="#" class="post-thumb">
-                        <img src="/homepage/assets/img/kolej.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="body">
-                      <h5 class="post-title"><a href="#">Mabul</a></h5>
-                      <div class="site-info">
-                        <div class="avatar mr-2">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- 3rd programme -->
-                <div class="col-lg-4 py-2 wow zoomIn">
-                  <div class="card-blog">
-                    <div class="header">
-                      <a href="#" class="post-thumb">
-                        <img src="/homepage/assets/img/kolej.jpg" alt="">
-                      </a>
-                    </div>
-                    <div class="body">
-                      <h5 class="post-title"><a href="#">Mantanani</a></h5>
-                      <div class="site-info">
-                        <div class="avatar mr-2">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        
-              </div>
-        
-                
-              </div>
-            </div>
-        
-                <div class="input-field">
+
+
+                  <div class="input-field">
                     <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Back</button>
-                </div>
-        
-                <div class="input-field">
+                  </div>
+
+                  <div class="input-field">
                     <button type="submit" value="submit" class="btn">Apply</button>
+                  </div>
+
+                    <!-- <button type="submit" value="submit" class="btn">Apply</button> -->
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 
@@ -157,8 +119,34 @@
 </script>
 
 
+<!-- Add this script at the end of your HTML body to generate the room number options -->
+<script>
+  // Get the dropdown element
+  var roomNumberDropdown = document.getElementById("roomNumberDropdown");
 
+  // Define floor ranges
+  var floorRanges = [
+      { floor: "First Floor", start: 1101, end: 1112 },
+      { floor: "Second Floor", start: 1201, end: 1212 },
+      { floor: "Third Floor", start: 1301, end: 1312 },
+      { floor: "Fourth Floor", start: 1401, end: 1412 }
+  ];
 
+  // Generate options grouped by floors
+  floorRanges.forEach(function (range) {
+      var optgroup = document.createElement("optgroup");
+      optgroup.label = range.floor;
+
+      for (var i = range.start; i <= range.end; i++) {
+          var option = document.createElement("option");
+          option.value = i;
+          option.text = i;
+          optgroup.appendChild(option);
+      }
+
+      roomNumberDropdown.add(optgroup);
+  });
+</script>
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
