@@ -20,12 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = $_POST["fullName"];
     $dateofBooking = $_POST["dateofBooking"];
     $college = $_POST["college"];
+    $facilities = $_POST["facilities"];
     $startTime = $_POST["startTime"];
     $endTime = $_POST["endTime"];
 
     // SQL query to insert data into the database
-    $sql = "INSERT INTO booking (name, dateofBooking, college, startTime, endTime) 
-            VALUES ('$name','$dateofBooking', '$college', '$startTime', '$endTime')";
+    $sql = "INSERT INTO booking (fullName, dateofBooking, college, facilities, startTime, endTime) 
+            VALUES ('$fullName','$dateofBooking', '$college', '$facilities', '$startTime', '$endTime')";
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {

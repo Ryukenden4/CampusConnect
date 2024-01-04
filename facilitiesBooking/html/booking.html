@@ -16,10 +16,8 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
 
         <style>
-            
-
             .booking{
-                max-width: 750px;
+                max-width: 800px;
                 /* width: 100px; */
                 background: white;
                 border: 2px solid rgba(225, 225, 225, 0.2);
@@ -29,6 +27,9 @@
                 padding: 40px 35px 35px;
                 justify-content: center;
                 align-content: center;
+                align-items: center;
+                padding: 40px 35px 35px;
+                
             }
 
             .h1{
@@ -93,7 +94,7 @@
     
         <div class="booking">
             <form name="register" action="booking.php" method="POST">
-                <h1>Booking</h1>
+                <h1>Booking Form</h1>
 
                 <div class="input-box">
                     <!-- Full name -->
@@ -103,17 +104,26 @@
                     </div>
                     <!-- date of booking -->
                     <div class="input-field">
-                        <input type="date" name="dateofBooking" placeholder="Date of Booking:" required>
+                        <input type="date" name="dateofBooking" placeholder="dateofBooking">
                         <i class="bx bxs-envelope"></i>
                     </div>
                     <!-- college selection -->
                     <div class="input-field">
-                        <input type="college" name="college" placeholder="" required>
                         <label for="college">Select College:</label>
                         <select name="Manukan" required>
                             <option value="college1">Manukan</option>
                             <option value="college2">Mantanani</option>
-                            <option value="college2">Mabul</option>
+                            <option value="college3">Mabul</option>
+                        </select>
+                    </div>
+                    <!-- facilities selection-->
+                    <div class="input-field">
+                        <input  name="facilities" id="facilities" class="custom-select">
+                        <label for="college">Select Facilities:</label>
+                        <select name="Manukan" required>
+                            <option value="college1">Meeting Room</option>
+                            <option value="college2">Reading Room</option>
+                            <option value="college3">Gym Room</option>
                         </select>
                     </div>
                     <!-- start time -->
@@ -136,7 +146,6 @@
 
     
 </body>
-
 
 
 <!--for header baru-->
