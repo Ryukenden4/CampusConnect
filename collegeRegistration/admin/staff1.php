@@ -35,12 +35,12 @@ if ($result->num_rows > 0) {
         if ($row["roomNumber"] != null && $row["residentialCollege"] != null) {
             // If roomNumber and residentialCollege are not null, display the room information
             echo "<td>" . $row["residentialCollege"] . "</td>";
-            echo "<td>" . $row["roomNumber"] . "</td>";
         } else {
             // If roomNumber and residentialCollege are null, display "Have not applied"
-            echo "<td colspan='2'>Have not applied</td>";
+            echo "<td>Have not applied</td>";
         }
 
+        echo "<td><a href='#' class='room-link' onclick='confirmChangeRoom(\"" . $row["ID"] . "\", \"" . $row["roomNumber"] . "\")'>" . $row["roomNumber"] . "</a></td>";
         echo "<td><button onclick='confirmDelete(" . $row["ID"] . ")'>Delete</button></td>";
         echo "</tr>";
     }

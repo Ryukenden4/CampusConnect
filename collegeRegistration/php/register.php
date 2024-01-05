@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Registration successful
         echo '<script>
                 alert("Registration successful!");
-                window.location.href = "/CampusConnect/homepage/html/index.html"; // Replace with the actual path
+                window.location.href = "/homepage/html/index.html"; // Replace with the actual path
               </script>';
     } else {
         // Registration failed
