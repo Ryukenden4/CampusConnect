@@ -40,9 +40,9 @@
       <!-- banner section start --> 
       <!-- Welcome user message -->
       <div class="banner_section" style="height: 20px;">
-         <h1 class="banner_taital" id="userNameSpan" style="padding-left: 90px;"></h1>
+         <h1 class="banner_taital" id="userNameSpan" style="padding-left: 90px; background-color:#001431;"></h1>
       </div>
-
+      <!-- carousel tin -->
       <div class="banner_section layout_padding">
          <div class="container-fluid">
             <div id="banner_slider" class="carousel slide" data-ride="carousel">
@@ -219,27 +219,23 @@
 
      </script>
 
-// Use JavaScript to fetch the user's name and update the HTML dynamically
+<!-- Use JavaScript to fetch the user's name and update the HTML dynamically -->
 <script>
    document.addEventListener("DOMContentLoaded", function () {
-    // Fetch user data using AJAX
-    fetch('/intermediate/user.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Check if userType is 'student' before updating the welcome message
-                if (data.userType === 'student') {
-                    // Update the user name in the HTML
-                    document.getElementById('userNameSpan').textContent = 'Welcome, ' + data.userId;
-                } else {
-                    console.error('Error: User is not a student');
-                }
-            } else {
-                console.error('Error:', data.message);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-});
+       // Fetch user data using AJAX
+       fetch('/intermediate/user.php')
+           .then(response => response.json())
+           .then(data => {
+               if (data.success) {
+                   // Update the user name in the HTML
+                   document.getElementById('userNameSpan').textContent = 'Welcome, ' + data.userName;
+               } else {
+                   console.error('Error:', data.message);
+               }
+           })
+           .catch(error => console.error('Error:', error));
+   });
 </script>
+
    </body>
 </html>
