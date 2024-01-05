@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" title="Program Registration">
 
@@ -79,7 +83,7 @@
                 <thead>
                     <tr>
                         <th> no </th>
-                        <th> progamme_name </th>
+                        <th> progamme name </th>
                         <th> place </th>
                         <th> date </th>
                         <th><center> Action </center></th>
@@ -111,12 +115,12 @@
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["num"] . "</td>";
+                        echo "<td>" . $row["programID"] . "</td>";
                         echo "<td>" . $row["programme"] . "</td>";
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["num"] . ")'>Register</button></td>";
+                        echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Register</button></td>";
                         echo "</tr>";
                     }
                     ?>
