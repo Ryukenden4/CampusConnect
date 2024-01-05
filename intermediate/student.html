@@ -32,17 +32,17 @@
       <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
    </head>
 
-  
-
    <body>
        <!-- header -->
       <header id="header"></header>
 
       <div class="header_section">  
       <!-- banner section start --> 
+      <!-- Welcome user message -->
       <div class="banner_section" style="height: 20px;">
          <h1 class="banner_taital" id="userNameSpan" style="padding-left: 90px;"></h1>
       </div>
+
       <div class="banner_section layout_padding">
          <div class="container-fluid">
             <div id="banner_slider" class="carousel slide" data-ride="carousel">
@@ -191,7 +191,6 @@
 
        <!-- script to receive header from "header" folder -->
       <script>
-         // Use fetch to load the header content dynamically
          fetch('/header/header.html')
             .then(response => response.text())
             .then(data => {
