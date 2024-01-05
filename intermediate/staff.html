@@ -69,6 +69,7 @@
                                  <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
                              </form>
                          </li>
+
                      </ul>
                  </div> <!-- .navbar-collapse -->
              </div> <!-- .container -->
@@ -87,7 +88,7 @@
                      <div class="row">
                         <div class="col-md-6">
                            <div class="banner_taital_main">
-                              <h1 class="banner_taital">Administrator Section</h1>
+                              <h1 class="banner_taital" id="userNameSpan"></h1>
                               <p class="banner_text" style="font-size: 25px;" >Welcome to the College InfoCenter Admin Page, your centralised hub for managing key modules—College Registration, Programme Registration, Customer Support, and Facility Booking. Access all the tools you need to streamline administration and enhance the college experience for both students and staff.</p>
                               <!-- <div class="readmore_btn active"><a href="#">Read More</a></div> -->
                               <!-- <div class="started_bt"><a href="#">More Info</a></div> -->
@@ -210,5 +211,23 @@
          });
 
      </script>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+       // Fetch user data using AJAX
+       fetch('/intermediate/user.php')
+           .then(response => response.json())
+           .then(data => {
+               if (data.success) {
+                   // Update the user name in the HTML
+                   document.getElementById('userNameSpan').textContent = 'Welcome, ' + data.userName;
+               } else {
+                   console.error('Error:', data.message);
+               }
+           })
+           .catch(error => console.error('Error:', error));
+   });
+</script>
+
    </body>
 </html>

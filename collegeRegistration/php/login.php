@@ -28,10 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful for student
             $_SESSION["user_type"] = "student";
             $_SESSION["user_id"] = $id; // Set the user's ID in the session
-            header("Location: /intermediate/student.html"); // Replace with the actual path
+            header("Location: /intermediate/student.html"); 
         } else {
             // Login failed for student
-            echo "Error: Incorrect Student ID or password. Please try again.";
+            echo '<script>
+                    alert("Incorrect Student ID or password. Please try again.");
+                    window.location.href = "/collegeRegistration/html/login.html"; 
+                </script>';
         }
     } elseif (isset($_POST["staff"])) {
         // Check if the staff checkbox is checked
@@ -42,14 +45,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful for staff
             $_SESSION["user_type"] = "staff";
             $_SESSION["user_id"] = $id; // Set the user's ID in the session
-            header("Location: /intermediate/staff.html"); // Replace with the actual path
+            header("Location: /intermediate/staff.html"); 
         } else {
-            // Login failed for staff
-            echo "Error: Incorrect Staff ID or password. Please try again.";
+        // Login failed for staff
+        echo '<script>
+                    alert("Incorrect Staff ID or password. Please try again.");
+                    window.location.href = "/collegeRegistration/html/login.html"; 
+                </script>';
         }
     } else {
         // Handle the case where neither student nor staff checkbox is checked
-        echo "Error: Please select either Student or Staff checkbox.";
+        echo '<script>
+                alert("Please select either Student or Staff checkbox.");
+                window.location.href = "/collegeRegistration/html/login.html"; 
+             </script>';
     }
 }
 

@@ -50,14 +50,14 @@
             display:flex;
             flex-direction:row;
             justify-content: center;
-            align-items: middle;
+            align-items: center;
             text-align: center;
             padding:10px;
         }
 
         .card1 {
-            background-image: #ffffff;
-            border-radius: 3px;
+            background-color: #ffffff;
+            border-radius: 25px;
             display: inline-block;
             height: 135px;
             margin: 1rem;
@@ -74,8 +74,8 @@
         }
 
         .card2 {
-            background-image: #ffffff;
-            border-radius: 3px;
+            background-color: #ffffff;
+            border-radius: 25px;
             display: inline-block;
             height: 135px;
             margin: 1rem;
@@ -92,8 +92,8 @@
         }
 
         .card3 {
-            background-image: #ffff;
-            border-radius: 3px;
+            background-color: #ffff;
+            border-radius: 25px;
             display: inline-block;
             height: 135px;
             margin: 1rem;
@@ -110,7 +110,8 @@
         }
 
         .text{
-            font-size: 18px;
+            font-size: 20px;
+           
         }
 
         
@@ -124,18 +125,57 @@
         .bookbtn{
             border-radius: 60px;
             text-align: center;
-            background-color: transparent;
+            background-color: #ffff;
             block-size: auto;
+            
+
+            &:hover{
+                border-color: #2196F3;
+                color: dodgerblue;
+            }
         }
-        .book{
+
+        .image-button1 {
+            display: inline-block;
+            padding: 20px 30px;
+            width: 100px;
+            height: 80px;
+            background: url('/facilitiesBooking/img/meetingIcon.png') no-repeat center center;
+            background-size: contain; /* Adjust as needed */
             text-align: center;
+            color: #fff; /* Text color */
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
         }
 
-        .button1{
-            border-radius: 50px;
+        .image-button2 {
+            display: inline-block;
+            padding: 20px 30px;
+            width: 100px;
+            height: 80px;
+            background: url('/facilitiesBooking/img/readingIcon.png') no-repeat center center;
+            background-size: cover; /* Adjust as needed */
+            text-align: center;
+            color: #fff; /* Text color */
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
         }
 
-
+        .image-button3 {
+            display: inline-block;
+            padding: 20px 30px;
+            width: 100px;
+            height: 80px;
+            background: url('/facilitiesBooking/img/gymIcon.png') no-repeat center center;
+            background-size: cover; /* Adjust as needed */
+            text-align: center;
+            color: #fff; /* Text color */
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -187,23 +227,26 @@
                 <div class="title" style="color:white"><b>BOOKING</b></div>
 
                 <!--selection room button-->
-               <div class="button-section" class="button1">
-                <div class="card1">
-                    <div>img</div>
-                    <div class="text">Meeting Room</div>
-                </div>
-                <div class="card2">
-                  <div>img</div>
-                  <div class="text">Reading Room</div>
-                </div>
-                <div class="card3">
-                  <div>img</div>
-                  <div class="text">Gym Room</div>
-                </div>
+               <div class="button-section">
+                    <div class="card1">
+                        <a href="booking.html">
+                            <button class="image-button1"></button>
+                        </a>
+                        <div class="text">MEETING ROOM</div>
+                    </div>
+                    <div class="card2">
+                        <a href="booking.html">
+                            <button class="image-button2"></button>
+                        </a>
+                        <div class="text">READING ROOM</div>
+                    </div>
+                    <div class="card3">
+                        <a href="booking.html">
+                            <button class="image-button3"></button>
+                        </a>
+                        <div class="text">GYM ROOM</div>
+                    </div>
               </div>
-
-              <div class="book">
-                <a href="booking.html" class="bookbtn">BOOK NOW</a>
             </div>
 
                 </div> <!-- .page-banner -->
