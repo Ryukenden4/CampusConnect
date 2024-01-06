@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    include('deleteProgram.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en" title="Program Registration">
 

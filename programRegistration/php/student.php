@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +121,7 @@ session_start();
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Register</button></td>";
+                        echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
                         echo "</tr>";
                     }
                     ?>

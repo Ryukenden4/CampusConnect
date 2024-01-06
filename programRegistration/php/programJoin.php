@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Program</title>
+    <title>Join Program</title>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="../css/registerStyle.css"> 
     <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
@@ -85,28 +85,28 @@ if ($conn->connect_error) {
     
     <div class="register-container">
         <div class="register">
-            <form action="/programRegistration/php/connection.php" method="POST">
-                <h1>Add Programme</h1>
+            <form action="/programRegistration/php/con2.php" method="POST">
+                <h1>Register Program</h1>
 
                 <div class="input-box">
 
                     <!-- program name -->
                     <div class="input-field">
-                        <input type="text" name="programme" placeholder="Program Name" required>
+                        <input type="text" name="studentName" placeholder="Name" required>
                         <i class="bx bxs-user"></i>
                     </div>
                     <!-- place -->
                     <div class="input-field">
-                        <input type="text" name="place" placeholder="Place" required>
+                        <input type="text" name="student_id" placeholder="ID" required>
                         <i class="bx bxs-envelope"></i>
                     </div>
                     <!-- date -->
                     <div class="input-field">
-                        <input type="date" name="date" placeholder="Programme date" required>
+                        <input type="text" name="programJoin" placeholder="Program Name" required>
                         <i class="bx bxs-lock"></i>
                     </div>
 
-                    <button type="submit" value="submit" class="btn">Add Programme</button>
+                    <button type="submit" value="submit" class="btn">Join Program</button>
                 </div>
             </form>
         </div>
