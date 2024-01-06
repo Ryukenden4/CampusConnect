@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 
-    <link rel="stylesheet" href="/programRegistration/css/style.css">
-    <!-- <link rel="stylesheet" href="/programRegistration/button/button.css"> -->
+    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 </head>
 
 <body>
@@ -23,7 +22,6 @@
       <link rel="stylesheet" href="/header/css/bootstrap.css">
       <link rel="stylesheet" href="/header/css/maicons.css">
       <link rel="stylesheet" href="/header/css/theme.css">
-
 
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
@@ -114,12 +112,12 @@
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["num"] . "</td>";
+                        echo "<td>" . $row["programID"] . "</td>";
                         echo "<td>" . $row["programme"] . "</td>";
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["num"] . ")'>Delete</button></td>";
+                        echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
                         echo "</tr>";
                     }
                     ?>
@@ -127,4 +125,11 @@
             </table>
         </section>
     </main>
+
+     <!-- footer -->
+     <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+      </div>
+   </div>
 </body>

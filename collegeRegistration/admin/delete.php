@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
         // Deletion successful
         echo '<script>
                 alert("Student deleted successfully!");
-                window.location.href = "staff.html"; // stay in the staff.html
+                window.location.href = "staff.html"; 
               </script>';
     } else {
         // Deletion failed
