@@ -17,6 +17,7 @@ if(mysqli_connect_errno()){
 // Process form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
+    $studentId = $_POST["studentId"];
     $fullName = $_POST["fullName"];
     $dateofBooking = $_POST["dateofBooking"];
     $college = $_POST["college"];
@@ -25,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $endTime = $_POST["endTime"];
 
     // SQL query to insert data into the database
-    $sql = "INSERT INTO booking (fullName, dateofBooking, college, facilities, startTime, endTime) 
-            VALUES ('$fullName','$dateofBooking', '$college', '$facilities', '$startTime', '$endTime')";
+    $sql = "INSERT INTO booking (studentId, fullName, dateofBooking, college, facilities, startTime, endTime) 
+            VALUES ('$studentId', '$fullName','$dateofBooking', '$college', '$facilities', '$startTime', '$endTime')";
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {
