@@ -10,10 +10,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
-// Performing SQL query to fetch data from the response table
-$sql = "SELECT * FROM booking";
+// Performing SQL query to fetch data from the room and student tables
+$sql = "SELECT student.ID, student.fullName, student.email, student.phoneNumber, student.programCode, student.semester, room.roomNumber, room.residentialCollege
+        FROM student
+        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4
+        WHERE student.status = 'enable'";
+
 $result = $conn->query($sql);
 
 // Checking if there are rows returned
@@ -28,7 +32,6 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["facilities"] . "</td>";
         echo "<td>" . $row["startTime"] . "</td>";
         echo "<td>" . $row["endTime"] . "</td>";
-        echo "</tr>";
     }
 } else {
     echo "0 results";
