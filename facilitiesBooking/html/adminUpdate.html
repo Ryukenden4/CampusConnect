@@ -111,7 +111,7 @@
           // Fetch data from response.php using AJAX
           window.onload = function () {
               var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'table.php', true);
+              xhr.open('GET', 'update1.php', true);
 
               xhr.onload = function () {
                   if (xhr.status == 200) {
@@ -126,24 +126,33 @@
 
 <script>
     function deleteBooking(studentId) {
-        console.log("Function called");
-        if (confirm('Are you sure you want to delete this booking?')) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'updateBooking.php?studentId=' + studentId, true);
+    if (confirm('Are you sure you want to delete this booking?')) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'update1.php?studentId=' + studentId, true);
 
-            xhr.onload = function () {
-                if (xhr.status == 200) {
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                // Check the response text for success message
+                if (xhr.responseText === "Booking deleted successfully!") {
                     console.log("Booking deleted successfully!");
-                    // Reload the page or update the UI as needed
-                    location.reload();
-                } else {
-                    console.error("Error deleting booking:", xhr.statusText);
-                }
-            };
 
-            xhr.send();
-        }
+                    // Remove the corresponding row from the table
+                    var row = document.getElementById('row_' + studentId);
+                    if (row) {
+                        row.parentNode.removeChild(row);
+                    }
+                } else {
+                    console.error("Error deleting booking:", xhr.responseText);
+                }
+            } else {
+                console.error("Error deleting booking:", xhr.statusText);
+            }
+        };
+
+        xhr.send();
     }
+}
+
 </script>
 
 
