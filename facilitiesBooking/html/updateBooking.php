@@ -1,5 +1,6 @@
 <?php
-// Establishing a connection to MySQL database
+// Fetch data from the database and display the table
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,19 +8,15 @@ $dbname = "collegeregistration";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-// Performing SQL query to fetch data from the response table
 $sql = "SELECT * FROM booking";
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
-// Checking if there are rows returned
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["studentId"] . "</td>";
         echo "<td>" . $row["fullName"] . "</td>";
@@ -28,13 +25,12 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["facilities"] . "</td>";
         echo "<td>" . $row["startTime"] . "</td>";
         echo "<td>" . $row["endTime"] . "</td>";
-        
+        echo "<td><button onclick=\"deleteBooking(" . $row["studentId"] . ")\">Delete</button></td>";
         echo "</tr>";
     }
 } else {
     echo "0 results";
 }
 
-// Closing the database connection
-$conn->close();
+mysqli_close($conn);
 ?>

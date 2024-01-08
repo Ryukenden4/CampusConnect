@@ -176,11 +176,10 @@
 <!-- ... (Your HTML and head section) ... -->
 
 <script>
-    function showBookingSuccess() {
-        // You can customize the alert message here
-        alert('Booking successfully made!');
+    
 
-        // Redirect to student.html
+    function showBookingSuccess() {
+        alert('Booking successfully made!');
         window.location.href = '/CampusConnect/intermediate/student.html';
     }
 
@@ -209,7 +208,7 @@
                     showBookingSuccess();
                 } else {
                     alert('Booking Successfully Made!'); // Show a generic error message
-
+                    window.location.href = '/CampusConnect/intermediate/student.html';
                 }
             } else {
                 alert('Error: ' + xhr.statusText); // Show an error message

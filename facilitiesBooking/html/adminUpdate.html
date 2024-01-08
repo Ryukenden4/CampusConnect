@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 
         <style>
+
         </style>
     </head>
 
@@ -67,7 +68,7 @@
     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/kolej.jpg); height: 18cm;"></div>
     <main class="table">
         <section class="table__header">
-            <h1 style="color: black;">Facilities Booking List</h1>
+            <h1 style="color: black;">Booking Lists</h1>
         </section>
         <section class="table__body">
             <table style="color: black;">
@@ -81,21 +82,26 @@
                         <th> facilities </th>
                         <th> startTime </th>
                         <th> endTime </th>
+                        <th><center> Action </center></th>
                     </tr>
                 </thead>
 
                 <!-- body for table -->
                 <tbody id="studentData">
-                    <!-- data will be fetch from table.php to display dinamically -->
+                    <!-- data will be fetch from staff1.php to display dinamically -->
                 </tbody>
             </table>
         </section>
 
         <div class="input-field" style="padding-left: 40px;">
-          
-          <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;"  class="btn">Back</button>
+        <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;"  class="btn">Back</button>
         </div>
-    </main>
+
+        
+
+    </main>         
+    </div> <!-- .page-banner -->
+    
 </body>
 
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
@@ -106,7 +112,7 @@
           window.onload = function () {
               var xhr = new XMLHttpRequest();
               xhr.open('GET', 'table.php', true);
-      
+
               xhr.onload = function () {
                   if (xhr.status == 200) {
                       // Update the content of tbody with the fetched data
@@ -117,6 +123,44 @@
               xhr.send();
           };
         </script>
+
+<script>
+    function deleteBooking(studentId) {
+        console.log("Function called");
+        if (confirm('Are you sure you want to delete this booking?')) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'updateBooking.php?studentId=' + studentId, true);
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    console.log("Booking deleted successfully!");
+                    // Reload the page or update the UI as needed
+                    location.reload();
+                } else {
+                    console.error("Error deleting booking:", xhr.statusText);
+                }
+            };
+
+            xhr.send();
+        }
+    }
+</script>
+
+
+        <script>
+            var xhr = new XMLHttpRequest();
+xhr.open('GET', 'updateBooking.php?timestamp=' + new Date().getTime(), true);
+
+xhr.onload = function () {
+    if (xhr.status == 200) {
+        document.getElementById('studentData').innerHTML = xhr.responseText;
+    }
+};
+
+xhr.send();
+
+        </script>
+
 
         <script>
           function goBack() {
