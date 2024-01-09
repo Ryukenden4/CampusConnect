@@ -12,11 +12,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Performing SQL query to fetch data from the room and student tables
+// Initialize the filter conditions
+$filterConditions = array();
+
+// Check if filter parameters are present in the query string
+if (isset($_GET['filter']) && isset($_GET['value'])) {
+    $filterColumn = $_GET['filter'];
+    $filterValue = $_GET['value'];
+
+    // Validate filter column (prevent SQL injection)
+    $allowedColumns = array('ID', 'fullName', 'email', 'phoneNumber', 'programCode', 'semester', 'residentialCollege', 'roomNumber');
+    if (in_array($filterColumn, $allowedColumns)) {
+        $filterConditions[] = "$filterColumn = '$filterValue'";
+    }
+}
+
+// Performing SQL query to fetch data from the room and student tables with applied filters
 $sql = "SELECT student.ID, student.fullName, student.email, student.phoneNumber, student.programCode, student.semester, room.roomNumber, room.residentialCollege
         FROM student
-        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4
-        WHERE student.status = 'enable'";
+        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4";
+
+// Add filter conditions to the query
+if (!empty($filterConditions)) {
+    $sql .= " WHERE " . implode(' AND ', $filterConditions);
+}
 
 $result = $conn->query($sql);
 
@@ -31,7 +50,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["phoneNumber"] . "</td>";
         echo "<td>" . $row["programCode"] . "</td>";
         echo "<td>" . $row["semester"] . "</td>";
-        
+
         if ($row["roomNumber"] != null && $row["residentialCollege"] != null) {
             // If roomNumber and residentialCollege are not null, display the room information
             echo "<td>" . $row["residentialCollege"] . "</td>";
