@@ -7,7 +7,7 @@
         <title>Welcome, Admin.</title>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="copyright" content="MACode ID, https://macodeid.com/">
-        <title>CampusConnect</title>
+
         <link rel="stylesheet" href="../assets/css/maicons.css">
         <link rel="stylesheet" href="../assets/css/bootstrap.css">
         <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
@@ -68,6 +68,10 @@
     <main class="table">
         <section class="table__header">
             <h1 style="color: black;">Facilities Booking List</h1>
+            <div class="search-container">
+                <input type="text" id="myInput" placeholder="Search by Date..." oninput="filterTable()">
+                <button onclick="filterTable()">Search</button>
+            </div>
         </section>
         <section class="table__body">
             <table style="color: black;">
@@ -145,5 +149,27 @@
               }
             }
         </script> <!--close script-->
+
+<script>
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("studentData");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
 
 </html>

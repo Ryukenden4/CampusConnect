@@ -17,23 +17,19 @@ $sql = "SELECT * FROM booking";
 $result = $conn->query($sql);
 
 // Checking if there are rows returned
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["studentId"] . "</td>";
-        echo "<td>" . $row["fullName"] . "</td>";
-        echo "<td>" . $row["dateofBooking"] . "</td>";
-        echo "<td>" . $row["college"] . "</td>";
-        echo "<td>" . $row["facilities"] . "</td>";
-        echo "<td>" . $row["startTime"] . "</td>";
-        echo "<td>" . $row["endTime"] . "</td>";
-        
-        echo "</tr>";
-    }
-} else {
-    echo "0 results";
+echo "<tbody id='studentData'>";
+while ($row = $result->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $row["studentId"] . "</td>";
+    echo "<td>" . $row["fullName"] . "</td>";
+    echo "<td>" . $row["dateofBooking"] . "</td>";
+    echo "<td>" . $row["college"] . "</td>";
+    echo "<td>" . $row["facilities"] . "</td>";
+    echo "<td>" . $row["startTime"] . "</td>";
+    echo "<td>" . $row["endTime"] . "</td>";
+    echo "</tr>";
 }
+echo "</tbody>";
 
 // Closing the database connection
 $conn->close();
