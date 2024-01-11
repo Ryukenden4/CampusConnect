@@ -17,8 +17,7 @@ session_start();
     <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
-
-    <link rel="stylesheet" href="/programRegistration/css/style.css">
+    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 </head>
 
 <body>
@@ -129,4 +128,12 @@ session_start();
             </table>
         </section>
     </main>
+
+     <!-- footer -->
+     <div class="copyright_section">
+        <div class="container">
+            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+        </div>
+    </div>
+
 </body>

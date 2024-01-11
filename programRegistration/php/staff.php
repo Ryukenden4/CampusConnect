@@ -1,8 +1,3 @@
-<?php 
-    session_start();
-    include('deleteProgram.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en" title="Program Registration">
 
@@ -85,7 +80,7 @@
                 <thead>
                     <tr>
                         <th> no </th>
-                        <th> progamme_name </th>
+                        <th> progamme name </th>
                         <th> place </th>
                         <th> date </th>
                         <th>Action</th>
@@ -124,6 +119,17 @@
 
                         echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
                         echo "</tr>";
+
+                        echo '<script>
+                            function confirmDelete(programID) {
+                                var confirmDelete = confirm("Are you sure you want to delete this student?");
+
+                                if (confirmDelete) {
+                                    // If user clicks OK, redirect to the delete.php with the student ID
+                                    window.location.href = "deleteProgram.php?programID=" + programID;
+                                }
+                            }
+                            </script>';
                     }
                     ?>
                 </tbody>
@@ -138,3 +144,11 @@
       </div>
    </div>
 </body>
+</html>
+
+ 
+<script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+  <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+
