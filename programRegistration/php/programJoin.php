@@ -93,21 +93,25 @@ if ($conn->connect_error) {
                     <!-- program name -->
                     <div class="input-field">
                         <input type="text" name="studentName" placeholder="Name" required>
-                        <i class="bx bxs-user"></i>
+                        <!-- <i class="bx bxs-user"></i> -->
                     </div>
                     <!-- place -->
                     <div class="input-field">
                         <input type="text" name="student_id" placeholder="ID" required>
-                        <i class="bx bxs-envelope"></i>
+                        <!-- <i class="bx bxs-envelope"></i> -->
                     </div>
                     <!-- date -->
                     <div class="input-field">
                         <input type="text" name="programJoin" placeholder="Program Name" required>
-                        <i class="bx bxs-lock"></i>
+                        <!-- <i class="bx bxs-lock"></i> -->
                     </div>
-
-                    <button type="submit" value="submit" class="btn">Join Program</button>
                 </div>
+
+                <div class="buttonBackApply">
+                  <button type="button" onclick="location.href='/programRegistration/php/student.php'" style="background-color: #8b0000;" class="btn">Cancel</button>
+                  <button type="submit" value="submit" class="btn">Add Programme</button>
+                </div>
+
             </form>
         </div>
     </div>

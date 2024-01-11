@@ -61,9 +61,9 @@
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
       </nav>
+      
 
-      <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
-      <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+ 
     </header>
 
     <!-- body section -->

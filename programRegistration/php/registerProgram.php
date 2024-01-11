@@ -93,21 +93,25 @@ if ($conn->connect_error) {
                     <!-- program name -->
                     <div class="input-field">
                         <input type="text" name="programme" placeholder="Program Name" required>
-                        <i class="bx bxs-user"></i>
+                        <!-- <i class="bx bxs-user"></i> -->
                     </div>
                     <!-- place -->
                     <div class="input-field">
                         <input type="text" name="place" placeholder="Place" required>
-                        <i class="bx bxs-envelope"></i>
+                        <!-- <i class="bx bxs-envelope"></i> -->
                     </div>
                     <!-- date -->
                     <div class="input-field">
                         <input type="date" name="date" placeholder="Programme date" required>
-                        <i class="bx bxs-lock"></i>
+                        <!-- <i class="bx bxs-lock"></i> -->
                     </div>
-
-                    <button type="submit" value="submit" class="btn">Add Programme</button>
                 </div>
+
+                <div class="buttonBackApply">
+                  <button type="button" onclick="location.href='/programRegistration/php/staff.php'" style="background-color: #8b0000;" class="btn">Cancel</button>
+                  <button type="submit" value="submit" class="btn">Add Programme</button>
+                </div>
+
             </form>
         </div>
     </div>
@@ -162,3 +166,14 @@ if ($conn->connect_error) {
 
 </body>   
 </html>
+
+
+
+
+
+<script>
+  function goBack() {
+      // Redirect to another HTML file
+      window.location.href = '/intermediate/student.html'; 
+  }
+</script>
