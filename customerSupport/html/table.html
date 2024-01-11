@@ -331,17 +331,21 @@ main.table {
               <div class="container text-center wow fadeInUp">
                 <p>
                 <h1>
-                   <div style="color:white; font-size: 65px; text-shadow: 2px 2px 5px black;">ALL RESPONSE LIST</div>
+                   <div style="color:white; font-size: 50px; text-shadow: 2px 2px 5px black;">ALL RESPONSE LIST</div>
             
-                   <p><div style="font-size: 30px;  text-shadow: 2px 2px 5px black; color:white;">
-                   <i>We are happy to meet you here again!</i>
+                   <p><div style="font-size: 20px;  text-shadow: 2px 2px 5px black; color:white;">
+                   <i>Saved Responses List</i>
                    </div> </p> 
                 </h1></p>
 
-                <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for type of user.." title="Type in a name">-->
                 <main class="table">
                   <section class="table__header">
-                    <h1>Customer's Responses</h1>
+                   <h1>Customer's Responses</h1>
+                    <form action="datepick.php" style="border-radius: 5px;" method="POST">
+                        <label for="date"><b>Choose Date</b></label>
+                        <input type="date" id="date" name="date">
+                        <input type="submit">
+                    </form>
                   </section>
 
                 <p></section>
@@ -410,6 +414,7 @@ main.table {
                     
                   }
                 </script> <!--close script-->
+
               </div> <!--class container-->
             </div> <!--banner section-->
           </div> <!--page banner-->
