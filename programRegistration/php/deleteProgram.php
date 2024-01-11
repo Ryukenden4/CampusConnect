@@ -22,7 +22,7 @@
             // Deletion successful
             echo '<script>
                     alert("Student deleted successfully!");
-                    window.location.href = "/programRegistration/php/staff.php"; // stay in the staff.html
+                    window.location.href = "/programRegistration/php/staff.php";
                 </script>';
         } else {
             // Deletion failed

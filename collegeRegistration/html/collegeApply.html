@@ -56,7 +56,7 @@
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
     </nav>
-</header>
+    </header>
     
     <!-- body section -->
     <div class="register-container">
@@ -86,9 +86,10 @@
                     </select>
                   </div>
 
+                  <p class="input-field" style="width: 100%;">Already registered? <a href="/collegeRegistration/html/roommates.html">View Roomates</a></p>
 
                   <div class="input-field">
-                    <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Back</button>
+                    <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Cancel</button>
                   </div>
 
                   <div class="input-field">
@@ -119,7 +120,7 @@
 </script>
 
 
-<!-- Add this script at the end of your HTML body to generate the room number options -->
+<!-- generate the room number options -->
 <script>
   // Get the dropdown element
   var roomNumberDropdown = document.getElementById("roomNumberDropdown");
@@ -147,6 +148,7 @@
       roomNumberDropdown.add(optgroup);
   });
 </script>
+
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 

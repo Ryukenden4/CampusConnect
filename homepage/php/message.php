@@ -26,7 +26,7 @@ if ($conn->query($sql) === TRUE) {
     // Record created successfully
     echo '<script>';
     echo 'alert("Record created successfully!");';
-    echo 'window.location.href = "/CampusConnect/homepage/html/index.html";'; // Replace with the actual path
+    echo 'window.location.href = "/homepage/html/index.html";'; // Replace with the actual path
     echo '</script>';
 } else {
     // Error in SQL query

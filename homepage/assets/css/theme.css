@@ -27,6 +27,11 @@ body {
   color: #343531;
 }
 
+.center {
+  display: flex;
+	justify-content: center;
+}
+
 a {
   color: #07be94;
   text-decoration: none;
