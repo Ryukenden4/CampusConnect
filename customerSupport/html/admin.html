@@ -36,6 +36,20 @@
 
 
       .button{
+        background-color: #007bff;
+        border: 1px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 7cm;
+      }
+
+      .backbutton{
         background-color: #8b0000;
         border: 1px;
         color: rgb(255, 255, 255);
@@ -47,6 +61,11 @@
         cursor: pointer;
         border-radius: 5px;
         width: 7cm;
+        margin-top: 1cm;
+      }
+
+      .backbutton:hover {
+        background-color: #f1f1f1;
       }
 
       .button_menu {
@@ -67,30 +86,21 @@
       }
 
       .button:hover {
-        background-color: #b9d6f9;
-      }
-
-      .button_menu:hover {
-        background-color: #ffffff;
-        color: black;
-        
+        background-color: #8b0000;
       }
 
       .admin-bg{
         position: relative;
         padding: 60px;
-        background: #ffffff39;
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255,255,255,0.25);
-        border-right: 1px solid rgba(255,255,255,0.25);
+        background: none;
         border-radius: 20px;
         width: 30cm;
-        height: 11cm;
+        height: 16cm;
         display:flex;
-        flex-direction: column;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        flex-direction: column;     
         margin-left: auto; 
         margin-right: auto;
+        margin-top: 0cm;
       }
 
       .center {
@@ -103,13 +113,50 @@
     padding: 20px 30px;
     width: 5cm;
     height: 4cm;
-    background: url(/customerSupport/assets/img/blog/) no-repeat center center;
-    background-size: 250px;
+    background: url(/customerSupport/assets/img/graphicon.png) no-repeat center center;
+    background-size: 150px;
     text-align: center;
     color: #fff;
     text-decoration: none;
     border: none;
     cursor: pointer;
+    }
+
+    .image-button1:hover {
+        background-color: #ffffff;
+        color: black;
+        
+      }
+
+    .image-button2 {
+    display: inline-block;
+    padding: 20px 30px;
+    width: 5cm;
+    height: 4cm;
+    background: url(/customerSupport/assets/img/table.png) no-repeat center center;
+    background-size: 130px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    }
+
+    .image-button2:hover {
+        background-color: #ffffff;
+      }
+
+    .menu-bg{
+      background-color: #ffffff;
+      border-radius: 10px;
+      width: 13cm;
+      border: 2px solid rgba(225, 225, 225, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(50px);
+    }
+
+    .menu-bg:hover{
+      background-color: grey;
     }
     </style>
 </head>
@@ -157,25 +204,26 @@
       </nav>
   </header>
 
-          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
+          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 23cm;">
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">
-                <h1 style="color: #fcfcfc; text-align: center;  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                    <p style="font-size: 60px;">
+                <h1 style="color: #fcfcfc; text-align: center;  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 50px; margin-top: cm;">
                         ADMIN PAGES
-                    </p>
+                        <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
                 </h1> 
 
-                <div class="admin-bg">
-                  
-                  <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
-
-                  <div class="fadeInRight center" style="margin-top: 20px;">
-                    <a class="nav-link" href="graph.html"><button type="return" class="button_menu image-button1"></button></a>
-                    <a class="nav-link" href="table.html"><button type="return" class="button_menu">VIEW ALL RESPONSE LIST</button></a> 
+                <div>
+                  <div class="fadeInRight center menu-bg">
+                    <a class="nav-link" href="graph.html"><button type="return" class="button_menu image-button1"></button>
+                    <div class="button" style="margin-right: 20px;">VIEW RESPONSE SUMMARY</div></a>
                   </div>
 
-                  <a class="nav-link" href="/intermediate/staff.html"><button type="return" class="button btn">BACK TO HOMEPAGE</button></a>
+                  <div class="fadeInRight center menu-bg" style="margin-top: 20px;">
+                    <a class="nav-link" href="table.html"><button type="return" class="button_menu image-button2"></button>
+                    <div class="button" style="margin-right: 20px;">VIEW RESPONSE LIST</div></a>
+                  </div>
+
+                  <a class="nav-link" href="/intermediate/staff.html"><button type="return" class="backbutton btn">Back To Home</button></a>
                  
                 </div>
                
