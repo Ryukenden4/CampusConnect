@@ -13,6 +13,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect to login page
+    exit();
+}
+
 // Process form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $studentId = $conn->real_escape_string($_POST["studentId"]);
