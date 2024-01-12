@@ -33,18 +33,23 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 // Output the HTML table rows
-while ($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . $row['ID'] . "</td>";
-    echo "<td>" . $row['fullName'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "<td>" . $row['programCode'] . "</td>";
-    echo "<td>" . $row['phoneNumber'] . "</td>";
-    echo "<td>" . $row['semester'] . "</td>";
-    echo "<td>" . $row['residentialCollege'] . "</td>";
-    echo "<td>" . $row['roomNumber'] . "</td>";
-    echo "</tr>";
+if($result -> num_rows > 0){
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['ID'] . "</td>";
+        echo "<td>" . $row['fullName'] . "</td>";
+        echo "<td>" . $row['email'] . "</td>";
+        echo "<td>" . $row['programCode'] . "</td>";
+        echo "<td>" . $row['phoneNumber'] . "</td>";
+        echo "<td>" . $row['semester'] . "</td>";
+        echo "<td>" . $row['residentialCollege'] . "</td>";
+        echo "<td>" . $row['roomNumber'] . "</td>";
+        echo "</tr>";
+    }
+} else{
+    echo "You Have Not Applied For College";
 }
+
 
 $stmt->close();
 $conn->close();
