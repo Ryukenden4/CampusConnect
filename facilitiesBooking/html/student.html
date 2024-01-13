@@ -27,13 +27,13 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <!-- header -->
-    <link rel="stylesheet" href="/header/css/bootstrap.css">
-    <link rel="stylesheet" href="/header/css/maicons.css">
-    <link rel="stylesheet" href="/header/css/theme.css">   
-    <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
+    <link rel="stylesheet" href="/homepage/assets/css/theme.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
 
+    <!-- style css -->
     <style>
         section {
             margin: 20px;
@@ -41,6 +41,33 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title-container{
+            padding-top: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .list-container {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url(/homepage/assets/img/kolej.jpg);
+            background-size: cover;
+            background-position: center;
         }
 
         box {
@@ -73,6 +100,8 @@
             text-align: center;
             padding:10px;
         }
+
+        
 
         .button-section .text{
             font-size: 20px;
@@ -198,7 +227,7 @@
     </style>
 </head>
 
-    <header>
+    <header style="background-color: white;">
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
@@ -239,52 +268,56 @@
         </nav>
     </header>
 
-    <body style="background-color:  rgb(255, 255, 255);">
-              <div class="page-banner bg-image" style="background-image: url(../assets/img/kolej.jpg); height: 18cm;">
+    <body>
+        <div class="title-container">
+            <div class="title" style="color:white" ><b>FACILITIES BOOKING</b></div>
+        </div>
 
-                <div class="title" style="color:white" ><b>COLLEGE FACILITIES</b></div>
-                <div class="title" style="color:white"><b>BOOKING</b></div>
 
-                <!--selection room button-->
-               <div class="button-section">
-                    <div class="card1">
-                        <a href="booking.html">
-                            <button class="image-button1"></button>
-                        </a>
-                        <div class="text">BOOK NOW</div>
-                    </div>
-                    <div class="card2">
-                        <a href="studentList.html">
-                            <button class="image-button2"></button>
-                        </a>
-                        <div class="text">VIEW BOOKING</div>
-                    </div>
-                    <!-- <div class="card3">
-                        <a href="booking.html">
-                            <button class="image-button3"></button>
-                        </a>
-                        <div class="text">GYM ROOM</div>
-                    </div> -->
-              </div>
+        <div class="list-container">
+
+        <!--selection room button-->
+        <div class="button-section">
+            <div class="card1">
+                <a href="booking.html">
+                    <button class="image-button1"></button>
+                </a>
+                <div class="text">BOOK NOW</div>
             </div>
+            <div class="card2">
+                <a href="studentList.html">
+                    <button class="image-button2"></button>
+                </a>
+                <div class="text">VIEW BOOKING</div>
+            </div>
+            <!-- <div class="card3">
+                <a href="booking.html">
+                    <button class="image-button3"></button>
+                </a>
+                <div class="text">GYM ROOM</div>
+            </div> -->
+        </div>
+    </div>
 
-                </div> <!-- .page-banner -->
-                </div> <!-- .banner-section -->
-
+    <!-- footer -->
+    <div class="copyright_section">
+        <div class="container">
+            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+        </div>
+    </div>
                 
     </body>
 
     <!--for header baru-->
     <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
     <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
-
     <script>
         function showBookingSuccess() {
             // You can customize the alert message here
             alert('Booking successfully made!');
 
             // Redirect to student.html
-            window.location.href = '/CampusConnect/intermediate/student.html';
+            window.location.href = '/intermediate/student.html';
         }
 
         // Assuming your form has the ID "bookingForm"
@@ -324,16 +357,6 @@
         }
     </script>
 
-<footer>
-    <!-- copyright section start -->
-  <div class="copyright_section">
-  <div class="container">
-   <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
-  </div>
-  </div>
-  <!-- copyright section end -->
-  
-  </footer>
 
 
 </html>
