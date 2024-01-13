@@ -28,15 +28,16 @@
     
             // Execute SQL queryy
             if ($conn->query($sql) === TRUE) {
-                echo "THANKYOU FOR YOUR RESPONSE";
+                // Insertion successful
+                // Generate and save PDF receipt (you'll need a library like TCPDF or FPDF)
+                // Redirect to a thank-you page or display a success message
+                header("Location: thank_you.php");
+                exit();
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
-           
-    
     }
 
-    
 // Close the connection
 $conn->close();
 ?>

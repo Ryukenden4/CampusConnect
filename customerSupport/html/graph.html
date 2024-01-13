@@ -55,20 +55,22 @@
         color:#fcfcfc;  
       }
 
-      .button{
+      .button2{
         background-color: #8b0000;
-        border: none;
+        border: 1px;
         color: rgb(255, 255, 255);
         padding: 10px 20px;
         text-align: center;
-        text-decoration: SOLID;
+        text-decoration: none;
         display: inline-block;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 5px;
+        width: 7cm;
+        margin-top: 20px;
       }
 
-      .button:hover{
+      .button2:hover{
         background-color: #fcfcfc;
         color: black;
       }
@@ -117,12 +119,12 @@
     </nav>
 </header>
 
-      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 20cm;">
+      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 23cm;">
         <div class="banner-section">
           <div class="container text-center wow fadeInUp">
            <p>
             <h1>
-                <p style="font-size: 40px; color: #f1f1f1;">ALL RESPONSE SUMMARY</p>
+                <p style="font-size: 40px; color: #f1f1f1; margin-top: 2cm;">ALL RESPONSE SUMMARY</p>
             </h1>
            </p> 
             
@@ -134,57 +136,61 @@
 
               <canvas id="myChart" width="400" height="200"></canvas>
 
-             <script>
-                     var xhr = new XMLHttpRequest();
-                     xhr.onreadystatechange = function() {
-                      if (this.readyState === 4 && this.status === 200) {
-                      var dataFromPHP = JSON.parse(this.responseText);
-
-                     // Log fetched data
-                     console.log(dataFromPHP);
-             
-                     var purposes = [];
-                     var counts = [];
-
-                     dataFromPHP.forEach(function(item) {
-                      purposes.push(item.purpose);
-                      counts.push(item.purpose_count);
-                    });
-
-                            // Log purposes and counts
-                            console.log(purposes);
-                            console.log(counts);
-
-                            var ctx = document.getElementById('myChart').getContext('2d');
-                            var myChart = new Chart(ctx, {
-                              type: 'bar',
-                              data: {
-                                labels: purposes,
-                                datasets: [{
-                                  label: 'Purpose Summary',
-                                  data: counts,
-                                  backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                  borderColor: 'rgba(54, 162, 235, 1)',
-                                  borderWidth: 1
-                                }]
-                              },
-                              options: {
-                                    // Add options as needed
-                                    scales: {
-                                      y: {
-                                        beginAtZero: true
+              <script>
+                  var xhr = new XMLHttpRequest();
+                  xhr.onreadystatechange = function () {
+                      if (this.readyState === 4) {
+                          if (this.status === 200) {
+                              var dataFromPHP = JSON.parse(this.responseText);
+              
+                              // Log fetched data
+                              console.log("Data from PHP:", dataFromPHP);
+              
+                              var purposes = [];
+                              var counts = [];
+              
+                              dataFromPHP.forEach(function (item) {
+                                  purposes.push(item.purpose);
+                                  counts.push(item.purpose_count);
+                              });
+              
+                              // Log purposes and counts
+                              console.log("Purposes:", purposes);
+                              console.log("Counts:", counts);
+              
+                              var ctx = document.getElementById('myChart').getContext('2d');
+                              var myChart = new Chart(ctx, {
+                                  type: 'bar',
+                                  data: {
+                                      labels: purposes,
+                                      datasets: [{
+                                          label: 'Purpose Summary',
+                                          data: counts,
+                                          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                          borderColor: 'rgba(54, 162, 235, 1)',
+                                          borderWidth: 1
+                                      }]
+                                  },
+                                  options: {
+                                      // Add options as needed
+                                      scales: {
+                                          y: {
+                                              beginAtZero: true
+                                          }
                                       }
-                                    }
                                   }
-                                });
-                              }
-                            };
-                            xhr.open('GET', 'graph.php', true);
-                            xhr.send();
-
+                              });
+                          } else {
+                              console.error("Failed to fetch data from PHP. Status code:", this.status);
+                          }
+                      }
+                  };
+                  xhr.open('GET', 'graph.php', true);
+                  xhr.send();
               </script>
+              
             </div>
-            <p><a class="nav-link" href="admin.html"><button type="return" class="button" >BACK TO MENU</button></a></p>
+            <p><a class="nav-link" href="admin.html"><button type="return" class="button2">Back To Menu</button></a></p>
           </div>
           </div>
         </div>
