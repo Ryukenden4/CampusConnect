@@ -1,5 +1,7 @@
 <?php
-
+    
+    session_start();
+    
         // Establishing a connection to MySQL database       
         $servername = "localhost";
         $username = "root";      

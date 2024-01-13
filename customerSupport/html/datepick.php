@@ -28,8 +28,25 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Execute the query
     $result = $conn->query($sql);
 
+    // Get the count of responses
+    $countSql = "SELECT COUNT(*) AS responseCount FROM response WHERE date BETWEEN '$startDate' AND '$endDate'";
+    $countResult = $conn->query($countSql);
+
+    if ($countResult->num_rows > 0) {
+    $responseCountRow = $countResult->fetch_assoc();
+    $responseCount = $responseCountRow['responseCount'];
+
+    // Display the count in HTML
+    echo "<p>Total Responses: $responseCount</p>";
+    } else {
+    echo "Error fetching response count.";
+    }
+
+
     // Process the query result as needed
     if ($result->num_rows > 0) {
+
+        
         // Display the results in an HTML table with some basic styles
         echo "<style>
         background-image: background-image: url(../assets/img/bk.jpeg); height:30cm;
