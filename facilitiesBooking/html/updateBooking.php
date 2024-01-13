@@ -17,7 +17,7 @@ if (isset($_GET['studentId'])) {
     $studentId = $_GET['studentId'];
 
     // Performing SQL query to update status to 'disabled' in the database
-    $sql = "UPDATE booking SET status = 'disabled' WHERE studentId = ?";
+    $sql = "UPDATE booking SET status = 'disabled' WHERE studentId = $studentId";
 
     // Use prepared statements to prevent SQL injection
     $stmt = $conn->prepare($sql);
