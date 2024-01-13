@@ -276,8 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo "</tr>";
         }
 
-        echo "</table>";
-    } else {
+        echo "</table>";    } else {
         // No results found
         echo "No results found for the specified month and year.";
     }
@@ -285,4 +284,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 // Close the database connection if needed
 $conn->close();
+
+// Add a back button
+echo '<button onclick="goBack()">Go Back</button>';
+
+// Adding a simple JavaScript function to go back
+echo '<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>';
 ?>
