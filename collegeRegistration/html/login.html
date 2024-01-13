@@ -34,12 +34,6 @@
               <a class="nav-link" href="/homepage/html/about.html">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/homepage/html/team.html">URHP</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/homepage/html/contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="/collegeRegistration/html/login.html">Login / Register</a>
             </li>
           </ul>
@@ -75,16 +69,12 @@
 
                   <p class="input-field" style="width: 100%;">Haven't registered? <a href="../html/register.html">Register</a></p>
 
-                  <!-- <div class="input-field">
-                   
-                  </div> -->
-
                   <div class="input-field">
-                    <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Cancel</button>
+                    <button type="submit" value="login"  class="btn" >Login</button>
                   </div>
 
                   <div class="input-field">
-                    <button type="submit" value="login"  class="btn" >Login</button>
+                    <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn">Cancel</button>
                   </div>
                  
               </div>
@@ -160,6 +150,11 @@
             IDInput.placeholder = 'Staff ID';
         }
     });
+
+    function goBack() {
+      // Redirect to another HTML file
+      window.location.href = '/homepage/html/index.html'; 
+  }
 </script>
 
 </html>
