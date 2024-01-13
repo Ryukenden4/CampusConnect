@@ -338,14 +338,21 @@ main.table {
                    </div> </p> 
                 </h1></p>
 
+                <!--<form action="datepick.php" method="get" style="margin-bottom: 1cm;">
+                    <label for="search_date">Search by Date (dd/mm/yyyy):</label>
+                    <input type="text" id="search_date" name="search_date" placeholder="dd/mm/yyyy" required>
+                    <button type="submit" class="button2" style="width:4cm; background-color: #007bff;">Search</button>
+                </form>-->
+
+                <form action="datepick.php" method="get" style="margin-bottom: 1cm;">
+                    <label for="search_month">Search by Month:</label>
+                    <input type="month" id="search_month" name="search_month" required>
+                    <button type="submit" class="button2" style="width:4cm; background-color: #007bff;">Search</button>
+                  </form>
+
                 <main class="table">
                   <section class="table__header">
                    <h1>Customer's Responses</h1>
-                    <form action="datepick.php" style="border-radius: 5px;" method="POST">
-                        <label for="date"><b>Choose Date :</b></label>
-                        <input type="date" id="date" name="date">
-                        <input type="submit">
-                    </form>
                   </section>
 
                 <p></section>

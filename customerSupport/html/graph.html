@@ -136,55 +136,59 @@
 
               <canvas id="myChart" width="400" height="200"></canvas>
 
-             <script>
-                     var xhr = new XMLHttpRequest();
-                     xhr.onreadystatechange = function() {
-                      if (this.readyState === 4 && this.status === 200) {
-                      var dataFromPHP = JSON.parse(this.responseText);
-
-                     // Log fetched data
-                     console.log(dataFromPHP);
-             
-                     var purposes = [];
-                     var counts = [];
-
-                     dataFromPHP.forEach(function(item) {
-                      purposes.push(item.purpose);
-                      counts.push(item.purpose_count);
-                    });
-
-                            // Log purposes and counts
-                            console.log(purposes);
-                            console.log(counts);
-
-                            var ctx = document.getElementById('myChart').getContext('2d');
-                            var myChart = new Chart(ctx, {
-                              type: 'bar',
-                              data: {
-                                labels: purposes,
-                                datasets: [{
-                                  label: 'Purpose Summary',
-                                  data: counts,
-                                  backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                  borderColor: 'rgba(54, 162, 235, 1)',
-                                  borderWidth: 1
-                                }]
-                              },
-                              options: {
-                                    // Add options as needed
-                                    scales: {
-                                      y: {
-                                        beginAtZero: true
+              <script>
+                  var xhr = new XMLHttpRequest();
+                  xhr.onreadystatechange = function () {
+                      if (this.readyState === 4) {
+                          if (this.status === 200) {
+                              var dataFromPHP = JSON.parse(this.responseText);
+              
+                              // Log fetched data
+                              console.log("Data from PHP:", dataFromPHP);
+              
+                              var purposes = [];
+                              var counts = [];
+              
+                              dataFromPHP.forEach(function (item) {
+                                  purposes.push(item.purpose);
+                                  counts.push(item.purpose_count);
+                              });
+              
+                              // Log purposes and counts
+                              console.log("Purposes:", purposes);
+                              console.log("Counts:", counts);
+              
+                              var ctx = document.getElementById('myChart').getContext('2d');
+                              var myChart = new Chart(ctx, {
+                                  type: 'bar',
+                                  data: {
+                                      labels: purposes,
+                                      datasets: [{
+                                          label: 'Purpose Summary',
+                                          data: counts,
+                                          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                          borderColor: 'rgba(54, 162, 235, 1)',
+                                          borderWidth: 1
+                                      }]
+                                  },
+                                  options: {
+                                      // Add options as needed
+                                      scales: {
+                                          y: {
+                                              beginAtZero: true
+                                          }
                                       }
-                                    }
                                   }
-                                });
-                              }
-                            };
-                            xhr.open('GET', 'graph.php', true);
-                            xhr.send();
-
+                              });
+                          } else {
+                              console.error("Failed to fetch data from PHP. Status code:", this.status);
+                          }
+                      }
+                  };
+                  xhr.open('GET', 'graph.php', true);
+                  xhr.send();
               </script>
+              
             </div>
             <p><a class="nav-link" href="admin.html"><button type="return" class="button2">Back To Menu</button></a></p>
           </div>

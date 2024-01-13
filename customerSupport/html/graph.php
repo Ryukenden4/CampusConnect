@@ -1,9 +1,9 @@
 <?php
-  // Establishing a connection to MySQL database       
-  $servername = "localhost";
-  $username = "root";      
-  $password = "";
-  $dbname = "collegeregistration";
+// Establishing a connection to MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "collegeregistration";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
