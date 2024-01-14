@@ -23,7 +23,7 @@
     <!-- font css -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   S <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <!-- header -->
@@ -136,58 +136,63 @@
 
               <canvas id="myChart" width="400" height="200"></canvas>
 
-              <script>
-                  var xhr = new XMLHttpRequest();
-                  xhr.onreadystatechange = function () {
-                      if (this.readyState === 4) {
-                          if (this.status === 200) {
-                              var dataFromPHP = JSON.parse(this.responseText);
-              
-                              // Log fetched data
-                              console.log("Data from PHP:", dataFromPHP);
-              
-                              var purposes = [];
-                              var counts = [];
-              
-                              dataFromPHP.forEach(function (item) {
-                                  purposes.push(item.purpose);
-                                  counts.push(item.purpose_count);
-                              });
-              
-                              // Log purposes and counts
-                              console.log("Purposes:", purposes);
-                              console.log("Counts:", counts);
-              
-                              var ctx = document.getElementById('myChart').getContext('2d');
-                              var myChart = new Chart(ctx, {
-                                  type: 'bar',
-                                  data: {
-                                      labels: purposes,
-                                      datasets: [{
-                                          label: 'Purpose Summary',
-                                          data: counts,
-                                          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                          borderColor: 'rgba(54, 162, 235, 1)',
-                                          borderWidth: 1
-                                      }]
-                                  },
-                                  options: {
-                                      // Add options as needed
-                                      scales: {
-                                          y: {
-                                              beginAtZero: true
-                                          }
-                                      }
-                                  }
-                              });
-                          } else {
-                              console.error("Failed to fetch data from PHP. Status code:", this.status);
-                          }
-                      }
-                  };
-                  xhr.open('GET', 'graph.php', true);
-                  xhr.send();
-              </script>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                try {
+                    var dataFromPHP = JSON.parse(this.responseText);
+
+                    // Log fetched data
+                    console.log("Data from PHP:", dataFromPHP);
+
+                    var purposes = [];
+                    var counts = [];
+
+                    dataFromPHP.forEach(function (item) {
+                        purposes.push(item.purpose);
+                        counts.push(item.purpose_count);
+                    });
+
+                    // Log purposes and counts
+                    console.log("Purposes:", purposes);
+                    console.log("Counts:", counts);
+
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: purposes,
+                            datasets: [{
+                                label: 'Purpose Summary',
+                                data: counts,
+                                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            // Add options as needed
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.error("Error parsing JSON:", error);
+                }
+            } else {
+                console.error("Failed to fetch data from PHP. Status code:", this.status);
+            }
+        }
+    };
+    xhr.open('GET', 'graph.php', true);
+    xhr.send();
+</script>
+
               
             </div>
             <p><a class="nav-link" href="admin.html"><button type="return" class="button2">Back To Menu</button></a></p>

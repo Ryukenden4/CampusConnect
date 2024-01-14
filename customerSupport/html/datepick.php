@@ -1,4 +1,6 @@
 <?php
+
+
 // Establishing a connection to MySQL database
 $servername = "localhost";
 $username = "root";
@@ -28,8 +30,35 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Execute the query
     $result = $conn->query($sql);
 
+    // Get the count of responses
+    $countSql = "SELECT COUNT(*) AS responseCount FROM response WHERE date BETWEEN '$startDate' AND '$endDate'";
+    $countResult = $conn->query($countSql);
+
+    if ($countResult->num_rows > 0) {
+    $responseCountRow = $countResult->fetch_assoc();
+    $responseCount = $responseCountRow['responseCount'];
+
+    // Display the count in HTML
+    echo "<p>Total Responses: $responseCount</p>";
+    } else {
+    echo "Error fetching response count.";
+    }
+
+    // Add a back button
+echo '<button onclick="goBack()">Go Back</button>';
+
+// Adding a simple JavaScript function to go back
+echo '<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>';
+
+
     // Process the query result as needed
     if ($result->num_rows > 0) {
+
+        
         // Display the results in an HTML table with some basic styles
         echo "<style>
         background-image: background-image: url(../assets/img/bk.jpeg); height:30cm;
@@ -276,8 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo "</tr>";
         }
 
-        echo "</table>";
-    } else {
+        echo "</table>";    } else {
         // No results found
         echo "No results found for the specified month and year.";
     }
@@ -285,4 +313,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 // Close the database connection if needed
 $conn->close();
+
 ?>
