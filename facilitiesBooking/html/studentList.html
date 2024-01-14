@@ -107,6 +107,25 @@
 
                 <!-- body for table -->
                 <tbody id="studentData">
+                    <!-- Example entry with "Edit" link -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>2024-01-13</td>
+                        <td>Example College</td>
+                        <td>Library</td>
+                        <td>10:00 AM</td>
+                        <td>12:00 PM</td>
+                        <td>
+                            <!-- Edit link with onclick event -->
+                            <a href="#" onclick="openEditModal(1, '10:00 AM', '12:00 PM')">Edit</a>
+                        </td>
+                    </tr>
+                    <!-- More entries... -->
+                </tbody>
+
+                <!-- body for table -->
+                <tbody id="studentData">
                     <!-- data will be fetch from table.php to display dinamically -->
                 </tbody>
             </table>
@@ -190,5 +209,27 @@
     }
 </script>
 
+<!--untuk student update booking time dia-->
+<script>
+            // Function to open the modal or form for editing
+            function openEditModal(studentId, currentStartTime, currentEndTime) {
+                var newStartTime = prompt("Enter new start time:", currentStartTime);
+                var newEndTime = prompt("Enter new end time:", currentEndTime);
+
+                if (newStartTime !== null && newEndTime !== null) {
+                    // Send the updated data to the server using AJAX
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'studentUpdate.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function () {
+                        if (xhr.status == 200) {
+                            // Reload the table after updating
+                            window.location.reload();
+                        }
+                    };
+                    xhr.send('studentId=' + studentId + '&newStartTime=' + newStartTime + '&newEndTime=' + newEndTime);
+                }
+            }
+</script>
 
 </html>
