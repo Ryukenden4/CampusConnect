@@ -31,6 +31,7 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
     <link rel="stylesheet" href="/programRegistration/css/registerProgram.css">
+    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 </head>
 <body>
     <!-- header -->
@@ -116,53 +117,11 @@ if ($conn->connect_error) {
         </div>
     </div>
 
-     <!-- footer -->
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row px-md-3">
-
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Company</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">URHP</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>More</h5>
-          <ul class="footer-menu">
-            <li><a href="#">Terms & Condition</a></li>
-            <li><a href="#">Privacy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Contact</h5>
-          <p class="footer-link mt-2">Universiti Teknologi MARA (UiTM) Cawangan Sabah
-            Kampus Kota Kinabalu
-            Beg Berkunci 71,
-            88997 Kota Kinabalu, Sabah, MALAYSIA.</p>
-          <a href="#" class="footer-link">+6088 - 325151</a>
-          <a href="#" class="footer-link">korporatsabah@uitm.edu.my</a>
-        </div>
-
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Social Media</h5>
-          <div class="footer-sosmed mt-3">
-            <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-            <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-          </div>
-        </div>
+      <!-- footer -->
+      <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
       </div>
-
-      <hr>
-
-      <p id="copyright">Copyright &copy; 2023 <a href="" target="_blank">Team Muizz</a>. All right reserved</p>
-      <!-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p> -->
-    </div>
-  </footer>
-
-</body>   
+   </div>
+</body>
 </html>
