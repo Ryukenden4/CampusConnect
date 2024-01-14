@@ -1,28 +1,39 @@
 <?php
 
-// Establishing a connection to MySQL database       
+// Establishing a connection to MySQL database
 $servername = "localhost";
-$username = "root";      
-  $password = "";
-  $dbname = "collegeregistration";
+$username = "root";
+$password = "";
+$dbname = "collegeregistration";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get data for a specific month (e.g., January 2023)
-$selectedMonth = '2023-12'; // Replace this with the desired month and year
+// Get data for specific months and years
+$selectedMonths = ['2024-01', '2024-02']; // Replace this with the desired months and years
 
+// Use prepared statement to prevent SQL injection
 $sql = "SELECT purpose, COUNT(*) as purpose_count 
         FROM response 
-        WHERE DATE_FORMAT(date, '%Y-%m') = '$selectedMonth' 
+        WHERE DATE_FORMAT(date, '%Y-%m') IN (";
+
+// Build the placeholders for each month and year
+$sql .= implode(',', array_fill(0, count($selectedMonths), '?'));
+$sql .= ")
         GROUP BY purpose";
 
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+
+// Bind parameters dynamically
+$types = str_repeat('s', count($selectedMonths));
+$stmt->bind_param($types, ...$selectedMonths);
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 $data = array();
 if ($result->num_rows > 0) {
@@ -31,7 +42,8 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Close connection
+// Close statement and connection
+$stmt->close();
 $conn->close();
 
 // Convert data to JSON format and send it

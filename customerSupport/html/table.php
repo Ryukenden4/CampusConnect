@@ -16,6 +16,21 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM response";
 $result = $conn->query($sql);
 
+// Get the count of responses
+$countSql = "SELECT COUNT(*) AS responseCount FROM response";
+$countResult = $conn->query($countSql);
+
+if ($countResult->num_rows > 0) {
+$responseCountRow = $countResult->fetch_assoc();
+$responseCount = $responseCountRow['responseCount'];
+
+// Display the count in HTML
+echo "<div><p>Total Responses: $responseCount</p></div>";
+} else {
+echo "Error fetching response count.";
+}
+
+
 // Checking if there are rows returned
 if ($result->num_rows > 0) {
     // Output data of each row
