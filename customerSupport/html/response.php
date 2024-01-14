@@ -1,14 +1,13 @@
 <?php
-    
     session_start();
-    
-        // Establishing a connection to MySQL database       
-        $servername = "localhost";
-        $username = "root";      
-        $password = "";
-        $dbname = "collegeregistration";
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // Establishing a connection to MySQL database       
+    $servername = "localhost";
+    $username = "root";      
+    $password = "";
+    $dbname = "collegeregistration";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     if(mysqli_connect_errno()){
         die("Connection failed: " . $conn->connect_error);
@@ -26,20 +25,27 @@
 
         // SQL to insert data into the table
         $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message) 
-            VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
-    
-            // Execute SQL queryy
-            if ($conn->query($sql) === TRUE) {
-                // Insertion successful
-                // Generate and save PDF receipt (you'll need a library like TCPDF or FPDF)
-                // Redirect to a thank-you page or display a success message
-                header("Location: thank_you.php");
-                exit();
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
+                VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
+
+        // Execute SQL query
+        if ($conn->query($sql) === TRUE) {
+            // Insertion successful
+            // Store data in session for further use
+            $_SESSION['fullName'] = $fullName;
+            $_SESSION['email'] = $email;
+            $_SESSION['typeOfUser'] = $typeOfUser;
+            $_SESSION['date'] = $date;
+            $_SESSION['purpose'] = $purpose;
+            $_SESSION['message'] = $message;
+
+            // Redirect to a thank-you page or display a success message
+            header("Location: thank_you.php");
+            exit();
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
-// Close the connection
-$conn->close();
+    // Close the connection
+    $conn->close();
 ?>

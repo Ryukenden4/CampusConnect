@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Get data for specific months and years
-$selectedMonths = ['2024-01', '2024-02']; // Replace this with the desired months and years
+$selectedMonths = ['2024-01', '2024-02','2024-03','202']; // Replace this with the desired months and years
 
 // Use prepared statement to prevent SQL injection
 $sql = "SELECT purpose, COUNT(*) as purpose_count 

@@ -1,4 +1,6 @@
 <?php
+
+
 // Establishing a connection to MySQL database
 $servername = "localhost";
 $username = "root";
@@ -41,6 +43,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     } else {
     echo "Error fetching response count.";
     }
+
+    // Add a back button
+echo '<button onclick="goBack()">Go Back</button>';
+
+// Adding a simple JavaScript function to go back
+echo '<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>';
 
 
     // Process the query result as needed
@@ -302,13 +314,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // Close the database connection if needed
 $conn->close();
 
-// Add a back button
-echo '<button onclick="goBack()">Go Back</button>';
-
-// Adding a simple JavaScript function to go back
-echo '<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>';
 ?>
