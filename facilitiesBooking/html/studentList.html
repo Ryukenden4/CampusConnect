@@ -27,62 +27,81 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <!-- header -->
-    <link rel="stylesheet" href="/header/css/bootstrap.css">
-    <link rel="stylesheet" href="/header/css/maicons.css">
-    <link rel="stylesheet" href="/header/css/theme.css">   
-    <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/homepage/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
+    <link rel="stylesheet" href="/homepage/assets/css/theme.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 
     <style>
+        body {
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url(/homepage/assets/img/kolej.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            width: 100%;
+            height: 88vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
     </head>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link " style="font-size: 14px;" href="/intermediate/student.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
-                            Registration
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="registrationDropdown">
-                            <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
-                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/facilitiesBooking/html/student.html" style="font-size: 14px;">Facilities Booking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/customerSupport/html/customer.html" style="font-size: 14px;">Customer Support</a>
-                    </li>
-                    <!-- Add this within your navigation bar where you want the logout button to appear -->
-                    <li class="nav-item">
-                        <form action="/logout/logout.php" method="post">
-                            <input type="submit" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;" value="Logout">
-                        </form>
-                    </li>
-                </ul>
-            </div> <!-- .navbar-collapse -->
-        </div> <!-- .container -->
-    </nav>
-</header>
-
 <body>
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/kolej.jpg); height: 18cm;"></div>
-    <main class="table">
+    <!--header-->
+    <header style="background-color: white;">
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupport">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link " style="font-size: 14px;" href="/intermediate/student.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
+                                Registration
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="registrationDropdown">
+                                <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
+                                <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/facilitiesBooking/html/student.html" style="font-size: 14px;">Facilities Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customerSupport/html/customer.html" style="font-size: 14px;">Customer Support</a>
+                        </li>
+                        <!-- Add this within your navigation bar where you want the logout button to appear -->
+                        <li class="nav-item">
+                            <form action="/logout/logout.php" method="post">
+                                <input type="submit" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;" value="Logout">
+                            </form>
+                        </li>
+                    </ul>
+                </div> <!-- .navbar-collapse -->
+            </div> <!-- .container -->
+        </nav>
+    </header>
+
+    <!--content-->
+    <div class="content">
+        <main class="table">
         <section class="table__header">
             <h1 style="color: black;">Facilities Booking List</h1>
             <div class="search-container">
@@ -135,7 +154,15 @@
           
           <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;"  class="btn">Back</button>
         </div>
-    </main>
+        </main>
+    </div>
+
+    <!-- footer -->
+    <div class="copyright_section">
+        <div class="container">
+            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+        </div>
+    </div>
 </body>
 
 <!--for header baru-->
