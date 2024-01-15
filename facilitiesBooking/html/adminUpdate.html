@@ -148,96 +148,93 @@
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
-        <script>
-          // Fetch data from response.php using AJAX
-          window.onload = function () {
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'table.php', true);
-
-              xhr.onload = function () {
-                  if (xhr.status == 200) {
-                      // Update the content of tbody with the fetched data
-                      document.getElementById('studentData').innerHTML = xhr.responseText;
-                  }
-              };
-      
-              xhr.send();
-          };
-        </script>
-
 <script>
-    function deleteBooking(studentId) {
-    if (confirm('Are you sure you want to delete this booking?')) {
+    // Fetch data from response.php using AJAX
+    window.onload = function () {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'update1.php?studentId=' + studentId, true);
+        xhr.open('GET', 'table.php', true);
 
         xhr.onload = function () {
             if (xhr.status == 200) {
-                // Check the response text for success message
-                if (xhr.responseText === "Booking deleted successfully!") {
-                    console.log("Booking deleted successfully!");
-
-                    // Remove the corresponding row from the table
-                    var row = document.getElementById('row_' + studentId);
-                    if (row) {
-                        row.parentNode.removeChild(row);
-                    }
-                } else {
-                    console.error("Error deleting booking:", xhr.responseText);
-                }
-            } else {
-                console.error("Error deleting booking:", xhr.statusText);
+                // Update the content of tbody with the fetched data
+                document.getElementById('studentData').innerHTML = xhr.responseText;
             }
         };
 
         xhr.send();
-    }
-}
-
+    };
 </script>
 
-
-        <script>
+<script>
+    function deleteBooking(studentId) {
+        if (confirm('Are you sure you want to delete this booking?')) {
             var xhr = new XMLHttpRequest();
-xhr.open('GET', 'updateBooking.php?timestamp=' + new Date().getTime(), true);
+            xhr.open('GET', 'update1.php?studentId=' + studentId, true);
 
-xhr.onload = function () {
-    if (xhr.status == 200) {
-        document.getElementById('studentData').innerHTML = xhr.responseText;
-    }
-};
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    // Check the response text for success message
+                    if (xhr.responseText === "Booking deleted successfully!") {
+                        console.log("Booking deleted successfully!");
 
-xhr.send();
-
-        </script>
-
-
-        <script>
-          function goBack() {
-            // Redirect to another HTML file
-            window.location.href = '/facilitiesBooking/html/admin.html'; 
-          }
-        </script>
-    
-        <script>
-            function myFunction() {
-              var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("myInput");
-              filter = input.value.toUpperCase();
-              table = document.getElementById("myTable");
-              tr = table.getElementsByTagName("tr");
-              for (i = 1; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
-                  if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
+                        // Remove the corresponding row from the table
+                        var row = document.getElementById('row_' + studentId);
+                        if (row) {
+                            row.parentNode.removeChild(row);
+                        }
                     } else {
-                        tr[i].style.display = "none";
+                        console.error("Error deleting booking:", xhr.responseText);
                     }
-                  }       
-              }
+                } else {
+                    console.error("Error deleting booking:", xhr.statusText);
+                }
+            };
+
+            xhr.send();
+        }
+    }
+</script>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'updateBooking.php?timestamp=' + new Date().getTime(), true);
+
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            document.getElementById('studentData').innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.send();
+</script>
+
+<script>
+    function goBack() {
+        // Redirect to another HTML file
+        window.location.href = '/facilitiesBooking/html/admin.html';
+    }
+</script>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
-        </script> <!--close script-->
+        }
+    }
+</script>
+<!-- close script -->
 
 </html>
