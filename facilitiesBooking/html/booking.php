@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$studentId', '$fullName', '$dateofBooking', '$college', '$facilities', '$startTime', '$endTime')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: bookedList.html");
+        header("Location: studentList.html");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
