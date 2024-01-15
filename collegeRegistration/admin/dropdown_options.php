@@ -16,7 +16,14 @@ if ($conn->connect_error) {
 $columnName = $_GET['column'];
 
 // Performing SQL query to fetch distinct values for the specified column
-$sql = "SELECT DISTINCT $columnName FROM student";
+if ($columnName === 'residentialCollege' || $columnName === 'roomNumber') {
+    // Use the room table for residentialCollege and roomNumber
+    $sql = "SELECT DISTINCT $columnName FROM room";
+} else {
+    // Use the student table for other columns
+    $sql = "SELECT DISTINCT $columnName FROM student";
+}
+
 $result = $conn->query($sql);
 
 // Checking if there are rows returned

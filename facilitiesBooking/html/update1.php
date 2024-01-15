@@ -1,40 +1,28 @@
 <?php
-// Establishing a connection to MySQL database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "collegeregistration";
+// Assuming you have a database connection established, include your database connection code here.
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check if the studentId parameter is set
+if (isset($_GET['studentId'])) {
+    // Sanitize the input to prevent SQL injection
+    $studentId = filter_var($_GET['studentId'], FILTER_SANITIZE_NUMBER_INT);
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Include your database connection code here
 
-// Performing SQL query to fetch data from the booking table
-$sql = "SELECT * FROM booking";
-$result = $conn->query($sql);
+    // Perform the deletion
+    $query = "DELETE FROM bookings WHERE studentId = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('i', $studentId);
 
-// Checking if there are rows returned
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr id='row_" . $row["studentId"] . "'>";
-        echo "<td>" . $row["studentId"] . "</td>";
-        echo "<td>" . $row["fullName"] . "</td>";
-        echo "<td>" . $row["dateofBooking"] . "</td>";
-        echo "<td>" . $row["college"] . "</td>";
-        echo "<td>" . $row["facilities"] . "</td>";
-        echo "<td>" . $row["startTime"] . "</td>";
-        echo "<td>" . $row["endTime"] . "</td>";
-        echo "<td><button onclick=\"deleteBooking(" . $row["studentId"] . ")\">Delete</button></td>";
-        echo "</tr>";
+    if ($stmt->execute()) {
+        echo "Booking deleted successfully!";
+    } else {
+        echo "Error deleting booking: " . $stmt->error;
     }
-} else {
-    echo "0 results";
-}
 
-// Closing the database connection
-$conn->close();
+    // Close the statement and database connection
+    $stmt->close();
+    $conn->close();
+} else {
+    echo "Invalid request";
+}
 ?>

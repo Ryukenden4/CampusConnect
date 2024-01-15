@@ -14,57 +14,51 @@
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 
     <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+    <link rel="stylesheet" href="/header/css/theme.css">
 </head>
 
 <body>
     <!-- header -->
     <header>
-      <link rel="stylesheet" href="/header/css/bootstrap.css">
-      <link rel="stylesheet" href="/header/css/maicons.css">
-      <link rel="stylesheet" href="/header/css/theme.css">
-
       <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
+          <div class="container">
+              <a class="navbar-brand" href="/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" style="font-size: 14px;" href="/intermediate/staff.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
-                            Registration
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="registrationDropdown">
-                            <a class="dropdown-item" href="/collegeRegistration/admin/staff.html">College Student Namelist</a>
-                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme List</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/admin.html">Facilities Booking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-size: 14px;" href="/customerSupport/html/customer.html">Customer Support</a>
-                    </li>
-                    <!-- Add this within your navigation bar where you want the logout button to appear -->
-                    <li class="nav-item">
-                        <form action="/logout/logout.php" method="post">
-                            <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
-                        </form>
-                    </li>
-                </ul>
-            </div> <!-- .navbar-collapse -->
-        </div> <!-- .container -->
+              <div class="collapse navbar-collapse" id="navbarSupport">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item ">
+                          <a class="nav-link" href="/intermediate/staff.html">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Registration
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="registrationDropdown" style="z-index: 10000;">
+                              <a class="dropdown-item" href="/collegeRegistration/admin/staff.html">College Student Namelist</a>
+                              <a class="dropdown-item" href="/programRegistration/php/staff.php">Programme List</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/facilitiesBooking/html/admin.html">Facilities Booking</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/customerSupport/html/admin.html">Customer Support</a>
+                      </li>
+                      <!-- Add this within your navigation bar where you want the logout button to appear -->
+                      <li class="nav-item">
+                          <form action="/logout/logout.php" method="post">
+                              <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
+                          </form>
+                      </li>
+                  </ul>
+              </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
       </nav>
-      
-
- 
-    </header>
+  </header>
 
     <!-- body section -->
     <main class="table">
