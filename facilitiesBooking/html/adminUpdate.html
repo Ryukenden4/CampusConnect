@@ -169,7 +169,7 @@
     function deleteBooking(studentId) {
         if (confirm('Are you sure you want to delete this booking?')) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'update1.php?studentId=' + studentId, true);
+            xhr.open('GET', 'deleteBooking.php?studentId=' + studentId, true);
 
             xhr.onload = function () {
                 if (xhr.status == 200) {

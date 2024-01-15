@@ -9,7 +9,7 @@ if (isset($_GET['studentId'])) {
     // Include your database connection code here
 
     // Perform the deletion
-    $query = "DELETE FROM bookings WHERE studentId = ?";
+    $query = "DELETE FROM booking WHERE studentId = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('i', $studentId);
 
