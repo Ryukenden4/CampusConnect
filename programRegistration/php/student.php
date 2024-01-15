@@ -120,8 +120,8 @@ session_start();
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
-                        echo "</tr>";
+                        
+   
                     }
                     ?>
                 </tbody>
@@ -137,3 +137,8 @@ session_start();
     </div>
 
 </body>
+
+<script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+<script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>

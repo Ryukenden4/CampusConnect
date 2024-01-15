@@ -7,13 +7,44 @@
 
 body {
   min-height: 100vh;
-  background: url(/programRegistration/img/KotaKinabalu_Sabah_UiTM_BangunanPentadbiran.jpg) center / cover;
+  background: url(/homepage/assets/img/kolej.jpg) center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 56px;
-  overflow: scroll;
+  /* margin-top: 56px; */
+  /* overflow: scroll; */
 }
+
+/* copyright section start */
+
+.copyright_section {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  float: left;
+  background-color: #001431;
+  height: auto;
+}
+
+.copyright_text {
+  width: 100%;
+  float: left;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.copyright_text a {
+  color: #ffffff;
+}
+
+.copyright_text a:hover {
+  color: #00D9A5;
+}
+
+
+/* copyright section end */
 
 header {
   position: fixed;
@@ -40,8 +71,10 @@ main.table {
   backdrop-filter: blur(7px);
   box-shadow: 0 .4rem .8rem #0005;
   border-radius: .8rem;
-  overflow: hidden;
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex-direction: column;
   z-index: 0;
 }
 

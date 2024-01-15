@@ -34,6 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
 
     if ($conn->query($sql) === TRUE) {
+
+        // Retrieve user ID from the session
+        $userID = $_SESSION["user_id"];
+        
         // Insertion successful
         // Store form data in session variables for further use
         $_SESSION['fullName'] = $fullName;

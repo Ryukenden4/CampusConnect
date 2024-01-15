@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en" title="Program Registration">
 
@@ -13,7 +17,7 @@
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
 
-    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+    <!-- <link rel="stylesheet" href="/collegeRegistration/admin/style.css"> -->
     <link rel="stylesheet" href="/header/css/theme.css">
 </head>
 
@@ -65,7 +69,9 @@
         <section class="table__header">
             <div class="tajuk"><h1>Programme List</h1></div>
 
-            <button type="button" onclick="location.href='/programRegistration/php/registerProgram.php'">Add Programme</button>
+            
+                <button type="button" onclick="location.href='/programRegistration/php/registerProgram.php'">Add Programme</button>
+            
            
         </section>
         <sect ion class="table__body">
@@ -131,12 +137,12 @@
         </section>
     </main>
 
-     <!-- footer -->
-     <div class="copyright_section">
-      <div class="container">
-         <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
-      </div>
-   </div>
+    <!-- footer -->
+    <div class="copyright_section">
+            <div class="container">
+                <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+            </div>
+        </div>
 </body>
 </html>
 
