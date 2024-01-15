@@ -45,14 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     // Add a back button
-echo '<button onclick="goBack()">Go Back</button>';
+    echo '<button onclick="goBack()">Go Back</button>';
 
-// Adding a simple JavaScript function to go back
-echo '<script>
+    // Adding a simple JavaScript function to go back
+    echo '<script>
     function goBack() {
         window.history.back();
     }
-</script>';
+    </script>';
 
 
     // Process the query result as needed
