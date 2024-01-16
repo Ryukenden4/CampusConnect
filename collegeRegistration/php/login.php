@@ -36,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     window.location.href = "/collegeRegistration/html/login.html"; 
                 </script>';
         }
-    } 
-    elseif (isset($_POST["staff"])) {
+    } elseif (isset($_POST["staff"])) {
         // Check if the staff checkbox is checked
         $sql = "SELECT * FROM staff WHERE ID='$id' AND password='$password'";
         $result = $conn->query($sql);
