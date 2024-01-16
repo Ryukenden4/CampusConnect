@@ -74,7 +74,7 @@
             
            
         </section>
-        <sect ion class="table__body">
+        <section class="table__body">
             <table>
                 <!-- head for table -->
                 <thead>
@@ -135,6 +135,9 @@
                 </tbody>
             </table>
         </section>
+        <div class="input-field" style="padding-left: 40px;">
+            <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;" class="btn"><i class="fa-solid fa-arrow-left"  style="padding-right: 10px;"></i>Back</button>
+        </div>
     </main>
 
     <!-- footer -->
@@ -144,11 +147,19 @@
             </div>
         </div>
 </body>
-</html>
 
+  <!-- back button javascript -->
+  <script>
+    function goBack() {
+        // Redirect to another HTML file
+        window.location.href = '/intermediate/staff.html'; 
+    }
+  </script>
  
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
   <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+
+</html>
 
