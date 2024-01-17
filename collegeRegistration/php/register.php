@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
     $gender = ucwords(mysqli_real_escape_string($conn, $_POST["gender"])); // Capitalize gender
     $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
     $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
@@ -43,11 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Status is set to 'Enable' upon registration
     $status = 'Enable';
 
-    // Performing SQL query to insert data
-    $stmt = $conn->prepare("INSERT INTO $userType (ID, fullName, email, phoneNumber, password, gender, programCode, semester, registrationDateTime, status) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $programCode, $semester, $registrationDateTime, $status);
-
+    // Performing SQL query to insert data based on user type
+    if ($userType === "student") {
+        $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, gender, programCode, semester, registrationDateTime, status) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $programCode, $semester, $registrationDateTime, $status);
+    } elseif ($userType === "staff") {
+        $stmt = $conn->prepare("INSERT INTO staff (ID, fullName, email, phoneNumber, password, gender, registrationDateTime, status) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $registrationDateTime, $status);
+    }
+    
     if ($stmt->execute()) {
         // Registration successful
         echo '<script>
