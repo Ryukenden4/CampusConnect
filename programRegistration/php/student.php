@@ -125,6 +125,8 @@ session_start();
 
                         echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
                         echo "</tr>";
+
+                        
    
                     }
                     ?>
