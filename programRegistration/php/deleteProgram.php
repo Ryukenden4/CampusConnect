@@ -21,7 +21,7 @@
         if ($conn->query($sql) === TRUE) {
             // Deletion successful
             echo '<script>
-                    alert("Student deleted successfully!");
+                    alert("Program deleted successfully!");
                     window.location.href = "/programRegistration/php/staff.php";
                 </script>';
         } else {

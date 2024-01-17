@@ -117,12 +117,15 @@
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
+                        // echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
+                        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["programID"] . ")'></i></td>";
                         echo "</tr>";
+
+                        
 
                         echo '<script>
                             function confirmDelete(programID) {
-                                var confirmDelete = confirm("Are you sure you want to delete this student?");
+                                var confirmDelete = confirm("Are you sure you want to delete this Program?");
 
                                 if (confirmDelete) {
                                     // If user clicks OK, redirect to the delete.php with the student ID
