@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 
     if (isset($_GET['programme'])) {
         // Establishing a connection to MySQL database
@@ -39,4 +39,4 @@ session_start();
         }
     }
 
-    ?>
+    ?>*/
