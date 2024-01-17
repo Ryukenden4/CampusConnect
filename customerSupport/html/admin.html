@@ -43,6 +43,26 @@
              transform: scale(1.1);
              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
          }
+
+         .button2{
+        background-color: #8b0000;
+        border: 1px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 7cm;
+        margin-top: 20px;
+      }
+
+      .button2:hover{
+        background-color: #717171;
+        color: black;
+      }
      </style>
      
      
@@ -161,12 +181,22 @@
                   </div>
                </div>
 
+               
+
             </div>
+            <p>
+               <!-- back button -->
+               <div class="container mt-2" style="margin-bottom: 0px;">
+                  <div class="row">
+                     <div class="col-md-12 text-center">
+                        <a href="/intermediate/staff.html" class="button2">Back to Home</a>
+                     </div>
+                  </div>
+               </div>
+            </p>
          </div>
       </div>
-      <!-- box section end -->
-     
-     
+
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
@@ -197,7 +227,7 @@
 
      </script>
 
-<script>
+   <script>
    document.addEventListener("DOMContentLoaded", function () {
        // Fetch user data using AJAX
        fetch('/intermediate/user.php')
@@ -212,7 +242,15 @@
            })
            .catch(error => console.error('Error:', error));
    });
-</script>
+  </script>
+
+  <!-- back button javascript -->
+  <script>
+   function goBack() {
+       // Redirect to another HTML file
+       window.location.href = '/intermediate/staff.html'; 
+   }
+  </script> 
 
    </body>
 </html>
