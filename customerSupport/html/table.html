@@ -326,60 +326,83 @@ main.table {
     </nav>
 </header>
 
-          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height:30cm;">
-            <div class="banner-section">
-              <div class="container text-center wow fadeInUp">
-                <p>
-                <h1>
-                   <div style="color:white; font-size: 50px; text-shadow: 2px 2px 5px black;">ALL RESPONSE LIST</div>
-            
-                   <p><div style="font-size: 20px;  text-shadow: 2px 2px 5px black; color:white;">
-                   <i>Saved Responses List</i>
-                   </div> </p> 
-                </h1></p>
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height:30cm;">
+    <div class="banner-section">
+        <div class="container text-center wow fadeInUp">
+            <!-- Add your existing content here -->
+            <!-- ... -->
 
-                <!--<form action="datepick.php" method="get" style="margin-bottom: 1cm;">
-                    <label for="search_date">Search by Date (dd/mm/yyyy):</label>
-                    <input type="text" id="search_date" name="search_date" placeholder="dd/mm/yyyy" required>
-                    <button type="submit" class="button2" style="width:4cm; background-color: #007bff;">Search</button>
-                </form>-->
-   
-                <form action="datepick.php" method="get" style="margin-bottom: 1cm;">
-                    <label for="search_month">Search by Month:</label>
-                    <input type="month" id="search_month" name="search_month" required>
-                    <button type="submit" class="button2" style="width:4cm; background-color: #007bff;">Search</button>
-                  </form>
+            <form id="dateSearchForm" style="margin-bottom: 1cm;">
+                <label for="search_month">Search by Month:</label>
+                <input type="month" id="search_month" name="search_month" required>
+                <p></p>
+                <button type="button" class="button2" style="width:4cm; background-color: #007bff;" onclick="filterData()">Search</button>
+                <button type="button" class="button2" style="width:4cm; background-color: #6c757d;" onclick="resetDisplay()">Reset</button>
+            </form>
 
-                <main class="table">
-                  <section class="table__header">
-                   <h1>Customer's Responses</h1>
-                  </section>
+            <main class="table">
+                <section class="table__header">
+                    <h1>Customer's Responses</h1>
+                </section>
 
-                <p></section>
                 <section class="table__body">
-                  
-                  <table>
-                      <!-- head for table -->
-                      <thead>
-                    <tr>
-                        <th> fullName</th>
-                        <th> email</th>
-                        <th> typeOfUser </th>
-                        <th> date </th>
-                        <th> purpose</th>
-                        <th> message</th>
-                    </tr>
-                </thead>
-      
-                      <!-- body for table -->
-                      <tbody id="typeOfUser">
-                          <!-- data will be fetch from staff1.php to display dinamically -->
-                      </tbody>
-                  </table>
-              </section></p>
+                    <table id="myTable">
+                        <!-- head for table -->
+                        <thead>
+                            <tr>
+                                <th> fullName</th>
+                                <th> email</th>
+                                <th> typeOfUser </th>
+                                <th> date </th>
+                                <th> purpose</th>
+                                <th> message</th>
+                            </tr>
+                        </thead>
+
+                        <!-- body for table -->
+                        <tbody id="typeOfUser">
+                            <!-- data will be fetch from staff1.php to display dynamically -->
+                        </tbody>
+                    </table>
+                </section>
             </main>
 
-              <p><a class="nav-link" href="admin.html"><button type="return" class="button2">Back To Menu</button></a></p>
+            <p><a class="nav-link" href="admin.html"><button type="button" class="button2">Back To Menu</button></a></p>
+     
+      <!-- JavaScript to handle date filtering -->
+      <script>
+        function filterData() {
+            var selectedMonth = document.getElementById("search_month").value;
+
+            // Use AJAX to send the selected month to the server (you need to implement this part)
+            // For now, let's assume the server returns the filtered data in HTML format
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'datepick.php?search_month=' + selectedMonth, true);
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    // Update the content of tbody with the fetched data
+                    document.getElementById('typeOfUser').innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.send();
+        }
+
+        function resetDisplay() {
+                        // You need to implement this function to reset the display to the original state
+                        // For example, you can reload the original data or clear the search input
+                        document.getElementById("search_month").value = "";
+                        // Add additional logic if needed
+                        // ...
+
+                        // For now, let's simulate reloading the original data after 1 second
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+    </script>
+    <!-- Close the script -->
 
      <!-- javascript/jQuery to get data from table.php -->
      <script>
@@ -422,12 +445,7 @@ main.table {
                   }
      </script> <!--close script-->
 
-<script>
-    function goBack() {
-        // You can customize this function based on your requirements
-        alert("Button clicked! Redirecting or performing some other action.");
-    }
-</script>
+
 
               </div> <!--class container-->
             </div> <!--banner section-->
