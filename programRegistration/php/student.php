@@ -21,8 +21,7 @@ session_start();
 </head>
 
 <body>
-    <!-- header -->
-    <header>
+<header>
       <link rel="stylesheet" href="/header/css/bootstrap.css">
       <link rel="stylesheet" href="/header/css/maicons.css">
       <link rel="stylesheet" href="/header/css/theme.css">
@@ -39,10 +38,10 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="/intermediate/student.html">Home</a>
+                        <a class="nav-link active" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
                             Registration
                         </a>
                         <div class="dropdown-menu" aria-labelledby="registrationDropdown">
@@ -51,10 +50,10 @@ session_start();
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/customerSupport/html/customer.html">Customer Support</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/customerSupport/html/customer.html">Customer Support</a>
                     </li>
                     <!-- Add this within your navigation bar where you want the logout button to appear -->
                     <li class="nav-item">
@@ -66,6 +65,10 @@ session_start();
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
       </nav>
+
+      <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+      <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+    </header>
 
       <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
       <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
