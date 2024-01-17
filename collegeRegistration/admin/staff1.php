@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
         }
 
         echo "<td><a href='#' class='room-link' onclick='confirmChangeRoom(\"" . $row["ID"] . "\", \"" . $row["roomNumber"] . "\")'>" . $row["roomNumber"] . "</a></td>";
-        echo "<td><button onclick='confirmDelete(" . $row["ID"] . ")'>Delete</button></td>";
+        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["ID"] . ")'></i></td>";
         echo "</tr>";
     }
 } else {
