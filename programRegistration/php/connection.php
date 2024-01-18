@@ -10,7 +10,7 @@ $con=new mysqli('localhost', 'root', '', 'collegeregistration');
 
 if($con){
     // echo "Connection Successfull";
-    $sql="insert into `programme`(programme,place,date)values('$programme', '$place', '$date')";
+    $sql="INSERT INTO `programme` (programme,place,date) VALUES ('" . strtoupper($programme) . "', '" . strtoupper($place) . "', '" . $date . "')";
     $result=mysqli_query($con,$sql);
     if($result){
         echo '<script>

@@ -21,8 +21,7 @@ session_start();
 </head>
 
 <body>
-    <!-- header -->
-    <header>
+<header>
       <link rel="stylesheet" href="/header/css/bootstrap.css">
       <link rel="stylesheet" href="/header/css/maicons.css">
       <link rel="stylesheet" href="/header/css/theme.css">
@@ -39,10 +38,10 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarSupport">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="/intermediate/student.html">Home</a>
+                        <a class="nav-link active" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
                             Registration
                         </a>
                         <div class="dropdown-menu" aria-labelledby="registrationDropdown">
@@ -51,10 +50,10 @@ session_start();
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/customerSupport/html/customer.html">Customer Support</a>
+                        <a class="nav-link" style="font-size: 14px;" href="/customerSupport/html/customer.html">Customer Support</a>
                     </li>
                     <!-- Add this within your navigation bar where you want the logout button to appear -->
                     <li class="nav-item">
@@ -71,13 +70,17 @@ session_start();
       <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
     </header>
 
+      <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+      <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+    </header>
+
     <!-- body section -->
     <main class="table">
         <section class="table__header">
             <div class="tajuk"><h1>Programme Registration</h1></div>
            
         </section>
-        <sect ion class="table__body">
+        <section class="table__body">
             <table>
                 <!-- head for table -->
                 <thead>
@@ -120,6 +123,9 @@ session_start();
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
+                        echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
+                        echo "</tr>";
+
                         
    
                     }
@@ -127,6 +133,10 @@ session_start();
                 </tbody>
             </table>
         </section>
+        <div class="input-field" style="padding-left: 40px;">
+            <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;" class="btn"><i class="fa-solid fa-arrow-left"  style="padding-right: 10px;"></i>Back</button>
+        </div>
+    </main>
     </main>
 
      <!-- footer -->
@@ -137,8 +147,18 @@ session_start();
     </div>
 
 </body>
+  <!-- back button javascript -->
+  <script>
+    function goBack() {
+        // Redirect to another HTML file
+        window.location.href = '/intermediate/student.html'; 
+    }
+  </script>
+
 
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+
+</html>

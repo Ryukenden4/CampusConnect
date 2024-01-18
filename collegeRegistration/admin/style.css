@@ -63,6 +63,11 @@ footer.page-footer {
     bottom: 0;
 }
 
+.filter-dropdowns{
+    border-radius: 5px; 
+    padding: 8px;
+}
+
 
 main.table {
     width: 82vw;

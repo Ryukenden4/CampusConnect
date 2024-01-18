@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="background-color: #f1f1f1;"> 
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>College InfoCenter</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/intermediate/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/intermediate/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- header -->
+    <link rel="stylesheet" href="/intermediate/header.css">
+    <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
+    <link rel="stylesheet" href="/homepage/assets/css/theme.css">   
+    <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
+
+    <style>
+
+
+      .button{
+        background-color: #007bff;
+        border: 1px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 7cm;
+      }
+
+      .backbutton{
+        background-color: #8b0000;
+        border: 1px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 7cm;
+        margin-top: 1cm;
+      }
+
+      .backbutton:hover {
+        background-color: #f1f1f1;
+      }
+
+      .button_menu {
+        background-color: #007bff;
+        color: rgb(240, 240, 240);
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        width: 10cm;
+        height: 2cm;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 23px;
+      }
+
+      .button:hover {
+        background-color: #8b0000;
+      }
+
+      .admin-bg{
+        position: relative;
+        padding: 60px;
+        background: none;
+        border-radius: 20px;
+        width: 30cm;
+        height: 16cm;
+        display:flex;
+        flex-direction: column;     
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 0cm;
+      }
+
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-button1 {
+    display: inline-block;
+    padding: 20px 30px;
+    width: 5cm;
+    height: 4cm;
+    background: url(/customerSupport/assets/img/graphicon.png) no-repeat center center;
+    background-size: 150px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    }
+
+    .image-button1:hover {
+        background-color: #ffffff;
+        color: black;
+        
+      }
+
+    .image-button2 {
+    display: inline-block;
+    padding: 20px 30px;
+    width: 5cm;
+    height: 4cm;
+    background: url(/customerSupport/assets/img/table.png) no-repeat center center;
+    background-size: 130px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    }
+
+    .image-button2:hover {
+        background-color: #ffffff;
+      }
+
+    .menu-bg{
+      background-color: #ffffff;
+      border-radius: 10px;
+      width: 13cm;
+      border: 2px solid rgba(225, 225, 225, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(50px);
+    }
+
+    .menu-bg:hover{
+      background-color: grey;
+    }
+    </style>
+</head>
+
+<body style="background-color:  rgb(255, 255, 255);">
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+          <div class="container">
+              <a class="navbar-brand" href="/intermediate/staff.html"><span class="text-primary">College</span> InfoCenter</a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupport">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item ">
+                          <a class="nav-link" href="/intermediate/staff.html" style="font-size: 14px;">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
+                              Registration
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="registrationDropdown">
+                              <a class="dropdown-item" href="/collegeRegistration/admin/staff.html">College Student Namelist</a>
+                              <a class="dropdown-item" href="/programRegistration/php/staff.php">Programme Registration</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/facilitiesBooking/html/admin.html" style="font-size: 14px;">Facilities Booking</a>
+                      </li>
+                      <li class="nav-item active">
+                          <a class="nav-link" href="/customerSupport/html/admin.html" style="font-size: 14px;">Customer Support</a>
+                      </li>
+                      <!-- Add this within your navigation bar where you want the logout button to appear -->
+                      <li class="nav-item">
+                          <form action="/logout/logout.php" method="post">
+                              <input type="submit" class="btn btn-primary ml-lg-3" style="background-color: #8b0000;" value="Logout">
+                          </form>
+                      </li>
+                  </ul>
+              </div> <!-- .navbar-collapse -->
+          </div> <!-- .container -->
+      </nav>
+  </header>
+
+          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 23cm;">
+            <div class="banner-section">
+              <div class="container text-center wow fadeInUp">
+                <h1 style="color: #fcfcfc; text-align: center;  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 50px; margin-top: cm;">
+                        ADMIN PAGES
+                        <p><i style="font-size: 30px; text-shadow: 2px 2px 5px rgb(49, 49, 49); ">We are happy to meet you here again!</i></p>
+                </h1> 
+
+                <div>
+                  <div class="fadeInRight center menu-bg">
+                    <a class="nav-link" href="graph.html"><button type="return" class="button_menu image-button1"></button>
+                    <div class="button" style="margin-right: 20px;">VIEW RESPONSE SUMMARY</div></a>
+                  </div>
+
+                  <div class="fadeInRight center menu-bg" style="margin-top: 20px;">
+                    <a class="nav-link" href="table.html"><button type="return" class="button_menu image-button2"></button>
+                    <div class="button" style="margin-right: 20px;">VIEW RESPONSE LIST</div></a>
+                  </div>
+
+                  <a class="nav-link" href="/intermediate/staff.html"><button type="return" class="backbutton btn">Back To Home</button></a>
+                 
+                </div>
+               
+
+              </div> <!-- .container -->              
+            </div> <!-- .banner-section -->            
+          </div> <!-- .page-banner -->
+
+          <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+          <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+          <footer>
+            <!-- copyright section start -->
+      <div class="copyright_section">
+        <div class="container">
+           <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
+        </div>
+     </div>
+     <!-- copyright section end -->
+
+          </footer>
+</body>
+</html>
