@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
     <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+
 </head>
 
 <body>
@@ -65,10 +66,6 @@ session_start();
             </div> <!-- .navbar-collapse -->
         </div> <!-- .container -->
       </nav>
-
-      <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
-      <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
-    </header>
 
       <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
       <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
@@ -123,11 +120,18 @@ session_start();
                         echo "<td>" . $row["place"] . "</td>";
                         echo "<td>" . $row["date"] . "</td>";
 
-                        echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
+                        // echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
+                        
+                        echo "<td>
+                        <div class='btnRegister' > <button class='button' onclick=location.href='/programRegistration/php/programJoin.php'>
+                            Register Program
+                            <svg fill='currentColor' viewBox='0 0 24 24' class='icon'>
+                                <path clip-rule='evenodd' d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z' fill-rule='evenodd'></path>
+                            </svg>
+                            </button>
+                            </div></td>";
                         echo "</tr>";
 
-                        
-   
                     }
                     ?>
                 </tbody>
@@ -136,7 +140,6 @@ session_start();
         <div class="input-field" style="padding-left: 40px;">
             <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;" class="btn"><i class="fa-solid fa-arrow-left"  style="padding-right: 10px;"></i>Back</button>
         </div>
-    </main>
     </main>
 
      <!-- footer -->
