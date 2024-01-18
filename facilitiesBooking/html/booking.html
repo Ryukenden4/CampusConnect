@@ -402,11 +402,47 @@ body {
         }
 
         // Function to book a slot
-        function bookSlot(time) {
-            // Implement the logic to book the selected slot and update the database
-            // You may use AJAX to send a request to the server for booking
-            console.log(`Booking slot at ${time}`);
+function bookSlot(time) {
+    // Fetch user details
+    const studentId = document.getElementById('studentId').innerText.split(':')[1].trim();
+    const fullName = document.getElementById('fullName').innerText.split(':')[1].trim();
+    const college = document.getElementById('college').innerText.split(':')[1].trim();
+    
+    // Fetch booking details
+    const bookingDate = document.getElementById("bookingDate").value;
+    const facilityType = document.getElementById("facilityType").value;
+
+    // Prepare data to send
+    const bookingData = {
+        studentId,
+        fullName,
+        dateofBooking: bookingDate,
+        college,
+        facilities: facilityType,
+        startTime: time.split(' - ')[0],
+        endTime: time.split(' - ')[1]
+    };
+
+    // Send AJAX request to book the facility slot
+    fetch('/path/to/your/booking.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Handle booking success
+            showBookingSuccess();
+        } else {
+            // Handle booking failure
+            console.error('Booking failed:', data.message);
         }
+    })
+    .catch(error => console.error('Error:', error));
+}
 
         // Function to show booking success
         function showBookingSuccess() {
