@@ -33,18 +33,9 @@
         <link rel="stylesheet" href="/homepage/assets/css/theme.css">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 
         <style>
-            /* .register-container {
-            padding-top: 100px;
-            padding-bottom: 100px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }*/
-
             body {
             /* display: flex; */
             justify-content: center;
@@ -54,7 +45,19 @@
                 url(/homepage/assets/img/kolej.jpg);
             background-size: cover;
             background-position: center;
-            }
+        }
+
+        main.table {
+            width: 82vw;
+            height: 80vh;
+            background-color: #fff5;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 .4rem .8rem #0005;
+            border-radius: .8rem;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+        }
 
             .title-container{
             padding-top: 50px;
@@ -72,7 +75,89 @@
             align-items: center;
             }
 
-            .booking-container {
+
+
+.booking-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.booking-table th, .booking-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.booking-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+
+
+            body {
+    font-family: 'Sen', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 5px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: white;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/*untuk time slot table*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.userDetails {
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.searchForm {
+    margin-bottom: 15px;
+    justify-content: center;
+    text-align: center;
+}
+
+.bookingTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.bookingTable, th, td {
+    border: 1px solid black;
+}
+
+.th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+        .booking-title{
             padding-top: 100px;
             padding-bottom: 100px;
             width: 100%;
@@ -80,160 +165,41 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            }
+           }
 
-            .booking {
-            max-width: 500px;
-            /* width: 100px; */
-            background: white;
-            border: 2px solid rgba(225, 225, 225, 0.2);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(50px);
-            color: black;
-            padding: 25px 40px 35px;
-            }
+        .content {
+            width: 50%;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .booking h1 {
-            font-size: 35px;
-            text-align: center;
-            margin-bottom: 15px;
-            }
-
-            .booking .input-box {
+        .table__header {
+            width: 100%;
+            height: 10%;
+            background-color:white;
+            padding: .8rem 1rem;
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            }
+            align-items: center;
+        }
 
-            .input-box .input-field {
-            position: relative;
+        .content {
             width: 100%;
-            height: 30px;
-            margin: 15px 0;
-            }
+            height: 125vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .input-box .input-field input,
-            .input-box .input-field select {
-            width: calc(100% - 0px); /* Adjust width as needed */
-            height: 100%;
-            background: transparent;
-            border: 2.5px solid black;
-            outline: none;
-            font-size: 16px;
-            color: black;
-            border-radius: 6px;
-            padding: 15px 15px 15px 40px;
-            }
-            .input-box .input-field select {
-            padding-right: 50px; /* Adjust to match the padding of input fields */
-            z-index: 1;
-            background-color: white;
-            }
-            .input-box .input-field i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            }
-
-            .input-box .input-field input {
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: 2.5px solid black;
-            outline: none;
-            font-size: 16px;
-            color: black;
-            border-radius: 6px;
-            padding: 15px 15px 15px 40px;
-            }
-
-            .input-box .input-field input::placeholder {
-            color: black;
-            }
-
-            .input-box .input-field i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            }
-
-            .booking label {
-            display: inline-block;
-            font-size: 14.5px;
-            margin: 5px 0 5px; /* adjust space between date of booking  & kotak*/
-            }
-
-            .booking label input {
-            accent-color:#00D9A5;
-            margin-right: 5px;
-            }
-
-            .booking .btn {
-            width: 48%;
-            height: 45px;
-            background: #007bff;
-            border: none;
-            outline: none;
-            border-radius: 7px;
-            box-shadow: 0 0 10px rgba(225, 225, 225, 0.1);
-            cursor: pointer;
-            font-size: 16px;
-            color: white;
-            align-self: center;
-            margin-top: 10%;
-            }
-
-            .btn1 {
-            width: 48%;
-            height: 45px;
-            background: #8b0000;
-            border: none;
-            outline: none;
-            border-radius: 7px;
-            box-shadow: 0 0 10px rgba(225, 225, 225, 0.1);
-            cursor: pointer;
-            font-size: 16px;
-            color: white;
-            align-self: center;
-            margin-top: 10%;
-            }
-            
-            .backButton{
-            display: inline-block;
-            padding: 20px 20px;
-            width: 30px;
-            height: 30px;
-            background: url('/facilitiesBooking/img/backIcon.png') no-repeat center center;
-            background-size: 50px; /* size icon */
+        
+        
+        
+        .title{
             text-align: center;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            
-            }
-
-            /*.backBtn {
-            background-color: white;
-            border-radius: 25px;
-            display: inline-block;
-            height: 50px;
-            margin: 1rem;
-            position: relative;
-            width: 50px;
-            padding:25px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  
-            &:hover {
-                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-                cursor: default;
-            }
-            }*/
-
+        }
+        
         </style>
     </head>
 
@@ -282,79 +248,63 @@
 
     <!--content-->
     <div class="content">
-        <div class="booking-container">
-            <div class="booking">
-                <form name="booking" id="bookingForm" action="/facilitiesBooking/html/booking.php" method="POST">
-                    <!--<div class="backBtn">
-                    <a href="student.html">
-                        <button class="backButton"></button>
-                    </a>
-                    </div> -->
-
-                    <!--
-                    <div class="backBtn">
-                        <a href="student.html" class="backButton">
-                            <img src="/facilitiesBooking/img/backIcon.png" alt="Back" style="width: 20px; height: 20px;">
-                        </a>
-                    </div>-->
-                    
-                    <h1>Booking Form</h1>
-                    
-                    <div class="input-box">
-                        <!-- date of booking -->
-                        <div class="input-field">
-                            <label>Date of Booking: </label>
-                            <input type="date" name="dateofBooking" placeholder="dateofBooking" required>
-                        </div>
     
-                        <!-- college selection -->
-                        <div class="input-field">
-                        <label for="college">Select College:</label>
-                            <select  name="college" id="college" required>
-                                <option value="Manukan">Manukan</option>
-                                <option value="Mantanani">Mantanani</option>
-                                <option value="Mabul">Mabul</option>
-                            </select>
-                        </div> 
-
-                        <!-- facilities selection -->
-                        <div class="input-field">
-                            <label for="college">Select Facilities:</label>
-                            <select  name="facilities" id="facilities" required>
-                                <option value="Meeting Room">Meeting Room</option>
-                                <option value="Reading Room">Reading Room</option>
-                                <option value="Gym Room">Gym Room</option>
-                            </select>
-                        </div> 
-
-                        <!-- start time -->
-                        <div class="input-field">
-                            <label>Start Time Booking: </label>
-                            <input type="time" name="startTime" placeholder="Start Time" required>
-                        </div>
-
-                        <!-- end time -->
-                        <div class="input-field">
-                            <label>End Time Booking: </label>
-                            <input type="time" name="endTime" placeholder="End Time" required>
-                        </div>
-                        
-                        <!-- Cancel Booking button -->
-                        <a class="btn" href="/facilitiesBooking/html/student.html"><button  style="background-color: #007bff; margin: 5px; color: #f1f1f1;"  type="submit" value="submit">Book Now</button></a>
-                        <button class="btn1" type="button" onclick="cancelBooking()">Cancel Booking</button>
-                        
-                    </div>
-                </form>
+        <main class="table">
+            <div class="title">
+                <h1 style="color: black;"><b>FACILITIES BOOKING</b></h1>
             </div>
-        </div>
-    </div>
+        
+        <section class="table__body">
+            <table style="color: black;">
+                
+                <!-- User details -->
+                <div class="user" id="userDetails">
+                    <p id="studentId"></p>
+                    <p id="fullName"></p>
+                    <p id="college"></p>
+                </div>
+                
+                <!-- Search form -->
+                <div class="searchForm">
+                <div id="searchForm">
+                    <label for="bookingDate">Date:</label>
+                    <input type="date" id="bookingDate">
+                
+                    <label for="facilityType">Facility Type:</label>
+                    <select id="facilityType">
+                        <option value="meetingRoom">Meeting Room</option>
+                        <option value="readingRoom">Reading Room</option>
+                        <option value="gym">Gym</option>
+                    </select>
+                
+                    <button onclick="searchSlots()">Search</button>
+                </div>
+                </div>
+                
+                <!-- Booking slots table -->
+                <table id="bookingTable">
+                    <!-- Table headers go here -->
+                </table>
 
-    <!-- footer -->
+    
+                </tbody>
+            </table>
+        </section>
+
+        <div class="input-field" style="padding-left: 40px;">
+          
+          <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;"  class="btn">Back</button>
+        </div>
+    </main>
+    </div>
+    
+
+    <!-- footer 
     <div class="copyright_section">
         <div class="container">
             <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
         </div>
-    </div>
+    </div>-->
     
 </body>
 
@@ -364,51 +314,116 @@
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
+<script src="script.js"></script>
+
+
 <script>
-    
-
-    function showBookingSuccess() {
-        alert('Booking successfully made!');
-        window.location.href = '/CampusConnect/intermediate/student.html';
-    }
-
-    function cancelBooking() {
-        window.location.href = '/facilitiesBooking/html/student.html'; 
-    }
-
-    // Assuming your form has the ID "bookingForm"
-    document.getElementById('bookingForm').addEventListener('submit', function (event) {
-        // Prevent the default form submission
-        event.preventDefault();
-
-        // Perform your form submission logic here
-        submitBookingForm();
+    // Fetch user details when the DOM is loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log('DOM content loaded');
+        fetchUserDetails();
     });
 
-    function submitBookingForm() {
-        // Get form data
-        var formData = new FormData(document.getElementById('bookingForm'));
-
-        // Perform AJAX request to submit form data
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'booking.php', true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                // Handle the response here, you can check if it was successful
-                // For simplicity, assuming the server returns "success" on success
-                if (xhr.responseText.trim() === "success") {
-                    // Show the success message and redirect
-                    showBookingSuccess();
+    // Function to fetch and update user details
+    function fetchUserDetails() {
+        fetch('/intermediate/user.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update the user details in the HTML
+                    const userDetails = data.userDetails;
+                    document.getElementById('studentId').innerText = `Student ID: ${userDetails.studentId}`;
+                    document.getElementById('fullName').innerText = `Full Name: ${userDetails.fullName}`;
+                    document.getElementById('college').innerText = `College: ${userDetails.college}`;
                 } else {
-                    alert('Booking Successfully Made!'); // Show a generic error message
-                    window.location.href = '/intermediate/student.html';
-                }}
-            
-        };
-
-        // Send the form data
-        xhr.send(formData);
+                    console.error('Error:', data.message);
+                }
+            })
+        .catch(error => console.error('Error:', error));
     }
+
+    // Function to search for available slots
+    function searchSlots() {
+        // Implement the logic to fetch available slots from the server
+        // and update the booking table
+        const bookingDate = document.getElementById("bookingDate").value;
+        const facilityType = document.getElementById("facilityType").value;
+
+        // For demonstration purposes, create dummy data
+        const availableSlots = [
+            { time: "08:00 AM - 09:00 AM", available: true },
+            { time: "09:00 AM - 10:00 AM", available: false },
+            { time: "10:00 AM - 11:00 AM", available: true },
+            { time: "11:00 AM - 12:00 PM", available: false },
+            { time: "12:00 PM - 01:00 PM", available: true },
+            { time: "02:00 PM - 03:00 PM", available: true },
+            { time: "03:00 PM - 04:00 PM", available: true },
+            { time: "04:00 PM - 05:00 PM", available: true },
+            { time: "05:00 PM - 06:00 PM", available: true },
+             // Add more slots as needed
+        ];
+
+        updateBookingTable(availableSlots);
+    }
+
+    // Function to update the booking table
+    function updateBookingTable(slots) {
+        const table = document.getElementById("bookingTable");
+        // Clear existing rows
+        table.innerHTML = "";
+
+        // Create headers
+        const headerRow = table.insertRow();
+        const timeHeader = headerRow.insertCell();
+        const actionHeader = headerRow.insertCell();
+        timeHeader.innerHTML = "<strong>Time</strong>";
+        actionHeader.innerHTML = "<strong>Action</strong>";
+
+        // Populate the table with slots
+        slots.forEach(slot => {
+            const row = table.insertRow();
+            const timeCell = row.insertCell();
+            const actionCell = row.insertCell();
+
+            timeCell.textContent = slot.time;
+
+            if (slot.available) {
+                // If the slot is available, add a button to book it
+                const bookButton = document.createElement("button");
+                bookButton.textContent = "Book";
+                bookButton.addEventListener("click", function () {
+                    bookSlot(slot.time);
+                });
+                    actionCell.appendChild(bookButton);
+                } else {
+                    actionCell.textContent = "Not Available";
+                }
+            });
+        }
+
+        // Function to book a slot
+        function bookSlot(time) {
+            // Implement the logic to book the selected slot and update the database
+            // You may use AJAX to send a request to the server for booking
+            console.log(`Booking slot at ${time}`);
+        }
+
+        // Function to show booking success
+        function showBookingSuccess() {
+            alert('Booking successfully made!');
+            window.location.href = '/CampusConnect/intermediate/student.html';
+        }
+
+        // Function to cancel booking
+        function cancelBooking() {
+            window.location.href = '/facilitiesBooking/html/student.html';
+        }
+
+        function goBack() {
+            // Redirect to another HTML file
+            window.location.href = '/facilitiesBooking/html/student.html'; 
+        }
+
 </script>
 
 </html>
