@@ -435,3 +435,8 @@ thead th.active,tbody td.active {
   justify-content: center;
 }
 
+.btnVSL{
+  position: fixed;
+  padding-left: 67%;
+  
+}

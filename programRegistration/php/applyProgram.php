@@ -23,7 +23,7 @@ $studentName = $row['fullName'];
 if (isset($_GET['programme'])) {
     $programme = $_GET['programme'];
 
-    $sql = "INSERT INTO `studentprogram` (student_id, studentName, programJoin) VALUES ('" . strtoupper($student_id) . "', '" . strtoupper($studentName) . "', '" . strtoupper($programme) . "')";
+    $sql = "INSERT INTO `studentprogram` (student_id, studentName, programJoin,status) VALUES ('" . strtoupper($student_id) . "', '" . strtoupper($studentName) . "', '" . strtoupper($programme) . "','enable')";
 
 
     if ($conn->query($sql) === TRUE) {
@@ -39,4 +39,26 @@ if (isset($_GET['programme'])) {
     
     $conn->close();
 }
+
+if (isset($_GET['programJoin'])) {
+    $programJoin = $_GET['programJoin'];
+
+    
+    $sql = "UPDATE `studentprogram` SET status = 'disabled' WHERE programJoin = '$programJoin' AND student_id = '$student_id'";
+
+    if ($conn->query($sql) === TRUE) {
+        // Query executed successfully
+        echo '<script>
+                alert("Cancel joining program successfully!");
+                window.location.href = "/programRegistration/php/programJoin.php";
+            </script>';
+    } else {
+        // Query execution failed
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    $conn->close();
+}
+
+
 ?>
