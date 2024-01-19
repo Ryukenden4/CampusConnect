@@ -83,7 +83,7 @@ session_start();
                 <thead>
                     <tr>
                         <th> no </th>
-                        <th> progamme name </th>
+                        <th> progam name </th>
                         <th> place </th>
                         <th> date </th>
                         <th><center> Action </center></th>
@@ -123,24 +123,27 @@ session_start();
                         // echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
                         
                         echo "<td>
-                        <div class='btnRegister' > <button class='button' onclick='join(" . $row["programme"] . ")'>
-                            Register Program
-                            <svg fill='currentColor' viewBox='0 0 24 24' class='icon'>
-                                <path clip-rule='evenodd' d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z' fill-rule='evenodd'></path>
-                            </svg>
-                            </button>
+                            <div class='btnRegister' > 
+                            <button class='button' onclick='join(\"" . htmlspecialchars($row["programme"]) . "\")'>
+                                    Register Program
+                                    <svg fill='currentColor' viewBox='0 0 24 24' class='icon'>
+                                        <path clip-rule='evenodd' d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z' fill-rule='evenodd'></path>
+                                    </svg>
+                                </button>
                             </div></td>";
                         echo "</tr>";
 
-                        echo '<script>
-                            function join(programme) {
-                                var join = confirm("Are you sure you want to join this Program?");
-
-                                if (join) {
-                                    window.location.href = "applyProgram.php?programme=" + programme;
-                                }
+                        echo "<script>
+                        function join(programme) {
+                            var join = confirm('Are you sure you want to join this Program?');
+                         
+                            if (join) {
+                               window.location.href = 'applyProgram.php?programme=' + encodeURIComponent(programme);
+                            } else {
+                                window.location.href = 'student.php';
                             }
-                            </script>';
+                         }
+                            </script>";
 
                     }
                     ?>

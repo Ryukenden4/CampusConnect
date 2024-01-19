@@ -80,7 +80,7 @@
                 <thead>
                     <tr>
                         <th> no </th>
-                        <th> progamme name </th>
+                        <th> progam name </th>
                         <th> place </th>
                         <th> date </th>
                         <th>Action</th>
