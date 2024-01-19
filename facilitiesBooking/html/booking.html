@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="/intermediate/css/bootstrap.min.css">
         <!-- style css -->
         <link rel="stylesheet" type="text/css" href="/intermediate/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/facilitiesBooking/assets/css/booking.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- font css -->
@@ -34,174 +35,6 @@
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
         <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
-
-        <style>
-            body {
-            /* display: flex; */
-            justify-content: center;
-            align-items: center;
-            min-height: 70vh;
-            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-                url(/homepage/assets/img/kolej.jpg);
-            background-size: cover;
-            background-position: center;
-        }
-
-        main.table {
-            width: 82vw;
-            height: 80vh;
-            background-color: #fff5;
-            backdrop-filter: blur(7px);
-            box-shadow: 0 .4rem .8rem #0005;
-            border-radius: .8rem;
-            overflow: hidden;
-            position: relative;
-            z-index: 0;
-        }
-
-            .title-container{
-            padding-top: 50px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }
-
-            .content {
-            width: 100%;
-            height: 85vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }
-
-
-
-.booking-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-.booking-table th, .booking-table td {
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: left;
-}
-
-.booking-table th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-
-
-
-            body {
-    font-family: 'Sen', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f1f1f1;
-}
-
-
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 5px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: white;
-}
-
-button {
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-/*untuk time slot table*/
-body {
-    font-family: Arial, sans-serif;
-}
-
-.userDetails {
-    margin-bottom: 20px;
-    justify-content: center;
-}
-
-.searchForm {
-    margin-bottom: 15px;
-    justify-content: center;
-    text-align: center;
-    font-size: large;
-}
-
-.bookingTable {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.bookingTable, th, td {
-    border: 1px solid black;
-}
-
-.th, td {
-    padding: 8px;
-    text-align: left;
-}
-
-        .booking-title{
-            padding-top: 100px;
-            padding-bottom: 100px;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-           }
-
-        .content {
-            width: 50%;
-            height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .table__header {
-            width: 100%;
-            height: 10%;
-            background-color:white;
-            padding: .8rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .content {
-            width: 100%;
-            height: 125vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        
-        
-        
-        .title{
-            text-align: center;
-        }
-        
-        </style>
     </head>
 
 <body>
@@ -396,7 +229,7 @@ body {
                 });
                     actionCell.appendChild(bookButton);
                 } else {
-                    actionCell.textContent = "Not Available";
+                    actionCell.textContent = "Unvailable";
                 }
             });
         }
