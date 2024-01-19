@@ -1,21 +1,5 @@
 <?php
-session_start();
-
-// Set the default timezone to Malaysian time
-date_default_timezone_set('Asia/Kuala_Lumpur');
-
-// Establishing a connection to MySQL database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "collegeregistration";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +16,9 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
-    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
 
+    <!-- <link rel="stylesheet" href="/collegeRegistration/admin/style.css"> -->
+    <link rel="stylesheet" href="/header/css/theme.css">
 </head>
 
 <body>
@@ -89,7 +74,11 @@ if ($conn->connect_error) {
     <!-- body section -->
     <main class="table">
         <section class="table__header">
-            <div class="tajuk"><h1>Program join </h1></div>
+            <div class="tajuk"><h1>Program Join</h1></div>
+
+            
+                <!-- <button type="button" onclick="location.href='/programRegistration/php/registerProgram.php'">Add Programme</button> -->
+            
            
         </section>
         <section class="table__body">
@@ -100,7 +89,7 @@ if ($conn->connect_error) {
                         <th> Student ID </th>
                         <th> Student Name </th>
                         <th> Program Join </th>
-                        <th><center> Action </center></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -120,7 +109,7 @@ if ($conn->connect_error) {
                     }
 
                     // Performing SQL query to fetch data from the student table with status "enable"
-                    $sql = "SELECT * FROM studentprogram WHERE status ='enable';
+                    $sql = "SELECT * FROM studentprogram WHERE studentprogram.status = 'enable'";
                     $result = $conn->query($sql);
 
                     if(!$result){
@@ -132,23 +121,24 @@ if ($conn->connect_error) {
                         echo "<td>" . $row["student_id"] . "</td>";
                         echo "<td>" . $row["studentName"] . "</td>";
                         echo "<td>" . $row["programJoin"] . "</td>";
-                        
-                        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["programID"] . ")'></i></td>";
+
+                        // echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
+                        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='cancel(" . $row["programJoin"] . ")'></i></td>";
                         echo "</tr>";
 
+                        
 
                         echo '<script>
-                            function confirmDelete(programme) {
-                                var confirmDelete = confirm("Are you sure you want to cancel join the program?");
+                            function cancel(programJoin) {
+                                var cancel = confirm("Are you sure you want to cancel joining the program?");
 
-                                if (confirmDelete) {
-                                    // If user clicks OK, redirect to the delete.php with the student ID
-                                    window.location.href = "cancelProgram.php?programme=" + programme;
+                                if (cancel) {
+                                    var encodedProgramJoin = encodeURIComponent(programJoin);
+                                    window.location.href = "cancelProgram.php?programJoin=" + encodedProgramJoin;
                                 }
                             }
-                            </script>';
+                        </script>';
                     }
-
                     ?>
                 </tbody>
             </table>
@@ -158,14 +148,14 @@ if ($conn->connect_error) {
         </div>
     </main>
 
-     <!-- footer -->
-     <div class="copyright_section">
-        <div class="container">
-            <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+    <!-- footer -->
+    <div class="copyright_section">
+            <div class="container">
+                <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
+            </div>
         </div>
-    </div>
-
 </body>
+
   <!-- back button javascript -->
   <script>
     function goBack() {
@@ -173,11 +163,11 @@ if ($conn->connect_error) {
         window.location.href = '/intermediate/student.html'; 
     }
   </script>
-
-
+ 
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
-<script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
 
 </html>
+
