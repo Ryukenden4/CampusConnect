@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Database connection details
 $servername = "localhost";
 $username = "root";
@@ -20,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Process form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $studentId = $conn->real_escape_string($_POST["studentId"]);
+    $studentId = $_SESSION['user_id']; // Use studentId from session
     $fullName = $conn->real_escape_string($_POST["fullName"]);
     $dateofBooking = $conn->real_escape_string($_POST["dateofBooking"]);
     $college = $conn->real_escape_string($_POST["college"]);
@@ -44,7 +46,7 @@ $json_data = file_get_contents("php://input");
 $booking_data = json_decode($json_data);
 
 // Extract data from JSON
-$studentId = $conn->real_escape_string($booking_data->studentId);
+$studentId = $_SESSION['user_id']; // Use studentId from session
 $fullName = $conn->real_escape_string($booking_data->fullName);
 $dateofBooking = $conn->real_escape_string($booking_data->dateofBooking);
 $college = $conn->real_escape_string($booking_data->college);
@@ -63,7 +65,6 @@ if ($conn->query($sql) === TRUE) {
     // Send error response
     echo json_encode(array("success" => false, "message" => "Error: " . $sql . "<br>" . $conn->error));
 }
-
 
 // Close the database connection
 $conn->close();

@@ -2,7 +2,7 @@
 
 <html lang="en">
     <head style="background-color: #f1f1f1;"> 
-        <link rel="stylesheet" href="../css/registerStyle.css"> 
+        <link rel="stylesheet" href="/collegeRegistration/css/registerStyle.css"> 
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -317,7 +317,6 @@ body {
 
 <script src="script.js"></script>
 
-
 <script>
     // Fetch user details when the DOM is loaded
     document.addEventListener("DOMContentLoaded", function () {
@@ -425,7 +424,7 @@ function bookSlot(time) {
     };
 
     // Send AJAX request to book the facility slot
-    fetch('/path/to/your/booking.php', {
+    fetch('/facilitiesBooking/html/booking.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -448,7 +447,7 @@ function bookSlot(time) {
         // Function to show booking success
         function showBookingSuccess() {
             alert('Booking successfully made!');
-            window.location.href = '/CampusConnect/intermediate/student.html';
+            window.location.href = '/intermediate/student.html';
         }
 
         // Function to cancel booking
