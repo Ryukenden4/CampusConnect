@@ -23,19 +23,48 @@ $studentName = $row['fullName'];
 if (isset($_GET['programme'])) {
     $programme = $_GET['programme'];
 
-    $sql = "INSERT INTO `studentprogram` (student_id, studentName, programJoin,status) VALUES ('" . strtoupper($student_id) . "', '" . strtoupper($studentName) . "', '" . strtoupper($programme) . "','enable')";
 
+    // Assuming $programme is the value you want to check for
+$programme = mysqli_real_escape_string($conn, $programme);
 
-    if ($conn->query($sql) === TRUE) {
-        // Query executed successfully
+$sql_check = "SELECT * FROM studentprogram WHERE student_id = '" . strtoupper($student_id) . "' AND programJoin = '" . strtoupper($programme) . "' AND status = 'enable'" ;
+
+$result_check = $conn->query($sql_check);
+
+if ($result_check->num_rows > 0) {
+    // Data already exists in the database, handle accordingly (e.g., show an error message)
+    echo '<script>
+                alert("Data already exists in the database");
+                window.location.href = "/programRegistration/php/student.php";
+            </script>';
+} else {
+    // Data does not exist, proceed with the insertion
+    $sql_insert = "INSERT INTO `studentprogram` (student_id, studentName, programJoin, status) VALUES ('" . strtoupper($student_id) . "', '" . strtoupper($studentName) . "', '" . strtoupper($programme) . "', 'enable')";
+
+    if ($conn->query($sql_insert) === TRUE) {
+        // Insertion successful
         echo '<script>
                 alert("Program registration successfully!");
                 window.location.href = "/programRegistration/php/student.php";
             </script>';
     } else {
-        // Query execution failed
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // Insertion failed
+        echo "Error: " . $sql_insert . "<br>" . $conn->error;
     }
+}
+    // $sql = "INSERT INTO `studentprogram` (student_id, studentName, programJoin,status) VALUES ('" . strtoupper($student_id) . "', '" . strtoupper($studentName) . "', '" . strtoupper($programme) . "','enable')";
+
+
+    // if ($conn->query($sql) === TRUE) {
+    //     // Query executed successfully
+    //     echo '<script>
+    //             alert("Program registration successfully!");
+    //             window.location.href = "/programRegistration/php/student.php";
+    //         </script>';
+    // } else {
+    //     // Query execution failed
+    //     echo "Error: " . $sql . "<br>" . $conn->error;
+    // }
     
     $conn->close();
 }
@@ -43,7 +72,6 @@ if (isset($_GET['programme'])) {
 if (isset($_GET['programJoin'])) {
     $programJoin = $_GET['programJoin'];
 
-    
     $sql = "UPDATE `studentprogram` SET status = 'disabled' WHERE programJoin = '$programJoin' AND student_id = '$student_id'";
 
     if ($conn->query($sql) === TRUE) {
