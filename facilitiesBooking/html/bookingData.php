@@ -12,17 +12,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the user is logged in
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    // Redirect or handle the case when the user is not logged in
-    header("Location: login.php");
-    exit();
-}
-
-// Fetch data from the database for the specific user
-$userId = $_SESSION['user_id'];
-$query = "SELECT * FROM booking WHERE studentId = $userId";
+// Fetch data from the database
+$query = "SELECT * FROM booking";
 $result = mysqli_query($conn, $query);
 
 // Display data in a table format
