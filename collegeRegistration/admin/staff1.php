@@ -30,7 +30,9 @@ if (isset($_GET['filter']) && isset($_GET['value'])) {
 // Performing SQL query to fetch data from the room and student tables with applied filters
 $sql = "SELECT student.ID, student.fullName, student.email, student.phoneNumber, student.programCode, student.semester, room.roomNumber, room.residentialCollege
         FROM student
-        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4";
+        LEFT JOIN room ON student.ID = room.studentID1 OR student.ID = room.studentID2 OR student.ID = room.studentID3 OR student.ID = room.studentID4
+        WHERE student.status = 'Enable'";
+        
 
 // Add filter conditions to the query
 if (!empty($filterConditions)) {

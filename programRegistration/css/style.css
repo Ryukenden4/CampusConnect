@@ -66,7 +66,7 @@ footer.page-footer {
 
 main.table {
   width: 82vw;
-  height: 80vh;
+  height: 75vh;
   background-color: #fff5;
   backdrop-filter: blur(7px);
   box-shadow: 0 .4rem .8rem #0005;
@@ -435,3 +435,8 @@ thead th.active,tbody td.active {
   justify-content: center;
 }
 
+.btnVSL{
+  position: fixed;
+  padding-left: 67%;
+  
+}

@@ -17,64 +17,61 @@ session_start();
     <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
     <link rel="stylesheet" href="/homepage/assets/css/theme.css">
     <link rel="stylesheet" href="/collegeRegistration/css/footer.css">
-    <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+    <!-- <link rel="stylesheet" href="/collegeRegistration/admin/style.css"> -->
+    <link rel="stylesheet" href="/header/css/theme.css">
 
 </head>
 
 <body>
-<header>
-      <link rel="stylesheet" href="/header/css/bootstrap.css">
-      <link rel="stylesheet" href="/header/css/maicons.css">
-      <link rel="stylesheet" href="/header/css/theme.css">
+  <!-- header -->
+  <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-      <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/intermediate/student.html"><span class="text-primary">College</span> InfoCenter</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link active" style="font-size: 14px;" href="/intermediate/student.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;">
-                            Registration
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="registrationDropdown">
-                            <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
-                            <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-size: 14px;" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="font-size: 14px;" href="/customerSupport/html/customer.html">Customer Support</a>
-                    </li>
-                    <!-- Add this within your navigation bar where you want the logout button to appear -->
-                    <li class="nav-item">
-                        <form action="/logout/logout.php" method="post">
-                            <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
-                        </form>
-                    </li>
-                </ul>
-            </div> <!-- .navbar-collapse -->
-        </div> <!-- .container -->
-      </nav>
-
-      <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
-      <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+                <div class="collapse navbar-collapse" id="navbarSupport">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link"  href="/intermediate/student.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="registrationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Registration
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="registrationDropdown">
+                                <a class="dropdown-item" href="/collegeRegistration/html/collegeApply.html">College Registration</a>
+                                <a class="dropdown-item" href="/programRegistration/php/student.php">Programme Registration</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/facilitiesBooking/html/student.html">Facilities Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customerSupport/html/customer.html">Customer Support</a>
+                        </li>
+                        <!-- Add this within your navigation bar where you want the logout button to appear -->
+                        <li class="nav-item">
+                            <form action="/logout/logout.php" method="post">
+                                <input type="submit" class="btn btn-primary ml-lg-3" value="Logout">
+                            </form>
+                        </li>
+                    </ul>
+                </div> <!-- .navbar-collapse -->
+            </div> <!-- .container -->
+        </nav>
     </header>
 
     <!-- body section -->
     <main class="table">
         <section class="table__header">
             <div class="tajuk"><h1>Programme Registration</h1></div>
+
+            <button class='button' type="button" onclick="location.href='/programRegistration/php/programJoin.php'">View Program Join
+            </button>
            
         </section>
         <section class="table__body">
@@ -123,24 +120,24 @@ session_start();
                         // echo "<td><button onclick=location.href='/programRegistration/php/programJoin.php'>Register</button></td>";
                         
                         echo "<td>
-                        <div class='btnRegister' > <button class='button' onclick='join(" . $row["programme"] . ")'>
-                            Register Program
-                            <svg fill='currentColor' viewBox='0 0 24 24' class='icon'>
-                                <path clip-rule='evenodd' d='M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z' fill-rule='evenodd'></path>
-                            </svg>
-                            </button>
+                            <div class='btnRegister' > 
+                            <button class='button' onclick='join(\"" . htmlspecialchars($row["programme"]) . "\")'>
+                                    Register Program
+                                </button>
                             </div></td>";
                         echo "</tr>";
 
-                        echo '<script>
-                            function join(programme) {
-                                var join = confirm("Are you sure you want to join this Program?");
-
-                                if (join) {
-                                    window.location.href = "applyProgram.php?programme=" + programme;
-                                }
+                        echo "<script>
+                        function join(programme) {
+                            var join = confirm('Are you sure you want to join this Program?');
+                         
+                            if (join) {
+                               window.location.href = 'applyProgram.php?programme=' + encodeURIComponent(programme);
+                            } else {
+                                window.location.href = 'student.php';
                             }
-                            </script>';
+                         }
+                            </script>";
 
                     }
                     ?>
@@ -161,12 +158,12 @@ session_start();
 
 </body>
   <!-- back button javascript -->
-  <script>
-    function goBack() {
-        // Redirect to another HTML file
-        window.location.href = '/intermediate/student.html'; 
-    }
-  </script>
+<script>
+function goBack() {
+    // Redirect to another HTML file
+    window.location.href = '/intermediate/student.html'; 
+}
+</script>
 
 
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
