@@ -67,9 +67,8 @@
     <!-- body section -->
     <main class="table">
         <section class="table__header">
-            <div class="tajuk"><h1>Programme List</h1></div>
-                    <div class="btnVSL"><button class="button" type="button" onclick="location.href='/programRegistration/php/studentJoin.php'">View student List</button></div>
-                    <div class="btnAddProgram"><button class="button" type="button" onclick="location.href='/programRegistration/php/registerProgram.php'">Add Programme</button></div>
+            <div class="tajuk"><h1>Program's Student Join</h1></div>
+       
            
         </section>
         <section class="table__body">
@@ -77,11 +76,9 @@
                 <!-- head for table -->
                 <thead>
                     <tr>
-                        <th> no </th>
-                        <th> progam name </th>
-                        <th> place </th>
-                        <th> date </th>
-                        <th>Action</th>
+                        <th> Student ID </th>
+                        <th> Student Name </th>
+                        <th> Program Join </th>
                     </tr>
                 </thead>
 
@@ -100,39 +97,24 @@
                         die("Connection failed: " . $conn->connect_error);
                     }
 
-                    // Performing SQL query to fetch data from the student table with status "enable"
-                    $sql = "SELECT * FROM programme WHERE programme.status = 'enable'";
+                    $sql = "SELECT * FROM studentprogram WHERE studentprogram.status = 'enable'";
                     $result = $conn->query($sql);
 
                     if(!$result){
                         die("Invalid query: ".$connection->error);
                     }
 
+
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["programID"] . "</td>";
-                        echo "<td>" . $row["programme"] . "</td>";
-                        echo "<td>" . $row["place"] . "</td>";
-                        echo "<td>" . $row["date"] . "</td>";
-
-                        // echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
-                        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["programID"] . ")'></i></td>";
-                        echo "</tr>";
-
+                        echo "<td>" . $row["student_id"] . "</td>";
+                        echo "<td>" . $row["studentName"] . "</td>";
+                        echo "<td>" . $row["programJoin"] . "</td>";
                         
-
-                        echo '<script>
-                            function confirmDelete(programID) {
-                                var confirmDelete = confirm("Are you sure you want to delete this Program?");
-
-                                if (confirmDelete) {
-                                    // If user clicks OK, redirect to the delete.php with the student ID
-                                    window.location.href = "deleteProgram.php?programID=" + programID;
-                                }
-                            }
-                            </script>';
+                        echo "</tr>";
                     }
                     ?>
+                
                 </tbody>
             </table>
         </section>
@@ -153,9 +135,11 @@
   <script>
     function goBack() {
         // Redirect to another HTML file
-        window.location.href = '/intermediate/staff.html'; 
+        window.location.href = '/programRegistration/php/staff.php'; 
     }
   </script>
+
+
  
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
   <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>

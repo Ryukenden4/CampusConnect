@@ -33,6 +33,27 @@
     <link rel="stylesheet" href="/homepage/assets/vendor/owl-carousel/css/owl.carousel.css">
 
     <style>
+
+.heading-container {
+  margin-top: 2cm;
+}
+
+.response-heading {
+  font-size: 45px;
+  color: #f1f1f1;
+  margin-bottom: 20px; /* Add some spacing below the heading */
+  font-weight: bold; /* Make the text bold */
+  font-family: 'Arial', sans-serif; /* Change the font family */
+}
+
+.highlight-text {
+  background: linear-gradient(90deg, #007bff, #ffffff); /* Add a gradient background for a highlight effect */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
       .container {
         position: relative;
       }
@@ -71,6 +92,46 @@
       }
 
       .button2:hover{
+        background-color: #fcfcfc;
+        color: black;
+      }
+
+      .button{
+        background-color: #007bff;
+        border: 1px;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 5cm;
+        margin-top: 20px;
+      }
+
+      .button:hover{
+        background-color: #fcfcfc;
+        color: black;
+      }
+
+      .button3{
+        background-color: white;
+        border: 1px;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 4cm;
+        margin-top: 20px;
+      }
+
+      .button3:hover{
         background-color: #fcfcfc;
         color: black;
       }
@@ -119,13 +180,16 @@
     </nav>
 </header>
 
-      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 23cm;">
+      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 25cm;">
         <div class="banner-section">
           <div class="container text-center wow fadeInUp">
            <p>
-            <h1>
-                <p style="font-size: 40px; color: #f1f1f1; margin-top: 2cm;">ALL RESPONSE SUMMARY</p>
-            </h1>
+            <div class="heading-container text-center wow fadeInUp">
+                <h1 class="response-heading">
+                  <span class="highlight-text">ALL RESPONSE SUMMARY</span>
+                </h1>
+              </div>
+              
            </p> 
             
             <div style="background-color: #ffffff;">
@@ -138,62 +202,83 @@
 
               <canvas id="myChart" width="400" height="200"></canvas>
 
-<script>
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4) {
-            if (this.status === 200) {
-                try {
-                    var dataFromPHP = JSON.parse(this.responseText);
-
-                    // Log fetched data
-                    console.log("Data from PHP:", dataFromPHP);
-
-                    var purposes = [];
-                    var counts = [];
-
-                    dataFromPHP.forEach(function (item) {
-                        purposes.push(item.purpose);
-                        counts.push(item.purpose_count);
-                    });
-
-                    // Log purposes and counts
-                    console.log("Purposes:", purposes);
-                    console.log("Counts:", counts);
-
-                    var ctx = document.getElementById('myChart').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: purposes,
-                            datasets: [{
-                                label: 'Purpose Summary',
-                                data: counts,
-                                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            // Add options as needed
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
+              <script>
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        if (this.status === 200) {
+                            try {
+                                var dataFromPHP = JSON.parse(this.responseText);
+            
+                                // Log fetched data
+                                console.log("Data from PHP:", dataFromPHP);
+            
+                                var purposes = [];
+                                var counts = [];
+            
+                                dataFromPHP.forEach(function (item) {
+                                    purposes.push(item.purpose);
+                                    counts.push(item.purpose_count);
+                                });
+            
+                                // Log purposes and counts
+                                console.log("Purposes:", purposes);
+                                console.log("Counts:", counts);
+            
+                                var ctx = document.getElementById('myChart').getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: purposes,
+                                        datasets: [{
+                                            label: 'Purpose Summary',
+                                            data: counts,
+                                            backgroundColor: ['orange', 'red', 'green', 'yellow', 'blue'],
+                                            borderColor: 'rgba(54, 162, 235, 1)',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        // Add options as needed
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            } catch (error) {
+                                console.error("Error parsing JSON:", error);
                             }
+                        } else {
+                            console.error("Failed to fetch data from PHP. Status code:", this.status);
                         }
-                    });
-                } catch (error) {
-                    console.error("Error parsing JSON:", error);
-                }
-            } else {
-                console.error("Failed to fetch data from PHP. Status code:", this.status);
-            }
-        }
-    };
-    xhr.open('GET', 'graph.php', true);
-    xhr.send();
-</script>
+                    }
+                };
+
+                xhr.open('GET', 'graph.php', true);
+                xhr.send();
+ 
+            </script>
+
+            <script>
+                function filterData() {
+      var selectedMonth = document.getElementById('month').value;
+      var selectedYear = document.getElementById('year').value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        // ... your existing code ...
+      };
+
+      // Append selected month and year to the URL
+      var url = 'graph.php?month=' + selectedMonth + '&year=' + selectedYear;
+
+      xhr.open('GET', url, true);
+      xhr.send();
+    }
+
+            </script>
 
               
             </div>
@@ -210,7 +295,7 @@
         <!-- copyright section start -->
   <div class="copyright_section">
     <div class="container">
-       <p class="copyright_text">2023 All Rights Reserved. Design by <a href=#">Team Muizz</a></p>
+       <p class="copyright_text">2023 All Rights Reserved. Design by <a href="#">Team Muizz</a></p>
     </div>
  </div>
  <!-- copyright section end -->
