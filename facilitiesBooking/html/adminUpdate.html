@@ -33,6 +33,9 @@
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
         <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        
+        
 
         <style>
             body {
@@ -53,6 +56,7 @@
         justify-content: center;
         align-items: center;
         }
+
         </style>
     </head>
 
@@ -125,7 +129,22 @@
 
                 <!-- body for table -->
                 <tbody id="studentData">
-                    <!-- data will be fetch from staff1.php to display dinamically -->
+                    <!--<td><i class="fas fa-trash-alt" style="color: #8b0000; cursor: pointer;" onclick="deleteBooking('studentId')"></i></td>-->
+                    <tr>
+                        <td>studentId</td>
+                        <td>fullName</td>
+                        <td>dateofBooking</td>
+                        <td>college</td>
+                        <td>facilities</td>
+                        <td>startTime</td>
+                        <td>endTime</td>
+                        <td>
+                            <center>
+                                <td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='deleteBooking("studentId")'></i></td>
+                            </center>
+                        </td>
+                        
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -164,6 +183,7 @@
         xhr.send();
     };
 </script>
+
 
 <script>
     function deleteBooking(studentId) {
