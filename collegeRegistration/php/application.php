@@ -19,17 +19,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve user ID from the session
     $userID = $_SESSION["user_id"];
 
+    // check user's gender from the database
+    $getUserGenderQuery = "SELECT gender FROM student WHERE ID = ?";
+    //prevent injection by parameterising the query
+    $stmt = $conn->prepare($getUserGenderQuery);
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    //bind user's gender into $userGender
+    $stmt->bind_result($userGender);
+    $stmt->fetch();
+    $stmt->close();
+
     $roomNumber = $_POST["roomNumber"];
     $residentialCollege = $_POST["college"];
 
-    // Check if the room number is within the allowed range (1101-1412)
-    if ($roomNumber < 1101 || $roomNumber > 1412) {
+    // Check if the selected residential college is valid based on user gender
+    $allowedColleges = ($userGender == 'Male') ? ['Manukan'] : ['Mabul', 'Mantanani'];
+
+    if (!in_array($residentialCollege, $allowedColleges)) {
         echo '<script>
-                alert("Invalid room number. Please choose a room number between 1101 and 1412.");
+                alert("Invalid residential college selection for your gender.");
                 window.location.href = "/collegeRegistration/html/collegeApply.html";
               </script>';
         exit();
     }
+
 
     // Check if the room already exists
     $checkRoomExistsQuery = "SELECT * FROM room WHERE roomNumber = ? AND residentialCollege = ?";

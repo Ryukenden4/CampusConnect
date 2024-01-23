@@ -54,7 +54,7 @@
                     <input type="checkbox" id="staff" name="staff" >
                     <label for="staff">Staff</label>
                 </div>
-
+                
                 <div class="input-box">
                     <!-- ID -->
                     <div class="input-field">
@@ -82,20 +82,37 @@
                         <input type="password" name="password" placeholder="Password" required>
                         <i class="bx bxs-lock"></i>
                     </div>
-                    <!-- pass confirmation -->
+                    <!-- gender -->
                     <div class="input-field">
-                        <input type="text" name="gender" placeholder="Gender(Male/Female)" required>
-                        <i class="bx bx-male-female"></i>
+                      <select name="Gender" required>
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                        <!-- <i class="bx bx-male-female"></i> -->
                     </div>
                     <!-- code program -->
                     <div class="input-field">
-                        <input type="text" name="programCode" placeholder="Program Code(eg CS110)" required>
-                        <i class='bx bxs-calendar-event'></i>
+                        <select name="programCode" required>
+                          <option value="" disabled selected>Select Program Code</option>
+                          <option value="CS110">CS110</option>
+                          <option value="CDCS110">CDCS110</option>
+                          <option value="AS120">AS120</option>
+                          <option value="AC110">AC110</option>
+                        </select>
+                        <!-- <i class='bx bxs-calendar-event'></i> -->
                     </div>
                     <!-- Semester -->
                     <div class="input-field">
-                        <input type="text" name="semester" placeholder="Semester" required>
-                        <i class='bx bxs-calendar-event'></i>
+                        <select name="semester" required>
+                          <option value="" disabled selected>Select Semester</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <!-- <i class='bx bxs-calendar-event'></i> -->
                     </div>
 
                     <!-- <div class="input-field">
@@ -113,6 +130,7 @@
                     </div>
 
                 </div>
+
             </form>
         </div>
     </div>
@@ -177,48 +195,62 @@
   const registerButton = document.querySelector('.btn');
 
   function hideInputs() {
-      document.querySelector('input[name="programCode"]').parentNode.style.display = 'none';
-      document.querySelector('input[name="semester"]').parentNode.style.display = 'none';
+    document.querySelector('select[name="programCode"]').parentNode.style.display = 'none';
+    document.querySelector('select[name="semester"]').parentNode.style.display = 'none';
   }
 
   function showInputs() {
-      document.querySelector('input[name="programCode"]').parentNode.style.display = 'flex';
-      document.querySelector('input[name="semester"]').parentNode.style.display = 'flex';
+    document.querySelector('select[name="programCode"]').parentNode.style.display = 'flex';
+    document.querySelector('select[name="semester"]').parentNode.style.display = 'flex';
   }
 
   function showButton() {
-      registerButton.style.display = 'block';
+    registerButton.style.display = 'block';
   }
 
   function hideButton() {
-      registerButton.style.display = 'none';
+    registerButton.style.display = 'none';
   }
 
   // Initially hide unnecessary fields and show the register button
   hideInputs();
   showButton();
 
+  // Show and hide gender dropdown based on the student checkbox
   studentCheckbox.addEventListener('change', () => {
-      if (studentCheckbox.checked) {
-          staffCheckbox.checked = false;
-          IDInput.placeholder = 'Student ID';
-          document.querySelector('input[name="email"]').placeholder = 'Student Email';
-          showInputs();
-          showButton();
-      }
+    if (studentCheckbox.checked) {
+      staffCheckbox.checked = false;
+      IDInput.placeholder = 'Student ID';
+      document.querySelector('input[name="email"]').placeholder = 'Student Email';
+      showInputs();
+      showButton();
+    }
   });
 
   staffCheckbox.addEventListener('change', () => {
-      if (staffCheckbox.checked) {
-          studentCheckbox.checked = false;
-          IDInput.placeholder = 'Staff ID';
-          document.querySelector('input[name="email"]').placeholder = 'Staff Email';
-          hideInputs();
-          showButton();
-      } 
+    if (staffCheckbox.checked) {
+      studentCheckbox.checked = false;
+      IDInput.placeholder = 'Staff ID';
+      document.querySelector('input[name="email"]').placeholder = 'Staff Email';
+      hideInputs();
+      showButton();
+    }
+  });
+
+  // Add input validation for Student ID
+  IDInput.addEventListener('input', () => {
+    const studentID = IDInput.value.trim();
+
+    // Check if the student ID starts with "202" and has a total of 10 digits
+    const isValidStudentID = /^202\d{7}$/.test(studentID);
+
+    // Update the button visibility based on the validation result
+    if (isValidStudentID) {
+      showButton();
+    } else {
+      hideButton();
+    }
   });
 </script>
-
-
 
 </html>

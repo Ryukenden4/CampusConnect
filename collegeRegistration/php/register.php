@@ -21,6 +21,30 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize input
     $id = mysqli_real_escape_string($conn, $_POST["ID"]);
+
+     // Check if the ID starts with "202" and has a total of 10 digits
+     if (!preg_match('/^202\d{7}$/', $id)) {
+        // ID format is not valid
+        echo '<script>
+                alert("Invalid ID format. Please make sure the ID starts with 202 and has a total of 10 digits.");
+                window.location.href = "/collegeRegistration/html/register.html"; // Redirect to registration page
+              </script>';
+        exit(); // Terminate further execution
+    }
+
+     // Check if the ID already exists in the database
+     $checkIDQuery = "SELECT ID FROM student WHERE ID = '$id'";
+     $result = mysqli_query($conn, $checkIDQuery);
+ 
+     if (mysqli_num_rows($result) > 0) {
+         // ID already exists, ask the user to log in
+         echo '<script>
+                 alert("ID already exists. Please log in.");
+                 window.location.href = "/collegeRegistration/html/login.html"; // Redirect to login page
+               </script>';
+         exit(); // Terminate further execution
+     }
+
     $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
