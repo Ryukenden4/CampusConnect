@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Update the booking in your database
     // Replace this with your actual update query based on your database structure
-    $updateQuery = "UPDATE bookings SET startTime = '$newStartTime', endTime = '$newEndTime' WHERE studentId = '$studentId'";
+    $updateQuery = "UPDATE booking SET startTime = '$newStartTime', endTime = '$newEndTime' WHERE studentId = '$studentId'";
 
     // Perform the query
     // Replace $conn with your actual database connection variable

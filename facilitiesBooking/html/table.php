@@ -26,7 +26,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo "<td>" . $row['facilities'] . "</td>";
     echo "<td>" . $row['startTime'] . "</td>";
     echo "<td>" . $row['endTime'] . "</td>";
-    echo "<td><button onclick='deleteBooking(" . $row['studentId'] . ")'>Delete</button></td>";
+    //echo "<td><button onclick='deleteBooking(" . $row['studentId'] . ")'>Delete</button></td>";
+    echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='deleteBooking(". $row['studentId'] .")'></i></td>";
     echo "</tr>";
 }
 

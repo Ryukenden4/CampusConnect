@@ -60,6 +60,9 @@ $stmt->close();
 // Process JSON data received from AJAX request
 $json_data = file_get_contents("php://input");
 $booking_data = json_decode($json_data);
+var_dump($booking_data);
+// Debugging: Log received POST data to the error log
+error_log("Received POST data: " . print_r($_POST, true));
 
 // Extract data from JSON
 $studentId = $_SESSION['user_id']; // Use studentId from session
@@ -71,6 +74,12 @@ $facilities = $conn->real_escape_string($booking_data->facilities);
 // Convert start and end times based on time slots
 $startTime = $conn->real_escape_string($booking_data->startTime);
 $endTime = $conn->real_escape_string($booking_data->endTime);
+
+// Debugging: Log values to the error log
+error_log("Booking Date: " . $dateofBooking);
+error_log("Facilities: " . $facilities);
+error_log("Start Time: " . $startTime);
+error_log("End Time: " . $endTime);
 
 // Perform database insertion using predefined start and end times
 $sql = "INSERT INTO booking (studentId, fullName, dateofBooking, college, facilities, startTime, endTime) 
