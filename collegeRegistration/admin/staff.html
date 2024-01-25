@@ -69,19 +69,19 @@
                     <option value="">All</option>
                     <!-- Populate options dynamically with JavaScript -->
                 </select>
-
+            
                 <label for="filterSemester">Semester:</label>
                 <select id="filterSemester" onchange="applyFilter('semester', this.value)">
                     <option value="">All</option>
                     <!-- Populate options dynamically with JavaScript -->
                 </select>
-
+            
                 <label for="filterCollege">College:</label>
                 <select id="filterCollege" onchange="applyFilter('residentialCollege', this.value)">
                     <option value="">All</option>
                     <!-- Populate options dynamically with JavaScript -->
                 </select>
-
+            
                 <label for="filterRoom">Room Number:</label>
                 <select id="filterRoom" onchange="applyFilter('roomNumber', this.value)">
                     <option value="">All</option>
@@ -144,56 +144,51 @@
     
             xhr.send();
         };
-    </script>
-    <!-- confirmation to delete or not -->
-    <script>
-      function confirmDelete(studentId) {
-          var confirmDelete = confirm("Are you sure you want to delete this student?");
-          
-          if (confirmDelete) {
-              // If user clicks OK, redirect to the delete.php with the student ID
-              window.location.href = 'delete.php?id=' + studentId;
-          }
-      }
-    </script>
 
-    <!-- edit js -->
-    <script>
-        function editRoomNumber(studentID) {
-        var roomNumberElement = document.getElementById('roomNumber_' + studentID);
+        function editRoomNumber(studentID, currentRoomNumber) {
+    var newRoomNumber = prompt('Enter the new room number for student ID ' + studentID + ':', currentRoomNumber);
 
-        // Ask for confirmation before allowing room number edit
-        var confirmChange = confirm("Do you want to change the room number for this student?");
+    if (newRoomNumber !== null) {
+        // Send an AJAX request to update the room number in the database
+        updateRoomNumber(studentID, newRoomNumber);
+    }
+}
 
-        if (confirmChange) {
-            var newRoomNumber = prompt('Enter the new room number:', roomNumberElement.innerText);
+function updateRoomNumber(studentID, newRoomNumber) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'updateRoomNumber.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Display the server response (e.g., success or error message)
+            alert(xhr.responseText);
+            // Reload the page after the update
+            location.reload();
+        }
+    };
+    xhr.send('id=' + studentID + '&newRoomNumber=' + newRoomNumber);
+}
 
-            if (newRoomNumber !== null) {
-                // Send an AJAX request to update the room number in the database
-                updateRoomNumber(studentID, newRoomNumber);
-            }
+
+    function confirmDelete(studentID) {
+        var confirmDelete = confirm("Are you sure you want to delete this student?");
+        
+        if (confirmDelete) {
+            // If user clicks OK, send an AJAX request to update the student status to 'Disabled'
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "delete.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert(xhr.responseText); // Display the server response
+                    location.reload(); // Reload the page after updating
+                }
+            };
+            xhr.send("studentID=" + studentID);
         }
     }
 
-    function updateRoomNumber(studentID, newRoomNumber) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'updateRoomNumber.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Display the server response (e.g., success or error message)
-                alert(xhr.responseText);
-                // Reload the page after the update
-                location.reload();
-            }
-        };
-        xhr.send('id=' + studentID + '&newRoomNumber=' + newRoomNumber);
-    }
-        </script>
-
-    <!-- load data script -->
-    <script>
-
+    // load data script
     function loadStudentData() {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'staff1.php', true);
@@ -206,51 +201,66 @@
   
       xhr.send();
     }
-    </script>
-  
-  <!-- back button javascript -->
-  <script>
+
     function goBack() {
         // Redirect to another HTML file
         window.location.href = '/intermediate/staff.html'; 
     }
-  </script>
+    </script>
 
-<!-- JavaScript to populate dropdown options and handle filtering -->
-<script>
+  <!-- JavaScript to fetch data and handle filtering -->
+  <script>
+    // Fetch and populate dropdown options on page load
     window.onload = function () {
-        // Fetch and populate dropdown options for Program Code, Semester, College, and Room
         populateDropdownOptions('filterProgramCode', 'programCode');
         populateDropdownOptions('filterSemester', 'semester');
         populateDropdownOptions('filterCollege', 'residentialCollege');
         populateDropdownOptions('filterRoom', 'roomNumber');
 
-        // Fetch and display student data
         loadStudentData();
     };
 
+    // Function to populate dropdown options dynamically
     function populateDropdownOptions(dropdownId, columnName) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'dropdown_options.php?column=' + columnName, true);
-
         xhr.onload = function () {
             if (xhr.status == 200) {
                 var dropdown = document.getElementById(dropdownId);
                 dropdown.innerHTML = '<option value="">All</option>' + xhr.responseText;
             }
         };
-
         xhr.send();
     }
 
+    // Function to apply filters and fetch filtered data
     function applyFilter(columnName, filterValue) {
-    // Fetch and display student data with applied filter
+        var filterUrl;
+        if (filterValue !== "") {
+            filterUrl = 'staff1.php?filter=' + columnName + '&value=' + filterValue;
+        } else {
+            filterUrl = 'staff1.php';
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', filterUrl, true);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                document.getElementById('studentData').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+    }
+
+    function applyRoomNumberFilter() {
+    var roomNumber = document.getElementById('roomNumberSearch').value.trim();
+
+    // Fetch and display student data with applied room number filter
     var filterUrl;
-    if (filterValue !== "") {
-        // If a filter value is selected, include it in the URL
-        filterUrl = 'staff1.php?filter=' + columnName + '&value=' + filterValue;
+    if (roomNumber !== "") {
+        // If a room number is entered, include it in the URL as a filter
+        filterUrl = 'staff1.php?filter=roomNumber&value=' + roomNumber;
     } else {
-        // If no filter value is selected ("All"), exclude the filter from the URL
+        // If no room number is entered, remove the room number filter from the URL
         filterUrl = 'staff1.php';
     }
     var xhr = new XMLHttpRequest();
@@ -264,29 +274,27 @@
 }
 
 
-    function toggleFilterDropdown(dropdownId) {
-        // Toggle visibility of the filter dropdown
-        var dropdown = document.getElementById(dropdownId);
-        dropdown.classList.toggle('show');
+    // Function to load student data
+    function loadStudentData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'staff1.php', true);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                document.getElementById('studentData').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
     }
 
-    // Close the filter dropdown when clicking outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.filter-dropdowns *')) {
-            var dropdowns = document.getElementsByClassName('filter-dropdown-content');
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    };
+    // Function to handle back button click
+    function goBack() {
+        window.location.href = '/intermediate/staff.html';
+    }
 </script>
-  
-  <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
-  <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
 
 </html>

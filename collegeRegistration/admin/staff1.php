@@ -14,11 +14,31 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch data from the database
+// Fetch data from the database with room and student information joined
 $sql = "SELECT s.*, r.roomNumber, r.residentialCollege
         FROM student s
         LEFT JOIN room r ON s.studentID = r.studentID
         WHERE s.status = 'Enable'";
+
+// Apply filters if specified
+if (isset($_GET['filter']) && isset($_GET['value'])) {
+    $filterColumn = $_GET['filter'];
+    $filterValue = $_GET['value'];
+
+    // Adjust the SQL query based on the filter column
+    if ($filterColumn === 'programCode') {
+        $sql .= " AND s.programCode = '$filterValue'";
+    } elseif ($filterColumn === 'semester') {
+        $sql .= " AND s.semester = '$filterValue'";
+    } elseif ($filterColumn === 'residentialCollege') {
+        // Filter by residential college from the room table
+        $sql .= " AND r.residentialCollege = '$filterValue'";
+    } elseif ($filterColumn === 'roomNumber') {
+        // Filter by room number from the room table
+        $sql .= " AND r.roomNumber = '$filterValue'";
+    }
+}
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -41,14 +61,14 @@ if ($result->num_rows > 0) {
         }
         echo '</td>';
 
-        echo "<td><a href='#' class='room-link' onclick='confirmChangeRoom(\"" . $row["studentID"] . "\", \"" . $row["roomNumber"] . "\")'>" . $row["roomNumber"] . "</a></td>";
+        echo "<td><a href='#' class='room-link' onclick='editRoomNumber(\"" . $row["studentID"] . "\", \"" . $row["roomNumber"] . "\")'>" . $row["roomNumber"] . "</a></td>";
         echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["studentID"] . ")'></i></td>";
         echo '</tr>';
     }
 
     echo '</tbody>';
 } else {
-    echo 'No records found.';
+    echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
 }
 
 // Closing the database connection

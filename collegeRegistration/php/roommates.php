@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Establishing a connection to MySQL database
+// Establishing a connection to the MySQL database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -14,43 +14,49 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetching data from roommates
-$query = "SELECT s.ID, s.fullName, s.email, s.programCode, s.phoneNumber, s.semester, r.residentialCollege, r.roomNumber
-          FROM room r
-          JOIN student s ON s.ID IN (r.studentID1, r.studentID2, r.studentID3, r.studentID4)
-          WHERE r.roomNumber IN (
-              SELECT roomNumber
-              FROM room
-              WHERE studentID1 = ? OR studentID2 = ? OR studentID3 = ? OR studentID4 = ?
-          )";
+// Retrieve student ID from session
+$studentID = $_SESSION['studentID'];
 
-// Assuming you have the logged-in user's ID in the session
-$userID = $_SESSION["user_id"];
+// Fetch student's room information
+$sql = "SELECT r.roomNumber, r.residentialCollege
+        FROM room r
+        WHERE r.studentID = '$studentID'";
 
-$stmt = $conn->prepare($query);
-$stmt->bind_param("iiii", $userID, $userID, $userID, $userID);
-$stmt->execute();
-$result = $stmt->get_result();
+$result = $conn->query($sql);
 
-// Output the HTML table rows
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['ID'] . "</td>";
-        echo "<td>" . $row['fullName'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['programCode'] . "</td>";
-        echo "<td>" . $row['phoneNumber'] . "</td>";
-        echo "<td>" . $row['semester'] . "</td>";
-        echo "<td>" . $row['residentialCollege'] . "</td>";
-        echo "<td>" . $row['roomNumber'] . "</td>";
-        echo "</tr>";
+    $row = $result->fetch_assoc();
+    $roomNumber = $row['roomNumber'];
+    $residentialCollege = $row['residentialCollege'];
+
+    // Fetch roommates in the same room and college
+    $sqlRoommates = "SELECT s.studentID, s.studentFullName, s.studentEmail, s.phoneNumber
+                    FROM room r
+                    INNER JOIN student s ON r.studentID = s.studentID
+                    WHERE r.roomNumber = '$roomNumber' AND r.residentialCollege = '$residentialCollege' AND r.studentID != '$studentID'";
+
+    $resultRoommates = $conn->query($sqlRoommates);
+
+    if ($resultRoommates->num_rows > 0) {
+        echo '<tbody>';
+
+        while ($rowRoommate = $resultRoommates->fetch_assoc()) {
+            echo '<tr>';
+            echo '<td>' . $rowRoommate['studentID'] . '</td>';
+            echo '<td>' . $rowRoommate['studentFullName'] . '</td>';
+            echo '<td>' . $rowRoommate['studentEmail'] . '</td>';
+            echo '<td>' . $rowRoommate['phoneNumber'] . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+    } else {
+        echo '<tbody><tr><td colspan="4">No roommates found</td></tr></tbody>';
     }
 } else {
-    // If the user has not applied for college, you might want to handle this case
-    echo "<tr><td colspan='8'>You have not applied for college.</td></tr>";
+    echo '<tbody><tr><td colspan="4">You are not assigned to any room</td></tr></tbody>';
 }
 
-$stmt->close();
+// Closing the database connection
 $conn->close();
 ?>
