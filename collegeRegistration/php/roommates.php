@@ -14,47 +14,48 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve student ID from session
-$studentID = $_SESSION['studentID'];
+// Fetch data from the database with room and student information joined
+$sql = "SELECT s.*, r.roomNumber, r.residentialCollege
+        FROM student s
+        INNER JOIN room r ON s.studentID = r.studentID
+        WHERE s.status = 'Enable'";
 
-// Fetch student's room information
-$sql = "SELECT r.roomNumber, r.residentialCollege
-        FROM room r
-        WHERE r.studentID = '$studentID'";
+// Add conditions to filter by room number and residential college
+if (isset($_SESSION['studentID'])) {
+    $studentID = $_SESSION['studentID'];
+    // Add condition to filter by the room number associated with the student ID in the session
+    $sql .= " AND r.roomNumber = (SELECT roomNumber FROM room WHERE studentID = '$studentID')";
+}
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $roomNumber = $row['roomNumber'];
-    $residentialCollege = $row['residentialCollege'];
+    echo '<tbody>';
 
-    // Fetch roommates in the same room and college
-    $sqlRoommates = "SELECT s.studentID, s.studentFullName, s.studentEmail, s.phoneNumber
-                    FROM room r
-                    INNER JOIN student s ON r.studentID = s.studentID
-                    WHERE r.roomNumber = '$roomNumber' AND r.residentialCollege = '$residentialCollege' AND r.studentID != '$studentID'";
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row['studentID'] . '</td>';
+        echo '<td>' . $row['studentFullName'] . '</td>';
+        echo '<td>' . $row['studentEmail'] . '</td>';
+        echo '<td>' . $row['phoneNumber'] . '</td>';
+        echo '<td>' . $row['programCode'] . '</td>';
+        echo '<td>' . $row['semester'] . '</td>';
 
-    $resultRoommates = $conn->query($sqlRoommates);
-
-    if ($resultRoommates->num_rows > 0) {
-        echo '<tbody>';
-
-        while ($rowRoommate = $resultRoommates->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $rowRoommate['studentID'] . '</td>';
-            echo '<td>' . $rowRoommate['studentFullName'] . '</td>';
-            echo '<td>' . $rowRoommate['studentEmail'] . '</td>';
-            echo '<td>' . $rowRoommate['phoneNumber'] . '</td>';
-            echo '</tr>';
+        echo '<td>';
+        if ($row['residentialCollege']) {
+            echo $row['residentialCollege'];
+        } else {
+            echo 'Have not applied';
         }
+        echo '</td>';
 
-        echo '</tbody>';
-    } else {
-        echo '<tbody><tr><td colspan="4">No roommates found</td></tr></tbody>';
+        echo "<td>" . $row["roomNumber"] . "</td>";
+        echo '</tr>';
     }
+
+    echo '</tbody>';
 } else {
-    echo '<tbody><tr><td colspan="4">You are not assigned to any room</td></tr></tbody>';
+    echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
 }
 
 // Closing the database connection

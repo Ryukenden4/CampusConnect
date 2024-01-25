@@ -30,6 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->fetch();
     $stmt->close();
 
+     // Check if the student's ID exists in the room table
+     $checkRoomQuery = "SELECT * FROM room WHERE studentID = ?";
+     $stmt = $conn->prepare($checkRoomQuery);
+     $stmt->bind_param("s", $userID);
+     $stmt->execute();
+     $result = $stmt->get_result();
+ 
+     if ($result->num_rows > 0) {
+         // If the student's ID is already in the room table, display a message and exit
+         echo '<script>
+                 alert("You have already applied for college.");
+                 window.location.href = "/intermediate/student.html";
+               </script>';
+         exit();
+     }
+
     $roomNumber = $_POST["roomNumber"];
     $residentialCollege = $_POST["college"];
 
