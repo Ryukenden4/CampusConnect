@@ -116,22 +116,17 @@
                         echo "<td>" . $row["date"] . "</td>";
 
                         // echo "<td><button onclick='confirmDelete(" . $row["programID"] . ")'>Delete</button></td>";
-                        echo "<td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["programID"] . ")'></i></td>";
+                        echo "<td>
+                            <div class = 'actionBtn'>
+                                <i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='confirmDelete(" . $row["programID"] . ")'></i>
+                                <i class='fa-solid fa-pen-to-square'style='color: #8b0000; cursor: pointer;' onclick='confirmUpdate(" . $row["programID"] . ")'></i>
+                            </div>
+                                </td>";
                         echo "</tr>";
 
-                        
-
-                        echo '<script>
-                            function confirmDelete(programID) {
-                                var confirmDelete = confirm("Are you sure you want to delete this Program?");
-
-                                if (confirmDelete) {
-                                    // If user clicks OK, redirect to the delete.php with the student ID
-                                    window.location.href = "deleteProgram.php?programID=" + programID;
-                                }
-                            }
-                            </script>';
                     }
+                    
+
                     ?>
                 </tbody>
             </table>
@@ -161,6 +156,61 @@
   <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+
+<script>
+    function confirmDelete(programID) {
+        var confirmDelete = confirm("Are you sure you want to delete this Program?");
+
+        if (confirmDelete) {
+            // If user clicks OK, redirect to the delete.php with the student ID
+            window.location.href = "deleteProgram.php?programID=" + programID;
+        }
+    }
+</script>
+
+<script>
+    function confirmUpdate(programID) {
+        var editProgram = prompt("Edit name, place, or date?");
+
+        // Convert input to lowercase
+        editProgram = editProgram.toLowerCase();
+
+        if (editProgram === "name") {
+            var newName = prompt("Change Program name into?");
+            sendDataToPHP({ type: "name", value: newName, programID: programID });
+        } else if (editProgram === "place") {
+            var newPlace = prompt("Change Program place into?");
+            sendDataToPHP({ type: "place", value: newPlace, programID: programID });
+        } else if (editProgram === "date") {
+            var newDate = prompt("Change Program date into? (using format yyyy-mm-dd)");
+            sendDataToPHP({ type: "date", value: newDate, programID: programID });
+        } else {
+            console.log("Invalid input or operation canceled.");
+        }
+    }
+
+    function sendDataToPHP(data) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "updateProgram.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // Convert the JavaScript object to a JSON string
+        var jsonData = JSON.stringify(data);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+                // Reload the page after successful update
+                location.reload(); // or window.location.href = window.location.href;
+            }
+        };
+
+        // Send the JSON string as data to the server
+        xhr.send("jsonData=" + encodeURIComponent(jsonData));
+    }
+</script>
+
+
 
 </html>
 
