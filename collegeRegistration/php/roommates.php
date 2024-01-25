@@ -33,7 +33,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 // Output the HTML table rows
-if($result -> num_rows > 0){
+if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['ID'] . "</td>";
@@ -46,10 +46,10 @@ if($result -> num_rows > 0){
         echo "<td>" . $row['roomNumber'] . "</td>";
         echo "</tr>";
     }
-} else{
-    echo "You Have Not Applied For College";
+} else {
+    // If the user has not applied for college, you might want to handle this case
+    echo "<tr><td colspan='8'>You have not applied for college.</td></tr>";
 }
-
 
 $stmt->close();
 $conn->close();

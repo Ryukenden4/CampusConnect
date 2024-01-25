@@ -159,31 +159,36 @@
 
     <!-- edit js -->
     <script>
-        function confirmChangeRoom(studentId, currentRoomNumber) {
-            var confirmChange = confirm("Do you want to change the room number for this student?");
-            if (confirmChange) {
-                var newRoomNumber = prompt("Enter the new room number:", currentRoomNumber);
-                if (newRoomNumber !== null) {
-                    // Send an AJAX request to update the room number in the database
-                    updateRoomNumber(studentId, newRoomNumber);
-                }
+        function editRoomNumber(studentID) {
+        var roomNumberElement = document.getElementById('roomNumber_' + studentID);
+
+        // Ask for confirmation before allowing room number edit
+        var confirmChange = confirm("Do you want to change the room number for this student?");
+
+        if (confirmChange) {
+            var newRoomNumber = prompt('Enter the new room number:', roomNumberElement.innerText);
+
+            if (newRoomNumber !== null) {
+                // Send an AJAX request to update the room number in the database
+                updateRoomNumber(studentID, newRoomNumber);
             }
         }
-        
-        function updateRoomNumber(studentId, newRoomNumber) {
-            $.ajax({
-                url: 'updateRoomNumber.php?id=' + studentId,
-                method: 'POST',
-                data: { newRoomNumber: newRoomNumber },
-                success: function(response) {
-                    alert(response); // Display the server response (e.g., success or error message)
-                    location.reload(); // Reload the page after the update
-                },
-                error: function(error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
+    }
+
+    function updateRoomNumber(studentID, newRoomNumber) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'updateRoomNumber.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Display the server response (e.g., success or error message)
+                alert(xhr.responseText);
+                // Reload the page after the update
+                location.reload();
+            }
+        };
+        xhr.send('id=' + studentID + '&newRoomNumber=' + newRoomNumber);
+    }
         </script>
 
     <!-- load data script -->

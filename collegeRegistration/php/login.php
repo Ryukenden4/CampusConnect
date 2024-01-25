@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the student checkbox is checked
     if (isset($_POST["student"])) {
-        $sql = "SELECT * FROM student WHERE ID='$id'";
+        $sql = "SELECT * FROM student WHERE studentID='$id'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } elseif (isset($_POST["staff"])) {
         // Check if the staff checkbox is checked
-        $sql = "SELECT * FROM staff WHERE ID='$id'";
+        $sql = "SELECT * FROM staff WHERE staffID='$id'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
