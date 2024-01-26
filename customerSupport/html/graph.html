@@ -193,12 +193,12 @@
            </p> 
             
             <div style="background-color: #ffffff;">
+                
               <h2>
                 <title>Purpose Summary</title>
                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               </h2>
 
-            
 
               <canvas id="myChart" width="400" height="200"></canvas>
 
@@ -258,38 +258,26 @@
 
                 xhr.open('GET', 'graph.php', true);
                 xhr.send();
+
+            </script>
  
-            </script>
-
-            <script>
-                function filterData() {
-      var selectedMonth = document.getElementById('month').value;
-      var selectedYear = document.getElementById('year').value;
-
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        // ... your existing code ...
-      };
-
-      // Append selected month and year to the URL
-      var url = 'graph.php?month=' + selectedMonth + '&year=' + selectedYear;
-
-      xhr.open('GET', url, true);
-      xhr.send();
-    }
-
-            </script>
-
-              
             </div>
+           
             <p><a class="nav-link" href="admin.html"><button type="return" class="button2">Back To Menu</button></a></p>
           </div>
           </div>
         </div>
       </div>
 
+      
+
       <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
       <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+
+      
+       
+      
+        
 
       <footer>
         <!-- copyright section start -->

@@ -14,6 +14,10 @@ if ($conn->connect_error) {
 } 
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+    // Get data for specific months and years
+    $selectedMonths = ['2024-01', '2024-02', '2024-03', '2024-04']; // Replace this with the desired months and years
+    
     // Retrieve the search month from the form
     $searchMonth = $_GET["search_month"];
 
@@ -23,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $startDate = date("$year-$month-01");
     $endDate = date("Y-m-t", strtotime($startDate));
 
-    // Perform the SQL query based on the date range
-    $sql = "SELECT * FROM response WHERE date BETWEEN '$startDate' AND '$endDate'";
+    // Perform the SQL query based on the date range and ENABLE status
+    $sql = "SELECT * FROM response WHERE date BETWEEN '$startDate' AND '$endDate' AND UPPER(status) = 'ENABLE'";
 
     // Execute the query
     $result = $conn->query($sql);
@@ -34,60 +38,40 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     echo "<p>Total Responses: $responseCount</p>";
 
     if ($responseCount > 0) {
-        // Display the results in an HTML table with some basic styles
+        // Display or process each row
         echo "<style>
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
-                width: 100%;
-                border: 1px solid #ddd;
-            }
-
-            th, td {
-                text-align: left;
-                padding: 16px;
-            }
-
-            tr:nth-child(even) {
-                background-color: transparent;
-            }
-
-            // Add your existing table styles here...
-
-            main.table {
-                width: 82vw;
-                height: 90vh;
-                background-color: #fff5;
-                backdrop-filter: blur(7px);
-                box-shadow: 0 .4rem .8rem #0005;
-                border-radius: .8rem;
-                overflow: hidden;
+            /* Your existing styles */
+    
+            .delete-btn {
+                background-color: #dc3545;
+                color: #fff;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+                border-radius: 3px;
             }
         </style>";
 
-        echo "<table>";
-        echo "<tr><th>Name</th><th>Email</th><th>User Type</th><th>Date</th><th>Purpose</th><th>Message</th></tr>";
-        
+        // Fetch and display each row
         while ($row = $result->fetch_assoc()) {
-            // Display or process each row
             echo "<tr>";
+            echo "<td>" . $row["responseID"] . "</td>";
             echo "<td>" . $row["fullName"] . "</td>";
             echo "<td>" . $row["email"] . "</td>";
             echo "<td>" . $row["typeOfUser"] . "</td>";
             echo "<td>" . $row["date"] . "</td>";
             echo "<td>" . $row["purpose"] . "</td>";
             echo "<td>" . $row["message"] . "</td>";
+            echo "<td><button class='delete-btn' onclick='deleteRow(" . $row['responseID'] . ")'>Delete</button></td>";
             echo "</tr>";
         }
 
-        echo "</table>";
     } else {
         // No results found
-        echo "No results found for the specified month and year.";
+        echo "No results found for the specified month, year, and enable status.";
     }
+
+    // Close the database connection if needed
+    $conn->close();
 }
-
-// Close the database connection if needed
-$conn->close();
-
 ?>
