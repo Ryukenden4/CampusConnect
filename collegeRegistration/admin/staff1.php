@@ -20,6 +20,9 @@ $sql = "SELECT s.*, r.roomNumber, r.residentialCollege
         LEFT JOIN room r ON s.studentID = r.studentID
         WHERE s.status = 'Enable'";
 
+// Initialize a flag to track if any filter was applied
+$filterApplied = false;
+
 // Apply filters if specified
 if (isset($_GET['filter']) && isset($_GET['value'])) {
     $filterColumn = $_GET['filter'];
@@ -28,14 +31,18 @@ if (isset($_GET['filter']) && isset($_GET['value'])) {
     // Adjust the SQL query based on the filter column
     if ($filterColumn === 'programCode') {
         $sql .= " AND s.programCode = '$filterValue'";
+        $filterApplied = true;
     } elseif ($filterColumn === 'semester') {
         $sql .= " AND s.semester = '$filterValue'";
+        $filterApplied = true;
     } elseif ($filterColumn === 'residentialCollege') {
         // Filter by residential college from the room table
         $sql .= " AND r.residentialCollege = '$filterValue'";
+        $filterApplied = true;
     } elseif ($filterColumn === 'roomNumber') {
         // Filter by room number from the room table
         $sql .= " AND r.roomNumber = '$filterValue'";
+        $filterApplied = true;
     }
 }
 
@@ -68,7 +75,14 @@ if ($result->num_rows > 0) {
 
     echo '</tbody>';
 } else {
-    echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
+    // Check if any filter was applied
+    if ($filterApplied) {
+        echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
+    } else {
+        // No filters applied, show all results
+        // Alternatively, you can display a default message here
+        echo '<tbody><tr><td colspan="9">No data available</td></tr></tbody>';
+    }
 }
 
 // Closing the database connection
