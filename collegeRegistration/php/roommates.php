@@ -23,7 +23,7 @@ $sql = "SELECT s.*, r.roomNumber, r.residentialCollege
 // Add conditions to filter by room number and residential college
 if (isset($_SESSION['studentID'])) {
     $studentID = $_SESSION['studentID'];
-    // Add condition to filter by the room number associated with the student ID in the session
+    // Add condition to filter by the room number the same with the student ID in the session
     $sql .= " AND r.roomNumber = (SELECT roomNumber FROM room WHERE studentID = '$studentID')";
 }
 
