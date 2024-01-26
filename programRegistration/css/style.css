@@ -440,3 +440,23 @@ thead th.active,tbody td.active {
   padding-left: 67%;
   
 }
+
+.actionBtn{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchBar{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search1{
+  padding: 25px;
+}
+
+.search2{
+  padding: 25px;
+}

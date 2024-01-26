@@ -23,7 +23,7 @@
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- font css -->
-        <link href="https://fonts.googleapis.com/css2?fily=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
         <!-- Tweaks for older IEs-->
@@ -33,7 +33,10 @@
         <link rel="stylesheet" href="/homepage/assets/css/maicons.css">
         <link rel="stylesheet" href="/homepage/assets/css/theme.css">
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" type='text/css'>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
         <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
     </head>
 
@@ -94,7 +97,7 @@
                 <!-- User details -->
                 <div class="user" id="userDetails">
                     <p id="studentId"></p>
-                    <p id="fullNe"></p>
+                    <p id="fullName"></p>
                     <p id="college"></p>
                 </div>
                 
@@ -162,19 +165,18 @@
 function searchSlots() {
     // Get selected date and facility type
     var facilityType = document.getElementById("facilityType").value;
-
+    console.log(facilityType);
     // Simulate availability for demonstration purposes
-    var availability = {
-        "08:00 AM - 09:00 AM": true,
-        "09:00 AM - 10:00 AM": false,
-        "10:00 AM - 11:00 AM": true,
-        "11:00 AM - 12:00 PM": false,
-        "12:00 PM - 01:00 PM": true,
-        "02:00 PM - 03:00 PM": true,
-        "03:00 PM - 04:00 PM": false,
-        "04:00 PM - 05:00 PM": true,
-        "05:00 PM - 06:00 PM": true
-    };
+    var availability = {};
+    
+    // Generate time slots from 08:00 to 23:00
+    for (var hour = 8; hour <= 23; hour++) {
+        var startTime = ('0' + hour).slice(-2) + ':00';
+        var endTime = ('0' + (hour + 1)).slice(-2) + ':00';
+        
+        // Simulate random availability (true or false)
+        availability[startTime + ' - ' + endTime] = Math.random() < 0.7; // Adjust probability as needed
+    }
 
     // Display the time slots in a table
     var table = '<tr><th>Time Slot</th><th>Action</th></tr>';
@@ -221,7 +223,7 @@ function sendBookingToServer(startTime, endTime) {
     };
 
     xhr.open("POST", "booking.php", true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     // Prepare data for the AJAX request
     var data = {
@@ -231,10 +233,10 @@ function sendBookingToServer(startTime, endTime) {
         endTime: endTime
         // Add other data as needed
     };
-
+    console.log(data);
     xhr.send(JSON.stringify(data));
-}
 
+}
 
 
     // Function to cancel booking

@@ -32,7 +32,8 @@
         <link rel="stylesheet" href="/homepage/assets/css/theme.css">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
-        <link rel="stylesheet" href="/collegeRegistration/admin/style.css">
+        <link rel="stylesheet" href="/collegeRegistration/css/registerStyle.css">
+        <link rel="stylesheet" href="/programRegistration/css/registerProgram.css">
 
         <style>
             body {
@@ -103,43 +104,34 @@
     </header>
 
     <div class="content">
-    <main class="table">
-        <section class="table__header">
-            <h1 style="color: black;">Facilities Booking List</h1>
-            <div class="search-container">
-                <input type="text" id="myInput" placeholder="Search by Date..." oninput="filterTable()">
-                <input type="text" id="collegeInput" placeholder="Search by College..." oninput="filterTableByCollege()">
-                <input type="text" id="facilitiesInput" placeholder="Search by Facilities..." oninput="filterTableByFacilities()">
-                <button onclick="filterTable()">Search</button>
+        <div class="register-container">
+            <div class="register">
+                <form name="add"  action="/facilitiesBooking/html/addfacilities.php" method="POST">
+                    <h1>Add Facility</h1>
+    
+                    <div class="input-box">
+                        <!-- Facility Name -->
+                        <div class="input-field">
+                            <input type="text" name="facilityName" placeholder="Facility Name" required>
+                            <i class="bx bxs-user"></i>
+                        </div>
+
+                        <!-- place -->
+                    <div class="input-field">
+                        <input type="text" name="college" placeholder="College" required>
+                        <!-- <i class="bx bxs-envelope"></i> -->
+                    </div>
+
+      
+                        <div class="buttonBackApply">
+                            <button type="button" onclick="goBack()" style="background-color: #8b0000;" class="btn" style="width: 5cm;">Cancel</button>
+                            <button type="submit" value="submit" class="btn">Add Facility</button>
+                        </div>
+                    </div>
+                    
+                </form>
             </div>
-        </section>
-        <section class="table__body">
-            <table style="color: black;">
-                <!-- head for table -->
-                <thead style="color: black;">
-                    <tr>
-                        <th> studentId </th>
-                        <th> fullName </th>
-                        <th> dateofBooking </th>
-                        <th> college </th>
-                        <th> facilities </th>
-                        <th> startTime </th>
-                        <th> endTime </th>
-                    </tr>
-                </thead>
-
-                <!-- body for table -->
-                <tbody id="studentData">
-                    <!-- data will be fetch from table.php to display dinamically -->
-                </tbody>
-            </table>
-        </section>
-
-        <div class="input-field" style="padding-left: 40px;">
-          
-          <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;"  class="btn">Back</button>
         </div>
-    </main>
     </div>
 
     <!-- footer -->
@@ -154,29 +146,13 @@
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
-        <script>
-          // Fetch data from response.php using AJAX
-          window.onload = function () {
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'bookingData.php', true);
-      
-              xhr.onload = function () {
-                  if (xhr.status == 200) {
-                      // Update the content of tbody with the fetched data
-                      document.getElementById('studentData').innerHTML = xhr.responseText;
-                  }
-              };
-      
-              xhr.send();
-          };
-        </script>
 
-        <script>
-          function goBack() {
-            // Redirect to another HTML file
-            window.location.href = '/facilitiesBooking/html/admin.html'; 
-          }
-        </script>
+    <script>
+        function goBack() {
+        // Redirect to another HTML file
+        window.location.href = '/facilitiesBooking/html/admin.html'; 
+        }
+    </script>
     
         <script>
             function myFunction() {
@@ -198,46 +174,5 @@
               }
             }
         </script> <!--close script-->
-
-<script>
-    function filterTable() {
-        var inputDate, inputCollege, inputFacilities, filterDate, filterCollege, filterFacilities, table, tr, tdDate, tdCollege, tdFacilities, i, txtValueDate, txtValueCollege, txtValueFacilities;
-        
-        inputDate = document.getElementById("myInput");
-        inputCollege = document.getElementById("collegeInput");
-        inputFacilities = document.getElementById("facilitiesInput");
-
-        filterDate = inputDate.value.toUpperCase();
-        filterCollege = inputCollege.value.toUpperCase();
-        filterFacilities = inputFacilities.value.toUpperCase();
-
-        table = document.getElementById("studentData");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            tdDate = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
-            tdCollege = tr[i].getElementsByTagName("td")[3]; // Adjust the index based on the position of the college column
-            tdFacilities = tr[i].getElementsByTagName("td")[4]; // Adjust the index based on the position of the facilities column
-
-            if (tdDate && tdCollege && tdFacilities) {
-                txtValueDate = tdDate.textContent || tdDate.innerText;
-                txtValueCollege = tdCollege.textContent || tdCollege.innerText;
-                txtValueFacilities = tdFacilities.textContent || tdFacilities.innerText;
-
-                // Check if any of the criteria match
-                var dateMatch = txtValueDate.toUpperCase().indexOf(filterDate) > -1 || filterDate === "";
-                var collegeMatch = txtValueCollege.toUpperCase().indexOf(filterCollege) > -1 || filterCollege === "";
-                var facilitiesMatch = txtValueFacilities.toUpperCase().indexOf(filterFacilities) > -1 || filterFacilities === "";
-
-                // If all criteria match, display the row, otherwise hide it
-                if (dateMatch && collegeMatch && facilitiesMatch) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
 
 </html>

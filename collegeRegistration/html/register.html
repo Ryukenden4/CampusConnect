@@ -93,7 +93,7 @@
                     </div>
                     <!-- code program -->
                     <div class="input-field">
-                        <select name="programCode" required>
+                        <select name="programCode">
                           <option value="" disabled selected>Select Program Code</option>
                           <option value="CS110">CS110</option>
                           <option value="CDCS110">CDCS110</option>
@@ -104,7 +104,7 @@
                     </div>
                     <!-- Semester -->
                     <div class="input-field">
-                        <select name="semester" required>
+                        <select name="semester">
                           <option value="" disabled selected>Select Semester</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -204,38 +204,47 @@
     document.querySelector('select[name="semester"]').parentNode.style.display = 'flex';
   }
 
-  function showButton() {
-    registerButton.style.display = 'block';
-  }
-
-  function hideButton() {
-    registerButton.style.display = 'none';
-  }
+  
 
   // Initially hide unnecessary fields and show the register button
   hideInputs();
-  showButton();
 
   // Show and hide gender dropdown based on the student checkbox
+// Add this function to toggle the required attribute
+  function toggleRequired(element, isRequired) {
+      if (isRequired) {
+          element.setAttribute('required', 'required');
+      } else {
+          element.removeAttribute('required');
+      }
+  }
+
+  // Modify the event listeners for the student and staff checkboxes
   studentCheckbox.addEventListener('change', () => {
-    if (studentCheckbox.checked) {
-      staffCheckbox.checked = false;
-      IDInput.placeholder = 'Student ID';
-      document.querySelector('input[name="email"]').placeholder = 'Student Email';
-      showInputs();
-      showButton();
-    }
+      if (studentCheckbox.checked) {
+          staffCheckbox.checked = false;
+          IDInput.placeholder = 'Student ID';
+          document.querySelector('input[name="email"]').placeholder = 'Student Email';
+          showInputs();
+          // Make programCode and semester required for students
+          toggleRequired(document.querySelector('select[name="programCode"]'), true);
+          toggleRequired(document.querySelector('select[name="semester"]'), true);
+      }
   });
 
   staffCheckbox.addEventListener('change', () => {
-    if (staffCheckbox.checked) {
-      studentCheckbox.checked = false;
-      IDInput.placeholder = 'Staff ID';
-      document.querySelector('input[name="email"]').placeholder = 'Staff Email';
-      hideInputs();
-      showButton();
-    }
+      if (staffCheckbox.checked) {
+          studentCheckbox.checked = false;
+          IDInput.placeholder = 'Staff ID';
+          document.querySelector('input[name="email"]').placeholder = 'Staff Email';
+          hideInputs();
+          // Make programCode and semester not required for staff
+          toggleRequired(document.querySelector('select[name="programCode"]'), false);
+          toggleRequired(document.querySelector('select[name="semester"]'), false);
+      }
   });
+
+
 
   // Add input validation for Student ID
   IDInput.addEventListener('input', () => {
@@ -244,13 +253,10 @@
     // Check if the student ID starts with "202" and has a total of 10 digits
     const isValidStudentID = /^202\d{7}$/.test(studentID);
 
-    // Update the button visibility based on the validation result
-    if (isValidStudentID) {
-      showButton();
-    } else {
-      hideButton();
-    }
+   
   });
+
+  
 </script>
 
 </html>

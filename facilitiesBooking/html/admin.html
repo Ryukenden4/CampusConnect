@@ -176,7 +176,7 @@
                           <div class="col-md-6">
                              <div class="banner_taital_main">
                                 <h1 class="banner_taital" id="userNameSpan"></h1>
-                                <p class="banner_text" style="font-size: 25px;" >Welcome to the Facilities booking Admin Page,
+                                <p class="banner_text" style="font-size: 25px;" >Welcome to the Facilities Booking Admin Page,
                                   <p class="banner_text" style="font-size: 25px;" >Here you can view the booking list</p>
                                   <p class="banner_text" style="font-size: 25px;" >and filter the bookings list.</p>
                                 <!-- <div class="readmore_btn active"><a href="#">Read More</a></div> -->
@@ -212,7 +212,7 @@
                        </div>
                        <div class="box_right">
                           <p class="book_text" style="font-size: 20px;">View</p>
-                          <h4 class="appoinment_text" style="font-size: 25px;">Booking Lists</h4>
+                          <h4 class="appoinment_text" style="font-size: 25px;">Booking</h4>
                        </div>
                     </div>
                  </div>
@@ -226,11 +226,36 @@
                        <div class="box_right">
                           <!-- Removed "active" from ori template -->
                           <p class="book_text" style="font-size: 20px;">Delete</p>
-                          <h4 class="appoinment_text" style="font-size: 25px;">Booking Lists</h4>
+                          <h4 class="appoinment_text" style="font-size: 25px;">Booking</h4>
                        </div>
                     </div>
                  </div>
                 
+                 <div class="online_box_left ">
+                    <div class="online_box_main">
+                       <div class="box_left" id="addFacility">
+                          <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
+                       </div>
+                       <div class="box_right">
+                          <!-- Removed "active" from ori template -->
+                          <p class="book_text" style="font-size: 20px;">Add</p>
+                          <h4 class="appoinment_text" style="font-size: 25px;">Facility</h4>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="online_box_left ">
+                    <div class="online_box_main">
+                       <div class="box_left" id="viewFacility">
+                          <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
+                       </div>
+                       <div class="box_right">
+                          <!-- Removed "active" from ori template -->
+                          <p class="book_text" style="font-size: 20px;">View</p>
+                          <h4 class="appoinment_text" style="font-size: 25px;">Facility</h4>
+                       </div>
+                    </div>
+                 </div>
               </div>
 
               <!-- back button -->
@@ -276,7 +301,15 @@
        });
 
        document.getElementById("deleteBooking").addEventListener("click", function() {
-           window.location.href = "/facilitiesBooking/html/adminUpdate.html";
+           window.location.href = "/facilitiesBooking/html/adminDelete.html";
+       });
+
+       document.getElementById("addFacility").addEventListener("click", function() {
+           window.location.href = "/facilitiesBooking/html/addFacility.html";
+       });
+
+       document.getElementById("viewFacility").addEventListener("click", function() {
+           window.location.href = "/facilitiesBooking/html/viewFacility.html";
        });
 
    </script>

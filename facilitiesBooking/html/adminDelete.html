@@ -110,6 +110,12 @@
     <main class="table">
         <section class="table__header">
             <h1 style="color: black;">Booking Lists</h1>
+            <div class="search-container">
+                <input type="text" id="myInput" placeholder="Search by Date..." oninput="filterTable()">
+                <input type="text" id="collegeInput" placeholder="Search by College..." oninput="filterTableByCollege()">
+                <input type="text" id="facilitiesInput" placeholder="Search by Facilities..." oninput="filterTableByFacilities()">
+                <button onclick="filterTable()">Search</button>
+            </div>
         </section>
         <section class="table__body">
             <table style="color: black;">
@@ -138,11 +144,7 @@
                         <td>facilities</td>
                         <td>startTime</td>
                         <td>endTime</td>
-                        <td>
-                            <center>
-                                <td><i class='fas fa-trash-alt' style='color: #8b0000; cursor: pointer;' onclick='deleteBooking("studentId")'></i></td>
-                            </center>
-                        </td>
+                        
                         
                     </tr>
                 </tbody>
@@ -182,10 +184,10 @@
 
         xhr.send();
     };
-</script>
 
 
-<script>
+
+
     function deleteBooking(studentId) {
         if (confirm('Are you sure you want to delete this booking?')) {
             var xhr = new XMLHttpRequest();
@@ -213,29 +215,17 @@
             xhr.send();
         }
     }
-</script>
 
-<script>
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'updateBooking.php?timestamp=' + new Date().getTime(), true);
 
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            document.getElementById('studentData').innerHTML = xhr.responseText;
-        }
-    };
 
-    xhr.send();
-</script>
 
-<script>
     function goBack() {
         // Redirect to another HTML file
         window.location.href = '/facilitiesBooking/html/admin.html';
     }
-</script>
 
-<script>
+
+
     function myFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
@@ -254,6 +244,47 @@
             }
         }
     }
+
+    function filterTable() {
+        var inputDate, inputCollege, inputFacilities, filterDate, filterCollege, filterFacilities, table, tr, tdDate, tdCollege, tdFacilities, i, txtValueDate, txtValueCollege, txtValueFacilities;
+        
+        inputDate = document.getElementById("myInput");
+        inputCollege = document.getElementById("collegeInput");
+        inputFacilities = document.getElementById("facilitiesInput");
+
+        filterDate = inputDate.value.toUpperCase();
+        filterCollege = inputCollege.value.toUpperCase();
+        filterFacilities = inputFacilities.value.toUpperCase();
+
+        table = document.getElementById("studentData");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            tdDate = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
+            tdCollege = tr[i].getElementsByTagName("td")[3]; // Adjust the index based on the position of the college column
+            tdFacilities = tr[i].getElementsByTagName("td")[4]; // Adjust the index based on the position of the facilities column
+
+            if (tdDate && tdCollege && tdFacilities) {
+                txtValueDate = tdDate.textContent || tdDate.innerText;
+                txtValueCollege = tdCollege.textContent || tdCollege.innerText;
+                txtValueFacilities = tdFacilities.textContent || tdFacilities.innerText;
+
+                // Check if any of the criteria match
+                var dateMatch = txtValueDate.toUpperCase().indexOf(filterDate) > -1 || filterDate === "";
+                var collegeMatch = txtValueCollege.toUpperCase().indexOf(filterCollege) > -1 || filterCollege === "";
+                var facilitiesMatch = txtValueFacilities.toUpperCase().indexOf(filterFacilities) > -1 || filterFacilities === "";
+
+                // If all criteria match, display the row, otherwise hide it
+                if (dateMatch && collegeMatch && facilitiesMatch) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
 </script>
 <!-- close script -->
 

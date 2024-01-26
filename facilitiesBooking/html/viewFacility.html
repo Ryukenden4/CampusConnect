@@ -105,11 +105,9 @@
     <div class="content">
     <main class="table">
         <section class="table__header">
-            <h1 style="color: black;">Facilities Booking List</h1>
+            <h1 style="color: black;">Available Facilities</h1>
             <div class="search-container">
-                <input type="text" id="myInput" placeholder="Search by Date..." oninput="filterTable()">
-                <input type="text" id="collegeInput" placeholder="Search by College..." oninput="filterTableByCollege()">
-                <input type="text" id="facilitiesInput" placeholder="Search by Facilities..." oninput="filterTableByFacilities()">
+                <input type="text" id="collegeInput" placeholder="Enter College Name..." oninput="filterTableByCollege()">
                 <button onclick="filterTable()">Search</button>
             </div>
         </section>
@@ -118,19 +116,15 @@
                 <!-- head for table -->
                 <thead style="color: black;">
                     <tr>
-                        <th> studentId </th>
-                        <th> fullName </th>
-                        <th> dateofBooking </th>
-                        <th> college </th>
-                        <th> facilities </th>
-                        <th> startTime </th>
-                        <th> endTime </th>
-                    </tr>
+                        <th> StaffId </th>
+                        <th> Facility Name </th>
+                        <th> College </th>
+                    </tr> 
                 </thead>
 
                 <!-- body for table -->
-                <tbody id="studentData">
-                    <!-- data will be fetch from table.php to display dinamically -->
+                <tbody id="viewFacility">
+                    <!-- data will be fetch from viewFacility.php to display dinamically -->
                 </tbody>
             </table>
         </section>
@@ -158,18 +152,52 @@
           // Fetch data from response.php using AJAX
           window.onload = function () {
               var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'bookingData.php', true);
+              xhr.open('GET', 'viewFacility.php', true);
       
               xhr.onload = function () {
                   if (xhr.status == 200) {
                       // Update the content of tbody with the fetched data
-                      document.getElementById('studentData').innerHTML = xhr.responseText;
+                      document.getElementById('viewFacility').innerHTML = xhr.responseText;
                   }
               };
       
               xhr.send();
           };
         </script>
+
+<script>
+    function filterTableByCollege() {
+        var collegeInput = document.getElementById('collegeInput').value.toUpperCase();
+        var table = document.getElementById('viewFacility');
+        var tr = table.getElementsByTagName('tr');
+
+        for (var i = 1; i < tr.length; i++) {
+            var td = tr[i].getElementsByTagName('td')[2];
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(collegeInput) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
+    function filterTable() {
+        var collegeInput = document.getElementById('collegeInput').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'viewFacility.php?college=' + collegeInput, true);
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                document.getElementById('viewFacility').innerHTML = xhr.responseText;
+            }
+        };
+
+        xhr.send();
+    }
+</script>
 
         <script>
           function goBack() {
@@ -200,44 +228,7 @@
         </script> <!--close script-->
 
 <script>
-    function filterTable() {
-        var inputDate, inputCollege, inputFacilities, filterDate, filterCollege, filterFacilities, table, tr, tdDate, tdCollege, tdFacilities, i, txtValueDate, txtValueCollege, txtValueFacilities;
-        
-        inputDate = document.getElementById("myInput");
-        inputCollege = document.getElementById("collegeInput");
-        inputFacilities = document.getElementById("facilitiesInput");
-
-        filterDate = inputDate.value.toUpperCase();
-        filterCollege = inputCollege.value.toUpperCase();
-        filterFacilities = inputFacilities.value.toUpperCase();
-
-        table = document.getElementById("studentData");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            tdDate = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
-            tdCollege = tr[i].getElementsByTagName("td")[3]; // Adjust the index based on the position of the college column
-            tdFacilities = tr[i].getElementsByTagName("td")[4]; // Adjust the index based on the position of the facilities column
-
-            if (tdDate && tdCollege && tdFacilities) {
-                txtValueDate = tdDate.textContent || tdDate.innerText;
-                txtValueCollege = tdCollege.textContent || tdCollege.innerText;
-                txtValueFacilities = tdFacilities.textContent || tdFacilities.innerText;
-
-                // Check if any of the criteria match
-                var dateMatch = txtValueDate.toUpperCase().indexOf(filterDate) > -1 || filterDate === "";
-                var collegeMatch = txtValueCollege.toUpperCase().indexOf(filterCollege) > -1 || filterCollege === "";
-                var facilitiesMatch = txtValueFacilities.toUpperCase().indexOf(filterFacilities) > -1 || filterFacilities === "";
-
-                // If all criteria match, display the row, otherwise hide it
-                if (dateMatch && collegeMatch && facilitiesMatch) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
+    
 </script>
 
 </html>

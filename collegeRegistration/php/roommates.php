@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Establishing a connection to MySQL database
+// Establishing a connection to the MySQL database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -14,43 +14,50 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetching data from roommates
-$query = "SELECT s.ID, s.fullName, s.email, s.programCode, s.phoneNumber, s.semester, r.residentialCollege, r.roomNumber
-          FROM room r
-          JOIN student s ON s.ID IN (r.studentID1, r.studentID2, r.studentID3, r.studentID4)
-          WHERE r.roomNumber IN (
-              SELECT roomNumber
-              FROM room
-              WHERE studentID1 = ? OR studentID2 = ? OR studentID3 = ? OR studentID4 = ?
-          )";
+// Fetch data from the database with room and student information joined
+$sql = "SELECT s.*, r.roomNumber, r.residentialCollege
+        FROM student s
+        INNER JOIN room r ON s.studentID = r.studentID
+        WHERE s.status = 'Enable'";
 
-// Assuming you have the logged-in user's ID in the session
-$userID = $_SESSION["user_id"];
-
-$stmt = $conn->prepare($query);
-$stmt->bind_param("iiii", $userID, $userID, $userID, $userID);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Output the HTML table rows
-if($result -> num_rows > 0){
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['ID'] . "</td>";
-        echo "<td>" . $row['fullName'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['programCode'] . "</td>";
-        echo "<td>" . $row['phoneNumber'] . "</td>";
-        echo "<td>" . $row['semester'] . "</td>";
-        echo "<td>" . $row['residentialCollege'] . "</td>";
-        echo "<td>" . $row['roomNumber'] . "</td>";
-        echo "</tr>";
-    }
-} else{
-    echo "You Have Not Applied For College";
+// Add conditions to filter by room number and residential college
+if (isset($_SESSION['studentID'])) {
+    $studentID = $_SESSION['studentID'];
+    // Add condition to filter by the room number the same with the student ID in the session
+    $sql .= " AND r.roomNumber = (SELECT roomNumber FROM room WHERE studentID = '$studentID')";
 }
 
+$result = $conn->query($sql);
 
-$stmt->close();
+if ($result->num_rows > 0) {
+    echo '<tbody>';
+
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row['studentID'] . '</td>';
+        echo '<td>' . $row['studentFullName'] . '</td>';
+        echo '<td>' . $row['studentEmail'] . '</td>';
+        echo '<td>' . $row['phoneNumber'] . '</td>';
+        echo '<td>' . $row['programCode'] . '</td>';
+        echo '<td>' . $row['semester'] . '</td>';
+
+        echo '<td>';
+        if ($row['residentialCollege']) {
+            echo $row['residentialCollege'];
+        } else {
+            echo 'Have not applied';
+        }
+        echo '</td>';
+
+        echo "<td>" . $row["roomNumber"] . "</td>";
+        echo '</tr>';
+    }
+
+    echo '</tbody>';
+} else {
+    echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
+}
+
+// Closing the database connection
 $conn->close();
 ?>

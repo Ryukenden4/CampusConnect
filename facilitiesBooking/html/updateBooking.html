@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head style="background-color: #f1f1f1;">
+    <link rel="stylesheet" href="/collegeRegistration/css/registerStyle.css">
+    <!-- Add other stylesheets as needed -->
+</head>
+
+<body>
+    <div class="content">
+        <main class="table">
+            <div class="title">
+                <h1 style="color: black;"><b>UPDATE BOOKING</b></h1>
+            </div>
+
+            <!-- Update booking form -->
+            <form action="updateBooking.php" method="post">
+                <input type="hidden" id="bookingId" name="bookingId" value="">
+                <label for="newTimeSlot">New Time Slot:</label>
+                <input type="text" id="newTimeSlot" name="newTimeSlot" required>
+                <button type="submit">Update Booking</button>
+            </form>
+
+            <div class="input-field" style="padding-left: 40px;">
+                <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;" class="btn">Back</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Function to set booking details in the update form
+        function setBookingDetails(bookingId, timeSlot) {
+            document.getElementById("bookingId").value = bookingId;
+            document.getElementById("newTimeSlot").value = timeSlot;
+        }
+    </script>
+
+</body>
+
+</html>
