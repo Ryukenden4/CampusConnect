@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 }
 
 $student_id = $_SESSION['user_id'];
-$sql = "SELECT fullName FROM student WHERE ID='$student_id'";
+$sql = "SELECT studentFullName FROM student WHERE studentID='$student_id'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$studentName = $row['fullName'];
+$studentName = $row['studentFullName'];
 
 if (isset($_GET['programme'])) {
     $programme = $_GET['programme'];
