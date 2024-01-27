@@ -45,6 +45,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>';
         exit(); // Terminate further execution
     }
+
+
+    $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
+    $gender = ucwords(mysqli_real_escape_string($conn, $_POST["Gender"])); // Capitalize gender
+    $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
+    $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
+    
      // Determine user type based on checkbox
      $userType = "";
      if (isset($_POST["student"])) {
