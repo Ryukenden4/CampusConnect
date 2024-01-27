@@ -16,6 +16,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+//muiz punya
 
 // Handling form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
