@@ -44,6 +44,7 @@
     backdrop-filter: blur(50px);
     color: black;
     padding: 40px 35px 35px;
+    height: 20cm;
 }
 
 .register .input-box {
@@ -182,7 +183,7 @@
           </nav>
       </header>
 
-          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 22cm;">
+          <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bk.jpeg); height: 25cm;">
             <div class="banner-section">
               <div class="container text-center wow fadeInUp">     
           
@@ -194,69 +195,137 @@
                         </P>
                       </div> 
                       
-                    <div class="register center" style="border-radius: 5px;">
-                      <form class="main-form formbackground" action="process.php" method="POST" style="display: flex; align-items: center; justify-content: center;">
-                        <div class="row mt-5 ">
-                          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" style="text-align: left; border-color: #0c0c0c;">
-                            <label for="fname"><b>FULL NAME :</b></label><br>
-                            <input style="border-color: #0c0c0c;" type="fullName" class="form-control" placeholder="Enter your name" name="fullName">
-                          </div>
-
-                          <div class="col-12 col-sm-6 py-2 wow fadeInRight" style="text-align: left;">
-                            <label for="fname"><b>EMAIL :</b></label><br>
-                            <input style="border-color: #0c0c0c;" type="text" class="form-control" placeholder="Enter your email address" name="email">
-                          </div>
-
-                          <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms" style="text-align: left;">
-                            <label for="fname"><b>DATE :</b></label><br>
-                            <input style="border-color: #0c0c0c;" type="date" class="form-control" name="date">
-                          </div>
-
-                          <div  class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms" style="text-align: left;">
-                            <label for="fname"><b>USER TYPE :</b></label><br>
-                            <select name="typeOfUser" id="typeOfUser" class="custom-select" style="border-color: #0c0c0c;" required>
-                              <option value="None">-</option>
-                              <option value="Students">Students</option>
-                              <option value="Parents">Parents</option>
-                              <option value="Contractor">Contractor</option>
-                              <option value="Visitors">Visitors</option>
-                            </select>
-                          </div>
-
-                          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms" style="text-align: left;">
-                            <label for="fname"><b>PURPOSE :</b></label><br>
-                            <select name="purpose" id="purpose" class="custom-select" style="border-color: #0c0c0c;">
-                                <option value="complaints">-</option>
-                                <option value="complaints">Facility Damage Complaints</option>
-                                <option value="meeting">Meeting URHP Staff</option>
-                                <option value="keys">Borrow Duplicate Keys</option>
-                                <option value="electrical">Register Electrical Items</option>
-                                <option value="form">Form Submission</option>
-                              </select>
-                          </div>
-
-                          <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms" style="text-align: left;">
-                            <label for="fname"><b>MESSAGE :</b></label><br>
-                            <textarea  style="border-color: #0c0c0c;" name="message" id="message" class="form-control" rows="6" placeholder="Leave a message.."></textarea>
-                          </div>
-                       
-                            <div class="fadeInRight">
-                               
+                      <div class="register center" style="border-radius: 5px;">
+                        <form class="main-form formbackground" action="process.php" method="POST" onsubmit="return validateForm()">
+                            <div class="row mt-5 ">
+                                <div class="col-12 col-sm-6 py-2 wow fadeInLeft" style="text-align: left; border-color: #0c0c0c;">
+                                    <label for="fname"><b>FULL NAME :</b></label><br>
+                                    <input style="border-color: #0c0c0c;" type="text" class="form-control" placeholder="Enter your name" name="fullName" id="fullName" oninput="validateFullName()" required>
+                                    <p id="fullNameError" style="color: red; margin-top: 5px;"></p>
+                                </div>
+                    
+                                <div class="col-12 col-sm-6 py-2 wow fadeInRight" style="text-align: left;">
+                                    <label for="fname"><b>EMAIL :</b></label><br>
+                                    <input style="border-color: #0c0c0c;" type="text" class="form-control" placeholder="Enter your email address" name="email" required>
+                                </div>
+                    
+                                <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms" style="text-align: left;">
+                                    <label for="fname"><b>DATE :</b></label><br>
+                                    <input style="border-color: #0c0c0c;" type="date" class="form-control" name="date" required>
+                                </div>
+                    
+                                <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms" style="text-align: left;">
+                                    <label for="fname"><b>USER TYPE :</b></label><br>
+                                    <select name="typeOfUser" id="typeOfUser" class="custom-select" style="border-color: #0c0c0c;" required>
+                                        <option value="None">-</option>
+                                        <option value="Students">Students</option>
+                                        <option value="Parents">Parents</option>
+                                        <option value="Contractor">Contractor</option>
+                                        <option value="Visitors">Visitors</option>
+                                    </select>
+                                </div>
+                    
+                                <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms" style="text-align: left;">
+                                    <label for="fname"><b>PURPOSE :</b></label><br>
+                                    <select name="purpose" id="purpose" class="custom-select" style="border-color: #0c0c0c;" required>
+                                        <option value="complaints">-</option>
+                                        <option value="complaints">Facility Damage Complaints</option>
+                                        <option value="meeting">Meeting URHP Staff</option>
+                                        <option value="keys">Borrow Duplicate Keys</option>
+                                        <option value="electrical">Register Electrical Items</option>
+                                        <option value="form">Form Submission</option>
+                                    </select>
+                                </div>
+                    
+                                <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms" style="text-align: left;">
+                                    <label for="fname"><b>MESSAGE :</b></label><br>
+                                    <textarea style="border-color: #0c0c0c;" name="message" id="message" class="form-control" rows="6" placeholder="Leave a message.." oninput="checkCharacterCount()" required></textarea>
+                                    <p id="charCountMessage" style="margin-top: 5px; color: red;"></p>
+                                </div>
+                    
+                                <div class="fadeInRight"></div>
+                    
+                                <div class="fadeInRight center" style="margin-top: 20px;">
+                                    <a class="nav-link" href="/customerSupport/html/thankyou.html"><input type="submit" value="Submit Response" name="submit" class="button1"></a>
+                                    <a class="nav-link" href="/intermediate/student.html"><input type="button" value="Cancel Response" onclick="goBack()" class="button2"></a>
+                                </div>
                             </div>
-
-                            <div class="fadeInRight center" style="margin-top: 20px;">
-                              <a class="nav-link" href="/customerSupport/html/thankyou.html"><input type="submit" value="Submit Response" name="submit" class="button1" ></a>
-                              <a class="nav-link" href="/intermediate/student.html"><input type="button" value="Cancel Response" onclick="goBack()" class="button2"></a>
-                            </div>
-
-                        </div>
-                      </form>  
+                        </form>
                     </div>
+                    
 
                 </div> <!-- .container -->
               </div> <!-- .page-section -->
           </div> <!-- .page-banner -->
     <div>
+
+<script>
+     function checkCharacterCount() {
+         var messageTextarea = document.getElementById("message");
+         var charCountMessage = document.getElementById("charCountMessage");
+         var maxLength = 150;
+    
+         var remainingChars = maxLength - messageTextarea.value.length;
+    
+         charCountMessage.textContent = remainingChars + " characters remaining";
+    
+        // Change the color based on the remaining characters
+        if (remainingChars < 20) {
+            charCountMessage.style.color = "red";
+       } else {
+            charCountMessage.style.color = "black";
+       }
+     }
+</script>
+
+<script>
+  function validateFullName() {
+      var fullNameInput = document.getElementById("fullName");
+      var fullNameError = document.getElementById("fullNameError");
+
+      // Check if the input contains only letters
+      var regex = /^[a-zA-Z\s]*$/;
+      if (!regex.test(fullNameInput.value)) {
+          fullNameError.textContent = "Please enter a valid name (letters only)";
+          fullNameInput.setCustomValidity("Invalid input");
+      } else {
+          fullNameError.textContent = "";
+          fullNameInput.setCustomValidity(""); // Clear the custom validity
+      }
+  }
+</script>
+
+<script>
+  function validateForm() {
+    // Validate full name
+    var fullNameInput = document.getElementById("fullName");
+    var fullNameError = document.getElementById("fullNameError");
+    var regex = /^[a-zA-Z\s]*$/;
+    
+    if (!regex.test(fullNameInput.value)) {
+      fullNameError.textContent = "Please enter a valid name (letters only)";
+      fullNameInput.setCustomValidity("Invalid input");
+      return false; // Prevent form submission
+    } else {
+      fullNameError.textContent = "";
+      fullNameInput.setCustomValidity(""); // Clear the custom validity
+    }
+  
+    // Validate message length
+    var messageTextarea = document.getElementById("message");
+    var charCountMessage = document.getElementById("charCountMessage");
+    var maxLength = 150;
+  
+    if (messageTextarea.value.length > maxLength) {
+      charCountMessage.textContent = "Message should not exceed 150 characters";
+      return false; // Prevent form submission
+    } else {
+      charCountMessage.textContent = "";
+    }
+  
+    return true; // Allow form submission
+  }
+  </script>
 
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>

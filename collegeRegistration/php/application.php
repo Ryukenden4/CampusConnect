@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userID = $_SESSION["user_id"];
 
     // check user's gender from the database
-    $getUserGenderQuery = "SELECT gender FROM student WHERE ID = ?";
-    //prevent injection by parameterising the query
+    $getUserGenderQuery = "SELECT gender FROM student WHERE studentID = ?";
+    //prevent injection by parameterizing the query
     $stmt = $conn->prepare($getUserGenderQuery);
     $stmt->bind_param("s", $userID);
     $stmt->execute();
@@ -29,6 +29,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_result($userGender);
     $stmt->fetch();
     $stmt->close();
+
+     // Check if the student's ID exists in the room table
+     $checkRoomQuery = "SELECT * FROM room WHERE studentID = ?";
+     $stmt = $conn->prepare($checkRoomQuery);
+     $stmt->bind_param("s", $userID);
+     $stmt->execute();
+     $result = $stmt->get_result();
+ 
+     if ($result->num_rows > 0) {
+         // If the student's ID is already in the room table, display a message and exit
+         echo '<script>
+                 alert("You have already applied for college.");
+                 window.location.href = "/intermediate/student.html";
+               </script>';
+         exit();
+     }
 
     $roomNumber = $_POST["roomNumber"];
     $residentialCollege = $_POST["college"];
@@ -44,74 +60,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-
-    // Check if the room already exists
-    $checkRoomExistsQuery = "SELECT * FROM room WHERE roomNumber = ? AND residentialCollege = ?";
-    $stmt = $conn->prepare($checkRoomExistsQuery);
+    // Check if the room is full (maximum 4 people per room)
+    $checkRoomFullQuery = "SELECT * FROM room WHERE roomNumber = ? AND residentialCollege = ?";
+    $stmt = $conn->prepare($checkRoomFullQuery);
     $stmt->bind_param("ss", $roomNumber, $residentialCollege);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        // Room already exists, find the first available studentID column
-        $row = $result->fetch_assoc();
-        $availableColumn = findAvailableColumn($row);
+    // Count the number of registrations for the specified room
+    $registrationsCount = $result->num_rows;
 
-        if ($availableColumn !== false) {
-            // Update the existing record with the student's information
-            $updateQuery = "UPDATE room SET $availableColumn = ? WHERE roomNumber = ? AND residentialCollege = ?";
-            $updateStmt = $conn->prepare($updateQuery);
-            $updateStmt->bind_param("sss", $userID, $roomNumber, $residentialCollege);
+    if ($registrationsCount >= 4) {
+        // Room is full, show an error message
+        echo '<script>
+                alert("Room is already full. Please choose another room.");
+                window.location.href = "/collegeRegistration/html/collegeApply.html";
+              </script>';
+        exit();
+    }
 
-            if ($updateStmt->execute()) {
-                // Application successful
-                echo '<script>
-                        alert("Application successful!");
-                        window.location.href = "/intermediate/student.html";
-                      </script>';
-            } else {
-                // Application failed
-                echo "Error: " . $conn->error;
-            }
-        } else {
-            // No available column found, show an error message
-            echo '<script>
-                    alert("Room is already full. Please choose another room.");
-                    window.location.href = "/collegeRegistration/html/collegeApply.html";
-                  </script>';
-        }
+    // Room is not full, proceed with the registration
+    $insertQuery = "INSERT INTO room (roomNumber, residentialCollege, studentID) VALUES (?, ?, ?)";
+    $insertStmt = $conn->prepare($insertQuery);
+    $insertStmt->bind_param("sss", $roomNumber, $residentialCollege, $userID);
+
+    if ($insertStmt->execute()) {
+        // Application successful
+        echo '<script>
+                alert("Application successful!");
+                window.location.href = "/intermediate/student.html";
+              </script>';
     } else {
-        // Room does not exist, create a new row for the application
-        $insertQuery = "INSERT INTO room (roomNumber, residentialCollege, studentID1) VALUES (?, ?, ?)";
-        $insertStmt = $conn->prepare($insertQuery);
-        $insertStmt->bind_param("sss", $roomNumber, $residentialCollege, $userID);
-
-        if ($insertStmt->execute()) {
-            // Application successful
-            echo '<script>
-                    alert("Application successful!");
-                    window.location.href = "/intermediate/student.html";
-                  </script>';
-        } else {
-            // Application failed
-            echo "Error: " . $conn->error;
-        }
+        // Application failed
+        echo "Error: " . $conn->error;
     }
 }
 
 // Closing the database connection
 $conn->close();
-
-// Function to find the first available studentID column
-function findAvailableColumn($row) {
-    $columns = ['studentID1', 'studentID2', 'studentID3', 'studentID4'];
-    
-    foreach ($columns as $column) {
-        if ($row[$column] === NULL) {
-            return $column;
-        }
-    }
-
-    return false; // No available column found
-}
 ?>

@@ -14,16 +14,14 @@ if ($conn->connect_error) {
 }
 
 // Get data for specific months and years
-$selectedMonths = ['2024-01', '2024-02','2024-03','202']; // Replace this with the desired months and years
+$selectedMonths = ['2024-01', '2024-02', '2024-03', '2024-04']; // Replace this with the desired months and years
 
 // Use prepared statement to prevent SQL injection
 $sql = "SELECT purpose, COUNT(*) as purpose_count 
         FROM response 
         WHERE DATE_FORMAT(date, '%Y-%m') IN (";
-
-// Build the placeholders for each month and year
 $sql .= implode(',', array_fill(0, count($selectedMonths), '?'));
-$sql .= ")
+$sql .= ") AND status = 'ENABLE'  -- Replace 'status' with the actual column name
         GROUP BY purpose";
 
 $stmt = $conn->prepare($sql);

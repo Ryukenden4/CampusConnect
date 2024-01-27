@@ -19,14 +19,18 @@ if (isset($_SESSION['user_type']) && isset($_SESSION['user_id'])) {
     $userType = $_SESSION['user_type'];
     $userId = $_SESSION['user_id'];
 
+    // Define table and column names based on user type
+    $idColumnName = ($userType === 'student') ? 'studentID' : 'staffID';
+    $fullNameColumnName = ($userType === 'student') ? 'studentFullName' : 'staffFullName';
+
     // Fetch user's name from the database
     $tableName = ($userType === 'student') ? 'student' : 'staff';
-    $sql = "SELECT fullName FROM $tableName WHERE ID='$userId'";
+    $sql = "SELECT $fullNameColumnName FROM $tableName WHERE $idColumnName='$userId'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $userName = $row['fullName'];
+        $userName = $row[$fullNameColumnName];
 
         // Return user data in JSON format
         echo json_encode(['success' => true, 'userType' => $userType, 'userId' => $userId, 'userName' => $userName]);

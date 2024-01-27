@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -18,9 +16,7 @@ if(mysqli_connect_errno()){
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve user ID from the session
-    $userID = $_SESSION["user_id"];
-
+    
     // Get form data
     $fullName = $_POST['fullName'];
     $email = $_POST['email'];       
@@ -29,24 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $purpose = $_POST['purpose'];
     $message = $_POST['message'];
 
-    // SQL to insert data into the table
-    $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message) 
-            VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message')";
+    $sql = "INSERT INTO response(fullName, email, typeOfUser, date, purpose, message, createdAt) 
+        VALUES ('$fullName', '$email', '$typeOfUser', '$date', '$purpose', '$message', NOW())";
 
     if ($conn->query($sql) === TRUE) {
-
-        // Retrieve user ID from the session
-        $userID = $_SESSION["user_id"];
         
         // Insertion successful
-        // Store form data in session variables for further use
-        $_SESSION['fullName'] = $fullName;
-        $_SESSION['email'] = $email;
-        $_SESSION['typeOfUser'] = $typeOfUser;
-        $_SESSION['date'] = $date;
-        $_SESSION['purpose'] = $purpose;
-        $_SESSION['message'] = $message;
-
         // Redirect to a thank-you page
         header("Location: thankyou.html");
         exit();

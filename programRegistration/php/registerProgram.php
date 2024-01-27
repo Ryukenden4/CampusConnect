@@ -102,8 +102,9 @@ if ($conn->connect_error) {
                 </div>
 
                 <div class="buttonBackApply">
-                  <button type="button" onclick="location.href='/programRegistration/php/staff.php'" style="background-color: #8b0000;" class="btn">Cancel</button>
-                  <button type="submit" value="submit" class="btn">Add Programme</button>
+                    <button type="submit" value="submit" class="btn">Add Programme</button>
+                    <button type="button" onclick="location.href='/programRegistration/php/staff.php'" style="background-color: #8b0000;" class="btn">Cancel</button>
+                  
                 </div>
 
             </form>

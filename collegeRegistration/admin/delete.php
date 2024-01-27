@@ -1,37 +1,35 @@
 <?php
-if (isset($_GET['id'])) {
-    // Establishing a connection to MySQL database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "collegeregistration";
+session_start();
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Establishing a connection to the MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "collegeregistration";
 
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    $studentId = $_GET['id'];
-
-    // Performing SQL query to update status to 'disabled'
-    $sql = "UPDATE student SET status = 'disabled' WHERE ID = $studentId";
-
-    if ($conn->query($sql) === TRUE) {
-        // Deletion successful
-        echo '<script>
-                alert("Student deleted successfully!");
-                window.location.href = "staff.html"; 
-              </script>';
-    } else {
-        // Deletion failed
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    // Closing the database connection
-    $conn->close();
-} else {
-    echo "Invalid request";
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// Check if the studentID is provided via POST request
+if (isset($_POST['studentID'])) {
+    // Sanitize the input
+    $studentID = mysqli_real_escape_string($conn, $_POST['studentID']);
+
+    // Update the student's status to 'Disabled'
+    $sql = "UPDATE student SET status = 'Disabled' WHERE studentID = '$studentID'";
+    if ($conn->query($sql) === TRUE) {
+        echo "Student delete successfully.";
+    } else {
+        echo "Error updating student status: " . $conn->error;
+    }
+} else {
+    echo "StudentID not provided.";
+}
+
+// Closing the database connection
+$conn->close();
 ?>

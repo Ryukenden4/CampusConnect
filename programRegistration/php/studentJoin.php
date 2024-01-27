@@ -68,8 +68,14 @@
     <main class="table">
         <section class="table__header">
             <div class="tajuk"><h1>Program's Student Join</h1></div>
-       
-           
+                <div class ="searchBar">
+                    <div class="search1">  
+                        <input type="text" id="studentIdSearch" oninput="filterTable('studentIdSearch')" placeholder="Search by Student ID">
+                    </div>
+                    <div class="search2">
+                        <input type="text" id="programJoinSearch" oninput="filterTable('programJoinSearch')" placeholder="Search by Program Join">
+                    </div>
+                </div>  
         </section>
         <section class="table__body">
             <table>
@@ -121,6 +127,7 @@
         <div class="input-field" style="padding-left: 40px;">
             <button type="button" onclick="goBack()" style="background-color: #8b0000; color: white;" class="btn"><i class="fa-solid fa-arrow-left"  style="padding-right: 10px;"></i>Back</button>
         </div>
+
     </main>
 
     <!-- footer -->
@@ -145,6 +152,38 @@
   <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://kit.fontawesome.com/ebf7b9acb5.js" crossorigin="anonymous"></script>
+
+<!-- Add this within your <script> tag -->
+<script>
+    // ... existing JavaScript code ...
+
+    function filterTable(searchBarId) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById(searchBarId);
+        filter = input.value.toUpperCase();
+        table = document.querySelector("table");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those that don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            if (searchBarId === 'studentIdSearch') {
+                td = tr[i].getElementsByTagName("td")[0]; // Assuming Student ID is in the first column
+            } else if (searchBarId === 'programJoinSearch') {
+                td = tr[i].getElementsByTagName("td")[2]; // Assuming Program Join is in the third column
+            }
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
 
 </html>
 
