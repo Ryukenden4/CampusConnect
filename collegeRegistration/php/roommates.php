@@ -14,20 +14,38 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Initialize student ID and room number variables
+$studentID = "";
+$roomNumber = "";
+
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    $studentID = $_SESSION['user_id'];
+    
+    // Retrieve the room number of the logged-in user
+    $getRoomNumberQuery = "SELECT roomNumber FROM room WHERE studentID = ?";
+    $stmt = $conn->prepare($getRoomNumberQuery);
+    $stmt->bind_param("s", $studentID);
+    $stmt->execute();
+    $stmt->bind_result($roomNumber);
+    $stmt->fetch();
+    $stmt->close();
+} else {
+    // Redirect the user to the login page if not logged in
+    header("Location: login.php");
+    exit();
+}
+
 // Fetch data from the database with room and student information joined
 $sql = "SELECT s.*, r.roomNumber, r.residentialCollege
         FROM student s
         INNER JOIN room r ON s.studentID = r.studentID
-        WHERE s.status = 'Enable'";
+        WHERE r.roomNumber = ? AND s.status = 'Enable'";
 
-// Add conditions to filter by room number and residential college
-if (isset($_SESSION['studentID'])) {
-    $studentID = $_SESSION['studentID'];
-    // Add condition to filter by the room number the same with the student ID in the session
-    $sql .= " AND r.roomNumber = (SELECT roomNumber FROM room WHERE studentID = '$studentID')";
-}
-
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $roomNumber);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     echo '<tbody>';
@@ -55,9 +73,10 @@ if ($result->num_rows > 0) {
 
     echo '</tbody>';
 } else {
-    echo '<tbody><tr><td colspan="9">0 results</td></tr></tbody>';
+    echo '<tbody><tr><td colspan="8">No results found.</td></tr></tbody>';
 }
 
 // Closing the database connection
+$stmt->close();
 $conn->close();
 ?>

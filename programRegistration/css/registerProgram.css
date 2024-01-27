@@ -32,13 +32,13 @@ body {
 
 .register {
     max-width: 750px;
-    /* width: 100px; */
+    width: 100%; 
     background: white;
     border: 2px solid rgba(225, 225, 225, 0.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(50px);
     color: black;
-    padding: 40px 35px 35px;
+    padding: 40px 90px 35px;
 }
 
 .register h1 {
@@ -49,9 +49,8 @@ body {
 
 .register .input-box {
     display: flex;
-    justify-content: space-around;
-    align-content: flex-end;
-    flex-wrap: wrap;    
+    flex-wrap: nowrap;    
+    flex-direction: column;
 }
 .input-box-checkbox{
     display: flex;
@@ -72,7 +71,7 @@ body {
 }
 
 .input-box .input-field input {
-    width: 100%;
+    width: 210%;
     height: 100%;
     background: transparent;
     border: 2.5px solid black;
