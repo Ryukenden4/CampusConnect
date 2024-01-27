@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
-    $gender = ucwords(mysqli_real_escape_string($conn, $_POST["gender"])); // Capitalize gender
+    $Gender = ucwords(mysqli_real_escape_string($conn, $_POST["Gender"])); // Capitalize gender
     $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
     $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
     
@@ -69,13 +69,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Performing SQL query to insert data based on user type
     if ($userType === "student") {
-        $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, gender, programCode, semester, registrationDateTime, status) 
+        $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, Gender, programCode, semester, registrationDateTime, status) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $programCode, $semester, $registrationDateTime, $status);
+        $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $Gender, $programCode, $semester, $registrationDateTime, $status);
     } elseif ($userType === "staff") {
-        $stmt = $conn->prepare("INSERT INTO staff (ID, fullName, email, phoneNumber, password, gender, registrationDateTime, status) 
+        $stmt = $conn->prepare("INSERT INTO staff (ID, fullName, email, phoneNumber, password, Gender, registrationDateTime, status) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $id, $fullName, $email, $phoneNumber, $password, $gender, $registrationDateTime, $status);
+        $stmt->bind_param("ssssssss", $id, $fullName, $email, $phoneNumber, $password, $Gender, $registrationDateTime, $status);
     }
     
     if ($stmt->execute()) {
