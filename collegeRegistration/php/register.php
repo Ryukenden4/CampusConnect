@@ -16,7 +16,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-//muiz punya
 
 // Handling form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,41 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.location.href = "/collegeRegistration/html/login.html"; // Redirect to login page
             </script>';
         exit(); // Terminate further execution
-    }
-
-
-    $fullName = ucwords(mysqli_real_escape_string($conn, $_POST["fullName"])); // Capitalize each word in full name
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $phoneNumber = mysqli_real_escape_string($conn, $_POST["phoneNumber"]);
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password
-    $Gender = ucwords(mysqli_real_escape_string($conn, $_POST["Gender"])); // Capitalize gender
-    $gender = ucwords(mysqli_real_escape_string($conn, $_POST["Gender"])); // Capitalize gender
-    $programCode = strtoupper(mysqli_real_escape_string($conn, $_POST["programCode"])); // Uppercase the program code
-    $semester = mysqli_real_escape_string($conn, $_POST["semester"]);
-    
-    // Determine user type based on checkbox
-    $userType = "";
-    if (isset($_POST["student"])) {
-        $userType = "student";
-    } elseif (isset($_POST["staff"])) {
-        $userType = "staff";
-    }
-
-    // Current date and time
-    $registrationDateTime = date('Y-m-d H:i:s');
-
-    // Status is set to 'Enable' upon registration
-    $status = 'Enable';
-
-    // Performing SQL query to insert data based on user type
-    if ($userType === "student") {
-        $stmt = $conn->prepare("INSERT INTO student (ID, fullName, email, phoneNumber, password, Gender, programCode, semester, registrationDateTime, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $id, $fullName, $email, $phoneNumber, $password, $Gender, $programCode, $semester, $registrationDateTime, $status);
-    } elseif ($userType === "staff") {
-        $stmt = $conn->prepare("INSERT INTO staff (ID, fullName, email, phoneNumber, password, Gender, registrationDateTime, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $id, $fullName, $email, $phoneNumber, $password, $Gender, $registrationDateTime, $status);
     }
      // Determine user type based on checkbox
      $userType = "";
