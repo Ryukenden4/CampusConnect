@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "collegeRegistration";
+    $dbname = "collegeregistration";
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $dbname);

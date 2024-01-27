@@ -151,22 +151,57 @@
 <script src="/homepage/assets/js/jquery-3.5.1.min.js"></script>
 <script src="/homepage/assets/js/bootstrap.bundle.min.js"></script>
 
-        <script>
-          // Fetch data from response.php using AJAX
-          window.onload = function () {
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', 'bookingData.php', true);
-      
-              xhr.onload = function () {
-                  if (xhr.status == 200) {
-                      // Update the content of tbody with the fetched data
-                      document.getElementById('studentData').innerHTML = xhr.responseText;
-                  }
-              };
-      
-              xhr.send();
-          };
-        </script>
+<script>
+    // Function to handle form submission
+    function submitBooking() {
+        var bookingDate = document.getElementById('bookingDate').value;
+        var facilities = document.getElementById('facilities').value;
+        var startTime = document.getElementById('startTime').value;
+        var endTime = document.getElementById('endTime').value;
+
+        // Create a data object to send via AJAX
+        var data = {
+            bookingDate: bookingDate,
+            facilities: facilities,
+            startTime: startTime,
+            endTime: endTime
+        };
+
+        // Convert data to JSON format
+        var jsonData = JSON.stringify(data);
+
+        // Send the data to bookingData.php using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'bookingData.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                // Update the content or handle the response as needed
+                var response = JSON.parse(xhr.responseText);
+                console.log(response);
+            }
+        };
+
+        xhr.send(jsonData);
+    }
+
+    // Fetch data on page load
+    window.onload = function () {
+        // Fetch data from the server using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'bookingData.php', true);
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                // Update the content of tbody with the fetched data
+                document.getElementById('studentData').innerHTML = xhr.responseText;
+            }
+        };
+
+        xhr.send();
+    };
+</script>
 
         <script>
           function goBack() {
@@ -199,23 +234,48 @@
 <!--utk search booking by date of booking-->
 <script>
     function filterTable() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("studentData");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("studentData");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        var dateColumn = tr[i].getElementsByTagName("td")[2]; // Adjust the index based on the position of the date column
+        if (dateColumn) {
+            txtValue = dateColumn.textContent || dateColumn.innerText;
+
+            // Split the date into day, month, and year
+            var dateParts = txtValue.split("-");
+            var day = dateParts[2];
+            var month = dateParts[1];
+            var year = dateParts[0];
+
+            // Convert month name to number
+            var monthNumber = convertMonthToNumber(month);
+
+            // Check if any part of the date matches the filter
+            if (
+                day.includes(filter) ||
+                month.startsWith(filter.toUpperCase()) || // Check if the month starts with the filter
+                monthNumber.startsWith(filter) ||
+                year.includes(filter)
+            ) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
             }
         }
     }
+}
+
+// Function to convert month name to its corresponding number
+function convertMonthToNumber(month) {
+    var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    var monthIndex = monthNames.indexOf(month.toUpperCase()) + 1;
+    return monthIndex < 10 ? "0" + monthIndex : monthIndex.toString();
+}
+
 </script>
 
 <!--untuk student update booking time dia-->
